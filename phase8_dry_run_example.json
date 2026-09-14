@@ -1,0 +1,131 @@
+{
+  "source": {
+    "name": "fictional-test-source"
+  },
+  "input_file": "fictional-catalogue.json",
+  "dry_run": true,
+  "started_at": "2026-09-13T19:51:19.037084+00:00",
+  "finished_at": "2026-09-13T19:51:19.141318+00:00",
+  "validation": {
+    "valid": true,
+    "sets": 2,
+    "cards": 2
+  },
+  "status": "success",
+  "transaction": "read_only",
+  "plan": {
+    "sets": {
+      "created": [
+        "test-import-set-0",
+        "test-import-set-1"
+      ],
+      "updated": [],
+      "unchanged": []
+    },
+    "cards": {
+      "created": [
+        "TEST-IMPORT-0",
+        "TEST-IMPORT-1"
+      ],
+      "updated": [],
+      "unchanged": []
+    },
+    "variants": {
+      "created": [
+        "TEST-IMPORT-0-v",
+        "TEST-IMPORT-1-v"
+      ],
+      "updated": [],
+      "unchanged": []
+    },
+    "keywords": {
+      "created": [
+        "test-import-keyword"
+      ],
+      "updated": [],
+      "unchanged": []
+    },
+    "images": {
+      "created": [
+        "image:497b3bfa8bb93c01d2725e30e1a9a053e84099a989973b22244ca59dc6ff267f",
+        "image:721f4e5fc59b23ca1fcb19929edf697983435cf7aa8b48acac8c641a1e2fa846",
+        "image:7fba1497b2a3fa6702f29a336d072a8e0d6c249483882c7e5c0b5c9443017f58",
+        "image:c0917552e2b27880309c0021e6b33e502649ee809b5be179b1f08896d2b2fdf7"
+      ],
+      "updated": [],
+      "unchanged": []
+    },
+    "provenance": {
+      "created": [
+        "card:TEST-IMPORT-0",
+        "card:TEST-IMPORT-1",
+        "image:image:497b3bfa8bb93c01d2725e30e1a9a053e84099a989973b22244ca59dc6ff267f",
+        "image:image:721f4e5fc59b23ca1fcb19929edf697983435cf7aa8b48acac8c641a1e2fa846",
+        "image:image:7fba1497b2a3fa6702f29a336d072a8e0d6c249483882c7e5c0b5c9443017f58",
+        "image:image:c0917552e2b27880309c0021e6b33e502649ee809b5be179b1f08896d2b2fdf7",
+        "keyword:test-import-keyword",
+        "set:test-import-set-0",
+        "set:test-import-set-1",
+        "variant:TEST-IMPORT-0-v",
+        "variant:TEST-IMPORT-1-v"
+      ],
+      "updated": [],
+      "unchanged": []
+    },
+    "relationships": {
+      "created": [
+        "TEST-IMPORT-0 -> test-import-keyword",
+        "TEST-IMPORT-1 -> test-import-keyword"
+      ],
+      "removed": [],
+      "unchanged": []
+    }
+  },
+  "counts": {
+    "sets": {
+      "created": 2,
+      "updated": 0,
+      "unchanged": 0
+    },
+    "cards": {
+      "created": 2,
+      "updated": 0,
+      "unchanged": 0
+    },
+    "variants": {
+      "created": 2,
+      "updated": 0,
+      "unchanged": 0
+    },
+    "keywords": {
+      "created": 1,
+      "updated": 0,
+      "unchanged": 0
+    },
+    "images": {
+      "created": 4,
+      "updated": 0,
+      "unchanged": 0
+    },
+    "provenance": {
+      "created": 11,
+      "updated": 0,
+      "unchanged": 0
+    },
+    "relationships": {
+      "created": 2,
+      "removed": 0,
+      "unchanged": 0
+    }
+  },
+  "normalizations": [
+    {
+      "variant": "TEST-IMPORT-0-v",
+      "original": "Holo",
+      "normalized": "holographic"
+    }
+  ],
+  "warnings": [],
+  "errors": [],
+  "duration_seconds": 0.10424
+}

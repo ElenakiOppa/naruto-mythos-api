@@ -1,0 +1,913 @@
+{
+  "postgresql": "18.6",
+  "revision": "5f360cfd2561",
+  "checks": [
+    {
+      "path": "/health",
+      "params": null,
+      "status": 200
+    },
+    {
+      "path": "/ready",
+      "params": null,
+      "status": 200
+    },
+    {
+      "path": "/v1/cards/random",
+      "params": null,
+      "status": 200
+    },
+    {
+      "path": "/v1/rarities",
+      "params": null,
+      "status": 200
+    },
+    {
+      "path": "/v1/keywords",
+      "params": null,
+      "status": 200
+    },
+    {
+      "path": "/v1/keywords/test-keyword/cards",
+      "params": {
+        "limit": 1
+      },
+      "status": 200
+    },
+    {
+      "path": "/v1/keywords/TEST-KEYWORD/cards",
+      "params": {
+        "limit": 1
+      },
+      "status": 200
+    },
+    {
+      "path": "/v1/keywords/test-unused/cards",
+      "params": null,
+      "status": 200
+    },
+    {
+      "path": "/v1/keywords/absent/cards",
+      "params": null,
+      "status": 404
+    },
+    {
+      "path": "/v1/cards/randomish",
+      "params": null,
+      "status": 404
+    },
+    {
+      "path": "/v1/keywords/test-keyword/cards",
+      "params": {
+        "sort": "number",
+        "order": "asc",
+        "page": 2,
+        "limit": 1
+      },
+      "status": 200
+    },
+    {
+      "path": "/v1/cards",
+      "params": {
+        "sort": "number",
+        "order": "asc",
+        "page": 2,
+        "limit": 1,
+        "keyword": "test-keyword"
+      },
+      "status": 200
+    },
+    {
+      "path": "/v1/keywords/test-keyword/cards",
+      "params": {
+        "sort": "number",
+        "order": "desc",
+        "page": 2,
+        "limit": 1
+      },
+      "status": 200
+    },
+    {
+      "path": "/v1/cards",
+      "params": {
+        "sort": "number",
+        "order": "desc",
+        "page": 2,
+        "limit": 1,
+        "keyword": "test-keyword"
+      },
+      "status": 200
+    },
+    {
+      "path": "/v1/keywords/test-keyword/cards",
+      "params": {
+        "sort": "name",
+        "order": "asc",
+        "page": 2,
+        "limit": 1
+      },
+      "status": 200
+    },
+    {
+      "path": "/v1/cards",
+      "params": {
+        "sort": "name",
+        "order": "asc",
+        "page": 2,
+        "limit": 1,
+        "keyword": "test-keyword"
+      },
+      "status": 200
+    },
+    {
+      "path": "/v1/keywords/test-keyword/cards",
+      "params": {
+        "sort": "name",
+        "order": "desc",
+        "page": 2,
+        "limit": 1
+      },
+      "status": 200
+    },
+    {
+      "path": "/v1/cards",
+      "params": {
+        "sort": "name",
+        "order": "desc",
+        "page": 2,
+        "limit": 1,
+        "keyword": "test-keyword"
+      },
+      "status": 200
+    },
+    {
+      "path": "/v1/keywords/test-keyword/cards",
+      "params": {
+        "sort": "rarity",
+        "order": "asc",
+        "page": 2,
+        "limit": 1
+      },
+      "status": 200
+    },
+    {
+      "path": "/v1/cards",
+      "params": {
+        "sort": "rarity",
+        "order": "asc",
+        "page": 2,
+        "limit": 1,
+        "keyword": "test-keyword"
+      },
+      "status": 200
+    },
+    {
+      "path": "/v1/keywords/test-keyword/cards",
+      "params": {
+        "sort": "rarity",
+        "order": "desc",
+        "page": 2,
+        "limit": 1
+      },
+      "status": 200
+    },
+    {
+      "path": "/v1/cards",
+      "params": {
+        "sort": "rarity",
+        "order": "desc",
+        "page": 2,
+        "limit": 1,
+        "keyword": "test-keyword"
+      },
+      "status": 200
+    },
+    {
+      "path": "/v1/keywords/test-keyword/cards",
+      "params": {
+        "sort": "set",
+        "order": "asc",
+        "page": 2,
+        "limit": 1
+      },
+      "status": 200
+    },
+    {
+      "path": "/v1/cards",
+      "params": {
+        "sort": "set",
+        "order": "asc",
+        "page": 2,
+        "limit": 1,
+        "keyword": "test-keyword"
+      },
+      "status": 200
+    },
+    {
+      "path": "/v1/keywords/test-keyword/cards",
+      "params": {
+        "sort": "set",
+        "order": "desc",
+        "page": 2,
+        "limit": 1
+      },
+      "status": 200
+    },
+    {
+      "path": "/v1/cards",
+      "params": {
+        "sort": "set",
+        "order": "desc",
+        "page": 2,
+        "limit": 1,
+        "keyword": "test-keyword"
+      },
+      "status": 200
+    },
+    {
+      "path": "/v1/keywords/test-keyword/cards",
+      "params": {
+        "sort": "release_date",
+        "order": "asc",
+        "page": 2,
+        "limit": 1
+      },
+      "status": 200
+    },
+    {
+      "path": "/v1/cards",
+      "params": {
+        "sort": "release_date",
+        "order": "asc",
+        "page": 2,
+        "limit": 1,
+        "keyword": "test-keyword"
+      },
+      "status": 200
+    },
+    {
+      "path": "/v1/keywords/test-keyword/cards",
+      "params": {
+        "sort": "release_date",
+        "order": "desc",
+        "page": 2,
+        "limit": 1
+      },
+      "status": 200
+    },
+    {
+      "path": "/v1/cards",
+      "params": {
+        "sort": "release_date",
+        "order": "desc",
+        "page": 2,
+        "limit": 1,
+        "keyword": "test-keyword"
+      },
+      "status": 200
+    },
+    {
+      "path": "/v1/keywords/test-keyword/cards",
+      "params": {
+        "page": 0
+      },
+      "status": 400
+    },
+    {
+      "path": "/v1/keywords/test-keyword/cards",
+      "params": {
+        "limit": 101
+      },
+      "status": 400
+    },
+    {
+      "path": "/v1/keywords/test-keyword/cards",
+      "params": {
+        "sort": "bad"
+      },
+      "status": 400
+    },
+    {
+      "path": "/v1/search",
+      "params": {
+        "q": "test",
+        "limit": 3
+      },
+      "status": 200
+    },
+    {
+      "path": "/v1/search",
+      "params": {
+        "q": "TEST-001"
+      },
+      "status": 200
+    },
+    {
+      "path": "/v1/search",
+      "params": {
+        "q": "C701"
+      },
+      "status": 200
+    },
+    {
+      "path": "/v1/search",
+      "params": {
+        "q": "subtitleneedle"
+      },
+      "status": 200
+    },
+    {
+      "path": "/v1/search",
+      "params": {
+        "q": "SETCODE7"
+      },
+      "status": 200
+    },
+    {
+      "path": "/v1/search",
+      "params": {
+        "q": "Test Set Alpha"
+      },
+      "status": 200
+    },
+    {
+      "path": "/v1/search",
+      "params": {
+        "q": "test-keyword"
+      },
+      "status": 200
+    },
+    {
+      "path": "/v1/search",
+      "params": {
+        "q": "Test Keyword Needle"
+      },
+      "status": 200
+    },
+    {
+      "path": "/v1/search",
+      "params": {
+        "q": "  tEsT  "
+      },
+      "status": 200
+    },
+    {
+      "path": "/v1/search",
+      "params": {
+        "q": ""
+      },
+      "status": 400
+    },
+    {
+      "path": "/v1/search",
+      "params": {
+        "q": "a"
+      },
+      "status": 400
+    },
+    {
+      "path": "/v1/search",
+      "params": {
+        "q": "   "
+      },
+      "status": 400
+    },
+    {
+      "path": "/v1/search",
+      "params": null,
+      "status": 422
+    },
+    {
+      "path": "/v1/search",
+      "params": {
+        "q": "test",
+        "limit": 0
+      },
+      "status": 400
+    },
+    {
+      "path": "/v1/search",
+      "params": {
+        "q": "test",
+        "limit": 51
+      },
+      "status": 400
+    },
+    {
+      "path": "/v1/search",
+      "params": {
+        "q": "' OR 1=1 --"
+      },
+      "status": 200
+    },
+    {
+      "path": "/v1/search",
+      "params": {
+        "q": "%_"
+      },
+      "status": 200
+    },
+    {
+      "path": "/v1/search",
+      "params": {
+        "q": "'; DROP TABLE cards; --"
+      },
+      "status": 200
+    },
+    {
+      "path": "/v1/search",
+      "params": {
+        "q": "test",
+        "limit": 3
+      },
+      "status": 200
+    },
+    {
+      "path": "/v1/search",
+      "params": {
+        "q": "test",
+        "limit": 20
+      },
+      "status": 200
+    },
+    {
+      "path": "/v1/search",
+      "params": {
+        "q": "test",
+        "limit": 50
+      },
+      "status": 200
+    },
+    {
+      "path": "/v1/search",
+      "params": {
+        "q": "test"
+      },
+      "status": 200
+    },
+    {
+      "path": "/v1/search",
+      "params": {
+        "q": "need"
+      },
+      "status": 200
+    },
+    {
+      "path": "/v1/search",
+      "params": {
+        "q": "need",
+        "limit": 2
+      },
+      "status": 200
+    },
+    {
+      "path": "/openapi.json",
+      "params": null,
+      "status": 200
+    }
+  ],
+  "examples": {
+    "random": {
+      "id": "test-p7-card-18",
+      "number": "18",
+      "name": "Test Growth Card 18",
+      "subtitle": null,
+      "type": null,
+      "rarity": null,
+      "chakra": null,
+      "power": null,
+      "faction": null,
+      "ability_text": null,
+      "flavor_text": null,
+      "artist": null,
+      "set": {
+        "id": "test-p7-set-18",
+        "code": null,
+        "name": "Test Growth Set 18",
+        "edition": null
+      },
+      "keywords": [
+        {
+          "slug": "test-keyword",
+          "name": "Test Keyword Needle"
+        }
+      ],
+      "variants": [
+        {
+          "id": "test-p7-variant-18-0",
+          "type": "test",
+          "finish": null,
+          "rarity": null,
+          "collector_number": null,
+          "language": "EN",
+          "edition": null,
+          "serial_numbered": false,
+          "serial_total": null,
+          "images": [
+            {
+              "type": "front",
+              "url": "https://example.invalid/variant.png",
+              "width": null,
+              "height": null
+            }
+          ]
+        },
+        {
+          "id": "test-p7-variant-18-1",
+          "type": "test",
+          "finish": null,
+          "rarity": null,
+          "collector_number": null,
+          "language": "EN",
+          "edition": null,
+          "serial_numbered": false,
+          "serial_total": null,
+          "images": [
+            {
+              "type": "front",
+              "url": "https://example.invalid/variant.png",
+              "width": null,
+              "height": null
+            }
+          ]
+        },
+        {
+          "id": "test-p7-variant-18-2",
+          "type": "test",
+          "finish": null,
+          "rarity": null,
+          "collector_number": null,
+          "language": "EN",
+          "edition": null,
+          "serial_numbered": false,
+          "serial_total": null,
+          "images": [
+            {
+              "type": "front",
+              "url": "https://example.invalid/variant.png",
+              "width": null,
+              "height": null
+            }
+          ]
+        },
+        {
+          "id": "test-p7-variant-18-3",
+          "type": "test",
+          "finish": null,
+          "rarity": null,
+          "collector_number": null,
+          "language": "EN",
+          "edition": null,
+          "serial_numbered": false,
+          "serial_total": null,
+          "images": [
+            {
+              "type": "front",
+              "url": "https://example.invalid/variant.png",
+              "width": null,
+              "height": null
+            }
+          ]
+        }
+      ],
+      "images": [
+        {
+          "type": "front",
+          "url": "https://example.invalid/direct.png",
+          "width": null,
+          "height": null
+        }
+      ]
+    },
+    "rarities": [
+      {
+        "name": "Rare",
+        "slug": "rare",
+        "card_count": 2
+      }
+    ],
+    "keywords": [
+      {
+        "slug": "test-keyword",
+        "name": "Test Keyword Needle",
+        "card_count": 24
+      },
+      {
+        "slug": "test-p7-keyword-0",
+        "name": "Test Growth Keyword 00",
+        "card_count": 0
+      },
+      {
+        "slug": "test-p7-keyword-1",
+        "name": "Test Growth Keyword 01",
+        "card_count": 0
+      },
+      {
+        "slug": "test-p7-keyword-2",
+        "name": "Test Growth Keyword 02",
+        "card_count": 0
+      },
+      {
+        "slug": "test-p7-keyword-3",
+        "name": "Test Growth Keyword 03",
+        "card_count": 0
+      },
+      {
+        "slug": "test-p7-keyword-4",
+        "name": "Test Growth Keyword 04",
+        "card_count": 0
+      },
+      {
+        "slug": "test-p7-keyword-5",
+        "name": "Test Growth Keyword 05",
+        "card_count": 0
+      },
+      {
+        "slug": "test-p7-keyword-6",
+        "name": "Test Growth Keyword 06",
+        "card_count": 0
+      },
+      {
+        "slug": "test-p7-keyword-7",
+        "name": "Test Growth Keyword 07",
+        "card_count": 0
+      },
+      {
+        "slug": "test-p7-keyword-8",
+        "name": "Test Growth Keyword 08",
+        "card_count": 0
+      },
+      {
+        "slug": "test-p7-keyword-9",
+        "name": "Test Growth Keyword 09",
+        "card_count": 0
+      },
+      {
+        "slug": "test-p7-keyword-10",
+        "name": "Test Growth Keyword 10",
+        "card_count": 0
+      },
+      {
+        "slug": "test-p7-keyword-11",
+        "name": "Test Growth Keyword 11",
+        "card_count": 0
+      },
+      {
+        "slug": "test-p7-keyword-12",
+        "name": "Test Growth Keyword 12",
+        "card_count": 0
+      },
+      {
+        "slug": "test-p7-keyword-13",
+        "name": "Test Growth Keyword 13",
+        "card_count": 0
+      },
+      {
+        "slug": "test-p7-keyword-14",
+        "name": "Test Growth Keyword 14",
+        "card_count": 0
+      },
+      {
+        "slug": "test-p7-keyword-15",
+        "name": "Test Growth Keyword 15",
+        "card_count": 0
+      },
+      {
+        "slug": "test-p7-keyword-16",
+        "name": "Test Growth Keyword 16",
+        "card_count": 0
+      },
+      {
+        "slug": "test-p7-keyword-17",
+        "name": "Test Growth Keyword 17",
+        "card_count": 0
+      },
+      {
+        "slug": "test-p7-keyword-18",
+        "name": "Test Growth Keyword 18",
+        "card_count": 0
+      },
+      {
+        "slug": "test-p7-keyword-19",
+        "name": "Test Growth Keyword 19",
+        "card_count": 0
+      },
+      {
+        "slug": "test-p7-keyword-20",
+        "name": "Test Growth Keyword 20",
+        "card_count": 0
+      },
+      {
+        "slug": "test-p7-keyword-21",
+        "name": "Test Growth Keyword 21",
+        "card_count": 0
+      },
+      {
+        "slug": "test-unused",
+        "name": "Test Unused",
+        "card_count": 0
+      },
+      {
+        "slug": "need",
+        "name": "ZZ Test Keyword",
+        "card_count": 0
+      }
+    ],
+    "keyword_cards": {
+      "data": [
+        {
+          "id": "test-p7-card-00",
+          "number": "0",
+          "name": "Test Growth Card 00",
+          "subtitle": null,
+          "type": null,
+          "rarity": null,
+          "set": {
+            "id": "test-p7-set-00",
+            "code": null,
+            "name": "Test Growth Set 00",
+            "edition": null
+          },
+          "images": [
+            {
+              "type": "front",
+              "url": "https://example.invalid/direct.png",
+              "width": null,
+              "height": null
+            }
+          ]
+        }
+      ],
+      "pagination": {
+        "page": 1,
+        "limit": 1,
+        "total": 24,
+        "pages": 24,
+        "has_next": true,
+        "has_previous": false
+      }
+    },
+    "search": {
+      "data": [
+        {
+          "type": "card",
+          "card": {
+            "id": "TEST-001",
+            "number": "C701",
+            "name": "Test Character Alpha",
+            "subtitle": "SubtitleNeedle",
+            "type": null,
+            "rarity": "Rare",
+            "set": {
+              "id": "test-set-alpha",
+              "code": "SETCODE7",
+              "name": "Test Set Alpha",
+              "edition": "Test Edition"
+            },
+            "images": [
+              {
+                "type": "front",
+                "url": "https://example.invalid/direct.png",
+                "width": null,
+                "height": null
+              }
+            ]
+          }
+        },
+        {
+          "type": "card",
+          "card": {
+            "id": "TEST-002",
+            "number": "10",
+            "name": "Test Character Beta",
+            "subtitle": null,
+            "type": null,
+            "rarity": "Rare",
+            "set": {
+              "id": "test-set-alpha",
+              "code": "SETCODE7",
+              "name": "Test Set Alpha",
+              "edition": "Test Edition"
+            },
+            "images": []
+          }
+        },
+        {
+          "type": "card",
+          "card": {
+            "id": "TEST-A03",
+            "number": "2",
+            "name": "Test Character Gamma",
+            "subtitle": null,
+            "type": null,
+            "rarity": null,
+            "set": {
+              "id": "test-set-beta",
+              "code": "BETA7",
+              "name": "Test Set Beta",
+              "edition": null
+            },
+            "images": []
+          }
+        }
+      ]
+    }
+  },
+  "query_counts": {
+    "random": 5,
+    "rarities": 1,
+    "keywords": 1,
+    "keyword_cards": 4,
+    "search": 4
+  },
+  "sql": {
+    "random": [
+      "SELECT cards.public_id, cards.set_id, cards.card_number, cards.name, cards.subtitle, cards.card_type, cards.rarity, cards.chakra, cards.power, cards.faction, cards.ability_text, cards.flavor_text, cards.artist, cards.id, cards.created_at, cards.updated_at, sets_1.public_id AS public_id_1, sets_1.code, sets_1.name AS name_1, sets_1.edition, sets_1.language, sets_1.release_date, sets_1.printed_total, sets_1.total_with_variants, sets_1.logo_url, sets_1.symbol_url, sets_1.id AS id_1, sets_1.created_at AS created_at_1, sets_1.updated_at AS updated_at_1 \nFROM cards LEFT OUTER JOIN sets AS sets_1 ON sets_1.id = cards.set_id ORDER BY random() \n LIMIT %(param_1)s::INTEGER",
+      "SELECT card_images.card_id AS card_images_card_id, card_images.variant_id AS card_images_variant_id, card_images.image_type AS card_images_image_type, card_images.url AS card_images_url, card_images.source_name AS card_images_source_name, card_images.source_url AS card_images_source_url, card_images.hosted_by_us AS card_images_hosted_by_us, card_images.width AS card_images_width, card_images.height AS card_images_height, card_images.created_at AS card_images_created_at, card_images.id AS card_images_id \nFROM card_images \nWHERE card_images.card_id IN (%(primary_keys_1)s::UUID) AND card_images.variant_id IS NULL",
+      "SELECT cards_1.id AS cards_1_id, keywords.slug AS keywords_slug, keywords.name AS keywords_name, keywords.id AS keywords_id, keywords.created_at AS keywords_created_at, keywords.updated_at AS keywords_updated_at \nFROM cards AS cards_1 JOIN card_keywords AS card_keywords_1 ON cards_1.id = card_keywords_1.card_id JOIN keywords ON keywords.id = card_keywords_1.keyword_id \nWHERE cards_1.id IN (%(primary_keys_1)s::UUID)",
+      "SELECT card_variants.card_id AS card_variants_card_id, card_variants.public_id AS card_variants_public_id, card_variants.variant_type AS card_variants_variant_type, card_variants.finish AS card_variants_finish, card_variants.rarity_override AS card_variants_rarity_override, card_variants.collector_number AS card_variants_collector_number, card_variants.language AS card_variants_language, card_variants.edition AS card_variants_edition, card_variants.serial_numbered AS card_variants_serial_numbered, card_variants.serial_total AS card_variants_serial_total, card_variants.id AS card_variants_id, card_variants.created_at AS card_variants_created_at, card_variants.updated_at AS card_variants_updated_at \nFROM card_variants \nWHERE card_variants.card_id IN (%(primary_keys_1)s::UUID)",
+      "SELECT card_images.variant_id AS card_images_variant_id, card_images.card_id AS card_images_card_id, card_images.image_type AS card_images_image_type, card_images.url AS card_images_url, card_images.source_name AS card_images_source_name, card_images.source_url AS card_images_source_url, card_images.hosted_by_us AS card_images_hosted_by_us, card_images.width AS card_images_width, card_images.height AS card_images_height, card_images.created_at AS card_images_created_at, card_images.id AS card_images_id \nFROM card_images \nWHERE card_images.variant_id IN (%(primary_keys_1)s::UUID, %(primary_keys_2)s::UUID, %(primary_keys_3)s::UUID, %(primary_keys_4)s::UUID)"
+    ],
+    "rarities": [
+      "SELECT cards.rarity, count(cards.id) AS count_1 \nFROM cards \nWHERE cards.rarity IS NOT NULL GROUP BY cards.rarity ORDER BY count(cards.id) DESC, cards.rarity ASC"
+    ],
+    "keywords": [
+      "SELECT keywords.slug, keywords.name, count(DISTINCT card_keywords.card_id) AS count_1 \nFROM keywords LEFT OUTER JOIN card_keywords ON keywords.id = card_keywords.keyword_id GROUP BY keywords.id, keywords.slug, keywords.name ORDER BY count(DISTINCT card_keywords.card_id) DESC, keywords.name ASC, keywords.slug ASC"
+    ],
+    "keyword_cards": [
+      "SELECT keywords.id \nFROM keywords \nWHERE lower(keywords.slug) = %(lower_1)s::VARCHAR \n LIMIT %(param_1)s::INTEGER",
+      "SELECT count(*) AS count_1 \nFROM (SELECT cards.public_id AS public_id, cards.set_id AS set_id, cards.card_number AS card_number, cards.name AS name, cards.subtitle AS subtitle, cards.card_type AS card_type, cards.rarity AS rarity, cards.chakra AS chakra, cards.power AS power, cards.faction AS faction, cards.ability_text AS ability_text, cards.flavor_text AS flavor_text, cards.artist AS artist, cards.id AS id, cards.created_at AS created_at, cards.updated_at AS updated_at \nFROM cards JOIN sets ON sets.id = cards.set_id \nWHERE EXISTS (SELECT 1 \nFROM keywords, card_keywords \nWHERE cards.id = card_keywords.card_id AND keywords.id = card_keywords.keyword_id AND lower(keywords.slug) = %(lower_1)s::VARCHAR)) AS anon_1",
+      "SELECT sets.public_id, sets.code, sets.name, sets.edition, sets.language, sets.release_date, sets.printed_total, sets.total_with_variants, sets.logo_url, sets.symbol_url, sets.id, sets.created_at, sets.updated_at, cards.public_id AS public_id_1, cards.set_id, cards.card_number, cards.name AS name_1, cards.subtitle, cards.card_type, cards.rarity, cards.chakra, cards.power, cards.faction, cards.ability_text, cards.flavor_text, cards.artist, cards.id AS id_1, cards.created_at AS created_at_1, cards.updated_at AS updated_at_1 \nFROM cards JOIN sets ON sets.id = cards.set_id \nWHERE EXISTS (SELECT 1 \nFROM keywords, card_keywords \nWHERE cards.id = card_keywords.card_id AND keywords.id = card_keywords.keyword_id AND lower(keywords.slug) = %(lower_1)s::VARCHAR) ORDER BY cards.card_number ASC NULLS LAST, cards.public_id ASC \n LIMIT %(param_1)s::INTEGER OFFSET %(param_2)s::INTEGER",
+      "SELECT card_images.card_id AS card_images_card_id, card_images.variant_id AS card_images_variant_id, card_images.image_type AS card_images_image_type, card_images.url AS card_images_url, card_images.source_name AS card_images_source_name, card_images.source_url AS card_images_source_url, card_images.hosted_by_us AS card_images_hosted_by_us, card_images.width AS card_images_width, card_images.height AS card_images_height, card_images.created_at AS card_images_created_at, card_images.id AS card_images_id \nFROM card_images \nWHERE card_images.card_id IN (%(primary_keys_1)s::UUID, %(primary_keys_2)s::UUID, %(primary_keys_3)s::UUID, %(primary_keys_4)s::UUID, %(primary_keys_5)s::UUID, %(primary_keys_6)s::UUID, %(primary_keys_7)s::UUID, %(primary_keys_8)s::UUID, %(primary_keys_9)s::UUID, %(primary_keys_10)s::UUID, %(primary_keys_11)s::UUID, %(primary_keys_12)s::UUID, %(primary_keys_13)s::UUID, %(primary_keys_14)s::UUID, %(primary_keys_15)s::UUID, %(primary_keys_16)s::UUID, %(primary_keys_17)s::UUID, %(primary_keys_18)s::UUID, %(primary_keys_19)s::UUID, %(primary_keys_20)s::UUID, %(primary_keys_21)s::UUID, %(primary_keys_22)s::UUID, %(primary_keys_23)s::UUID, %(primary_keys_24)s::UUID) AND card_images.variant_id IS NULL"
+    ],
+    "search": [
+      "SELECT cards.public_id, cards.set_id, cards.card_number, cards.name, cards.subtitle, cards.card_type, cards.rarity, cards.chakra, cards.power, cards.faction, cards.ability_text, cards.flavor_text, cards.artist, cards.id, cards.created_at, cards.updated_at, CASE WHEN (lower(cards.public_id) = %(lower_1)s::VARCHAR) THEN %(param_1)s::INTEGER WHEN (lower(cards.name) = %(lower_2)s::VARCHAR) THEN %(param_2)s::INTEGER WHEN (cards.name ILIKE %(name_1)s::VARCHAR || '%%' ESCAPE '/') THEN %(param_3)s::INTEGER ELSE %(param_4)s::INTEGER END AS match_rank, sets_1.public_id AS public_id_1, sets_1.code, sets_1.name AS name_2, sets_1.edition, sets_1.language, sets_1.release_date, sets_1.printed_total, sets_1.total_with_variants, sets_1.logo_url, sets_1.symbol_url, sets_1.id AS id_1, sets_1.created_at AS created_at_1, sets_1.updated_at AS updated_at_1 \nFROM cards LEFT OUTER JOIN sets AS sets_1 ON sets_1.id = cards.set_id \nWHERE (cards.name ILIKE '%%' || %(name_3)s::VARCHAR || '%%' ESCAPE '/') OR (cards.public_id ILIKE '%%' || %(public_id_2)s::VARCHAR || '%%' ESCAPE '/') OR (cards.card_number ILIKE '%%' || %(card_number_1)s::VARCHAR || '%%' ESCAPE '/') OR (cards.subtitle ILIKE '%%' || %(subtitle_1)s::VARCHAR || '%%' ESCAPE '/') ORDER BY CASE WHEN (lower(cards.public_id) = %(lower_1)s::VARCHAR) THEN %(param_1)s::INTEGER WHEN (lower(cards.name) = %(lower_2)s::VARCHAR) THEN %(param_2)s::INTEGER WHEN (cards.name ILIKE %(name_1)s::VARCHAR || '%%' ESCAPE '/') THEN %(param_3)s::INTEGER ELSE %(param_4)s::INTEGER END, lower(cards.name), cards.name, cards.public_id \n LIMIT %(param_5)s::INTEGER",
+      "SELECT card_images.card_id AS card_images_card_id, card_images.variant_id AS card_images_variant_id, card_images.image_type AS card_images_image_type, card_images.url AS card_images_url, card_images.source_name AS card_images_source_name, card_images.source_url AS card_images_source_url, card_images.hosted_by_us AS card_images_hosted_by_us, card_images.width AS card_images_width, card_images.height AS card_images_height, card_images.created_at AS card_images_created_at, card_images.id AS card_images_id \nFROM card_images \nWHERE card_images.card_id IN (%(primary_keys_1)s::UUID, %(primary_keys_2)s::UUID, %(primary_keys_3)s::UUID, %(primary_keys_4)s::UUID, %(primary_keys_5)s::UUID, %(primary_keys_6)s::UUID, %(primary_keys_7)s::UUID, %(primary_keys_8)s::UUID, %(primary_keys_9)s::UUID, %(primary_keys_10)s::UUID, %(primary_keys_11)s::UUID, %(primary_keys_12)s::UUID, %(primary_keys_13)s::UUID, %(primary_keys_14)s::UUID, %(primary_keys_15)s::UUID, %(primary_keys_16)s::UUID, %(primary_keys_17)s::UUID, %(primary_keys_18)s::UUID, %(primary_keys_19)s::UUID, %(primary_keys_20)s::UUID, %(primary_keys_21)s::UUID, %(primary_keys_22)s::UUID, %(primary_keys_23)s::UUID, %(primary_keys_24)s::UUID, %(primary_keys_25)s::UUID, %(primary_keys_26)s::UUID, %(primary_keys_27)s::UUID, %(primary_keys_28)s::UUID, %(primary_keys_29)s::UUID, %(primary_keys_30)s::UUID) AND card_images.variant_id IS NULL",
+      "SELECT sets.public_id, sets.code, sets.name, sets.edition, sets.language, sets.release_date, sets.printed_total, sets.total_with_variants, sets.logo_url, sets.symbol_url, sets.id, sets.created_at, sets.updated_at, CASE WHEN (lower(sets.public_id) = %(lower_1)s::VARCHAR) THEN %(param_1)s::INTEGER WHEN (lower(sets.name) = %(lower_2)s::VARCHAR) THEN %(param_2)s::INTEGER WHEN (sets.name ILIKE %(name_1)s::VARCHAR || '%%' ESCAPE '/') THEN %(param_3)s::INTEGER ELSE %(param_4)s::INTEGER END AS match_rank \nFROM sets \nWHERE (sets.name ILIKE '%%' || %(name_2)s::VARCHAR || '%%' ESCAPE '/') OR (sets.public_id ILIKE '%%' || %(public_id_1)s::VARCHAR || '%%' ESCAPE '/') OR (sets.code ILIKE '%%' || %(code_1)s::VARCHAR || '%%' ESCAPE '/') ORDER BY CASE WHEN (lower(sets.public_id) = %(lower_1)s::VARCHAR) THEN %(param_1)s::INTEGER WHEN (lower(sets.name) = %(lower_2)s::VARCHAR) THEN %(param_2)s::INTEGER WHEN (sets.name ILIKE %(name_1)s::VARCHAR || '%%' ESCAPE '/') THEN %(param_3)s::INTEGER ELSE %(param_4)s::INTEGER END, lower(sets.name), sets.name, sets.public_id \n LIMIT %(param_5)s::INTEGER",
+      "SELECT keywords.slug, keywords.name, keywords.id, keywords.created_at, keywords.updated_at, CASE WHEN (lower(keywords.slug) = %(lower_1)s::VARCHAR) THEN %(param_1)s::INTEGER WHEN (lower(keywords.name) = %(lower_2)s::VARCHAR) THEN %(param_2)s::INTEGER WHEN (keywords.name ILIKE %(name_1)s::VARCHAR || '%%' ESCAPE '/') THEN %(param_3)s::INTEGER ELSE %(param_4)s::INTEGER END AS match_rank \nFROM keywords \nWHERE (keywords.name ILIKE '%%' || %(name_2)s::VARCHAR || '%%' ESCAPE '/') OR (keywords.slug ILIKE '%%' || %(slug_1)s::VARCHAR || '%%' ESCAPE '/') ORDER BY CASE WHEN (lower(keywords.slug) = %(lower_1)s::VARCHAR) THEN %(param_1)s::INTEGER WHEN (lower(keywords.name) = %(lower_2)s::VARCHAR) THEN %(param_2)s::INTEGER WHEN (keywords.name ILIKE %(name_1)s::VARCHAR || '%%' ESCAPE '/') THEN %(param_3)s::INTEGER ELSE %(param_4)s::INTEGER END, lower(keywords.name), keywords.name, keywords.slug \n LIMIT %(param_5)s::INTEGER"
+    ]
+  },
+  "ranking": [
+    [
+      "card",
+      "need"
+    ],
+    [
+      "set",
+      "need"
+    ],
+    [
+      "keyword",
+      "need"
+    ],
+    [
+      "card",
+      "test-p7-exact"
+    ],
+    [
+      "card",
+      "test-p7-prefix-a"
+    ],
+    [
+      "card",
+      "test-p7-prefix-b"
+    ],
+    [
+      "card",
+      "test-p7-sub"
+    ],
+    [
+      "card",
+      "TEST-001"
+    ],
+    [
+      "keyword",
+      "test-keyword"
+    ]
+  ],
+  "fixture_note": "Search need also matches SubtitleNeedle and Test Keyword Needle; verified nine ranked results.",
+  "cleanup": {
+    "removed": {
+      "card_images": 112,
+      "card_variants": 89,
+      "cards": 30,
+      "keywords": 25,
+      "sets": 25
+    },
+    "all_recorded_ids_absent": true,
+    "association_links_absent": true
+  },
+  "swagger": {
+    "/v1/cards/random": 200,
+    "/v1/rarities": 200,
+    "/v1/keywords": 200,
+    "/v1/keywords/test-keyword/cards": 200,
+    "/v1/search?q=test": 200
+  },
+  "pytest": {
+    "passed": 293,
+    "new_cases": 72,
+    "warnings": 2,
+    "runtime_seconds": 13.45
+  }
+}

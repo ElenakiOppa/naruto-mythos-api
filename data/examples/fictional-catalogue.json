@@ -1,0 +1,90 @@
+{
+  "source": {
+    "name": "fictional-test-source",
+    "url": "https://example.invalid/catalogue",
+    "retrieved_at": "2026-09-13T12:00:00Z"
+  },
+  "variant_aliases": {
+    "Holo": "holographic"
+  },
+  "sets": [
+    {
+      "id": "test-import-set-0",
+      "name": "Fictional Set 0",
+      "cards": [
+        {
+          "id": "TEST-IMPORT-0",
+          "number": "001",
+          "name": "Fictional Character 0",
+          "rarity": "Test Rare",
+          "subtitle": null,
+          "keywords": [
+            {
+              "slug": "test-import-keyword",
+              "name": "Fictional Keyword"
+            }
+          ],
+          "variants": [
+            {
+              "id": "TEST-IMPORT-0-v",
+              "type": "Holo",
+              "serial_numbered": false,
+              "serial_total": null,
+              "images": [
+                {
+                  "url": "https://example.invalid/variant-0.png"
+                }
+              ]
+            }
+          ],
+          "images": [
+            {
+              "url": "https://example.invalid/card-0.png",
+              "width": 300,
+              "height": 420
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "test-import-set-1",
+      "name": "Fictional Set 1",
+      "cards": [
+        {
+          "id": "TEST-IMPORT-1",
+          "number": "001",
+          "name": "Fictional Character 1",
+          "rarity": "Test Rare",
+          "subtitle": null,
+          "keywords": [
+            {
+              "slug": "test-import-keyword",
+              "name": "Fictional Keyword"
+            }
+          ],
+          "variants": [
+            {
+              "id": "TEST-IMPORT-1-v",
+              "type": "experimental-unknown",
+              "serial_numbered": true,
+              "serial_total": 100,
+              "images": [
+                {
+                  "url": "https://example.invalid/variant-1.png"
+                }
+              ]
+            }
+          ],
+          "images": [
+            {
+              "url": "https://example.invalid/card-1.png",
+              "width": 300,
+              "height": 420
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

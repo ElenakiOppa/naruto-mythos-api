@@ -1,0 +1,682 @@
+{
+  "postgresql": "18.6",
+  "revision": "5f360cfd2561",
+  "checks": [
+    {
+      "params": {
+        "rarity": "Rare"
+      },
+      "status": 200
+    },
+    {
+      "params": {
+        "rarity": "rArE"
+      },
+      "status": 200
+    },
+    {
+      "params": {
+        "rarity": "unknown"
+      },
+      "status": 200
+    },
+    {
+      "params": {
+        "type": "Character"
+      },
+      "status": 200
+    },
+    {
+      "params": {
+        "type": "cHaRaCtEr"
+      },
+      "status": 200
+    },
+    {
+      "params": {
+        "type": "unknown"
+      },
+      "status": 200
+    },
+    {
+      "params": {
+        "keyword": "test-keyword"
+      },
+      "status": 200
+    },
+    {
+      "params": {
+        "keyword": "TEST-KEYWORD"
+      },
+      "status": 200
+    },
+    {
+      "params": {
+        "keyword": "absent"
+      },
+      "status": 200
+    },
+    {
+      "params": {
+        "keyword": "test-other"
+      },
+      "status": 200
+    },
+    {
+      "params": {
+        "variant": "holographic"
+      },
+      "status": 200
+    },
+    {
+      "params": {
+        "variant": "HOLOGRAPHIC"
+      },
+      "status": 200
+    },
+    {
+      "params": {
+        "variant": "unknown"
+      },
+      "status": 200
+    },
+    {
+      "params": {
+        "language": "EN"
+      },
+      "status": 200
+    },
+    {
+      "params": {
+        "language": "en"
+      },
+      "status": 200
+    },
+    {
+      "params": {
+        "language": "JP"
+      },
+      "status": 200
+    },
+    {
+      "params": {
+        "edition": "Test Edition"
+      },
+      "status": 200
+    },
+    {
+      "params": {
+        "edition": "test edition"
+      },
+      "status": 200
+    },
+    {
+      "params": {
+        "edition": "Test Second"
+      },
+      "status": 200
+    },
+    {
+      "params": {
+        "edition": "Variant Edition"
+      },
+      "status": 200
+    },
+    {
+      "params": {
+        "chakra_min": 2
+      },
+      "status": 200
+    },
+    {
+      "params": {
+        "chakra_max": 3
+      },
+      "status": 200
+    },
+    {
+      "params": {
+        "chakra_min": 2,
+        "chakra_max": 3
+      },
+      "status": 200
+    },
+    {
+      "params": {
+        "chakra_min": 2,
+        "chakra_max": 2
+      },
+      "status": 200
+    },
+    {
+      "params": {
+        "chakra_max": 0
+      },
+      "status": 200
+    },
+    {
+      "params": {
+        "chakra_min": 0
+      },
+      "status": 200
+    },
+    {
+      "params": {
+        "power_min": 3
+      },
+      "status": 200
+    },
+    {
+      "params": {
+        "power_max": 5
+      },
+      "status": 200
+    },
+    {
+      "params": {
+        "power_min": 3,
+        "power_max": 5
+      },
+      "status": 200
+    },
+    {
+      "params": {
+        "power_min": 3,
+        "power_max": 3
+      },
+      "status": 200
+    },
+    {
+      "params": {
+        "power_max": 0
+      },
+      "status": 200
+    },
+    {
+      "params": {
+        "power_min": 0
+      },
+      "status": 200
+    },
+    {
+      "params": {
+        "rarity": "Rare",
+        "type": "Character"
+      },
+      "status": 200
+    },
+    {
+      "params": {
+        "set": "test-set-alpha",
+        "rarity": "Rare"
+      },
+      "status": 200
+    },
+    {
+      "params": {
+        "set": "test-set-alpha",
+        "number": "1"
+      },
+      "status": 200
+    },
+    {
+      "params": {
+        "set": "test-set-alpha",
+        "variant": "holographic"
+      },
+      "status": 200
+    },
+    {
+      "params": {
+        "set": "test-set-alpha",
+        "keyword": "test-keyword"
+      },
+      "status": 200
+    },
+    {
+      "params": {
+        "rarity": "Rare",
+        "keyword": "test-keyword"
+      },
+      "status": 200
+    },
+    {
+      "params": {
+        "variant": "holographic",
+        "keyword": "test-keyword"
+      },
+      "status": 200
+    },
+    {
+      "params": {
+        "language": "EN",
+        "edition": "Test Edition"
+      },
+      "status": 200
+    },
+    {
+      "params": {
+        "rarity": "Rare",
+        "type": "Character",
+        "variant": "holographic"
+      },
+      "status": 200
+    },
+    {
+      "params": {
+        "set": "test-set-alpha",
+        "rarity": "Rare",
+        "keyword": "test-keyword",
+        "variant": "holographic"
+      },
+      "status": 200
+    },
+    {
+      "params": {
+        "name": "Alpha",
+        "set": "test-set-alpha",
+        "rarity": "Rare",
+        "type": "Character",
+        "chakra_min": 2,
+        "power_min": 3
+      },
+      "status": 200
+    },
+    {
+      "params": {
+        "language": "EN",
+        "variant": "normal"
+      },
+      "status": 200
+    },
+    {
+      "params": {
+        "rarity": "' OR 1=1 --"
+      },
+      "status": 200
+    },
+    {
+      "params": {
+        "keyword": "%_test"
+      },
+      "status": 200
+    },
+    {
+      "params": {
+        "variant": "'; DROP TABLE cards; --"
+      },
+      "status": 200
+    },
+    {
+      "params": {
+        "rarity": "Ra%"
+      },
+      "status": 200
+    },
+    {
+      "params": {
+        "type": "Char_cter"
+      },
+      "status": 200
+    },
+    {
+      "params": {
+        "edition": "Test%"
+      },
+      "status": 200
+    },
+    {
+      "params": {
+        "language": "E%"
+      },
+      "status": 200
+    },
+    {
+      "params": {
+        "chakra_min": -1
+      },
+      "status": 400
+    },
+    {
+      "params": {
+        "chakra_max": -1
+      },
+      "status": 400
+    },
+    {
+      "params": {
+        "power_min": -1
+      },
+      "status": 400
+    },
+    {
+      "params": {
+        "power_max": -1
+      },
+      "status": 400
+    },
+    {
+      "params": {
+        "chakra_min": 5,
+        "chakra_max": 2
+      },
+      "status": 400
+    },
+    {
+      "params": {
+        "power_min": 5,
+        "power_max": 2
+      },
+      "status": 400
+    },
+    {
+      "params": {
+        "chakra_min": "abc"
+      },
+      "status": 422
+    },
+    {
+      "params": {
+        "chakra_max": "abc"
+      },
+      "status": 422
+    },
+    {
+      "params": {
+        "power_min": "abc"
+      },
+      "status": 422
+    },
+    {
+      "params": {
+        "power_max": "abc"
+      },
+      "status": 422
+    },
+    {
+      "params": {
+        "keyword": "test-keyword",
+        "variant": "holographic",
+        "page": 1,
+        "limit": 1
+      },
+      "status": 200
+    },
+    {
+      "params": {
+        "keyword": "test-keyword",
+        "variant": "holographic",
+        "page": 2,
+        "limit": 1
+      },
+      "status": 200
+    },
+    {
+      "params": {
+        "keyword": "test-keyword",
+        "variant": "holographic",
+        "page": 3,
+        "limit": 1
+      },
+      "status": 200
+    },
+    {
+      "params": {
+        "rarity": "Rare",
+        "sort": "number",
+        "order": "asc"
+      },
+      "status": 200
+    },
+    {
+      "params": {
+        "rarity": "Rare",
+        "sort": "number",
+        "order": "desc"
+      },
+      "status": 200
+    },
+    {
+      "params": {
+        "rarity": "Rare",
+        "sort": "name",
+        "order": "asc"
+      },
+      "status": 200
+    },
+    {
+      "params": {
+        "rarity": "Rare",
+        "sort": "name",
+        "order": "desc"
+      },
+      "status": 200
+    },
+    {
+      "params": {
+        "rarity": "Rare",
+        "sort": "rarity",
+        "order": "asc"
+      },
+      "status": 200
+    },
+    {
+      "params": {
+        "rarity": "Rare",
+        "sort": "rarity",
+        "order": "desc"
+      },
+      "status": 200
+    },
+    {
+      "params": {
+        "rarity": "Rare",
+        "sort": "set",
+        "order": "asc"
+      },
+      "status": 200
+    },
+    {
+      "params": {
+        "rarity": "Rare",
+        "sort": "set",
+        "order": "desc"
+      },
+      "status": 200
+    },
+    {
+      "params": {
+        "rarity": "Rare",
+        "sort": "release_date",
+        "order": "asc"
+      },
+      "status": 200
+    },
+    {
+      "params": {
+        "rarity": "Rare",
+        "sort": "release_date",
+        "order": "desc"
+      },
+      "status": 200
+    },
+    {
+      "params": {
+        "set": "test-set-alpha",
+        "rarity": "Rare",
+        "keyword": "test-keyword",
+        "variant": "holographic"
+      },
+      "status": 200
+    },
+    {
+      "params": {
+        "keyword": "test-keyword"
+      },
+      "status": 200
+    },
+    {
+      "params": {
+        "variant": "holographic"
+      },
+      "status": 200
+    },
+    {
+      "params": {
+        "keyword": "test-keyword",
+        "variant": "holographic"
+      },
+      "status": 200
+    }
+  ],
+  "openapi_parameters": [
+    "chakra_max",
+    "chakra_min",
+    "edition",
+    "keyword",
+    "language",
+    "limit",
+    "name",
+    "number",
+    "order",
+    "page",
+    "power_max",
+    "power_min",
+    "rarity",
+    "set",
+    "sort",
+    "type",
+    "variant"
+  ],
+  "query_scenarios": [
+    {
+      "keyword": "test-keyword"
+    },
+    {
+      "variant": "holographic"
+    },
+    {
+      "keyword": "test-keyword",
+      "variant": "holographic"
+    }
+  ],
+  "small": [
+    {
+      "count": 3,
+      "total": 3,
+      "sql": [
+        "SELECT count(*) AS count_1 \nFROM (SELECT cards.public_id AS public_id, cards.set_id AS set_id, cards.card_number AS card_number, cards.name AS name, cards.subtitle AS subtitle, cards.card_type AS card_type, cards.rarity AS rarity, cards.chakra AS chakra, cards.power AS power, cards.faction AS faction, cards.ability_text AS ability_text, cards.flavor_text AS flavor_text, cards.artist AS artist, cards.id AS id, cards.created_at AS created_at, cards.updated_at AS updated_at \nFROM cards JOIN sets ON sets.id = cards.set_id \nWHERE EXISTS (SELECT 1 \nFROM keywords, card_keywords \nWHERE cards.id = card_keywords.card_id AND keywords.id = card_keywords.keyword_id AND lower(keywords.slug) = %(lower_1)s::VARCHAR)) AS anon_1",
+        "SELECT sets.public_id, sets.code, sets.name, sets.edition, sets.language, sets.release_date, sets.printed_total, sets.total_with_variants, sets.logo_url, sets.symbol_url, sets.id, sets.created_at, sets.updated_at, cards.public_id AS public_id_1, cards.set_id, cards.card_number, cards.name AS name_1, cards.subtitle, cards.card_type, cards.rarity, cards.chakra, cards.power, cards.faction, cards.ability_text, cards.flavor_text, cards.artist, cards.id AS id_1, cards.created_at AS created_at_1, cards.updated_at AS updated_at_1 \nFROM cards JOIN sets ON sets.id = cards.set_id \nWHERE EXISTS (SELECT 1 \nFROM keywords, card_keywords \nWHERE cards.id = card_keywords.card_id AND keywords.id = card_keywords.keyword_id AND lower(keywords.slug) = %(lower_1)s::VARCHAR) ORDER BY cards.card_number ASC NULLS LAST, cards.public_id ASC \n LIMIT %(param_1)s::INTEGER OFFSET %(param_2)s::INTEGER",
+        "SELECT card_images.card_id AS card_images_card_id, card_images.variant_id AS card_images_variant_id, card_images.image_type AS card_images_image_type, card_images.url AS card_images_url, card_images.source_name AS card_images_source_name, card_images.source_url AS card_images_source_url, card_images.hosted_by_us AS card_images_hosted_by_us, card_images.width AS card_images_width, card_images.height AS card_images_height, card_images.created_at AS card_images_created_at, card_images.id AS card_images_id \nFROM card_images \nWHERE card_images.card_id IN (%(primary_keys_1)s::UUID, %(primary_keys_2)s::UUID, %(primary_keys_3)s::UUID) AND card_images.variant_id IS NULL"
+      ]
+    },
+    {
+      "count": 3,
+      "total": 2,
+      "sql": [
+        "SELECT count(*) AS count_1 \nFROM (SELECT cards.public_id AS public_id, cards.set_id AS set_id, cards.card_number AS card_number, cards.name AS name, cards.subtitle AS subtitle, cards.card_type AS card_type, cards.rarity AS rarity, cards.chakra AS chakra, cards.power AS power, cards.faction AS faction, cards.ability_text AS ability_text, cards.flavor_text AS flavor_text, cards.artist AS artist, cards.id AS id, cards.created_at AS created_at, cards.updated_at AS updated_at \nFROM cards JOIN sets ON sets.id = cards.set_id \nWHERE EXISTS (SELECT 1 \nFROM card_variants \nWHERE cards.id = card_variants.card_id AND lower(card_variants.variant_type) = %(lower_1)s::VARCHAR)) AS anon_1",
+        "SELECT sets.public_id, sets.code, sets.name, sets.edition, sets.language, sets.release_date, sets.printed_total, sets.total_with_variants, sets.logo_url, sets.symbol_url, sets.id, sets.created_at, sets.updated_at, cards.public_id AS public_id_1, cards.set_id, cards.card_number, cards.name AS name_1, cards.subtitle, cards.card_type, cards.rarity, cards.chakra, cards.power, cards.faction, cards.ability_text, cards.flavor_text, cards.artist, cards.id AS id_1, cards.created_at AS created_at_1, cards.updated_at AS updated_at_1 \nFROM cards JOIN sets ON sets.id = cards.set_id \nWHERE EXISTS (SELECT 1 \nFROM card_variants \nWHERE cards.id = card_variants.card_id AND lower(card_variants.variant_type) = %(lower_1)s::VARCHAR) ORDER BY cards.card_number ASC NULLS LAST, cards.public_id ASC \n LIMIT %(param_1)s::INTEGER OFFSET %(param_2)s::INTEGER",
+        "SELECT card_images.card_id AS card_images_card_id, card_images.variant_id AS card_images_variant_id, card_images.image_type AS card_images_image_type, card_images.url AS card_images_url, card_images.source_name AS card_images_source_name, card_images.source_url AS card_images_source_url, card_images.hosted_by_us AS card_images_hosted_by_us, card_images.width AS card_images_width, card_images.height AS card_images_height, card_images.created_at AS card_images_created_at, card_images.id AS card_images_id \nFROM card_images \nWHERE card_images.card_id IN (%(primary_keys_1)s::UUID, %(primary_keys_2)s::UUID) AND card_images.variant_id IS NULL"
+      ]
+    },
+    {
+      "count": 3,
+      "total": 2,
+      "sql": [
+        "SELECT count(*) AS count_1 \nFROM (SELECT cards.public_id AS public_id, cards.set_id AS set_id, cards.card_number AS card_number, cards.name AS name, cards.subtitle AS subtitle, cards.card_type AS card_type, cards.rarity AS rarity, cards.chakra AS chakra, cards.power AS power, cards.faction AS faction, cards.ability_text AS ability_text, cards.flavor_text AS flavor_text, cards.artist AS artist, cards.id AS id, cards.created_at AS created_at, cards.updated_at AS updated_at \nFROM cards JOIN sets ON sets.id = cards.set_id \nWHERE (EXISTS (SELECT 1 \nFROM keywords, card_keywords \nWHERE cards.id = card_keywords.card_id AND keywords.id = card_keywords.keyword_id AND lower(keywords.slug) = %(lower_1)s::VARCHAR)) AND (EXISTS (SELECT 1 \nFROM card_variants \nWHERE cards.id = card_variants.card_id AND lower(card_variants.variant_type) = %(lower_2)s::VARCHAR))) AS anon_1",
+        "SELECT sets.public_id, sets.code, sets.name, sets.edition, sets.language, sets.release_date, sets.printed_total, sets.total_with_variants, sets.logo_url, sets.symbol_url, sets.id, sets.created_at, sets.updated_at, cards.public_id AS public_id_1, cards.set_id, cards.card_number, cards.name AS name_1, cards.subtitle, cards.card_type, cards.rarity, cards.chakra, cards.power, cards.faction, cards.ability_text, cards.flavor_text, cards.artist, cards.id AS id_1, cards.created_at AS created_at_1, cards.updated_at AS updated_at_1 \nFROM cards JOIN sets ON sets.id = cards.set_id \nWHERE (EXISTS (SELECT 1 \nFROM keywords, card_keywords \nWHERE cards.id = card_keywords.card_id AND keywords.id = card_keywords.keyword_id AND lower(keywords.slug) = %(lower_1)s::VARCHAR)) AND (EXISTS (SELECT 1 \nFROM card_variants \nWHERE cards.id = card_variants.card_id AND lower(card_variants.variant_type) = %(lower_2)s::VARCHAR)) ORDER BY cards.card_number ASC NULLS LAST, cards.public_id ASC \n LIMIT %(param_1)s::INTEGER OFFSET %(param_2)s::INTEGER",
+        "SELECT card_images.card_id AS card_images_card_id, card_images.variant_id AS card_images_variant_id, card_images.image_type AS card_images_image_type, card_images.url AS card_images_url, card_images.source_name AS card_images_source_name, card_images.source_url AS card_images_source_url, card_images.hosted_by_us AS card_images_hosted_by_us, card_images.width AS card_images_width, card_images.height AS card_images_height, card_images.created_at AS card_images_created_at, card_images.id AS card_images_id \nFROM card_images \nWHERE card_images.card_id IN (%(primary_keys_1)s::UUID, %(primary_keys_2)s::UUID) AND card_images.variant_id IS NULL"
+      ]
+    }
+  ],
+  "large": [
+    {
+      "count": 3,
+      "total": 19,
+      "sql": [
+        "SELECT count(*) AS count_1 \nFROM (SELECT cards.public_id AS public_id, cards.set_id AS set_id, cards.card_number AS card_number, cards.name AS name, cards.subtitle AS subtitle, cards.card_type AS card_type, cards.rarity AS rarity, cards.chakra AS chakra, cards.power AS power, cards.faction AS faction, cards.ability_text AS ability_text, cards.flavor_text AS flavor_text, cards.artist AS artist, cards.id AS id, cards.created_at AS created_at, cards.updated_at AS updated_at \nFROM cards JOIN sets ON sets.id = cards.set_id \nWHERE EXISTS (SELECT 1 \nFROM keywords, card_keywords \nWHERE cards.id = card_keywords.card_id AND keywords.id = card_keywords.keyword_id AND lower(keywords.slug) = %(lower_1)s::VARCHAR)) AS anon_1",
+        "SELECT sets.public_id, sets.code, sets.name, sets.edition, sets.language, sets.release_date, sets.printed_total, sets.total_with_variants, sets.logo_url, sets.symbol_url, sets.id, sets.created_at, sets.updated_at, cards.public_id AS public_id_1, cards.set_id, cards.card_number, cards.name AS name_1, cards.subtitle, cards.card_type, cards.rarity, cards.chakra, cards.power, cards.faction, cards.ability_text, cards.flavor_text, cards.artist, cards.id AS id_1, cards.created_at AS created_at_1, cards.updated_at AS updated_at_1 \nFROM cards JOIN sets ON sets.id = cards.set_id \nWHERE EXISTS (SELECT 1 \nFROM keywords, card_keywords \nWHERE cards.id = card_keywords.card_id AND keywords.id = card_keywords.keyword_id AND lower(keywords.slug) = %(lower_1)s::VARCHAR) ORDER BY cards.card_number ASC NULLS LAST, cards.public_id ASC \n LIMIT %(param_1)s::INTEGER OFFSET %(param_2)s::INTEGER",
+        "SELECT card_images.card_id AS card_images_card_id, card_images.variant_id AS card_images_variant_id, card_images.image_type AS card_images_image_type, card_images.url AS card_images_url, card_images.source_name AS card_images_source_name, card_images.source_url AS card_images_source_url, card_images.hosted_by_us AS card_images_hosted_by_us, card_images.width AS card_images_width, card_images.height AS card_images_height, card_images.created_at AS card_images_created_at, card_images.id AS card_images_id \nFROM card_images \nWHERE card_images.card_id IN (%(primary_keys_1)s::UUID, %(primary_keys_2)s::UUID, %(primary_keys_3)s::UUID, %(primary_keys_4)s::UUID, %(primary_keys_5)s::UUID, %(primary_keys_6)s::UUID, %(primary_keys_7)s::UUID, %(primary_keys_8)s::UUID, %(primary_keys_9)s::UUID, %(primary_keys_10)s::UUID, %(primary_keys_11)s::UUID, %(primary_keys_12)s::UUID, %(primary_keys_13)s::UUID, %(primary_keys_14)s::UUID, %(primary_keys_15)s::UUID, %(primary_keys_16)s::UUID, %(primary_keys_17)s::UUID, %(primary_keys_18)s::UUID, %(primary_keys_19)s::UUID) AND card_images.variant_id IS NULL"
+      ]
+    },
+    {
+      "count": 3,
+      "total": 18,
+      "sql": [
+        "SELECT count(*) AS count_1 \nFROM (SELECT cards.public_id AS public_id, cards.set_id AS set_id, cards.card_number AS card_number, cards.name AS name, cards.subtitle AS subtitle, cards.card_type AS card_type, cards.rarity AS rarity, cards.chakra AS chakra, cards.power AS power, cards.faction AS faction, cards.ability_text AS ability_text, cards.flavor_text AS flavor_text, cards.artist AS artist, cards.id AS id, cards.created_at AS created_at, cards.updated_at AS updated_at \nFROM cards JOIN sets ON sets.id = cards.set_id \nWHERE EXISTS (SELECT 1 \nFROM card_variants \nWHERE cards.id = card_variants.card_id AND lower(card_variants.variant_type) = %(lower_1)s::VARCHAR)) AS anon_1",
+        "SELECT sets.public_id, sets.code, sets.name, sets.edition, sets.language, sets.release_date, sets.printed_total, sets.total_with_variants, sets.logo_url, sets.symbol_url, sets.id, sets.created_at, sets.updated_at, cards.public_id AS public_id_1, cards.set_id, cards.card_number, cards.name AS name_1, cards.subtitle, cards.card_type, cards.rarity, cards.chakra, cards.power, cards.faction, cards.ability_text, cards.flavor_text, cards.artist, cards.id AS id_1, cards.created_at AS created_at_1, cards.updated_at AS updated_at_1 \nFROM cards JOIN sets ON sets.id = cards.set_id \nWHERE EXISTS (SELECT 1 \nFROM card_variants \nWHERE cards.id = card_variants.card_id AND lower(card_variants.variant_type) = %(lower_1)s::VARCHAR) ORDER BY cards.card_number ASC NULLS LAST, cards.public_id ASC \n LIMIT %(param_1)s::INTEGER OFFSET %(param_2)s::INTEGER",
+        "SELECT card_images.card_id AS card_images_card_id, card_images.variant_id AS card_images_variant_id, card_images.image_type AS card_images_image_type, card_images.url AS card_images_url, card_images.source_name AS card_images_source_name, card_images.source_url AS card_images_source_url, card_images.hosted_by_us AS card_images_hosted_by_us, card_images.width AS card_images_width, card_images.height AS card_images_height, card_images.created_at AS card_images_created_at, card_images.id AS card_images_id \nFROM card_images \nWHERE card_images.card_id IN (%(primary_keys_1)s::UUID, %(primary_keys_2)s::UUID, %(primary_keys_3)s::UUID, %(primary_keys_4)s::UUID, %(primary_keys_5)s::UUID, %(primary_keys_6)s::UUID, %(primary_keys_7)s::UUID, %(primary_keys_8)s::UUID, %(primary_keys_9)s::UUID, %(primary_keys_10)s::UUID, %(primary_keys_11)s::UUID, %(primary_keys_12)s::UUID, %(primary_keys_13)s::UUID, %(primary_keys_14)s::UUID, %(primary_keys_15)s::UUID, %(primary_keys_16)s::UUID, %(primary_keys_17)s::UUID, %(primary_keys_18)s::UUID) AND card_images.variant_id IS NULL"
+      ]
+    },
+    {
+      "count": 3,
+      "total": 18,
+      "sql": [
+        "SELECT count(*) AS count_1 \nFROM (SELECT cards.public_id AS public_id, cards.set_id AS set_id, cards.card_number AS card_number, cards.name AS name, cards.subtitle AS subtitle, cards.card_type AS card_type, cards.rarity AS rarity, cards.chakra AS chakra, cards.power AS power, cards.faction AS faction, cards.ability_text AS ability_text, cards.flavor_text AS flavor_text, cards.artist AS artist, cards.id AS id, cards.created_at AS created_at, cards.updated_at AS updated_at \nFROM cards JOIN sets ON sets.id = cards.set_id \nWHERE (EXISTS (SELECT 1 \nFROM keywords, card_keywords \nWHERE cards.id = card_keywords.card_id AND keywords.id = card_keywords.keyword_id AND lower(keywords.slug) = %(lower_1)s::VARCHAR)) AND (EXISTS (SELECT 1 \nFROM card_variants \nWHERE cards.id = card_variants.card_id AND lower(card_variants.variant_type) = %(lower_2)s::VARCHAR))) AS anon_1",
+        "SELECT sets.public_id, sets.code, sets.name, sets.edition, sets.language, sets.release_date, sets.printed_total, sets.total_with_variants, sets.logo_url, sets.symbol_url, sets.id, sets.created_at, sets.updated_at, cards.public_id AS public_id_1, cards.set_id, cards.card_number, cards.name AS name_1, cards.subtitle, cards.card_type, cards.rarity, cards.chakra, cards.power, cards.faction, cards.ability_text, cards.flavor_text, cards.artist, cards.id AS id_1, cards.created_at AS created_at_1, cards.updated_at AS updated_at_1 \nFROM cards JOIN sets ON sets.id = cards.set_id \nWHERE (EXISTS (SELECT 1 \nFROM keywords, card_keywords \nWHERE cards.id = card_keywords.card_id AND keywords.id = card_keywords.keyword_id AND lower(keywords.slug) = %(lower_1)s::VARCHAR)) AND (EXISTS (SELECT 1 \nFROM card_variants \nWHERE cards.id = card_variants.card_id AND lower(card_variants.variant_type) = %(lower_2)s::VARCHAR)) ORDER BY cards.card_number ASC NULLS LAST, cards.public_id ASC \n LIMIT %(param_1)s::INTEGER OFFSET %(param_2)s::INTEGER",
+        "SELECT card_images.card_id AS card_images_card_id, card_images.variant_id AS card_images_variant_id, card_images.image_type AS card_images_image_type, card_images.url AS card_images_url, card_images.source_name AS card_images_source_name, card_images.source_url AS card_images_source_url, card_images.hosted_by_us AS card_images_hosted_by_us, card_images.width AS card_images_width, card_images.height AS card_images_height, card_images.created_at AS card_images_created_at, card_images.id AS card_images_id \nFROM card_images \nWHERE card_images.card_id IN (%(primary_keys_1)s::UUID, %(primary_keys_2)s::UUID, %(primary_keys_3)s::UUID, %(primary_keys_4)s::UUID, %(primary_keys_5)s::UUID, %(primary_keys_6)s::UUID, %(primary_keys_7)s::UUID, %(primary_keys_8)s::UUID, %(primary_keys_9)s::UUID, %(primary_keys_10)s::UUID, %(primary_keys_11)s::UUID, %(primary_keys_12)s::UUID, %(primary_keys_13)s::UUID, %(primary_keys_14)s::UUID, %(primary_keys_15)s::UUID, %(primary_keys_16)s::UUID, %(primary_keys_17)s::UUID, %(primary_keys_18)s::UUID) AND card_images.variant_id IS NULL"
+      ]
+    }
+  ],
+  "combined_example": {
+    "data": [
+      {
+        "id": "TEST6-1",
+        "number": "1",
+        "name": "Test Alpha",
+        "subtitle": null,
+        "type": "Character",
+        "rarity": "Rare",
+        "set": {
+          "id": "test-set-alpha",
+          "code": null,
+          "name": "Test Set Alpha",
+          "edition": "Test Edition"
+        },
+        "images": []
+      }
+    ],
+    "pagination": {
+      "page": 1,
+      "limit": 50,
+      "total": 1,
+      "pages": 1,
+      "has_next": false,
+      "has_previous": false
+    }
+  },
+  "cleanup": {
+    "removed": {
+      "card_variants": 53,
+      "cards": 21,
+      "keywords": 3,
+      "sets": 19
+    },
+    "verified_absent": true,
+    "association_links_absent": true
+  },
+  "swagger": [
+    {
+      "query": "rarity=Rare",
+      "status": 200
+    },
+    {
+      "query": "variant=holographic",
+      "status": 200
+    },
+    {
+      "query": "keyword=test-keyword",
+      "status": 200
+    },
+    {
+      "query": "chakra_min=2&power_min=3",
+      "status": 200
+    }
+  ],
+  "pytest": {
+    "passed": 221,
+    "new_cases": 78,
+    "warnings": 2,
+    "runtime_seconds": 6.63
+  }
+}

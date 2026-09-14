@@ -1,0 +1,14 @@
+{
+  "status": "STOPPED_SCHEMA_REVIEW_REQUIRED",
+  "postgresql": "18.6",
+  "alembic": "5f360cfd2561",
+  "existing_mismatched_images": 0,
+  "mismatched_image_insert_accepted": true,
+  "wrong_owner_image_serialized_under_card_b": true,
+  "verification_transaction_rolled_back": true,
+  "complete_database_snapshot_restored": true,
+  "fictional_rows_created_then_rolled_back": 5,
+  "public_endpoint_tested": false,
+  "verification_layer": "Real PostgreSQL plus production detail service and public CardDetail serializer; no HTTP request",
+  "schema_changed": false
+}

@@ -1,0 +1,554 @@
+{
+  "sets": {
+    "primary_key": {
+      "constrained_columns": [
+        "id"
+      ],
+      "name": "sets_pkey",
+      "comment": null,
+      "dialect_options": {
+        "postgresql_include": []
+      }
+    },
+    "unique_constraints": [],
+    "indexes": [
+      {
+        "name": "ix_sets_code",
+        "unique": false,
+        "column_names": [
+          "code"
+        ],
+        "include_columns": [],
+        "dialect_options": {
+          "postgresql_include": []
+        }
+      },
+      {
+        "name": "ix_sets_name",
+        "unique": false,
+        "column_names": [
+          "name"
+        ],
+        "include_columns": [],
+        "dialect_options": {
+          "postgresql_include": []
+        }
+      },
+      {
+        "name": "ix_sets_public_id",
+        "unique": true,
+        "column_names": [
+          "public_id"
+        ],
+        "include_columns": [],
+        "dialect_options": {
+          "postgresql_include": []
+        }
+      }
+    ],
+    "checks": [
+      {
+        "name": "ck_sets_printed_total_non_negative",
+        "sqltext": "printed_total IS NULL OR printed_total >= 0",
+        "comment": null
+      },
+      {
+        "name": "ck_sets_total_with_variants_non_negative",
+        "sqltext": "total_with_variants IS NULL OR total_with_variants >= 0",
+        "comment": null
+      }
+    ],
+    "foreign_keys": [],
+    "nullable_columns": [
+      "code",
+      "edition",
+      "release_date",
+      "printed_total",
+      "total_with_variants",
+      "logo_url",
+      "symbol_url"
+    ]
+  },
+  "cards": {
+    "primary_key": {
+      "constrained_columns": [
+        "id"
+      ],
+      "name": "cards_pkey",
+      "comment": null,
+      "dialect_options": {
+        "postgresql_include": []
+      }
+    },
+    "unique_constraints": [
+      {
+        "column_names": [
+          "set_id",
+          "card_number"
+        ],
+        "name": "uq_cards_set_id_card_number",
+        "comment": null,
+        "dialect_options": {
+          "postgresql_include": [],
+          "postgresql_nulls_not_distinct": false
+        }
+      }
+    ],
+    "indexes": [
+      {
+        "name": "ix_cards_card_number",
+        "unique": false,
+        "column_names": [
+          "card_number"
+        ],
+        "include_columns": [],
+        "dialect_options": {
+          "postgresql_include": []
+        }
+      },
+      {
+        "name": "ix_cards_card_type",
+        "unique": false,
+        "column_names": [
+          "card_type"
+        ],
+        "include_columns": [],
+        "dialect_options": {
+          "postgresql_include": []
+        }
+      },
+      {
+        "name": "ix_cards_name",
+        "unique": false,
+        "column_names": [
+          "name"
+        ],
+        "include_columns": [],
+        "dialect_options": {
+          "postgresql_include": []
+        }
+      },
+      {
+        "name": "ix_cards_public_id",
+        "unique": true,
+        "column_names": [
+          "public_id"
+        ],
+        "include_columns": [],
+        "dialect_options": {
+          "postgresql_include": []
+        }
+      },
+      {
+        "name": "ix_cards_rarity",
+        "unique": false,
+        "column_names": [
+          "rarity"
+        ],
+        "include_columns": [],
+        "dialect_options": {
+          "postgresql_include": []
+        }
+      },
+      {
+        "name": "ix_cards_set_id",
+        "unique": false,
+        "column_names": [
+          "set_id"
+        ],
+        "include_columns": [],
+        "dialect_options": {
+          "postgresql_include": []
+        }
+      },
+      {
+        "name": "uq_cards_set_id_card_number",
+        "unique": true,
+        "column_names": [
+          "set_id",
+          "card_number"
+        ],
+        "duplicates_constraint": "uq_cards_set_id_card_number",
+        "include_columns": [],
+        "dialect_options": {
+          "postgresql_include": []
+        }
+      }
+    ],
+    "checks": [
+      {
+        "name": "ck_cards_chakra_non_negative",
+        "sqltext": "chakra IS NULL OR chakra >= 0",
+        "comment": null
+      },
+      {
+        "name": "ck_cards_power_non_negative",
+        "sqltext": "power IS NULL OR power >= 0",
+        "comment": null
+      }
+    ],
+    "foreign_keys": [
+      {
+        "name": "fk_cards_set_id_sets",
+        "constrained_columns": [
+          "set_id"
+        ],
+        "referred_schema": null,
+        "referred_table": "sets",
+        "referred_columns": [
+          "id"
+        ],
+        "options": {
+          "ondelete": "RESTRICT"
+        },
+        "comment": null
+      }
+    ],
+    "nullable_columns": [
+      "subtitle",
+      "card_type",
+      "rarity",
+      "chakra",
+      "power",
+      "faction",
+      "ability_text",
+      "flavor_text",
+      "artist"
+    ]
+  },
+  "card_variants": {
+    "primary_key": {
+      "constrained_columns": [
+        "id"
+      ],
+      "name": "card_variants_pkey",
+      "comment": null,
+      "dialect_options": {
+        "postgresql_include": []
+      }
+    },
+    "unique_constraints": [
+      {
+        "column_names": [
+          "id",
+          "card_id"
+        ],
+        "name": "uq_card_variants_id_card_id",
+        "comment": null,
+        "dialect_options": {
+          "postgresql_include": [],
+          "postgresql_nulls_not_distinct": false
+        }
+      }
+    ],
+    "indexes": [
+      {
+        "name": "ix_card_variants_card_id",
+        "unique": false,
+        "column_names": [
+          "card_id"
+        ],
+        "include_columns": [],
+        "dialect_options": {
+          "postgresql_include": []
+        }
+      },
+      {
+        "name": "ix_card_variants_public_id",
+        "unique": true,
+        "column_names": [
+          "public_id"
+        ],
+        "include_columns": [],
+        "dialect_options": {
+          "postgresql_include": []
+        }
+      },
+      {
+        "name": "ix_card_variants_variant_type",
+        "unique": false,
+        "column_names": [
+          "variant_type"
+        ],
+        "include_columns": [],
+        "dialect_options": {
+          "postgresql_include": []
+        }
+      },
+      {
+        "name": "uq_card_variants_id_card_id",
+        "unique": true,
+        "column_names": [
+          "id",
+          "card_id"
+        ],
+        "duplicates_constraint": "uq_card_variants_id_card_id",
+        "include_columns": [],
+        "dialect_options": {
+          "postgresql_include": []
+        }
+      }
+    ],
+    "checks": [
+      {
+        "name": "ck_card_variants_serial_total_positive",
+        "sqltext": "serial_total IS NULL OR serial_total > 0",
+        "comment": null
+      }
+    ],
+    "foreign_keys": [
+      {
+        "name": "fk_card_variants_card_id_cards",
+        "constrained_columns": [
+          "card_id"
+        ],
+        "referred_schema": null,
+        "referred_table": "cards",
+        "referred_columns": [
+          "id"
+        ],
+        "options": {
+          "ondelete": "CASCADE"
+        },
+        "comment": null
+      }
+    ],
+    "nullable_columns": [
+      "finish",
+      "rarity_override",
+      "collector_number",
+      "edition",
+      "serial_total"
+    ]
+  },
+  "keywords": {
+    "primary_key": {
+      "constrained_columns": [
+        "id"
+      ],
+      "name": "keywords_pkey",
+      "comment": null,
+      "dialect_options": {
+        "postgresql_include": []
+      }
+    },
+    "unique_constraints": [],
+    "indexes": [
+      {
+        "name": "ix_keywords_slug",
+        "unique": true,
+        "column_names": [
+          "slug"
+        ],
+        "include_columns": [],
+        "dialect_options": {
+          "postgresql_include": []
+        }
+      }
+    ],
+    "checks": [],
+    "foreign_keys": [],
+    "nullable_columns": []
+  },
+  "card_keywords": {
+    "primary_key": {
+      "constrained_columns": [
+        "card_id",
+        "keyword_id"
+      ],
+      "name": "pk_card_keywords",
+      "comment": null,
+      "dialect_options": {
+        "postgresql_include": []
+      }
+    },
+    "unique_constraints": [],
+    "indexes": [],
+    "checks": [],
+    "foreign_keys": [
+      {
+        "name": "fk_card_keywords_card_id_cards",
+        "constrained_columns": [
+          "card_id"
+        ],
+        "referred_schema": null,
+        "referred_table": "cards",
+        "referred_columns": [
+          "id"
+        ],
+        "options": {
+          "ondelete": "CASCADE"
+        },
+        "comment": null
+      },
+      {
+        "name": "fk_card_keywords_keyword_id_keywords",
+        "constrained_columns": [
+          "keyword_id"
+        ],
+        "referred_schema": null,
+        "referred_table": "keywords",
+        "referred_columns": [
+          "id"
+        ],
+        "options": {
+          "ondelete": "CASCADE"
+        },
+        "comment": null
+      }
+    ],
+    "nullable_columns": []
+  },
+  "card_images": {
+    "primary_key": {
+      "constrained_columns": [
+        "id"
+      ],
+      "name": "card_images_pkey",
+      "comment": null,
+      "dialect_options": {
+        "postgresql_include": []
+      }
+    },
+    "unique_constraints": [],
+    "indexes": [
+      {
+        "name": "ix_card_images_card_id",
+        "unique": false,
+        "column_names": [
+          "card_id"
+        ],
+        "include_columns": [],
+        "dialect_options": {
+          "postgresql_include": []
+        }
+      },
+      {
+        "name": "ix_card_images_variant_id",
+        "unique": false,
+        "column_names": [
+          "variant_id"
+        ],
+        "include_columns": [],
+        "dialect_options": {
+          "postgresql_include": []
+        }
+      }
+    ],
+    "checks": [
+      {
+        "name": "ck_card_images_height_positive",
+        "sqltext": "height IS NULL OR height > 0",
+        "comment": null
+      },
+      {
+        "name": "ck_card_images_width_positive",
+        "sqltext": "width IS NULL OR width > 0",
+        "comment": null
+      }
+    ],
+    "foreign_keys": [
+      {
+        "name": "fk_card_images_card_id_cards",
+        "constrained_columns": [
+          "card_id"
+        ],
+        "referred_schema": null,
+        "referred_table": "cards",
+        "referred_columns": [
+          "id"
+        ],
+        "options": {
+          "ondelete": "CASCADE"
+        },
+        "comment": null
+      },
+      {
+        "name": "fk_card_images_variant_card_owner",
+        "constrained_columns": [
+          "variant_id",
+          "card_id"
+        ],
+        "referred_schema": null,
+        "referred_table": "card_variants",
+        "referred_columns": [
+          "id",
+          "card_id"
+        ],
+        "options": {
+          "ondelete": "SET NULL (variant_id)"
+        },
+        "comment": null
+      }
+    ],
+    "nullable_columns": [
+      "variant_id",
+      "source_name",
+      "source_url",
+      "width",
+      "height"
+    ]
+  },
+  "source_records": {
+    "primary_key": {
+      "constrained_columns": [
+        "id"
+      ],
+      "name": "source_records_pkey",
+      "comment": null,
+      "dialect_options": {
+        "postgresql_include": []
+      }
+    },
+    "unique_constraints": [],
+    "indexes": [
+      {
+        "name": "ix_source_records_entity_type_entity_id",
+        "unique": false,
+        "column_names": [
+          "entity_type",
+          "entity_id"
+        ],
+        "include_columns": [],
+        "dialect_options": {
+          "postgresql_include": []
+        }
+      },
+      {
+        "name": "ix_source_records_source_name",
+        "unique": false,
+        "column_names": [
+          "source_name"
+        ],
+        "include_columns": [],
+        "dialect_options": {
+          "postgresql_include": []
+        }
+      },
+      {
+        "name": "ix_source_records_source_name_external_id",
+        "unique": false,
+        "column_names": [
+          "source_name",
+          "external_id"
+        ],
+        "include_columns": [],
+        "dialect_options": {
+          "postgresql_include": []
+        }
+      }
+    ],
+    "checks": [],
+    "foreign_keys": [],
+    "nullable_columns": [
+      "source_url",
+      "external_id",
+      "content_hash"
+    ]
+  },
+  "final": {
+    "head": "8b41e2a9c730",
+    "mismatches": 0,
+    "postgresql": "18.6"
+  }
+}

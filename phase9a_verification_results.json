@@ -1,0 +1,9 @@
+{
+  "invalid_legacy_preflight_atomic": true,
+  "valid_upgrade_preserves_images": true,
+  "downgrade_exact_constraints_and_reupgrade": true,
+  "sql_cross_card_insert_rejected": true,
+  "orm_assignment_loading_rejection_delete_serialization_no_warnings": true,
+  "sql_variant_preserved_then_card_cascade": true,
+  "isolated_schema_rolled_back": true
+}

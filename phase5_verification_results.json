@@ -1,0 +1,274 @@
+{
+  "requests": [
+    {
+      "path": "/health",
+      "status": 200
+    },
+    {
+      "path": "/ready",
+      "status": 200
+    },
+    {
+      "path": "/v1/cards",
+      "status": 200
+    },
+    {
+      "path": "/v1/cards?name=ALPHA",
+      "status": 200
+    },
+    {
+      "path": "/v1/cards?name=haracter",
+      "status": 200
+    },
+    {
+      "path": "/v1/cards?set=TEST-SET-ALPHA",
+      "status": 200
+    },
+    {
+      "path": "/v1/cards?number=1",
+      "status": 200
+    },
+    {
+      "path": "/v1/cards?set=test-set-alpha&number=1",
+      "status": 200
+    },
+    {
+      "path": "/v1/cards?name=alpha&set=test-set-alpha",
+      "status": 200
+    },
+    {
+      "path": "/v1/cards?sort=number&order=asc",
+      "status": 200
+    },
+    {
+      "path": "/v1/cards?sort=number&order=desc",
+      "status": 200
+    },
+    {
+      "path": "/v1/cards?sort=name&order=asc",
+      "status": 200
+    },
+    {
+      "path": "/v1/cards?sort=name&order=desc",
+      "status": 200
+    },
+    {
+      "path": "/v1/cards?sort=rarity&order=asc",
+      "status": 200
+    },
+    {
+      "path": "/v1/cards?sort=rarity&order=desc",
+      "status": 200
+    },
+    {
+      "path": "/v1/cards?sort=set&order=asc",
+      "status": 200
+    },
+    {
+      "path": "/v1/cards?sort=set&order=desc",
+      "status": 200
+    },
+    {
+      "path": "/v1/cards?sort=release_date&order=asc",
+      "status": 200
+    },
+    {
+      "path": "/v1/cards?sort=release_date&order=desc",
+      "status": 200
+    },
+    {
+      "path": "/v1/cards?page=2&limit=1",
+      "status": 200
+    },
+    {
+      "path": "/v1/cards/TEST-001",
+      "status": 200
+    },
+    {
+      "path": "/v1/cards/does-not-exist",
+      "status": 404
+    },
+    {
+      "path": "/v1/cards?page=0",
+      "status": 400
+    },
+    {
+      "path": "/v1/cards?limit=101",
+      "status": 400
+    },
+    {
+      "path": "/v1/cards?sort=invalid",
+      "status": 400
+    },
+    {
+      "path": "/v1/cards?order=invalid",
+      "status": 400
+    },
+    {
+      "path": "/v1/cards?page=abc",
+      "status": 422
+    },
+    {
+      "path": "/openapi.json",
+      "status": 200
+    }
+  ],
+  "query_counts": {
+    "list": 3,
+    "detail": 5
+  },
+  "list_example": {
+    "data": [
+      {
+        "id": "TEST-001",
+        "number": "1",
+        "name": "Test Character Alpha",
+        "subtitle": null,
+        "type": null,
+        "rarity": "Rare",
+        "set": {
+          "id": "test-set-alpha",
+          "code": "TSTA",
+          "name": "Test Set Alpha",
+          "edition": "Test Edition"
+        },
+        "images": [
+          {
+            "type": "front",
+            "url": "https://example.invalid/card.png",
+            "width": 100,
+            "height": 140
+          }
+        ]
+      },
+      {
+        "id": "TEST-B01",
+        "number": "1",
+        "name": "Test Character Alpha",
+        "subtitle": null,
+        "type": null,
+        "rarity": "Rare",
+        "set": {
+          "id": "test-set-beta",
+          "code": "TSTB",
+          "name": "Test Set Beta",
+          "edition": null
+        },
+        "images": []
+      },
+      {
+        "id": "TEST-A03",
+        "number": "10",
+        "name": "Test Character Gamma",
+        "subtitle": null,
+        "type": null,
+        "rarity": "Common",
+        "set": {
+          "id": "test-set-alpha",
+          "code": "TSTA",
+          "name": "Test Set Alpha",
+          "edition": "Test Edition"
+        },
+        "images": []
+      },
+      {
+        "id": "TEST-002",
+        "number": "2",
+        "name": "Test Character Beta",
+        "subtitle": null,
+        "type": null,
+        "rarity": null,
+        "set": {
+          "id": "test-set-alpha",
+          "code": "TSTA",
+          "name": "Test Set Alpha",
+          "edition": "Test Edition"
+        },
+        "images": []
+      }
+    ],
+    "pagination": {
+      "page": 1,
+      "limit": 50,
+      "total": 4,
+      "pages": 1,
+      "has_next": false,
+      "has_previous": false
+    }
+  },
+  "detail_example": {
+    "id": "TEST-001",
+    "number": "1",
+    "name": "Test Character Alpha",
+    "subtitle": null,
+    "type": null,
+    "rarity": "Rare",
+    "chakra": null,
+    "power": null,
+    "faction": null,
+    "ability_text": null,
+    "flavor_text": null,
+    "artist": null,
+    "set": {
+      "id": "test-set-alpha",
+      "code": "TSTA",
+      "name": "Test Set Alpha",
+      "edition": "Test Edition"
+    },
+    "keywords": [
+      {
+        "slug": "test-keyword",
+        "name": "Test Keyword"
+      }
+    ],
+    "variants": [
+      {
+        "id": "TEST-001-holo",
+        "type": "holographic",
+        "finish": null,
+        "rarity": null,
+        "collector_number": null,
+        "language": "EN",
+        "edition": null,
+        "serial_numbered": false,
+        "serial_total": null,
+        "images": [
+          {
+            "type": "front",
+            "url": "https://example.invalid/variant.png",
+            "width": null,
+            "height": null
+          }
+        ]
+      }
+    ],
+    "images": [
+      {
+        "type": "front",
+        "url": "https://example.invalid/card.png",
+        "width": 100,
+        "height": 140
+      }
+    ]
+  },
+  "postgresql_version": "18.6",
+  "alembic_revision": "5f360cfd2561",
+  "alembic_at_head": true,
+  "swagger": {
+    "GET /v1/cards": 200,
+    "GET /v1/cards/TEST-001": 200
+  },
+  "cleanup": {
+    "verified_absent": true,
+    "sets": 2,
+    "cards": 4,
+    "card_images": 2,
+    "card_variants": 1,
+    "keywords": 1
+  },
+  "final_pytest": {
+    "passed": 143,
+    "warnings": 2,
+    "runtime_seconds": 3.86
+  }
+}

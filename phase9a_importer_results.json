@@ -1,0 +1,208 @@
+{
+  "checks": {
+    "dry_run_unchanged": true,
+    "idempotent": true,
+    "one_update_stable_uuid": true,
+    "second_source": true,
+    "omitted_entities_preserved": true,
+    "omitted_variants_images_preserved": true,
+    "rollback": true,
+    "performance_complete": true
+  },
+  "performance": {
+    "dry_run": {
+      "cards": 500,
+      "seconds": 0.0503,
+      "sql_executions": 7,
+      "selects": 6,
+      "dml_executions": 0,
+      "counts": {
+        "sets": {
+          "created": 5,
+          "updated": 0,
+          "unchanged": 0
+        },
+        "cards": {
+          "created": 500,
+          "updated": 0,
+          "unchanged": 0
+        },
+        "variants": {
+          "created": 500,
+          "updated": 0,
+          "unchanged": 0
+        },
+        "keywords": {
+          "created": 10,
+          "updated": 0,
+          "unchanged": 0
+        },
+        "images": {
+          "created": 1000,
+          "updated": 0,
+          "unchanged": 0
+        },
+        "provenance": {
+          "created": 2015,
+          "updated": 0,
+          "unchanged": 0
+        },
+        "relationships": {
+          "created": 500,
+          "removed": 0,
+          "unchanged": 0
+        }
+      }
+    },
+    "actual": {
+      "cards": 500,
+      "seconds": 0.1981,
+      "sql_executions": 24,
+      "selects": 7,
+      "dml_executions": 17,
+      "counts": {
+        "sets": {
+          "created": 5,
+          "updated": 0,
+          "unchanged": 0
+        },
+        "cards": {
+          "created": 500,
+          "updated": 0,
+          "unchanged": 0
+        },
+        "variants": {
+          "created": 500,
+          "updated": 0,
+          "unchanged": 0
+        },
+        "keywords": {
+          "created": 10,
+          "updated": 0,
+          "unchanged": 0
+        },
+        "images": {
+          "created": 1000,
+          "updated": 0,
+          "unchanged": 0
+        },
+        "provenance": {
+          "created": 2015,
+          "updated": 0,
+          "unchanged": 0
+        },
+        "relationships": {
+          "created": 500,
+          "removed": 0,
+          "unchanged": 0
+        }
+      }
+    },
+    "repeat": {
+      "cards": 500,
+      "seconds": 0.1004,
+      "sql_executions": 18,
+      "selects": 18,
+      "dml_executions": 0,
+      "counts": {
+        "sets": {
+          "created": 0,
+          "updated": 0,
+          "unchanged": 5
+        },
+        "cards": {
+          "created": 0,
+          "updated": 0,
+          "unchanged": 500
+        },
+        "variants": {
+          "created": 0,
+          "updated": 0,
+          "unchanged": 500
+        },
+        "keywords": {
+          "created": 0,
+          "updated": 0,
+          "unchanged": 10
+        },
+        "images": {
+          "created": 0,
+          "updated": 0,
+          "unchanged": 1000
+        },
+        "provenance": {
+          "created": 0,
+          "updated": 0,
+          "unchanged": 2015
+        },
+        "relationships": {
+          "created": 0,
+          "removed": 0,
+          "unchanged": 500
+        }
+      }
+    }
+  },
+  "postgresql": "18.6",
+  "alembic": "8b41e2a9c730",
+  "first_import_counts": {
+    "sets": {
+      "created": 2,
+      "updated": 0,
+      "unchanged": 0
+    },
+    "cards": {
+      "created": 2,
+      "updated": 0,
+      "unchanged": 0
+    },
+    "variants": {
+      "created": 2,
+      "updated": 0,
+      "unchanged": 0
+    },
+    "keywords": {
+      "created": 1,
+      "updated": 0,
+      "unchanged": 0
+    },
+    "images": {
+      "created": 4,
+      "updated": 0,
+      "unchanged": 0
+    },
+    "provenance": {
+      "created": 11,
+      "updated": 0,
+      "unchanged": 0
+    },
+    "relationships": {
+      "created": 2,
+      "removed": 0,
+      "unchanged": 0
+    }
+  },
+  "api_statuses": {
+    "/v1/sets": 200,
+    "/v1/sets/p8-0366b7d38917-set-0": 200,
+    "/v1/sets/p8-0366b7d38917-set-0/cards": 200,
+    "/v1/cards": 200,
+    "/v1/cards/P8-0366B7D38917-0": 200,
+    "/v1/cards/random": 200,
+    "/v1/rarities": 200,
+    "/v1/keywords": 200,
+    "/v1/keywords/p8-0366b7d38917-keyword/cards": 200,
+    "/v1/search?q=Fictional": 200
+  },
+  "cleanup": {
+    "baseline_restored": true,
+    "exact_ids_removed": {
+      "sets": 7,
+      "cards": 502,
+      "variants": 502,
+      "keywords": 11,
+      "images": 1004,
+      "provenance": 2037
+    }
+  }
+}

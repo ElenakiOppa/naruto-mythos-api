@@ -1,0 +1,42 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+.venv/
+venv/
+.mypy_cache/
+.pytest_cache/
+.ruff_cache/
+
+# Env / secrets
+.env
+.env.*
+!.env.example
+
+# OS
+.DS_Store
+
+# Editors
+.vscode/
+.idea/
+
+# Logs
+*.log
+
+# Local data dumps (raw import inputs should be reviewed, not auto-committed)
+data/*.json
+!data/README.md
+
+# Local test output and databases
+.coverage
+.coverage.*
+htmlcov/
+coverage.xml
+*.sqlite
+*.sqlite3
+*.db
+phase9_file_baseline.json
+phase9_mypy.txt

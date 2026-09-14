@@ -1,0 +1,98 @@
+{
+  "repository_check": {
+    "exit_code": 1,
+    "findings": 62,
+    "rules": {
+      "I001": 11,
+      "B008": 10,
+      "UP007": 4,
+      "UP035": 1,
+      "RUF100": 7,
+      "C408": 29
+    },
+    "files": [
+      "app\\api\\router.py",
+      "app\\api\\v1\\cards.py",
+      "app\\api\\v1\\metadata.py",
+      "app\\api\\v1\\search.py",
+      "app\\api\\v1\\sets.py",
+      "app\\schemas\\search.py",
+      "app\\services\\card_filters.py",
+      "app\\services\\metadata_service.py",
+      "app\\services\\search_service.py",
+      "migrations\\versions\\5f360cfd2561_initial_schema.py",
+      "tests\\conftest.py",
+      "tests\\test_card_filters.py",
+      "tests\\test_cards_routes.py",
+      "tests\\test_discovery.py",
+      "tests\\test_schemas.py"
+    ]
+  },
+  "repository_format": {
+    "exit_code": 1,
+    "findings": 14,
+    "rules": {
+      "unformatted": 14
+    },
+    "files": [
+      "app\\api\\v1\\sets.py",
+      "app\\main.py",
+      "app\\models\\card.py",
+      "app\\models\\set.py",
+      "app\\schemas\\health.py",
+      "app\\schemas\\metadata.py",
+      "app\\schemas\\ready.py",
+      "app\\services\\set_service.py",
+      "app\\utils\\pagination.py",
+      "migrations\\versions\\5f360cfd2561_initial_schema.py",
+      "tests\\conftest.py",
+      "tests\\test_models.py",
+      "tests\\test_schemas.py",
+      "tests\\test_sets_routes.py"
+    ]
+  },
+  "scope_check": {
+    "exit_code": 0,
+    "output": "All checks passed!"
+  },
+  "scope_format": {
+    "exit_code": 0,
+    "output": "7 files already formatted"
+  },
+  "alembic_head": "8b41e2a9c730",
+  "ownership_mismatches": 0,
+  "indexes": [
+    {
+      "indexname": "card_images_pkey",
+      "indexdef": "CREATE UNIQUE INDEX card_images_pkey ON public.card_images USING btree (id)"
+    },
+    {
+      "indexname": "card_variants_pkey",
+      "indexdef": "CREATE UNIQUE INDEX card_variants_pkey ON public.card_variants USING btree (id)"
+    },
+    {
+      "indexname": "ix_card_images_card_id",
+      "indexdef": "CREATE INDEX ix_card_images_card_id ON public.card_images USING btree (card_id)"
+    },
+    {
+      "indexname": "ix_card_images_variant_id",
+      "indexdef": "CREATE INDEX ix_card_images_variant_id ON public.card_images USING btree (variant_id)"
+    },
+    {
+      "indexname": "ix_card_variants_card_id",
+      "indexdef": "CREATE INDEX ix_card_variants_card_id ON public.card_variants USING btree (card_id)"
+    },
+    {
+      "indexname": "ix_card_variants_public_id",
+      "indexdef": "CREATE UNIQUE INDEX ix_card_variants_public_id ON public.card_variants USING btree (public_id)"
+    },
+    {
+      "indexname": "ix_card_variants_variant_type",
+      "indexdef": "CREATE INDEX ix_card_variants_variant_type ON public.card_variants USING btree (variant_type)"
+    },
+    {
+      "indexname": "uq_card_variants_id_card_id",
+      "indexdef": "CREATE UNIQUE INDEX uq_card_variants_id_card_id ON public.card_variants USING btree (id, card_id)"
+    }
+  ]
+}
