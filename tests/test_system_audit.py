@@ -165,6 +165,29 @@ def test_config_hides_database_credentials():
     assert config.docs_enabled
 
 
+def test_database_url_normalizes_railway_postgres_variants():
+    from app.config import Settings
+
+    assert Settings(DATABASE_URL="postgresql://user:pass@host:5432/db").database_url == (
+        "postgresql+psycopg://user:pass@host:5432/db"
+    )
+    assert Settings(DATABASE_URL="postgres://user:pass@host:5432/db").database_url == (
+        "postgresql+psycopg://user:pass@host:5432/db"
+    )
+    assert Settings(DATABASE_URL="postgresql+psycopg://user:pass@host:5432/db").database_url == (
+        "postgresql+psycopg://user:pass@host:5432/db"
+    )
+
+
+def test_database_url_keeps_sqlite_and_other_non_postgres_urls_unchanged():
+    from app.config import Settings
+
+    assert Settings(DATABASE_URL="sqlite:///tmp/test.db").database_url == "sqlite:///tmp/test.db"
+    assert Settings(DATABASE_URL="postgresql+asyncpg://user:pass@host:5432/db").database_url == (
+        "postgresql+asyncpg://user:pass@host:5432/db"
+    )
+
+
 def test_readiness_recovers_after_failed_request(client, monkeypatch):
     from app.api.v1 import ready
 

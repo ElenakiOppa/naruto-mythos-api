@@ -8,11 +8,34 @@ failing unpredictably later.
 """
 
 from functools import lru_cache
+from urllib.parse import urlsplit, urlunsplit
 
 from pydantic import Field, field_validator
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 API_VERSION = "1.0.0"
+
+
+def normalize_database_url(value: str) -> str:
+    """Convert Railway/Postgres bare URLs to the SQLAlchemy psycopg 3 dialect.
+
+    Railway commonly supplies ``postgresql://...`` or ``postgres://...``.
+    SQLAlchemy will otherwise default to the psycopg2 dialect for PostgreSQL,
+    which triggers the ``ModuleNotFoundError: No module named 'psycopg2'``
+    failure when only psycopg 3 is installed. Explicit driver prefixes such as
+    ``postgresql+psycopg://`` must remain unchanged.
+    """
+    if not value:
+        return value
+
+    scheme = value.split(":", 1)[0].lower()
+    if scheme in {"postgresql", "postgres"} and "+" not in value:
+        parsed = urlsplit(value)
+        normalized = urlunsplit(
+            ("postgresql+psycopg", parsed.netloc, parsed.path, parsed.query, parsed.fragment)
+        )
+        return normalized
+    return value
 
 
 class Settings(BaseSettings):
@@ -35,7 +58,7 @@ class Settings(BaseSettings):
     def database_url_must_not_be_empty(cls, value: str) -> str:
         if not value or not value.strip():
             raise ValueError("DATABASE_URL must be set")
-        return value
+        return normalize_database_url(value)
 
     @property
     def cors_origins_list(self) -> list[str]:
