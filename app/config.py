@@ -52,6 +52,9 @@ class Settings(BaseSettings):
     cors_origins: str = Field(default="", alias="CORS_ORIGINS")
     log_level: str = Field(default="INFO", alias="LOG_LEVEL")
     port: int = Field(default=8000, alias="PORT")
+    rapidapi_proxy_secret: str | None = Field(
+        default=None, alias="RAPIDAPI_PROXY_SECRET", repr=False
+    )
 
     @field_validator("database_url")
     @classmethod

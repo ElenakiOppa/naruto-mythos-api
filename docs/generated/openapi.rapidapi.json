@@ -1,0 +1,2463 @@
+{
+  "openapi": "3.0.2",
+  "info": {
+    "title": "Naruto Mythos TCG Developer API",
+    "description": "A developer-friendly REST API for querying Naruto Mythos TCG catalogue data.",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/health": {
+      "get": {
+        "tags": [
+          "System"
+        ],
+        "summary": "Liveness check",
+        "description": "Returns basic service liveness. Performs no database or other external dependency checks, so it always responds immediately. Use /ready to check infrastructure readiness instead.",
+        "operationId": "get_health_health_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HealthResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "An unexpected error occurred.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ready": {
+      "get": {
+        "tags": [
+          "System"
+        ],
+        "summary": "Readiness check",
+        "description": "Checks PostgreSQL connectivity. Returns 200 when ready, 503 when not. Never exposes database host, credentials, or exception details in the response.",
+        "operationId": "get_ready_ready_get",
+        "responses": {
+          "200": {
+            "description": "The service can reach its database and is ready for traffic.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReadyResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "An unexpected error occurred.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "The service cannot currently reach its database."
+          }
+        }
+      }
+    },
+    "/v1/sets": {
+      "get": {
+        "tags": [
+          "Sets"
+        ],
+        "summary": "List sets",
+        "description": "Paginated list of sets. Supports filtering by language, edition, and code, and sorting by name, release_date, or code.",
+        "operationId": "list_sets_v1_sets_get",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "description": "Page number, starting at 1.",
+              "default": 1,
+              "title": "Page"
+            },
+            "description": "Page number, starting at 1."
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "description": "Items per page, up to 100.",
+              "default": 50,
+              "title": "Limit"
+            },
+            "description": "Items per page, up to 100."
+          },
+          {
+            "name": "language",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Filter by language code (e.g. EN). Case-insensitive.",
+              "title": "Language"
+            },
+            "description": "Filter by language code (e.g. EN). Case-insensitive."
+          },
+          {
+            "name": "edition",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Filter by edition. Case-insensitive.",
+              "title": "Edition"
+            },
+            "description": "Filter by edition. Case-insensitive."
+          },
+          {
+            "name": "code",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Filter by set code. Case-insensitive.",
+              "title": "Code"
+            },
+            "description": "Filter by set code. Case-insensitive."
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "description": "Sort field: name, release_date, or code.",
+              "default": "release_date",
+              "title": "Sort"
+            },
+            "description": "Sort field: name, release_date, or code."
+          },
+          {
+            "name": "order",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "description": "Sort order: asc or desc.",
+              "default": "desc",
+              "title": "Order"
+            },
+            "description": "Sort order: asc or desc."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PaginatedSetsResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "An unexpected error occurred.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid pagination or sort parameters.",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "pagination": {
+                    "value": {
+                      "error": {
+                        "code": "INVALID_PAGINATION",
+                        "message": "page must be >= 1."
+                      }
+                    }
+                  },
+                  "sort": {
+                    "value": {
+                      "error": {
+                        "code": "INVALID_SORT",
+                        "message": "Invalid sort field."
+                      }
+                    }
+                  }
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/sets/{public_id}": {
+      "get": {
+        "tags": [
+          "Sets"
+        ],
+        "summary": "Get a single set",
+        "description": "Look up a set by its public ID.",
+        "operationId": "get_set_v1_sets__public_id__get",
+        "parameters": [
+          {
+            "name": "public_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Public Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SetDetail"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "An unexpected error occurred.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Set not found.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "error": {
+                    "code": "SET_NOT_FOUND",
+                    "message": "Set not found."
+                  }
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/sets/{public_id}/cards": {
+      "get": {
+        "tags": [
+          "Sets"
+        ],
+        "summary": "List a set's cards",
+        "description": "Paginated list of cards belonging to one set. Supports sorting by number, name, or rarity. card_number is sorted lexically (as a string), never as a number.",
+        "operationId": "list_set_cards_v1_sets__public_id__cards_get",
+        "parameters": [
+          {
+            "name": "public_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Public Id"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "description": "Page number, starting at 1.",
+              "default": 1,
+              "title": "Page"
+            },
+            "description": "Page number, starting at 1."
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "description": "Items per page, up to 100.",
+              "default": 50,
+              "title": "Limit"
+            },
+            "description": "Items per page, up to 100."
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "description": "Sort field: number, name, or rarity.",
+              "default": "number",
+              "title": "Sort"
+            },
+            "description": "Sort field: number, name, or rarity."
+          },
+          {
+            "name": "order",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "description": "Sort order: asc or desc.",
+              "default": "asc",
+              "title": "Order"
+            },
+            "description": "Sort order: asc or desc."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PaginatedCardsResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "An unexpected error occurred.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid pagination or sort parameters.",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "pagination": {
+                    "value": {
+                      "error": {
+                        "code": "INVALID_PAGINATION",
+                        "message": "page must be >= 1."
+                      }
+                    }
+                  },
+                  "sort": {
+                    "value": {
+                      "error": {
+                        "code": "INVALID_SORT",
+                        "message": "Invalid sort field."
+                      }
+                    }
+                  }
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Set not found.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "error": {
+                    "code": "SET_NOT_FOUND",
+                    "message": "Set not found."
+                  }
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/cards": {
+      "get": {
+        "tags": [
+          "Cards"
+        ],
+        "summary": "List cards",
+        "operationId": "list_cards_v1_cards_get",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "description": "Page number, starting at 1.",
+              "default": 1,
+              "title": "Page"
+            },
+            "description": "Page number, starting at 1."
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "description": "Items per page: 1 through 100.",
+              "default": 50,
+              "title": "Limit"
+            },
+            "description": "Items per page: 1 through 100."
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Case-insensitive partial name match.",
+              "title": "Name"
+            },
+            "description": "Case-insensitive partial name match."
+          },
+          {
+            "name": "set",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Exact public set ID, case-insensitive.",
+              "title": "Set"
+            },
+            "description": "Exact public set ID, case-insensitive."
+          },
+          {
+            "name": "number",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Exact card number (a string).",
+              "title": "Number"
+            },
+            "description": "Exact card number (a string)."
+          },
+          {
+            "name": "rarity",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Case-insensitive exact rarity.",
+              "title": "Rarity"
+            },
+            "description": "Case-insensitive exact rarity."
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Case-insensitive exact card type.",
+              "title": "Type"
+            },
+            "description": "Case-insensitive exact card type."
+          },
+          {
+            "name": "keyword",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Case-insensitive exact keyword slug.",
+              "title": "Keyword"
+            },
+            "description": "Case-insensitive exact keyword slug."
+          },
+          {
+            "name": "variant",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Case-insensitive exact variant type; at least one must match.",
+              "title": "Variant"
+            },
+            "description": "Case-insensitive exact variant type; at least one must match."
+          },
+          {
+            "name": "language",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Case-insensitive exact parent set language, not variant language.",
+              "title": "Language"
+            },
+            "description": "Case-insensitive exact parent set language, not variant language."
+          },
+          {
+            "name": "edition",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Case-insensitive exact parent set edition.",
+              "title": "Edition"
+            },
+            "description": "Case-insensitive exact parent set edition."
+          },
+          {
+            "name": "chakra_min",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Inclusive minimum chakra, >= 0; excludes null chakra.",
+              "title": "Chakra Min"
+            },
+            "description": "Inclusive minimum chakra, >= 0; excludes null chakra."
+          },
+          {
+            "name": "chakra_max",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Inclusive maximum chakra, >= 0; excludes null chakra.",
+              "title": "Chakra Max"
+            },
+            "description": "Inclusive maximum chakra, >= 0; excludes null chakra."
+          },
+          {
+            "name": "power_min",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Inclusive minimum power, >= 0; excludes null power.",
+              "title": "Power Min"
+            },
+            "description": "Inclusive minimum power, >= 0; excludes null power."
+          },
+          {
+            "name": "power_max",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Inclusive maximum power, >= 0; excludes null power.",
+              "title": "Power Max"
+            },
+            "description": "Inclusive maximum power, >= 0; excludes null power."
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "description": "number, name, rarity, set (name), or release_date.",
+              "default": "number",
+              "title": "Sort"
+            },
+            "description": "number, name, rarity, set (name), or release_date."
+          },
+          {
+            "name": "order",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "description": "asc or desc; null values always last.",
+              "default": "asc",
+              "title": "Order"
+            },
+            "description": "asc or desc; null values always last."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PaginatedCardsResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "An unexpected error occurred.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid pagination, sort, or filter parameters.",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "pagination": {
+                    "value": {
+                      "error": {
+                        "code": "INVALID_PAGINATION",
+                        "message": "page must be >= 1."
+                      }
+                    }
+                  },
+                  "sort": {
+                    "value": {
+                      "error": {
+                        "code": "INVALID_SORT",
+                        "message": "Invalid sort field."
+                      }
+                    }
+                  },
+                  "chakra_range": {
+                    "value": {
+                      "error": {
+                        "code": "INVALID_FILTER",
+                        "message": "chakra_min cannot be greater than chakra_max."
+                      }
+                    }
+                  },
+                  "power_range": {
+                    "value": {
+                      "error": {
+                        "code": "INVALID_FILTER",
+                        "message": "power_min cannot be greater than power_max."
+                      }
+                    }
+                  },
+                  "negative_stat": {
+                    "value": {
+                      "error": {
+                        "code": "INVALID_FILTER",
+                        "message": "chakra_min must be greater than or equal to 0."
+                      }
+                    }
+                  }
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/cards/random": {
+      "get": {
+        "tags": [
+          "Cards"
+        ],
+        "summary": "Get a random card",
+        "operationId": "random_card_v1_cards_random_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CardDetail"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "An unexpected error occurred.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "No cards available.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                },
+                "example": {
+                  "error": {
+                    "code": "CARD_NOT_FOUND",
+                    "message": "No cards available."
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/cards/{public_id}": {
+      "get": {
+        "tags": [
+          "Cards"
+        ],
+        "summary": "Get a single card",
+        "operationId": "get_card_v1_cards__public_id__get",
+        "parameters": [
+          {
+            "name": "public_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Public Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CardDetail"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "An unexpected error occurred.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Card not found.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "error": {
+                    "code": "CARD_NOT_FOUND",
+                    "message": "Card not found."
+                  }
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/rarities": {
+      "get": {
+        "tags": [
+          "Metadata"
+        ],
+        "summary": "List rarity counts",
+        "operationId": "rarities_v1_rarities_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/RarityCatalogItem"
+                  },
+                  "type": "array",
+                  "title": "Response Rarities V1 Rarities Get"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "An unexpected error occurred.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/keywords": {
+      "get": {
+        "tags": [
+          "Metadata"
+        ],
+        "summary": "List keyword counts",
+        "operationId": "keywords_v1_keywords_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/KeywordCatalogItem"
+                  },
+                  "type": "array",
+                  "title": "Response Keywords V1 Keywords Get"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "An unexpected error occurred.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/keywords/{slug}/cards": {
+      "get": {
+        "tags": [
+          "Metadata"
+        ],
+        "summary": "List a keyword's cards",
+        "operationId": "keyword_cards_v1_keywords__slug__cards_get",
+        "parameters": [
+          {
+            "name": "slug",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Slug"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "description": "Page number, >= 1.",
+              "default": 1,
+              "title": "Page"
+            },
+            "description": "Page number, >= 1."
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "description": "Items per page, 1 through 100.",
+              "default": 50,
+              "title": "Limit"
+            },
+            "description": "Items per page, 1 through 100."
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "description": "number, name, rarity, set, release_date.",
+              "default": "number",
+              "title": "Sort"
+            },
+            "description": "number, name, rarity, set, release_date."
+          },
+          {
+            "name": "order",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "description": "asc or desc; nulls last.",
+              "default": "asc",
+              "title": "Order"
+            },
+            "description": "asc or desc; nulls last."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PaginatedCardsResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "An unexpected error occurred.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid pagination or sort parameters.",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "pagination": {
+                    "value": {
+                      "error": {
+                        "code": "INVALID_PAGINATION",
+                        "message": "page must be >= 1."
+                      }
+                    }
+                  },
+                  "sort": {
+                    "value": {
+                      "error": {
+                        "code": "INVALID_SORT",
+                        "message": "Invalid sort field."
+                      }
+                    }
+                  }
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Keyword not found.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "error": {
+                    "code": "KEYWORD_NOT_FOUND",
+                    "message": "Keyword not found."
+                  }
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/search": {
+      "get": {
+        "tags": [
+          "Search"
+        ],
+        "summary": "Search catalogue",
+        "operationId": "search_v1_search_get",
+        "parameters": [
+          {
+            "name": "q",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Literal case-insensitive substring; trimmed length >= 2.",
+              "title": "Q"
+            },
+            "description": "Literal case-insensitive substring; trimmed length >= 2."
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "description": "Final combined result limit, 1 through 50; default 20.",
+              "default": 20,
+              "title": "Limit"
+            },
+            "description": "Final combined result limit, 1 through 50; default 20."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SearchResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "An unexpected error occurred.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid query or search limit.",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "query": {
+                    "value": {
+                      "error": {
+                        "code": "INVALID_FILTER",
+                        "message": "Search query must contain at least 2 characters."
+                      }
+                    }
+                  },
+                  "limit": {
+                    "value": {
+                      "error": {
+                        "code": "INVALID_PAGINATION",
+                        "message": "Search limit must be between 1 and 50."
+                      }
+                    }
+                  }
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "CardDetail": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id",
+            "examples": [
+              "TEST-001"
+            ]
+          },
+          "number": {
+            "type": "string",
+            "title": "Number",
+            "examples": [
+              "001"
+            ]
+          },
+          "name": {
+            "type": "string",
+            "title": "Name",
+            "examples": [
+              "Test Character Alpha"
+            ]
+          },
+          "subtitle": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Subtitle",
+            "examples": [
+              null
+            ]
+          },
+          "type": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Type",
+            "examples": [
+              "Character"
+            ]
+          },
+          "rarity": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Rarity",
+            "examples": [
+              "Rare"
+            ]
+          },
+          "chakra": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Chakra",
+            "examples": [
+              4
+            ]
+          },
+          "power": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Power",
+            "examples": [
+              5
+            ]
+          },
+          "faction": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Faction",
+            "examples": [
+              "Test Village"
+            ]
+          },
+          "ability_text": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Ability Text",
+            "examples": [
+              null
+            ]
+          },
+          "flavor_text": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Flavor Text",
+            "examples": [
+              null
+            ]
+          },
+          "artist": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Artist",
+            "examples": [
+              null
+            ]
+          },
+          "set": {
+            "$ref": "#/components/schemas/SetSummary"
+          },
+          "keywords": {
+            "items": {
+              "$ref": "#/components/schemas/KeywordResponse"
+            },
+            "type": "array",
+            "title": "Keywords"
+          },
+          "variants": {
+            "items": {
+              "$ref": "#/components/schemas/CardVariantResponse"
+            },
+            "type": "array",
+            "title": "Variants"
+          },
+          "images": {
+            "items": {
+              "$ref": "#/components/schemas/CardImageResponse"
+            },
+            "type": "array",
+            "title": "Images"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "number",
+          "name",
+          "set"
+        ],
+        "title": "CardDetail",
+        "example": {
+          "chakra": 4,
+          "faction": "Test Village",
+          "id": "TEST-001",
+          "images": [],
+          "keywords": [
+            {
+              "name": "Test Keyword",
+              "slug": "test-keyword"
+            }
+          ],
+          "name": "Test Character Alpha",
+          "number": "001",
+          "power": 5,
+          "rarity": "Rare",
+          "set": {
+            "code": "TST1",
+            "edition": "1st Edition",
+            "id": "test-set-1",
+            "name": "Test Set Alpha"
+          },
+          "type": "Character",
+          "variants": []
+        }
+      },
+      "CardImageResponse": {
+        "properties": {
+          "type": {
+            "type": "string",
+            "title": "Type",
+            "examples": [
+              "front"
+            ]
+          },
+          "url": {
+            "type": "string",
+            "title": "Url",
+            "examples": [
+              "https://example.invalid/test-card.jpg"
+            ]
+          },
+          "width": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Width",
+            "examples": [
+              734
+            ]
+          },
+          "height": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Height",
+            "examples": [
+              1024
+            ]
+          }
+        },
+        "type": "object",
+        "required": [
+          "type",
+          "url"
+        ],
+        "title": "CardImageResponse",
+        "example": {
+          "height": 1024,
+          "type": "front",
+          "url": "https://example.invalid/test-card.jpg",
+          "width": 734
+        }
+      },
+      "CardSearchResult": {
+        "properties": {
+          "type": {
+            "type": "string",
+            "const": "card",
+            "title": "Type",
+            "default": "card"
+          },
+          "card": {
+            "$ref": "#/components/schemas/CardSummary"
+          }
+        },
+        "type": "object",
+        "required": [
+          "card"
+        ],
+        "title": "CardSearchResult"
+      },
+      "CardSummary": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id",
+            "examples": [
+              "TEST-001"
+            ]
+          },
+          "number": {
+            "type": "string",
+            "title": "Number",
+            "examples": [
+              "001"
+            ]
+          },
+          "name": {
+            "type": "string",
+            "title": "Name",
+            "examples": [
+              "Test Character Alpha"
+            ]
+          },
+          "subtitle": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Subtitle",
+            "examples": [
+              null
+            ]
+          },
+          "type": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Type",
+            "examples": [
+              "Character"
+            ]
+          },
+          "rarity": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Rarity",
+            "examples": [
+              "Rare"
+            ]
+          },
+          "set": {
+            "$ref": "#/components/schemas/SetSummary"
+          },
+          "images": {
+            "items": {
+              "$ref": "#/components/schemas/CardImageResponse"
+            },
+            "type": "array",
+            "title": "Images"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "number",
+          "name",
+          "set"
+        ],
+        "title": "CardSummary",
+        "example": {
+          "id": "TEST-001",
+          "images": [],
+          "name": "Test Character Alpha",
+          "number": "001",
+          "rarity": "Rare",
+          "set": {
+            "code": "TST1",
+            "edition": "1st Edition",
+            "id": "test-set-1",
+            "name": "Test Set Alpha"
+          },
+          "type": "Character"
+        }
+      },
+      "CardVariantResponse": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id",
+            "examples": [
+              "TEST-001-holographic"
+            ]
+          },
+          "type": {
+            "type": "string",
+            "title": "Type",
+            "examples": [
+              "holographic"
+            ]
+          },
+          "finish": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Finish",
+            "examples": [
+              "holo"
+            ]
+          },
+          "rarity": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Rarity",
+            "examples": [
+              null
+            ]
+          },
+          "collector_number": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Collector Number",
+            "examples": [
+              null
+            ]
+          },
+          "language": {
+            "type": "string",
+            "title": "Language",
+            "examples": [
+              "EN"
+            ]
+          },
+          "edition": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Edition",
+            "examples": [
+              null
+            ]
+          },
+          "serial_numbered": {
+            "type": "boolean",
+            "title": "Serial Numbered",
+            "examples": [
+              false
+            ]
+          },
+          "serial_total": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Serial Total",
+            "examples": [
+              null
+            ]
+          },
+          "images": {
+            "items": {
+              "$ref": "#/components/schemas/CardImageResponse"
+            },
+            "type": "array",
+            "title": "Images"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "type",
+          "language",
+          "serial_numbered"
+        ],
+        "title": "CardVariantResponse",
+        "example": {
+          "finish": "holo",
+          "id": "TEST-001-holographic",
+          "images": [],
+          "language": "EN",
+          "serial_numbered": false,
+          "type": "holographic"
+        }
+      },
+      "ErrorCode": {
+        "type": "string",
+        "enum": [
+          "CARD_NOT_FOUND",
+          "SET_NOT_FOUND",
+          "KEYWORD_NOT_FOUND",
+          "INVALID_FILTER",
+          "INVALID_PAGINATION",
+          "INVALID_SORT",
+          "FORBIDDEN",
+          "INTERNAL_ERROR"
+        ],
+        "title": "ErrorCode",
+        "description": "Known/expected error codes for the /v1 API.\n\nThis list is expected to grow in later phases as route handlers are\nimplemented (e.g. Phase 5+ will need to actually raise CARD_NOT_FOUND\nwhen a lookup misses) -- growing it is an additive change."
+      },
+      "ErrorDetail": {
+        "properties": {
+          "code": {
+            "$ref": "#/components/schemas/ErrorCode"
+          },
+          "message": {
+            "type": "string",
+            "title": "Message"
+          }
+        },
+        "type": "object",
+        "required": [
+          "code",
+          "message"
+        ],
+        "title": "ErrorDetail"
+      },
+      "ErrorResponse": {
+        "properties": {
+          "error": {
+            "$ref": "#/components/schemas/ErrorDetail"
+          }
+        },
+        "type": "object",
+        "required": [
+          "error"
+        ],
+        "title": "ErrorResponse"
+      },
+      "HTTPValidationError": {
+        "properties": {
+          "detail": {
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            },
+            "type": "array",
+            "title": "Detail"
+          }
+        },
+        "type": "object",
+        "title": "HTTPValidationError"
+      },
+      "HealthResponse": {
+        "properties": {
+          "status": {
+            "type": "string",
+            "title": "Status",
+            "examples": [
+              "ok"
+            ]
+          },
+          "version": {
+            "type": "string",
+            "title": "Version",
+            "examples": [
+              "1.0.0"
+            ]
+          }
+        },
+        "type": "object",
+        "required": [
+          "status",
+          "version"
+        ],
+        "title": "HealthResponse",
+        "example": {
+          "status": "ok",
+          "version": "1.0.0"
+        }
+      },
+      "KeywordCatalogItem": {
+        "properties": {
+          "slug": {
+            "type": "string",
+            "title": "Slug",
+            "examples": [
+              "test-keyword"
+            ]
+          },
+          "name": {
+            "type": "string",
+            "title": "Name",
+            "examples": [
+              "Test Keyword"
+            ]
+          },
+          "card_count": {
+            "type": "integer",
+            "minimum": 0.0,
+            "title": "Card Count",
+            "examples": [
+              10
+            ]
+          }
+        },
+        "type": "object",
+        "required": [
+          "slug",
+          "name",
+          "card_count"
+        ],
+        "title": "KeywordCatalogItem",
+        "example": {
+          "card_count": 10,
+          "name": "Test Keyword",
+          "slug": "test-keyword"
+        }
+      },
+      "KeywordResponse": {
+        "properties": {
+          "slug": {
+            "type": "string",
+            "title": "Slug",
+            "examples": [
+              "test-keyword"
+            ]
+          },
+          "name": {
+            "type": "string",
+            "title": "Name",
+            "examples": [
+              "Test Keyword"
+            ]
+          }
+        },
+        "type": "object",
+        "required": [
+          "slug",
+          "name"
+        ],
+        "title": "KeywordResponse",
+        "example": {
+          "name": "Test Keyword",
+          "slug": "test-keyword"
+        }
+      },
+      "KeywordSearchResult": {
+        "properties": {
+          "type": {
+            "type": "string",
+            "const": "keyword",
+            "title": "Type",
+            "default": "keyword"
+          },
+          "keyword": {
+            "$ref": "#/components/schemas/KeywordResponse"
+          }
+        },
+        "type": "object",
+        "required": [
+          "keyword"
+        ],
+        "title": "KeywordSearchResult"
+      },
+      "PaginatedCardsResponse": {
+        "properties": {
+          "data": {
+            "items": {
+              "$ref": "#/components/schemas/CardSummary"
+            },
+            "type": "array",
+            "title": "Data"
+          },
+          "pagination": {
+            "$ref": "#/components/schemas/PaginationMeta"
+          }
+        },
+        "type": "object",
+        "required": [
+          "data",
+          "pagination"
+        ],
+        "title": "PaginatedCardsResponse",
+        "example": {
+          "data": [],
+          "pagination": {
+            "has_next": false,
+            "has_previous": false,
+            "limit": 50,
+            "page": 1,
+            "pages": 0,
+            "total": 0
+          }
+        }
+      },
+      "PaginatedSetsResponse": {
+        "properties": {
+          "data": {
+            "items": {
+              "$ref": "#/components/schemas/SetDetail"
+            },
+            "type": "array",
+            "title": "Data"
+          },
+          "pagination": {
+            "$ref": "#/components/schemas/PaginationMeta"
+          }
+        },
+        "type": "object",
+        "required": [
+          "data",
+          "pagination"
+        ],
+        "title": "PaginatedSetsResponse",
+        "description": "Paginated GET /v1/sets response.\n\nUses `SetDetail` (the full representation), not a further-trimmed-down\nsummary, as the list item shape. Decision, documented per the brief:\nunlike cards -- which can number in the thousands and are paginated\nspecifically to keep list responses lightweight -- the number of sets\nin a TCG catalogue is small (tens, not thousands), so there is no\nmeaningful payload-size concern with returning full detail per set even\nin a list response. Giving developers the complete set record (release\ndate, printed totals, etc.) directly from the list endpoint avoids an\nextra round trip to `GET /v1/sets/{id}` for data they'll almost always\nwant anyway when browsing sets.",
+        "example": {
+          "data": [],
+          "pagination": {
+            "has_next": false,
+            "has_previous": false,
+            "limit": 50,
+            "page": 1,
+            "pages": 0,
+            "total": 0
+          }
+        }
+      },
+      "PaginationMeta": {
+        "properties": {
+          "page": {
+            "type": "integer",
+            "minimum": 1.0,
+            "title": "Page",
+            "examples": [
+              1
+            ]
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1.0,
+            "title": "Limit",
+            "examples": [
+              50
+            ]
+          },
+          "total": {
+            "type": "integer",
+            "minimum": 0.0,
+            "title": "Total",
+            "examples": [
+              630
+            ]
+          },
+          "pages": {
+            "type": "integer",
+            "minimum": 0.0,
+            "title": "Pages",
+            "examples": [
+              13
+            ]
+          },
+          "has_next": {
+            "type": "boolean",
+            "title": "Has Next",
+            "examples": [
+              true
+            ]
+          },
+          "has_previous": {
+            "type": "boolean",
+            "title": "Has Previous",
+            "examples": [
+              false
+            ]
+          }
+        },
+        "type": "object",
+        "required": [
+          "page",
+          "limit",
+          "total",
+          "pages",
+          "has_next",
+          "has_previous"
+        ],
+        "title": "PaginationMeta",
+        "example": {
+          "has_next": true,
+          "has_previous": false,
+          "limit": 50,
+          "page": 1,
+          "pages": 13,
+          "total": 630
+        }
+      },
+      "RarityCatalogItem": {
+        "properties": {
+          "name": {
+            "type": "string",
+            "title": "Name",
+            "examples": [
+              "Rare"
+            ]
+          },
+          "slug": {
+            "type": "string",
+            "title": "Slug",
+            "examples": [
+              "rare"
+            ]
+          },
+          "card_count": {
+            "type": "integer",
+            "minimum": 0.0,
+            "title": "Card Count",
+            "examples": [
+              42
+            ]
+          }
+        },
+        "type": "object",
+        "required": [
+          "name",
+          "slug",
+          "card_count"
+        ],
+        "title": "RarityCatalogItem",
+        "example": {
+          "card_count": 42,
+          "name": "Rare",
+          "slug": "rare"
+        }
+      },
+      "ReadyResponse": {
+        "properties": {
+          "status": {
+            "type": "string",
+            "title": "Status",
+            "examples": [
+              "ready",
+              "not_ready"
+            ]
+          }
+        },
+        "type": "object",
+        "required": [
+          "status"
+        ],
+        "title": "ReadyResponse",
+        "example": {
+          "status": "ready"
+        }
+      },
+      "SearchResponse": {
+        "properties": {
+          "data": {
+            "items": {
+              "oneOf": [
+                {
+                  "$ref": "#/components/schemas/CardSearchResult"
+                },
+                {
+                  "$ref": "#/components/schemas/SetSearchResult"
+                },
+                {
+                  "$ref": "#/components/schemas/KeywordSearchResult"
+                }
+              ],
+              "discriminator": {
+                "propertyName": "type",
+                "mapping": {
+                  "card": "#/components/schemas/CardSearchResult",
+                  "keyword": "#/components/schemas/KeywordSearchResult",
+                  "set": "#/components/schemas/SetSearchResult"
+                }
+              }
+            },
+            "type": "array",
+            "title": "Data"
+          }
+        },
+        "type": "object",
+        "required": [
+          "data"
+        ],
+        "title": "SearchResponse",
+        "description": "Bounded mixed results returned by GET /v1/search.",
+        "example": {
+          "data": [
+            {
+              "card": {
+                "id": "TEST-001",
+                "images": [],
+                "name": "Test Character Alpha",
+                "number": "001",
+                "rarity": "Rare",
+                "set": {
+                  "code": "TST1",
+                  "edition": "1st Edition",
+                  "id": "test-set-1",
+                  "name": "Test Set Alpha"
+                },
+                "type": "Character"
+              },
+              "type": "card"
+            },
+            {
+              "set": {
+                "code": "TST1",
+                "edition": "1st Edition",
+                "id": "test-set-1",
+                "name": "Test Set Alpha"
+              },
+              "type": "set"
+            },
+            {
+              "keyword": {
+                "name": "Test Keyword",
+                "slug": "test-keyword"
+              },
+              "type": "keyword"
+            }
+          ]
+        }
+      },
+      "SetDetail": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id",
+            "examples": [
+              "test-set-1"
+            ]
+          },
+          "code": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Code",
+            "examples": [
+              "TST1"
+            ]
+          },
+          "name": {
+            "type": "string",
+            "title": "Name",
+            "examples": [
+              "Test Set Alpha"
+            ]
+          },
+          "edition": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Edition",
+            "examples": [
+              "1st Edition"
+            ]
+          },
+          "language": {
+            "type": "string",
+            "title": "Language",
+            "examples": [
+              "EN"
+            ]
+          },
+          "release_date": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Release Date",
+            "examples": [
+              "2026-01-01"
+            ]
+          },
+          "printed_total": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Printed Total",
+            "examples": [
+              100
+            ]
+          },
+          "total_with_variants": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Total With Variants",
+            "examples": [
+              150
+            ]
+          },
+          "logo_url": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Logo Url",
+            "examples": [
+              null
+            ]
+          },
+          "symbol_url": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Symbol Url",
+            "examples": [
+              null
+            ]
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "name",
+          "language"
+        ],
+        "title": "SetDetail",
+        "example": {
+          "code": "TST1",
+          "edition": "1st Edition",
+          "id": "test-set-1",
+          "language": "EN",
+          "name": "Test Set Alpha",
+          "printed_total": 100,
+          "release_date": "2026-01-01",
+          "total_with_variants": 150
+        }
+      },
+      "SetSearchResult": {
+        "properties": {
+          "type": {
+            "type": "string",
+            "const": "set",
+            "title": "Type",
+            "default": "set"
+          },
+          "set": {
+            "$ref": "#/components/schemas/SetSummary"
+          }
+        },
+        "type": "object",
+        "required": [
+          "set"
+        ],
+        "title": "SetSearchResult"
+      },
+      "SetSummary": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id",
+            "examples": [
+              "test-set-1"
+            ]
+          },
+          "code": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Code",
+            "examples": [
+              "TST1"
+            ]
+          },
+          "name": {
+            "type": "string",
+            "title": "Name",
+            "examples": [
+              "Test Set Alpha"
+            ]
+          },
+          "edition": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Edition",
+            "examples": [
+              "1st Edition"
+            ]
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "name"
+        ],
+        "title": "SetSummary",
+        "example": {
+          "code": "TST1",
+          "edition": "1st Edition",
+          "id": "test-set-1",
+          "name": "Test Set Alpha"
+        }
+      },
+      "ValidationError": {
+        "properties": {
+          "loc": {
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            },
+            "type": "array",
+            "title": "Location"
+          },
+          "msg": {
+            "type": "string",
+            "title": "Message"
+          },
+          "type": {
+            "type": "string",
+            "title": "Error Type"
+          },
+          "input": {
+            "title": "Input"
+          },
+          "ctx": {
+            "type": "object",
+            "title": "Context"
+          }
+        },
+        "type": "object",
+        "required": [
+          "loc",
+          "msg",
+          "type"
+        ],
+        "title": "ValidationError"
+      }
+    }
+  }
+}

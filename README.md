@@ -348,9 +348,123 @@ running.
 
 Deployment is not implemented. A future server start command must pass the desired port explicitly; the application Settings value alone does not configure Uvicorn.
 
-## RapidAPI Publishing Notes
+## RapidAPI Developer Notes
 
-RapidAPI integration is not implemented. Runtime OpenAPI remains 3.1. A later publication step may require a validated 3.0.x export; compatibility must be checked with the destination at that time.
+This project is a developer-facing public API for Naruto Mythos TCG catalogue data. The origin API is intended to be consumed by external tools, websites, and app integrations, and it may later be exposed through a RapidAPI listing. The project does not claim to be an official Naruto API and does not claim any current live RapidAPI listing or commercial publication.
+
+### API purpose
+
+- Public origin API for catalogue discovery and lookup
+- Versioned under `/v1`
+- `API version 1.0.0`
+- Read-only public resources: sets, cards, keywords, metadata, search
+- No real importer or live catalogue ingestion is currently active in production
+- Production database remains intentionally empty until authorized ingestion work begins
+
+### Origin URL and versioning
+
+The production origin is intended to be served from Railway at:
+
+```text
+https://naruto-mythos-api-production.up.railway.app
+```
+
+The current public versioning policy is:
+
+- `/v1` for the stable public API
+- API version metadata: `1.0.0`
+- no write endpoints for public clients
+
+### Public contract at a glance
+
+- `GET /health` — liveness only
+- `GET /ready` — infrastructure readiness
+- `GET /v1/sets` — list sets
+- `GET /v1/sets/{public_id}` — set detail
+- `GET /v1/sets/{public_id}/cards` — cards in a set
+- `GET /v1/cards` — paginated card queries with filtering
+- `GET /v1/cards/random` — random card result if present in the route set
+- `GET /v1/cards/{public_id}` — card detail
+- `GET /v1/rarities` — distinct rarity values
+- `GET /v1/keywords` — list keywords
+- `GET /v1/keywords/{slug}/cards` — keyword-based lookup
+- `GET /v1/search` — search queries
+
+### Pagination, filtering, sorting, and search
+
+The public API uses a consistent pagination wrapper:
+
+- `page` defaults to `1`
+- `limit` defaults to `50`
+- `limit` must stay within the allowed range
+- invalid values return the standardized 400 error contract
+- empty result sets still return a `200` with an empty `data` array and accurate pagination metadata
+
+Filters, sorting, and search are request-driven and documented in the canonical FastAPI OpenAPI at runtime. The API is designed to be read-only and request-safe; no write or admin routes are exposed in the public API surface.
+
+### Standardized errors
+
+Every public route uses the shared error contract:
+
+```json
+{
+  "error": {
+    "code": "SET_NOT_FOUND",
+    "message": "Set not found."
+  }
+}
+```
+
+Actual error codes in the public contract include `SET_NOT_FOUND`, `CARD_NOT_FOUND`, `KEYWORD_NOT_FOUND`, `INVALID_FILTER`, `INVALID_PAGINATION`, `INVALID_SORT`, `FORBIDDEN`, and `INTERNAL_ERROR`.
+
+### OpenAPI and docs
+
+The canonical application generates OpenAPI 3.1.0 JSON for local use at `/openapi.json`. Swagger UI is available at `/docs`, and Redoc is available at `/redoc` when docs are enabled. A generated RapidAPI compatibility export is produced in the repository and remains derived from the canonical FastAPI schema rather than being maintained by hand.
+
+### RapidAPI authentication model
+
+RapidAPI handles consumer-side authentication, which means the consumer requests are expected to carry:
+
+- `X-RapidAPI-Key`
+- `X-RapidAPI-Host`
+
+Those headers are not validated by the origin API itself; they are validated by the RapidAPI gateway. The origin service is only responsible for protecting itself from direct traffic when configured.
+
+The origin-facing protection is optional and implemented as:
+
+- `X-RapidAPI-Proxy-Secret` header check
+- only enforced on `/v1` routes when `RAPIDAPI_PROXY_SECRET` is set
+- no protection for `/health` or `/ready`
+- no protection when the secret is unset
+
+This is intended to be used only when the live RapidAPI runtime is configured and the RapidAPI gateway is forwarding requests to the origin. It is not enabled in production by default.
+
+### Rate limiting and CORS
+
+Rate limiting and quotas are intended to be gateway-owned. The origin API does not claim to currently enforce a specific plan or quota model itself. CORS is configuration-driven and intentionally limited to explicit origins when configured; no wildcard credentialed browser policy is enabled by default.
+
+### Production state and deployment notes
+
+This repository is not claiming a live API publication. The production database remains intentionally empty, no importer has been authorized to load real Naruto card data, and no live RapidAPI listing has been established from this codebase alone.
+
+### RapidAPI setup steps for later manual approval
+
+The following are the manual setup steps after code-ready approval:
+
+1. Sign into RapidAPI and create the provider API entry.
+2. Keep the listing private until the origin is validated.
+3. Import the generated OpenAPI 3.0.2 document.
+4. Configure the origin URL to `https://naruto-mythos-api-production.up.railway.app`.
+5. Configure and test the RapidAPI runtime.
+6. Obtain the provider-side `X-RapidAPI-Proxy-Secret` value.
+7. Add it to Railway as `RAPIDAPI_PROXY_SECRET`.
+8. Redeploy the service.
+9. Confirm direct `/v1` access without the secret returns `403`.
+10. Confirm proxied RapidAPI access succeeds.
+11. Configure plans, quotas, and rate limits.
+12. Test representative endpoints.
+13. Review analytics and monitor traffic.
+14. Only then consider publication.
 
 ## Data Licensing Notice
 

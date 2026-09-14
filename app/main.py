@@ -1,3 +1,4 @@
+import hmac
 import logging
 import traceback
 from pathlib import Path
@@ -83,6 +84,31 @@ async def handle_unexpected_error(request: Request, exc: Exception) -> JSONRespo
             error=ErrorDetail(
                 code=ErrorCode.INTERNAL_ERROR, message="An unexpected error occurred."
             )
+        ).model_dump(mode="json"),
+    )
+
+
+@app.middleware("http")
+async def rapidapi_proxy_secret_guard(request: Request, call_next):
+    """Require the configured RapidAPI proxy secret only for /v1 traffic."""
+    if not settings.rapidapi_proxy_secret:
+        return await call_next(request)
+
+    if not request.url.path.startswith("/v1"):
+        return await call_next(request)
+
+    supplied = request.headers.get("X-RapidAPI-Proxy-Secret")
+    if (
+        supplied is not None
+        and settings.rapidapi_proxy_secret is not None
+        and hmac.compare_digest(supplied, settings.rapidapi_proxy_secret)
+    ):
+        return await call_next(request)
+
+    return JSONResponse(
+        status_code=403,
+        content=ErrorResponse(
+            error=ErrorDetail(code=ErrorCode.FORBIDDEN, message="Forbidden.")
         ).model_dump(mode="json"),
     )
 
