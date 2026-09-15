@@ -1,0 +1,277 @@
+{
+  "fictional_notice": "Entirely invented test material. No official catalogue content or artwork.",
+  "policy": {
+    "approved_scopes": [
+      {
+        "expansion": "ember-trials",
+        "edition": "first",
+        "language": "EN",
+        "territory": null
+      },
+      {
+        "expansion": "ember-trials",
+        "edition": "second",
+        "language": "EN",
+        "territory": null
+      },
+      {
+        "expansion": "ember-trials",
+        "edition": "first",
+        "language": "FR",
+        "territory": null
+      }
+    ],
+    "treatment_keys": [
+      "normal",
+      "full-art"
+    ],
+    "finish_keys": [
+      "prism",
+      "matte"
+    ]
+  },
+  "records": [
+    {
+      "schema_version": "1",
+      "record_key": "ember-scout-first-en",
+      "source": {
+        "name": "Fictional Phase 12B fixture",
+        "url": "https://example.invalid/staging",
+        "retrieved_at": "2026-01-01T00:00:00Z",
+        "authority": "UNSUITABLE",
+        "revision": "fictional-1"
+      },
+      "identity": {
+        "scope": {
+          "expansion": "ember-trials",
+          "edition": "first",
+          "language": "EN",
+          "territory": null
+        },
+        "numbering_namespace": "STANDARD",
+        "printed_identifier": "001/100"
+      },
+      "card": {
+        "name": {
+          "state": "VALUE",
+          "value": "Ember Scout"
+        },
+        "subtitle": null,
+        "type": {
+          "state": "VALUE",
+          "value": "Explorer"
+        },
+        "chakra": {
+          "state": "VALUE",
+          "value": 2
+        },
+        "power": {
+          "state": "VALUE",
+          "value": 3
+        },
+        "ability_text": {
+          "state": "VALUE",
+          "value": "Fictional fixture: collect one glass token."
+        }
+      },
+      "review_status": "APPROVED"
+    },
+    {
+      "schema_version": "1",
+      "record_key": "scout-second-en",
+      "source": {
+        "name": "Fictional Phase 12B fixture",
+        "url": "https://example.invalid/staging",
+        "retrieved_at": "2026-01-01T00:00:00Z",
+        "authority": "UNSUITABLE",
+        "revision": "fictional-1"
+      },
+      "identity": {
+        "scope": {
+          "expansion": "ember-trials",
+          "edition": "second",
+          "language": "EN",
+          "territory": null
+        },
+        "numbering_namespace": "STANDARD",
+        "printed_identifier": "001/100"
+      },
+      "card": {
+        "name": {
+          "state": "VALUE",
+          "value": "Ember Scout"
+        },
+        "subtitle": null,
+        "type": {
+          "state": "VALUE",
+          "value": "Explorer"
+        },
+        "chakra": {
+          "state": "VALUE",
+          "value": 2
+        },
+        "power": {
+          "state": "VALUE",
+          "value": 3
+        },
+        "ability_text": {
+          "state": "VALUE",
+          "value": "Fictional fixture: collect one glass token."
+        }
+      },
+      "review_status": "APPROVED"
+    },
+    {
+      "schema_version": "1",
+      "record_key": "scout-first-fr",
+      "source": {
+        "name": "Fictional Phase 12B fixture",
+        "url": "https://example.invalid/staging",
+        "retrieved_at": "2026-01-01T00:00:00Z",
+        "authority": "UNSUITABLE",
+        "revision": "fictional-1"
+      },
+      "identity": {
+        "scope": {
+          "expansion": "ember-trials",
+          "edition": "first",
+          "language": "FR",
+          "territory": null
+        },
+        "numbering_namespace": "STANDARD",
+        "printed_identifier": "001/100"
+      },
+      "card": {
+        "name": {
+          "state": "VALUE",
+          "value": "Ember Scout"
+        },
+        "subtitle": null,
+        "type": {
+          "state": "VALUE",
+          "value": "Explorer"
+        },
+        "chakra": {
+          "state": "VALUE",
+          "value": 2
+        },
+        "power": {
+          "state": "VALUE",
+          "value": 3
+        },
+        "ability_text": {
+          "state": "VALUE",
+          "value": "Fictional fixture: collect one glass token."
+        }
+      },
+      "review_status": "APPROVED"
+    },
+    {
+      "schema_version": "1",
+      "record_key": "crystal-mission",
+      "source": {
+        "name": "Fictional Phase 12B fixture",
+        "url": "https://example.invalid/staging",
+        "retrieved_at": "2026-01-01T00:00:00Z",
+        "authority": "UNSUITABLE",
+        "revision": "fictional-1"
+      },
+      "identity": {
+        "scope": {
+          "expansion": "ember-trials",
+          "edition": "first",
+          "language": "EN",
+          "territory": null
+        },
+        "numbering_namespace": "MISSION",
+        "printed_identifier": "001/100"
+      },
+      "card": {
+        "name": {
+          "state": "VALUE",
+          "value": "Ember Scout"
+        },
+        "subtitle": null,
+        "type": {
+          "state": "VALUE",
+          "value": "Explorer"
+        },
+        "chakra": {
+          "state": "VALUE",
+          "value": 2
+        },
+        "power": {
+          "state": "VALUE",
+          "value": 3
+        },
+        "ability_text": {
+          "state": "VALUE",
+          "value": "Fictional fixture: collect one glass token."
+        }
+      },
+      "review_status": "APPROVED"
+    },
+    {
+      "schema_version": "1",
+      "record_key": "scout-prism",
+      "source": {
+        "name": "Fictional Phase 12B fixture",
+        "url": "https://example.invalid/staging",
+        "retrieved_at": "2026-01-01T00:00:00Z",
+        "authority": "UNSUITABLE",
+        "revision": "fictional-1"
+      },
+      "identity": {
+        "scope": {
+          "expansion": "ember-trials",
+          "edition": "first",
+          "language": "EN",
+          "territory": null
+        },
+        "numbering_namespace": "STANDARD",
+        "printed_identifier": "001/100"
+      },
+      "card": {
+        "name": {
+          "state": "VALUE",
+          "value": "Ember Scout"
+        },
+        "subtitle": null,
+        "type": {
+          "state": "VALUE",
+          "value": "Explorer"
+        },
+        "chakra": {
+          "state": "VALUE",
+          "value": 2
+        },
+        "power": {
+          "state": "VALUE",
+          "value": 3
+        },
+        "ability_text": {
+          "state": "VALUE",
+          "value": "Fictional fixture: collect one glass token."
+        }
+      },
+      "review_status": "APPROVED",
+      "kind": "TREATMENT",
+      "treatment": {
+        "parent_record_key": "ember-scout-first-en",
+        "equivalence": "VERIFIED",
+        "evidence_reference": "fixture-equivalence",
+        "treatment_key": "full-art",
+        "finish_key": "prism",
+        "collector_number": "075/100 A",
+        "serial_numbered": true,
+        "serial_total": 100
+      },
+      "field_evidence": {
+        "fixture-equivalence": {
+          "locator": "fictional fixture author assertion",
+          "note": "Invented parent equivalence for unit tests only."
+        }
+      }
+    }
+  ]
+}
