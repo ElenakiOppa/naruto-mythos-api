@@ -1,0 +1,58 @@
+{
+  "fictional_notice": "Only invented scope mappings and review policies; no external catalogue content.",
+  "projection_policy": {
+    "version": "fictional-projection-v1",
+    "mappings": [
+      {
+        "scope": {
+          "expansion": "ember-trials",
+          "edition": "first",
+          "language": "EN",
+          "territory": null
+        },
+        "namespace": "STANDARD",
+        "set_id": "set_ember_first_en",
+        "set_name": "Ember Trials",
+        "edition_label": "First Edition"
+      },
+      {
+        "scope": {
+          "expansion": "ember-trials",
+          "edition": "second",
+          "language": "EN",
+          "territory": null
+        },
+        "namespace": "STANDARD",
+        "set_id": "set_ember_second_en",
+        "set_name": "Ember Trials",
+        "edition_label": "Second Edition"
+      },
+      {
+        "scope": {
+          "expansion": "ember-trials",
+          "edition": "first",
+          "language": "FR",
+          "territory": null
+        },
+        "namespace": "STANDARD",
+        "set_id": "set_ember_first_fr",
+        "set_name": "Ember Trials",
+        "edition_label": "First Edition"
+      }
+    ]
+  },
+  "planning_policy": {
+    "version": "fictional-planning-v1",
+    "revision_order": {
+      "Fictional Phase 12B fixture": [
+        "fictional-1",
+        "fictional-2",
+        "fictional-3"
+      ]
+    },
+    "nonblocking_warning_codes": [
+      "SOURCE_REVIEW_REQUIRED",
+      "RIGHTS_NOT_CLEARED"
+    ]
+  }
+}
