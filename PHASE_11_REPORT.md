@@ -42,15 +42,17 @@ The canonical app remains the only runtime source of truth. The route schema is 
 
 The generated artifact is created by the export helper in `scripts/export_rapidapi_openapi.py` and is designed to emit a deterministic `openapi` value of `3.0.2` while preserving the actual route surface. The generated file remains produced from the canonical FastAPI schema and is not treated as a separate hand-maintained contract.
 
-The corrected exporter now performs a recursive walk over the full schema tree, including `paths`, `parameters`, `request/response` schemas, `components`, nested properties, `items`, `anyOf`/`oneOf`/`allOf`, and `additionalProperties` schema objects. It converts the unsupported 3.1 pattern into legal 3.0.2 equivalents:
+The hardened exporter converts Schema Objects only and preserves example/default
+payloads and legal named media examples. It handles simple and complex nullable
+unions, standalone null, reference siblings via allOf, numeric exclusive bounds,
+type arrays, const/enum narrowing, schema examples, and boolean schemas.
+Unsupported 3.1 validation keywords fail closed instead of being silently removed.
 
-- `anyOf` + `{"type": "null"}` becomes the base schema with `nullable: true`
-- `type: "null"` is removed everywhere
-- schema-level `examples` become a single `example` value or are removed if the value cannot be represented safely
-- `const` becomes `enum: [value]` when the schema is a literal discriminator or type-like field
-- incompatible JSON Schema 2020-12-only keywords are stripped only where they are truly unsupported by OpenAPI 3.0
-
-This keeps the canonical FastAPI 3.1 schema untouched while making the exported provider document safer for RapidAPI import.
+The output is anchored to the repository. Export-time validation checks the exact
+12 GET routes, unique operation IDs, required path parameters, local references,
+response objects/schemas, and absence of additional security schemes or exposed
+origin credentials. The canonical FastAPI schema and runtime remain unchanged.
+See docs/RAPIDAPI_EXPORT_REVIEW.md for the detailed historical review.
 
 ## 6. Origin protection implementation
 
@@ -139,56 +141,92 @@ The repository remains aligned with the Railway deployment model already establi
 - no importer execution on app startup
 - no live provider secret enabled by default
 
-## 18. Production verification
+## 18. Live validation confirmed by the project owner
 
-The code was validated locally in the project environment, and the repo-level validation passed. This verifies repository correctness, not live RapidAPI publication. The live origin is not treated as a RapidAPI-protected environment unless the provider secret is explicitly configured in Railway.
+On 15 September 2026, the project owner reported that the review artifact was
+manually uploaded and accepted by RapidAPI Studio. These live results were
+supplied by the owner; this integration did not repeat live traffic or deploy.
 
-## 19. RapidAPI live testing status
+- OpenAPI 3.0.2 import accepted; exactly 12 GET operations visible.
+- Groups: System, Sets, Cards, Metadata, Search.
+- Legacy empty health / ready / v1 groups removed.
+- RapidAPI /health and /v1/sets return 200.
+- Direct Railway /health returns 200.
+- Direct Railway /v1/sets returns standardized 403 FORBIDDEN.
+- Origin proxy-secret protection is working.
+- Definitions > Security has no additional security schemes.
+- RapidAPI health check is SUCCESS.
+- BASIC, PRO and ULTRA plans are enabled.
+- Previously exposed consumer authorization/key was removed or replaced by the owner.
+- The production database remains intentionally empty; no catalogue import is authorized.
 
-This is not approved as live provider testing. No RapidAPI dashboard request was completed in this session, and no real provider-side secret was configured or used. The repository is therefore code-ready, not live-approved.
+No credential values are recorded here, and none were printed or rotated during
+this integration.
 
-## 20. Manual actions remaining
+## 19. Phase 11 integration into MAIN
 
-The remaining work is external to the repo and must be done through RapidAPI / Railway:
+MAIN: ElenakiOppa/naruto-mythos-api, branch main, inspected clean at
+`e42a5853ff9b2252e149c9f8441e51eae4302b81`, matching origin/main after fetch.
+The review directory is an extracted working copy without Git metadata.
 
-1. configure the RapidAPI provider listing
-2. import the generated 3.0.2 OpenAPI document
-3. configure the origin URL
-4. obtain `X-RapidAPI-Proxy-Secret`
-5. set `RAPIDAPI_PROXY_SECRET` in Railway
-6. redeploy
-7. verify direct origin access without the header returns `403`
-8. verify proxied RapidAPI access succeeds
-9. configure plans and quotas
-10. test representative endpoints and monitor usage
+Integrated files:
 
-## 21. Known limitations
+- scripts/export_rapidapi_openapi.py
+- tests/test_rapidapi_export.py
+- docs/generated/openapi.rapidapi.json
+- docs/RAPIDAPI.md
+- docs/RAPIDAPI_EXPORT_REVIEW.md (historical review)
+- pyproject.toml (two development-only validation dependencies)
+- PHASE_11_REPORT.md (this update)
 
-- No real RapidAPI dashboard access was used in this repo session.
-- The project does not claim production catalogue ingestion.
-- The production database remains intentionally empty.
-- No live listing or public publication is claimed.
+Existing tests/test_rapidapi.py was identical and remains unchanged. No application,
+importer, migration, Railway, Docker, or production dependency files were changed.
 
-## 22. Acceptance checklist
+## 20. Reproduction and validation in MAIN
 
-- [x] RapidAPI OpenAPI export exists and is generated from the canonical app
-- [x] OpenAPI 3.0.2 generation works
-- [x] canonical OpenAPI remains 3.1.0
-- [x] `/v1` routes are protected only when configured
-- [x] `/health` remains public
-- [x] `/ready` remains public
-- [x] secret comparison uses constant-time semantics
-- [x] docs are present and updated
-- [x] tests pass
-- [x] repo security review passes
-- [x] no secret values were committed
-- [x] code-ready approval is valid
-- [ ] live RapidAPI provider approval remains external/manual
+Validation used the review's Python 3.12.14 tool environment with the existing
+production-baseline.constraints versions. Commands ran from MAIN and imported
+MAIN's application and exporter. A process-local test DATABASE_URL and empty
+proxy-secret override prevented use of production connection settings; local
+.env contents were not printed or modified. Tests use isolated fixtures.
 
-## 23. Conclusion
+- Complete suite: 410 passed, no failures or skips; three existing deprecation warnings.
+- ruff check .: passed.
+- ruff format --check .: 92 files already formatted.
+- mypy app importer scripts: passed, 55 source files.
+- openapi-spec-validator on the generated JSON: OK.
+- OAS30Validator semantic tests and 77 schema examples: passed in the full suite.
+- All 18 response examples: independently validated with OAS30Validator.
+- OpenAPI 3.0.2; 12 paths; 12 GET operations; 38 parameters.
+- 23 component schemas; 42 response objects; 61 resolving references.
+- 44 nullable schemas; all existing unique operation IDs preserved.
 
-PHASE 11: APPROVED — CODE READY
+MAIN regenerated the artifact with SHA-256:
 
-PHASE 11: APPROVED — LIVE
+`9c76bca79d0056051dc2538e6b6b45382bb5275699d25e941fc82dbc5311d386`
 
-This project is approved for code-ready RapidAPI preparation and manual provider configuration. It is not approved for live RapidAPI publication because no provider-side dashboard testing or runtime validation has occurred.
+This is byte-for-byte identical to the artifact accepted by RapidAPI and to the
+review working copy. The output is docs/generated/openapi.rapidapi.json in MAIN.
+The canonical schema and runtime contract remain unchanged.
+
+## 21. Release boundary
+
+No deployment, database mutation, catalogue import, or Phase 12 work is part of
+this integration. Railway remains linked to origin/main. A push must not be made
+unless automatic deployment is confirmed disabled, because the owner explicitly
+prohibited both deployments and changes to Railway configuration.
+
+Integration stopped before commit and push: the read-only Railway configuration
+confirms the main source branch but omits the automatic-deployment enabled flag.
+The available browser session is not authenticated, so the setting could not be
+verified there. No Railway setting was changed. The seven-file diff and credential
+pattern scan passed; changes remain local and uncommitted pending confirmation
+that a push cannot trigger deployment.
+
+## 22. Acceptance status
+
+PHASE 11: CODE VALIDATED LOCALLY.
+
+PHASE 11: LIVE RAPIDAPI VALIDATION CONFIRMED BY THE PROJECT OWNER.
+
+Phase 12 has not started. Production catalogue ingestion remains out of scope.

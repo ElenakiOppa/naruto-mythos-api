@@ -111,10 +111,10 @@
             "in": "query",
             "required": false,
             "schema": {
-              "description": "Filter by language code (e.g. EN). Case-insensitive.",
-              "title": "Language",
+              "type": "string",
               "nullable": true,
-              "type": "string"
+              "description": "Filter by language code (e.g. EN). Case-insensitive.",
+              "title": "Language"
             },
             "description": "Filter by language code (e.g. EN). Case-insensitive."
           },
@@ -123,10 +123,10 @@
             "in": "query",
             "required": false,
             "schema": {
-              "description": "Filter by edition. Case-insensitive.",
-              "title": "Edition",
+              "type": "string",
               "nullable": true,
-              "type": "string"
+              "description": "Filter by edition. Case-insensitive.",
+              "title": "Edition"
             },
             "description": "Filter by edition. Case-insensitive."
           },
@@ -135,10 +135,10 @@
             "in": "query",
             "required": false,
             "schema": {
-              "description": "Filter by set code. Case-insensitive.",
-              "title": "Code",
+              "type": "string",
               "nullable": true,
-              "type": "string"
+              "description": "Filter by set code. Case-insensitive.",
+              "title": "Code"
             },
             "description": "Filter by set code. Case-insensitive."
           },
@@ -480,10 +480,10 @@
             "in": "query",
             "required": false,
             "schema": {
-              "description": "Case-insensitive partial name match.",
-              "title": "Name",
+              "type": "string",
               "nullable": true,
-              "type": "string"
+              "description": "Case-insensitive partial name match.",
+              "title": "Name"
             },
             "description": "Case-insensitive partial name match."
           },
@@ -492,10 +492,10 @@
             "in": "query",
             "required": false,
             "schema": {
-              "description": "Exact public set ID, case-insensitive.",
-              "title": "Set",
+              "type": "string",
               "nullable": true,
-              "type": "string"
+              "description": "Exact public set ID, case-insensitive.",
+              "title": "Set"
             },
             "description": "Exact public set ID, case-insensitive."
           },
@@ -504,10 +504,10 @@
             "in": "query",
             "required": false,
             "schema": {
-              "description": "Exact card number (a string).",
-              "title": "Number",
+              "type": "string",
               "nullable": true,
-              "type": "string"
+              "description": "Exact card number (a string).",
+              "title": "Number"
             },
             "description": "Exact card number (a string)."
           },
@@ -516,10 +516,10 @@
             "in": "query",
             "required": false,
             "schema": {
-              "description": "Case-insensitive exact rarity.",
-              "title": "Rarity",
+              "type": "string",
               "nullable": true,
-              "type": "string"
+              "description": "Case-insensitive exact rarity.",
+              "title": "Rarity"
             },
             "description": "Case-insensitive exact rarity."
           },
@@ -528,10 +528,10 @@
             "in": "query",
             "required": false,
             "schema": {
-              "description": "Case-insensitive exact card type.",
-              "title": "Type",
+              "type": "string",
               "nullable": true,
-              "type": "string"
+              "description": "Case-insensitive exact card type.",
+              "title": "Type"
             },
             "description": "Case-insensitive exact card type."
           },
@@ -540,10 +540,10 @@
             "in": "query",
             "required": false,
             "schema": {
-              "description": "Case-insensitive exact keyword slug.",
-              "title": "Keyword",
+              "type": "string",
               "nullable": true,
-              "type": "string"
+              "description": "Case-insensitive exact keyword slug.",
+              "title": "Keyword"
             },
             "description": "Case-insensitive exact keyword slug."
           },
@@ -552,10 +552,10 @@
             "in": "query",
             "required": false,
             "schema": {
-              "description": "Case-insensitive exact variant type; at least one must match.",
-              "title": "Variant",
+              "type": "string",
               "nullable": true,
-              "type": "string"
+              "description": "Case-insensitive exact variant type; at least one must match.",
+              "title": "Variant"
             },
             "description": "Case-insensitive exact variant type; at least one must match."
           },
@@ -564,10 +564,10 @@
             "in": "query",
             "required": false,
             "schema": {
-              "description": "Case-insensitive exact parent set language, not variant language.",
-              "title": "Language",
+              "type": "string",
               "nullable": true,
-              "type": "string"
+              "description": "Case-insensitive exact parent set language, not variant language.",
+              "title": "Language"
             },
             "description": "Case-insensitive exact parent set language, not variant language."
           },
@@ -576,10 +576,10 @@
             "in": "query",
             "required": false,
             "schema": {
-              "description": "Case-insensitive exact parent set edition.",
-              "title": "Edition",
+              "type": "string",
               "nullable": true,
-              "type": "string"
+              "description": "Case-insensitive exact parent set edition.",
+              "title": "Edition"
             },
             "description": "Case-insensitive exact parent set edition."
           },
@@ -588,10 +588,10 @@
             "in": "query",
             "required": false,
             "schema": {
-              "description": "Inclusive minimum chakra, >= 0; excludes null chakra.",
-              "title": "Chakra Min",
+              "type": "integer",
               "nullable": true,
-              "type": "integer"
+              "description": "Inclusive minimum chakra, >= 0; excludes null chakra.",
+              "title": "Chakra Min"
             },
             "description": "Inclusive minimum chakra, >= 0; excludes null chakra."
           },
@@ -600,10 +600,10 @@
             "in": "query",
             "required": false,
             "schema": {
-              "description": "Inclusive maximum chakra, >= 0; excludes null chakra.",
-              "title": "Chakra Max",
+              "type": "integer",
               "nullable": true,
-              "type": "integer"
+              "description": "Inclusive maximum chakra, >= 0; excludes null chakra.",
+              "title": "Chakra Max"
             },
             "description": "Inclusive maximum chakra, >= 0; excludes null chakra."
           },
@@ -612,10 +612,10 @@
             "in": "query",
             "required": false,
             "schema": {
-              "description": "Inclusive minimum power, >= 0; excludes null power.",
-              "title": "Power Min",
+              "type": "integer",
               "nullable": true,
-              "type": "integer"
+              "description": "Inclusive minimum power, >= 0; excludes null power.",
+              "title": "Power Min"
             },
             "description": "Inclusive minimum power, >= 0; excludes null power."
           },
@@ -624,10 +624,10 @@
             "in": "query",
             "required": false,
             "schema": {
-              "description": "Inclusive maximum power, >= 0; excludes null power.",
-              "title": "Power Max",
+              "type": "integer",
               "nullable": true,
-              "type": "integer"
+              "description": "Inclusive maximum power, >= 0; excludes null power.",
+              "title": "Power Max"
             },
             "description": "Inclusive maximum power, >= 0; excludes null power."
           },
@@ -1186,58 +1186,58 @@
             "example": "Test Character Alpha"
           },
           "subtitle": {
-            "title": "Subtitle",
-            "example": null,
+            "type": "string",
             "nullable": true,
-            "type": "string"
+            "title": "Subtitle",
+            "example": null
           },
           "type": {
-            "title": "Type",
-            "example": "Character",
+            "type": "string",
             "nullable": true,
-            "type": "string"
+            "title": "Type",
+            "example": "Character"
           },
           "rarity": {
-            "title": "Rarity",
-            "example": "Rare",
+            "type": "string",
             "nullable": true,
-            "type": "string"
+            "title": "Rarity",
+            "example": "Rare"
           },
           "chakra": {
-            "title": "Chakra",
-            "example": 4,
+            "type": "integer",
             "nullable": true,
-            "type": "integer"
+            "title": "Chakra",
+            "example": 4
           },
           "power": {
-            "title": "Power",
-            "example": 5,
+            "type": "integer",
             "nullable": true,
-            "type": "integer"
+            "title": "Power",
+            "example": 5
           },
           "faction": {
-            "title": "Faction",
-            "example": "Test Village",
+            "type": "string",
             "nullable": true,
-            "type": "string"
+            "title": "Faction",
+            "example": "Test Village"
           },
           "ability_text": {
-            "title": "Ability Text",
-            "example": null,
+            "type": "string",
             "nullable": true,
-            "type": "string"
+            "title": "Ability Text",
+            "example": null
           },
           "flavor_text": {
-            "title": "Flavor Text",
-            "example": null,
+            "type": "string",
             "nullable": true,
-            "type": "string"
+            "title": "Flavor Text",
+            "example": null
           },
           "artist": {
-            "title": "Artist",
-            "example": null,
+            "type": "string",
             "nullable": true,
-            "type": "string"
+            "title": "Artist",
+            "example": null
           },
           "set": {
             "$ref": "#/components/schemas/SetSummary"
@@ -1310,16 +1310,16 @@
             "example": "https://example.invalid/test-card.jpg"
           },
           "width": {
-            "title": "Width",
-            "example": 734,
+            "type": "integer",
             "nullable": true,
-            "type": "integer"
+            "title": "Width",
+            "example": 734
           },
           "height": {
-            "title": "Height",
-            "example": 1024,
+            "type": "integer",
             "nullable": true,
-            "type": "integer"
+            "title": "Height",
+            "example": 1024
           }
         },
         "type": "object",
@@ -1339,11 +1339,11 @@
         "properties": {
           "type": {
             "type": "string",
+            "title": "Type",
+            "default": "card",
             "enum": [
               "card"
-            ],
-            "title": "Type",
-            "default": "card"
+            ]
           },
           "card": {
             "$ref": "#/components/schemas/CardSummary"
@@ -1373,22 +1373,22 @@
             "example": "Test Character Alpha"
           },
           "subtitle": {
-            "title": "Subtitle",
-            "example": null,
+            "type": "string",
             "nullable": true,
-            "type": "string"
+            "title": "Subtitle",
+            "example": null
           },
           "type": {
-            "title": "Type",
-            "example": "Character",
+            "type": "string",
             "nullable": true,
-            "type": "string"
+            "title": "Type",
+            "example": "Character"
           },
           "rarity": {
-            "title": "Rarity",
-            "example": "Rare",
+            "type": "string",
             "nullable": true,
-            "type": "string"
+            "title": "Rarity",
+            "example": "Rare"
           },
           "set": {
             "$ref": "#/components/schemas/SetSummary"
@@ -1437,22 +1437,22 @@
             "example": "holographic"
           },
           "finish": {
-            "title": "Finish",
-            "example": "holo",
+            "type": "string",
             "nullable": true,
-            "type": "string"
+            "title": "Finish",
+            "example": "holo"
           },
           "rarity": {
-            "title": "Rarity",
-            "example": null,
+            "type": "string",
             "nullable": true,
-            "type": "string"
+            "title": "Rarity",
+            "example": null
           },
           "collector_number": {
-            "title": "Collector Number",
-            "example": null,
+            "type": "string",
             "nullable": true,
-            "type": "string"
+            "title": "Collector Number",
+            "example": null
           },
           "language": {
             "type": "string",
@@ -1460,10 +1460,10 @@
             "example": "EN"
           },
           "edition": {
-            "title": "Edition",
-            "example": null,
+            "type": "string",
             "nullable": true,
-            "type": "string"
+            "title": "Edition",
+            "example": null
           },
           "serial_numbered": {
             "type": "boolean",
@@ -1471,10 +1471,10 @@
             "example": false
           },
           "serial_total": {
-            "title": "Serial Total",
-            "example": null,
+            "type": "integer",
             "nullable": true,
-            "type": "integer"
+            "title": "Serial Total",
+            "example": null
           },
           "images": {
             "items": {
@@ -1642,11 +1642,11 @@
         "properties": {
           "type": {
             "type": "string",
+            "title": "Type",
+            "default": "keyword",
             "enum": [
               "keyword"
-            ],
-            "title": "Type",
-            "default": "keyword"
+            ]
           },
           "keyword": {
             "$ref": "#/components/schemas/KeywordResponse"
@@ -1906,10 +1906,10 @@
             "example": "test-set-1"
           },
           "code": {
-            "title": "Code",
-            "example": "TST1",
+            "type": "string",
             "nullable": true,
-            "type": "string"
+            "title": "Code",
+            "example": "TST1"
           },
           "name": {
             "type": "string",
@@ -1917,10 +1917,10 @@
             "example": "Test Set Alpha"
           },
           "edition": {
-            "title": "Edition",
-            "example": "1st Edition",
+            "type": "string",
             "nullable": true,
-            "type": "string"
+            "title": "Edition",
+            "example": "1st Edition"
           },
           "language": {
             "type": "string",
@@ -1928,35 +1928,35 @@
             "example": "EN"
           },
           "release_date": {
-            "title": "Release Date",
-            "example": "2026-01-01",
-            "nullable": true,
             "type": "string",
-            "format": "date"
+            "format": "date",
+            "nullable": true,
+            "title": "Release Date",
+            "example": "2026-01-01"
           },
           "printed_total": {
-            "title": "Printed Total",
-            "example": 100,
+            "type": "integer",
             "nullable": true,
-            "type": "integer"
+            "title": "Printed Total",
+            "example": 100
           },
           "total_with_variants": {
-            "title": "Total With Variants",
-            "example": 150,
+            "type": "integer",
             "nullable": true,
-            "type": "integer"
+            "title": "Total With Variants",
+            "example": 150
           },
           "logo_url": {
-            "title": "Logo Url",
-            "example": null,
+            "type": "string",
             "nullable": true,
-            "type": "string"
+            "title": "Logo Url",
+            "example": null
           },
           "symbol_url": {
-            "title": "Symbol Url",
-            "example": null,
+            "type": "string",
             "nullable": true,
-            "type": "string"
+            "title": "Symbol Url",
+            "example": null
           }
         },
         "type": "object",
@@ -1981,11 +1981,11 @@
         "properties": {
           "type": {
             "type": "string",
+            "title": "Type",
+            "default": "set",
             "enum": [
               "set"
-            ],
-            "title": "Type",
-            "default": "set"
+            ]
           },
           "set": {
             "$ref": "#/components/schemas/SetSummary"
@@ -2005,10 +2005,10 @@
             "example": "test-set-1"
           },
           "code": {
-            "title": "Code",
-            "example": "TST1",
+            "type": "string",
             "nullable": true,
-            "type": "string"
+            "title": "Code",
+            "example": "TST1"
           },
           "name": {
             "type": "string",
@@ -2016,10 +2016,10 @@
             "example": "Test Set Alpha"
           },
           "edition": {
-            "title": "Edition",
-            "example": "1st Edition",
+            "type": "string",
             "nullable": true,
-            "type": "string"
+            "title": "Edition",
+            "example": "1st Edition"
           }
         },
         "type": "object",

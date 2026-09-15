@@ -76,6 +76,37 @@ python -m scripts.export_rapidapi_openapi
 
 The generated artifact is intentionally produced from the canonical app and not maintained by hand.
 
+Install the development tools first (`python -m pip install -e '.[dev]'`). The
+exporter needs application configuration to generate the canonical schema, but
+does not connect to the database or import data. Use a non-production test
+DATABASE_URL for offline generation; no gateway credential is needed.
+
+The command validates OpenAPI 3.0.2 before writing and prints the absolute output
+path. Upload **`docs/generated/openapi.rapidapi.json`**, not the origin's
+`/openapi.json` (which remains OpenAPI 3.1). The output path is anchored to this
+repository, independent of the caller's working directory.
+
+Conversion is restricted to Schema Objects. Nullable primitive unions become
+`nullable: true`; more complex unions preserve branches using an explicit
+null-only schema. Schema `examples` arrays become a singular `example`, `const`
+becomes `enum`, numeric exclusive bounds become 3.0 boolean bounds, type arrays
+become compositions, and reference siblings use `allOf`. Example payloads,
+named media-type examples, and vendor-extension payloads remain untouched.
+Unsupported 3.1 validation keywords fail export rather than being silently
+discarded. The validator also checks the fixed 12 GET operations, required path
+parameters, unique operation IDs, local component references, and absence of
+origin/consumer security schemes. No runtime route or middleware is changed.
+
+Run the compatibility regression tests with:
+
+```bash
+python -m pytest tests/test_rapidapi.py tests/test_rapidapi_export.py
+python -m openapi_spec_validator docs/generated/openapi.rapidapi.json
+```
+
+Local validation verifies standards compliance. RapidAPI's proprietary import
+warnings can only be confirmed by importing this generated file in its portal.
+
 ## F. Endpoints
 
 The current developer API includes only the following existing routes:
