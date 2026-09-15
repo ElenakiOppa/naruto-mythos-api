@@ -111,16 +111,10 @@
             "in": "query",
             "required": false,
             "schema": {
-              "anyOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "type": "null"
-                }
-              ],
               "description": "Filter by language code (e.g. EN). Case-insensitive.",
-              "title": "Language"
+              "title": "Language",
+              "nullable": true,
+              "type": "string"
             },
             "description": "Filter by language code (e.g. EN). Case-insensitive."
           },
@@ -129,16 +123,10 @@
             "in": "query",
             "required": false,
             "schema": {
-              "anyOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "type": "null"
-                }
-              ],
               "description": "Filter by edition. Case-insensitive.",
-              "title": "Edition"
+              "title": "Edition",
+              "nullable": true,
+              "type": "string"
             },
             "description": "Filter by edition. Case-insensitive."
           },
@@ -147,16 +135,10 @@
             "in": "query",
             "required": false,
             "schema": {
-              "anyOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "type": "null"
-                }
-              ],
               "description": "Filter by set code. Case-insensitive.",
-              "title": "Code"
+              "title": "Code",
+              "nullable": true,
+              "type": "string"
             },
             "description": "Filter by set code. Case-insensitive."
           },
@@ -498,16 +480,10 @@
             "in": "query",
             "required": false,
             "schema": {
-              "anyOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "type": "null"
-                }
-              ],
               "description": "Case-insensitive partial name match.",
-              "title": "Name"
+              "title": "Name",
+              "nullable": true,
+              "type": "string"
             },
             "description": "Case-insensitive partial name match."
           },
@@ -516,16 +492,10 @@
             "in": "query",
             "required": false,
             "schema": {
-              "anyOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "type": "null"
-                }
-              ],
               "description": "Exact public set ID, case-insensitive.",
-              "title": "Set"
+              "title": "Set",
+              "nullable": true,
+              "type": "string"
             },
             "description": "Exact public set ID, case-insensitive."
           },
@@ -534,16 +504,10 @@
             "in": "query",
             "required": false,
             "schema": {
-              "anyOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "type": "null"
-                }
-              ],
               "description": "Exact card number (a string).",
-              "title": "Number"
+              "title": "Number",
+              "nullable": true,
+              "type": "string"
             },
             "description": "Exact card number (a string)."
           },
@@ -552,16 +516,10 @@
             "in": "query",
             "required": false,
             "schema": {
-              "anyOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "type": "null"
-                }
-              ],
               "description": "Case-insensitive exact rarity.",
-              "title": "Rarity"
+              "title": "Rarity",
+              "nullable": true,
+              "type": "string"
             },
             "description": "Case-insensitive exact rarity."
           },
@@ -570,16 +528,10 @@
             "in": "query",
             "required": false,
             "schema": {
-              "anyOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "type": "null"
-                }
-              ],
               "description": "Case-insensitive exact card type.",
-              "title": "Type"
+              "title": "Type",
+              "nullable": true,
+              "type": "string"
             },
             "description": "Case-insensitive exact card type."
           },
@@ -588,16 +540,10 @@
             "in": "query",
             "required": false,
             "schema": {
-              "anyOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "type": "null"
-                }
-              ],
               "description": "Case-insensitive exact keyword slug.",
-              "title": "Keyword"
+              "title": "Keyword",
+              "nullable": true,
+              "type": "string"
             },
             "description": "Case-insensitive exact keyword slug."
           },
@@ -606,16 +552,10 @@
             "in": "query",
             "required": false,
             "schema": {
-              "anyOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "type": "null"
-                }
-              ],
               "description": "Case-insensitive exact variant type; at least one must match.",
-              "title": "Variant"
+              "title": "Variant",
+              "nullable": true,
+              "type": "string"
             },
             "description": "Case-insensitive exact variant type; at least one must match."
           },
@@ -624,16 +564,10 @@
             "in": "query",
             "required": false,
             "schema": {
-              "anyOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "type": "null"
-                }
-              ],
               "description": "Case-insensitive exact parent set language, not variant language.",
-              "title": "Language"
+              "title": "Language",
+              "nullable": true,
+              "type": "string"
             },
             "description": "Case-insensitive exact parent set language, not variant language."
           },
@@ -642,16 +576,10 @@
             "in": "query",
             "required": false,
             "schema": {
-              "anyOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "type": "null"
-                }
-              ],
               "description": "Case-insensitive exact parent set edition.",
-              "title": "Edition"
+              "title": "Edition",
+              "nullable": true,
+              "type": "string"
             },
             "description": "Case-insensitive exact parent set edition."
           },
@@ -660,16 +588,10 @@
             "in": "query",
             "required": false,
             "schema": {
-              "anyOf": [
-                {
-                  "type": "integer"
-                },
-                {
-                  "type": "null"
-                }
-              ],
               "description": "Inclusive minimum chakra, >= 0; excludes null chakra.",
-              "title": "Chakra Min"
+              "title": "Chakra Min",
+              "nullable": true,
+              "type": "integer"
             },
             "description": "Inclusive minimum chakra, >= 0; excludes null chakra."
           },
@@ -678,16 +600,10 @@
             "in": "query",
             "required": false,
             "schema": {
-              "anyOf": [
-                {
-                  "type": "integer"
-                },
-                {
-                  "type": "null"
-                }
-              ],
               "description": "Inclusive maximum chakra, >= 0; excludes null chakra.",
-              "title": "Chakra Max"
+              "title": "Chakra Max",
+              "nullable": true,
+              "type": "integer"
             },
             "description": "Inclusive maximum chakra, >= 0; excludes null chakra."
           },
@@ -696,16 +612,10 @@
             "in": "query",
             "required": false,
             "schema": {
-              "anyOf": [
-                {
-                  "type": "integer"
-                },
-                {
-                  "type": "null"
-                }
-              ],
               "description": "Inclusive minimum power, >= 0; excludes null power.",
-              "title": "Power Min"
+              "title": "Power Min",
+              "nullable": true,
+              "type": "integer"
             },
             "description": "Inclusive minimum power, >= 0; excludes null power."
           },
@@ -714,16 +624,10 @@
             "in": "query",
             "required": false,
             "schema": {
-              "anyOf": [
-                {
-                  "type": "integer"
-                },
-                {
-                  "type": "null"
-                }
-              ],
               "description": "Inclusive maximum power, >= 0; excludes null power.",
-              "title": "Power Max"
+              "title": "Power Max",
+              "nullable": true,
+              "type": "integer"
             },
             "description": "Inclusive maximum power, >= 0; excludes null power."
           },
@@ -1269,149 +1173,71 @@
           "id": {
             "type": "string",
             "title": "Id",
-            "examples": [
-              "TEST-001"
-            ]
+            "example": "TEST-001"
           },
           "number": {
             "type": "string",
             "title": "Number",
-            "examples": [
-              "001"
-            ]
+            "example": "001"
           },
           "name": {
             "type": "string",
             "title": "Name",
-            "examples": [
-              "Test Character Alpha"
-            ]
+            "example": "Test Character Alpha"
           },
           "subtitle": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
             "title": "Subtitle",
-            "examples": [
-              null
-            ]
+            "example": null,
+            "nullable": true,
+            "type": "string"
           },
           "type": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
             "title": "Type",
-            "examples": [
-              "Character"
-            ]
+            "example": "Character",
+            "nullable": true,
+            "type": "string"
           },
           "rarity": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
             "title": "Rarity",
-            "examples": [
-              "Rare"
-            ]
+            "example": "Rare",
+            "nullable": true,
+            "type": "string"
           },
           "chakra": {
-            "anyOf": [
-              {
-                "type": "integer"
-              },
-              {
-                "type": "null"
-              }
-            ],
             "title": "Chakra",
-            "examples": [
-              4
-            ]
+            "example": 4,
+            "nullable": true,
+            "type": "integer"
           },
           "power": {
-            "anyOf": [
-              {
-                "type": "integer"
-              },
-              {
-                "type": "null"
-              }
-            ],
             "title": "Power",
-            "examples": [
-              5
-            ]
+            "example": 5,
+            "nullable": true,
+            "type": "integer"
           },
           "faction": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
             "title": "Faction",
-            "examples": [
-              "Test Village"
-            ]
+            "example": "Test Village",
+            "nullable": true,
+            "type": "string"
           },
           "ability_text": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
             "title": "Ability Text",
-            "examples": [
-              null
-            ]
+            "example": null,
+            "nullable": true,
+            "type": "string"
           },
           "flavor_text": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
             "title": "Flavor Text",
-            "examples": [
-              null
-            ]
+            "example": null,
+            "nullable": true,
+            "type": "string"
           },
           "artist": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
             "title": "Artist",
-            "examples": [
-              null
-            ]
+            "example": null,
+            "nullable": true,
+            "type": "string"
           },
           "set": {
             "$ref": "#/components/schemas/SetSummary"
@@ -1476,44 +1302,24 @@
           "type": {
             "type": "string",
             "title": "Type",
-            "examples": [
-              "front"
-            ]
+            "example": "front"
           },
           "url": {
             "type": "string",
             "title": "Url",
-            "examples": [
-              "https://example.invalid/test-card.jpg"
-            ]
+            "example": "https://example.invalid/test-card.jpg"
           },
           "width": {
-            "anyOf": [
-              {
-                "type": "integer"
-              },
-              {
-                "type": "null"
-              }
-            ],
             "title": "Width",
-            "examples": [
-              734
-            ]
+            "example": 734,
+            "nullable": true,
+            "type": "integer"
           },
           "height": {
-            "anyOf": [
-              {
-                "type": "integer"
-              },
-              {
-                "type": "null"
-              }
-            ],
             "title": "Height",
-            "examples": [
-              1024
-            ]
+            "example": 1024,
+            "nullable": true,
+            "type": "integer"
           }
         },
         "type": "object",
@@ -1533,7 +1339,9 @@
         "properties": {
           "type": {
             "type": "string",
-            "const": "card",
+            "enum": [
+              "card"
+            ],
             "title": "Type",
             "default": "card"
           },
@@ -1552,65 +1360,35 @@
           "id": {
             "type": "string",
             "title": "Id",
-            "examples": [
-              "TEST-001"
-            ]
+            "example": "TEST-001"
           },
           "number": {
             "type": "string",
             "title": "Number",
-            "examples": [
-              "001"
-            ]
+            "example": "001"
           },
           "name": {
             "type": "string",
             "title": "Name",
-            "examples": [
-              "Test Character Alpha"
-            ]
+            "example": "Test Character Alpha"
           },
           "subtitle": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
             "title": "Subtitle",
-            "examples": [
-              null
-            ]
+            "example": null,
+            "nullable": true,
+            "type": "string"
           },
           "type": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
             "title": "Type",
-            "examples": [
-              "Character"
-            ]
+            "example": "Character",
+            "nullable": true,
+            "type": "string"
           },
           "rarity": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
             "title": "Rarity",
-            "examples": [
-              "Rare"
-            ]
+            "example": "Rare",
+            "nullable": true,
+            "type": "string"
           },
           "set": {
             "$ref": "#/components/schemas/SetSummary"
@@ -1651,100 +1429,52 @@
           "id": {
             "type": "string",
             "title": "Id",
-            "examples": [
-              "TEST-001-holographic"
-            ]
+            "example": "TEST-001-holographic"
           },
           "type": {
             "type": "string",
             "title": "Type",
-            "examples": [
-              "holographic"
-            ]
+            "example": "holographic"
           },
           "finish": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
             "title": "Finish",
-            "examples": [
-              "holo"
-            ]
+            "example": "holo",
+            "nullable": true,
+            "type": "string"
           },
           "rarity": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
             "title": "Rarity",
-            "examples": [
-              null
-            ]
+            "example": null,
+            "nullable": true,
+            "type": "string"
           },
           "collector_number": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
             "title": "Collector Number",
-            "examples": [
-              null
-            ]
+            "example": null,
+            "nullable": true,
+            "type": "string"
           },
           "language": {
             "type": "string",
             "title": "Language",
-            "examples": [
-              "EN"
-            ]
+            "example": "EN"
           },
           "edition": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
             "title": "Edition",
-            "examples": [
-              null
-            ]
+            "example": null,
+            "nullable": true,
+            "type": "string"
           },
           "serial_numbered": {
             "type": "boolean",
             "title": "Serial Numbered",
-            "examples": [
-              false
-            ]
+            "example": false
           },
           "serial_total": {
-            "anyOf": [
-              {
-                "type": "integer"
-              },
-              {
-                "type": "null"
-              }
-            ],
             "title": "Serial Total",
-            "examples": [
-              null
-            ]
+            "example": null,
+            "nullable": true,
+            "type": "integer"
           },
           "images": {
             "items": {
@@ -1833,16 +1563,12 @@
           "status": {
             "type": "string",
             "title": "Status",
-            "examples": [
-              "ok"
-            ]
+            "example": "ok"
           },
           "version": {
             "type": "string",
             "title": "Version",
-            "examples": [
-              "1.0.0"
-            ]
+            "example": "1.0.0"
           }
         },
         "type": "object",
@@ -1861,24 +1587,18 @@
           "slug": {
             "type": "string",
             "title": "Slug",
-            "examples": [
-              "test-keyword"
-            ]
+            "example": "test-keyword"
           },
           "name": {
             "type": "string",
             "title": "Name",
-            "examples": [
-              "Test Keyword"
-            ]
+            "example": "Test Keyword"
           },
           "card_count": {
             "type": "integer",
             "minimum": 0.0,
             "title": "Card Count",
-            "examples": [
-              10
-            ]
+            "example": 10
           }
         },
         "type": "object",
@@ -1899,16 +1619,12 @@
           "slug": {
             "type": "string",
             "title": "Slug",
-            "examples": [
-              "test-keyword"
-            ]
+            "example": "test-keyword"
           },
           "name": {
             "type": "string",
             "title": "Name",
-            "examples": [
-              "Test Keyword"
-            ]
+            "example": "Test Keyword"
           }
         },
         "type": "object",
@@ -1926,7 +1642,9 @@
         "properties": {
           "type": {
             "type": "string",
-            "const": "keyword",
+            "enum": [
+              "keyword"
+            ],
             "title": "Type",
             "default": "keyword"
           },
@@ -2009,47 +1727,35 @@
             "type": "integer",
             "minimum": 1.0,
             "title": "Page",
-            "examples": [
-              1
-            ]
+            "example": 1
           },
           "limit": {
             "type": "integer",
             "minimum": 1.0,
             "title": "Limit",
-            "examples": [
-              50
-            ]
+            "example": 50
           },
           "total": {
             "type": "integer",
             "minimum": 0.0,
             "title": "Total",
-            "examples": [
-              630
-            ]
+            "example": 630
           },
           "pages": {
             "type": "integer",
             "minimum": 0.0,
             "title": "Pages",
-            "examples": [
-              13
-            ]
+            "example": 13
           },
           "has_next": {
             "type": "boolean",
             "title": "Has Next",
-            "examples": [
-              true
-            ]
+            "example": true
           },
           "has_previous": {
             "type": "boolean",
             "title": "Has Previous",
-            "examples": [
-              false
-            ]
+            "example": false
           }
         },
         "type": "object",
@@ -2076,24 +1782,18 @@
           "name": {
             "type": "string",
             "title": "Name",
-            "examples": [
-              "Rare"
-            ]
+            "example": "Rare"
           },
           "slug": {
             "type": "string",
             "title": "Slug",
-            "examples": [
-              "rare"
-            ]
+            "example": "rare"
           },
           "card_count": {
             "type": "integer",
             "minimum": 0.0,
             "title": "Card Count",
-            "examples": [
-              42
-            ]
+            "example": 42
           }
         },
         "type": "object",
@@ -2114,10 +1814,7 @@
           "status": {
             "type": "string",
             "title": "Status",
-            "examples": [
-              "ready",
-              "not_ready"
-            ]
+            "example": "ready"
           }
         },
         "type": "object",
@@ -2206,122 +1903,60 @@
           "id": {
             "type": "string",
             "title": "Id",
-            "examples": [
-              "test-set-1"
-            ]
+            "example": "test-set-1"
           },
           "code": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
             "title": "Code",
-            "examples": [
-              "TST1"
-            ]
+            "example": "TST1",
+            "nullable": true,
+            "type": "string"
           },
           "name": {
             "type": "string",
             "title": "Name",
-            "examples": [
-              "Test Set Alpha"
-            ]
+            "example": "Test Set Alpha"
           },
           "edition": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
             "title": "Edition",
-            "examples": [
-              "1st Edition"
-            ]
+            "example": "1st Edition",
+            "nullable": true,
+            "type": "string"
           },
           "language": {
             "type": "string",
             "title": "Language",
-            "examples": [
-              "EN"
-            ]
+            "example": "EN"
           },
           "release_date": {
-            "anyOf": [
-              {
-                "type": "string",
-                "format": "date"
-              },
-              {
-                "type": "null"
-              }
-            ],
             "title": "Release Date",
-            "examples": [
-              "2026-01-01"
-            ]
+            "example": "2026-01-01",
+            "nullable": true,
+            "type": "string",
+            "format": "date"
           },
           "printed_total": {
-            "anyOf": [
-              {
-                "type": "integer"
-              },
-              {
-                "type": "null"
-              }
-            ],
             "title": "Printed Total",
-            "examples": [
-              100
-            ]
+            "example": 100,
+            "nullable": true,
+            "type": "integer"
           },
           "total_with_variants": {
-            "anyOf": [
-              {
-                "type": "integer"
-              },
-              {
-                "type": "null"
-              }
-            ],
             "title": "Total With Variants",
-            "examples": [
-              150
-            ]
+            "example": 150,
+            "nullable": true,
+            "type": "integer"
           },
           "logo_url": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
             "title": "Logo Url",
-            "examples": [
-              null
-            ]
+            "example": null,
+            "nullable": true,
+            "type": "string"
           },
           "symbol_url": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
             "title": "Symbol Url",
-            "examples": [
-              null
-            ]
+            "example": null,
+            "nullable": true,
+            "type": "string"
           }
         },
         "type": "object",
@@ -2346,7 +1981,9 @@
         "properties": {
           "type": {
             "type": "string",
-            "const": "set",
+            "enum": [
+              "set"
+            ],
             "title": "Type",
             "default": "set"
           },
@@ -2365,44 +2002,24 @@
           "id": {
             "type": "string",
             "title": "Id",
-            "examples": [
-              "test-set-1"
-            ]
+            "example": "test-set-1"
           },
           "code": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
             "title": "Code",
-            "examples": [
-              "TST1"
-            ]
+            "example": "TST1",
+            "nullable": true,
+            "type": "string"
           },
           "name": {
             "type": "string",
             "title": "Name",
-            "examples": [
-              "Test Set Alpha"
-            ]
+            "example": "Test Set Alpha"
           },
           "edition": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
             "title": "Edition",
-            "examples": [
-              "1st Edition"
-            ]
+            "example": "1st Edition",
+            "nullable": true,
+            "type": "string"
           }
         },
         "type": "object",

@@ -22,6 +22,18 @@ The implementation addresses the required code-ready criteria:
 
 FastAPI’s canonical schema is OpenAPI 3.1.0. RapidAPI distribution compatibility requires an export in OpenAPI 3.0.2. The repository keeps the canonical schema as the authoritative source and generates a 3.0.2 compatibility artifact from it rather than manually maintaining a second API contract.
 
+## 3A. Real RapidAPI validation failure
+
+The first live import attempt did not pass RapidAPI validation. The provider rejected the generated document with 109 schema-level warnings/errors, confirming that the initial export changed the version to 3.0.2 but did not fully normalize the JSON Schema 2020-12 constructs emitted by the canonical FastAPI/Pydantic schema.
+
+The concrete findings were:
+
+- nullable unions with `anyOf` containing `{"type": "null"}`
+- schema-level `examples` arrays that are not valid in OpenAPI 3.0
+- `const` discriminator fields such as the search result `type` values
+
+The exporter therefore needed a recursive compatibility pass that transformed only the incompatible RapidAPI constructs while preserving the canonical API surface and metadata.
+
 ## 4. Canonical OpenAPI architecture
 
 The canonical app remains the only runtime source of truth. The route schema is generated from the actual FastAPI app without adding duplicate application objects. This preserves the public API contract for docs, direct origin consumers, and local verification while enabling a generated compatibility document for provider import.
@@ -29,6 +41,16 @@ The canonical app remains the only runtime source of truth. The route schema is 
 ## 5. Generated OpenAPI 3.0.2 export
 
 The generated artifact is created by the export helper in `scripts/export_rapidapi_openapi.py` and is designed to emit a deterministic `openapi` value of `3.0.2` while preserving the actual route surface. The generated file remains produced from the canonical FastAPI schema and is not treated as a separate hand-maintained contract.
+
+The corrected exporter now performs a recursive walk over the full schema tree, including `paths`, `parameters`, `request/response` schemas, `components`, nested properties, `items`, `anyOf`/`oneOf`/`allOf`, and `additionalProperties` schema objects. It converts the unsupported 3.1 pattern into legal 3.0.2 equivalents:
+
+- `anyOf` + `{"type": "null"}` becomes the base schema with `nullable: true`
+- `type: "null"` is removed everywhere
+- schema-level `examples` become a single `example` value or are removed if the value cannot be represented safely
+- `const` becomes `enum: [value]` when the schema is a literal discriminator or type-like field
+- incompatible JSON Schema 2020-12-only keywords are stripped only where they are truly unsupported by OpenAPI 3.0
+
+This keeps the canonical FastAPI 3.1 schema untouched while making the exported provider document safer for RapidAPI import.
 
 ## 6. Origin protection implementation
 

@@ -7,6 +7,80 @@ from copy import deepcopy
 from app.main import app
 
 
+def _is_legal_content_examples(value):
+    if not isinstance(value, dict):
+        return False
+    if not value:
+        return False
+    return all(
+        isinstance(item, dict)
+        and isinstance(item.get("value"), (dict, list, str, int, float, bool, type(None)))
+        for item in value.values()
+    )
+
+
+def _normalize_schema(node):
+    """Recursively convert canonical OpenAPI 3.1 constructs to RapidAPI-safe 3.0.2."""
+    if isinstance(node, dict):
+        converted = {}
+        for key, value in node.items():
+            if key == "type" and value == "null":
+                continue
+
+            if key == "const":
+                if "enum" not in node:
+                    converted["enum"] = [value]
+                continue
+
+            if key == "examples":
+                if isinstance(value, list):
+                    if value:
+                        converted["example"] = _normalize_schema(value[0])
+                    continue
+                if isinstance(value, dict) and not _is_legal_content_examples(value):
+                    if value:
+                        first = next(iter(value.values()))
+                        converted["example"] = _normalize_schema(first)
+                    continue
+
+            converted[key] = _normalize_schema(value)
+
+        if isinstance(converted.get("anyOf"), list):
+            non_null = []
+            null_present = False
+            for item in converted["anyOf"]:
+                if isinstance(item, dict) and not item:
+                    null_present = True
+                    continue
+                if isinstance(item, dict) and item.get("type") == "null":
+                    null_present = True
+                    continue
+                non_null.append(item)
+
+            if null_present:
+                converted["nullable"] = True
+                if len(non_null) == 1:
+                    primary = non_null[0]
+                    merged = {k: v for k, v in converted.items() if k != "anyOf"}
+                    if isinstance(primary, dict):
+                        for nested_key, nested_value in primary.items():
+                            if nested_key not in merged:
+                                merged[nested_key] = nested_value
+                    return merged
+                if len(non_null) > 1:
+                    converted["anyOf"] = non_null
+                    return converted
+                converted.pop("anyOf", None)
+                return converted
+
+        return converted
+
+    if isinstance(node, list):
+        return [_normalize_schema(item) for item in node]
+
+    return node
+
+
 def generate_rapidapi_openapi() -> dict:
     """Return the canonical FastAPI schema converted to OpenAPI 3.0.2.
 
@@ -16,42 +90,8 @@ def generate_rapidapi_openapi() -> dict:
     remains unchanged for local docs and documentation consumers.
     """
     schema = deepcopy(app.openapi())
+    schema = _normalize_schema(schema)
     schema["openapi"] = "3.0.2"
-
-    for path, methods in list(schema.get("paths", {}).items()):
-        for method, operation in list(methods.items()):
-            if not isinstance(operation, dict):
-                continue
-            if "responses" not in operation:
-                continue
-
-            for code, response in list(operation["responses"].items()):
-                if not isinstance(response, dict):
-                    continue
-
-                content = response.get("content")
-                if not isinstance(content, dict):
-                    continue
-
-                for media_type, media in list(content.items()):
-                    if media_type != "application/json":
-                        continue
-                    payload = media.get("schema")
-                    if not isinstance(payload, dict):
-                        continue
-
-                    # OpenAPI 3.0.x does not allow nullable in the same way as 3.1.
-                    # The project's models already generate JSON-compatible schemas
-                    # without using the 3.1-only `anyOf`/`nullable` semantics.
-                    if payload.get("nullable") is True:
-                        payload.pop("nullable", None)
-
-                    if "$ref" in payload:
-                        continue
-
-                    if "allOf" in payload:
-                        continue
-
     return schema
 
 
