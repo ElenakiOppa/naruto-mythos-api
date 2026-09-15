@@ -211,22 +211,27 @@ The canonical schema and runtime contract remain unchanged.
 
 ## 21. Release boundary
 
-No deployment, database mutation, catalogue import, or Phase 12 work is part of
-this integration. Railway remains linked to origin/main. A push must not be made
-unless automatic deployment is confirmed disabled, because the owner explicitly
-prohibited both deployments and changes to Railway configuration.
+Repository integration completed successfully in commit
+`07115d5a9bd4183b94f25560e69a973cce819666`
+(`Finalize Phase 11 RapidAPI integration`). The commit was successfully pushed to
+origin/main, and local main and origin/main were verified identical after the push.
 
-Integration stopped before commit and push: the read-only Railway configuration
-confirms the main source branch but omits the automatic-deployment enabled flag.
-The available browser session is not authenticated, so the setting could not be
-verified there. No Railway setting was changed. The seven-file diff and credential
-pattern scan passed; changes remain local and uncommitted pending confirmation
-that a push cannot trigger deployment.
+The project owner manually disabled Railway Auto Deploy for main BEFORE the push.
+The owner independently checked Railway afterward and confirmed that the push did
+not trigger a deployment. Railway remained on the earlier deployed commit
+`e42a5853ff9b2252e149c9f8441e51eae4302b81`; no deployment or redeployment occurred
+for commit 07115d5. Codex made no Railway configuration changes.
+
+No production deployment was required for the final repository-only integration.
+No catalogue data was imported or production database changes made. The production
+catalogue remains intentionally empty. Phase 12 has not started.
 
 ## 22. Acceptance status
 
-PHASE 11: CODE VALIDATED LOCALLY.
+PHASE 11: APPROVED — LIVE RAPIDAPI / PRIVATE LISTING.
 
-PHASE 11: LIVE RAPIDAPI VALIDATION CONFIRMED BY THE PROJECT OWNER.
-
-Phase 12 has not started. Production catalogue ingestion remains out of scope.
+- RapidAPI live validation completed successfully, as confirmed by the project owner.
+- Repository integration completed successfully and was pushed to origin/main.
+- The production catalogue remains intentionally empty.
+- No production deployment was required for the final repository-only integration.
+- Phase 12 has not started; production catalogue ingestion remains out of scope.
