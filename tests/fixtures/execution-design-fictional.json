@@ -1,0 +1,36 @@
+{
+  "fictional_notice": "Invented Phase 12D data only. No catalogue sources or artwork.",
+  "complete_existing_set": {
+    "kind": "sets",
+    "public_id": "set_ember_first_en",
+    "owner_id": null,
+    "values": {
+      "code": null,
+      "name": "Ember Trials",
+      "edition": "First Edition",
+      "language": "EN",
+      "release_date": null,
+      "printed_total": null,
+      "total_with_variants": null,
+      "logo_url": null,
+      "symbol_url": null
+    },
+    "baseline": {}
+  },
+  "complete_card_fields": {
+    "name": "Ember Scout",
+    "subtitle": "Glass Trail",
+    "type": "Explorer",
+    "chakra": 2,
+    "power": 3,
+    "faction": "Lantern Crew",
+    "ability_text": "Fictional fixture: collect one glass token.",
+    "flavor_text": "An invented journey.",
+    "artist": "Fictional Studio"
+  },
+  "rarities": {
+    "printing": "Bright",
+    "treatment": "Prism"
+  },
+  "destination_reference": "fictional-local"
+}
