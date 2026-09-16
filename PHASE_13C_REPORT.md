@@ -1,5 +1,7 @@
 ## Final implementation result
 
+**GitHub Actions migration validation:** PASS. Temporary workflow run `35093153892` executed the six existing PostgreSQL migration tests against a disposable PostgreSQL 16 service on commit `b69a1fb59a66540d35751a5e0d4669c8b9ba323a`; the migration-test job completed successfully. The prior local `initdb` Application Control blocker does not apply in CI.
+
 ### 1. Final architecture/schema changes
 
 - `Card` remains the conceptual/base card and preserves existing public IDs, relationships and `(set_id, card_number)` uniqueness.
