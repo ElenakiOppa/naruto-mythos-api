@@ -30,6 +30,9 @@ venv/
 data/*.json
 !data/README.md
 
+# Phase 13A acquisition: raw copyrighted source documents stay local/untracked
+data/acquisition/raw/
+
 # Local test output and databases
 .coverage
 .coverage.*

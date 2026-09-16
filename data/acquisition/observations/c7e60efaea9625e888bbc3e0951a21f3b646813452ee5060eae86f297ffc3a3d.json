@@ -1,0 +1,7 @@
+{
+  "notes": "Direct card-data API response, lang=fr (discovered in card-gallery page JS).",
+  "retrieval_timestamp": "2026-09-15T20:21:01.051517+00:00",
+  "sha256": "c7e60efaea9625e888bbc3e0951a21f3b646813452ee5060eae86f297ffc3a3d",
+  "source_type": "API_RESPONSE",
+  "source_url": "https://cards.narutotcgmythos.com/api/cards?lang=fr"
+}
