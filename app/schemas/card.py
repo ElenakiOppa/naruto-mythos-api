@@ -73,6 +73,7 @@ class CardDetail(PublicSchema):
 
     chakra: int | None = Field(default=None, examples=[4])
     power: int | None = Field(default=None, examples=[5])
+    points: int | None = Field(default=None, examples=[None])
 
     faction: str | None = Field(default=None, examples=["Test Village"])
 

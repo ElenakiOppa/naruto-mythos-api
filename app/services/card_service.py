@@ -67,6 +67,7 @@ def card_detail_statement():
             *card_summary_options(),
             selectinload(Card.keywords),
             selectinload(Card.variants).selectinload(CardVariant.images),
+            selectinload(Card.variants).joinedload(CardVariant.translations),
         )
         .execution_options(populate_existing=True)
     )

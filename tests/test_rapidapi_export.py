@@ -280,4 +280,4 @@ def test_all_exported_schema_examples_validate():
 
     for schema in spec["components"]["schemas"].values():
         visit(schema)
-    assert checked == 77  # 62 converted arrays plus 15 existing singular examples.
+    assert checked == 78  # 63 converted arrays plus 15 existing singular examples.

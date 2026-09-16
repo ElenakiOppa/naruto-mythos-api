@@ -1215,6 +1215,12 @@
             "title": "Power",
             "example": 5
           },
+          "points": {
+            "type": "integer",
+            "nullable": true,
+            "title": "Points",
+            "example": null
+          },
           "faction": {
             "type": "string",
             "nullable": true,
@@ -1464,6 +1470,24 @@
             "nullable": true,
             "title": "Edition",
             "example": null
+          },
+          "source_variant": {
+            "type": "string",
+            "nullable": true,
+            "title": "Source Variant",
+            "description": "Publisher-supplied variant label; null when unspecified."
+          },
+          "card_version": {
+            "type": "string",
+            "nullable": true,
+            "title": "Card Version",
+            "description": "Publisher-supplied card version."
+          },
+          "stamp": {
+            "type": "string",
+            "nullable": true,
+            "title": "Stamp",
+            "description": "Publisher-supplied stamp label."
           },
           "serial_numbered": {
             "type": "boolean",

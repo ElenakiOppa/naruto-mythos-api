@@ -11,6 +11,7 @@ SUMMARY = {"id", "number", "name", "subtitle", "type", "rarity", "set", "images"
 DETAIL = SUMMARY | {
     "chakra",
     "power",
+    "points",
     "faction",
     "ability_text",
     "flavor_text",
@@ -234,6 +235,9 @@ def test_shapes_and_image_separation(client, catalogue, detail):
             "collector_number": None,
             "language": "EN",
             "edition": None,
+            "source_variant": None,
+            "card_version": None,
+            "stamp": None,
             "serial_numbered": False,
             "serial_total": None,
             "images": [
