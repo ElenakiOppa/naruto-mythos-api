@@ -118,16 +118,18 @@ def test_negative_chakra_rejected(db_session):
     db_session.rollback()
 
 
-def test_negative_power_rejected(db_session):
+def test_negative_power_accepted(db_session):
     card_set = make_set(db_session)
     card = Card(
-        public_id="NEG-POWER", set_id=card_set.id, card_number="001", name="Bad Power", power=-5
+        public_id="NEG-POWER",
+        set_id=card_set.id,
+        card_number="001",
+        name="Fictional Modifier",
+        power=-5,
     )
     db_session.add(card)
-
-    with pytest.raises(IntegrityError):
-        db_session.commit()
-    db_session.rollback()
+    db_session.commit()
+    assert db_session.get(Card, card.id).power == -5
 
 
 # ---------------------------------------------------------------------------

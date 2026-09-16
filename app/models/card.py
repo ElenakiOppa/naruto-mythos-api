@@ -1,8 +1,8 @@
 """
 Card model.
 
-Represents a single canonical card printing within a set (not an individual
-finish/variant -- that's `CardVariant`).
+Represents a conceptual/base Card within an expansion. Collectible publisher
+Printings use CardVariant (also exported as Printing).
 """
 
 import uuid
@@ -56,6 +56,7 @@ class Card(Base, UUIDPrimaryKeyMixin, TimestampMixin):
     rarity: Mapped[str | None] = mapped_column(String(64), nullable=True, index=True)
     chakra: Mapped[int | None] = mapped_column(Integer, nullable=True)
     power: Mapped[int | None] = mapped_column(Integer, nullable=True)
+    points: Mapped[int | None] = mapped_column(Integer, nullable=True)
     faction: Mapped[str | None] = mapped_column(String(64), nullable=True)
     ability_text: Mapped[str | None] = mapped_column(Text, nullable=True)
     flavor_text: Mapped[str | None] = mapped_column(Text, nullable=True)
@@ -93,7 +94,7 @@ class Card(Base, UUIDPrimaryKeyMixin, TimestampMixin):
         # guard rail, not a global uniqueness constraint on card_number.
         UniqueConstraint("set_id", "card_number", name="uq_cards_set_id_card_number"),
         CheckConstraint("chakra IS NULL OR chakra >= 0", name="ck_cards_chakra_non_negative"),
-        CheckConstraint("power IS NULL OR power >= 0", name="ck_cards_power_non_negative"),
+        CheckConstraint("points IS NULL OR points >= 0", name="ck_cards_points_non_negative"),
     )
 
     def __repr__(self) -> str:  # pragma: no cover - debugging aid only

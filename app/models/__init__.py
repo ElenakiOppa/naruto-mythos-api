@@ -11,7 +11,8 @@ from app.models.image import CardImage
 from app.models.keyword import Keyword, card_keywords
 from app.models.set import CardSet
 from app.models.source import SourceRecord
-from app.models.variant import CardVariant
+from app.models.translation import PrintingTranslation
+from app.models.variant import CardVariant, Printing
 
 __all__ = [
     "Card",
@@ -19,6 +20,8 @@ __all__ = [
     "CardSet",
     "CardVariant",
     "Keyword",
+    "Printing",
+    "PrintingTranslation",
     "SourceRecord",
     "card_keywords",
 ]

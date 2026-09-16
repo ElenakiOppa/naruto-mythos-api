@@ -327,7 +327,7 @@ def test_omission_null_clear_are_distinct_and_roundtrip():
         {"state": "CLEAR", "approval_reference": " "},
         {"state": "VALUE", "value": None},
         {"state": "VALUE", "value": True},
-        {"state": "VALUE", "value": -1},
+        {"state": "VALUE", "value": -2147483649},
         {"state": "ABSENT", "approval_reference": "review"},
     ],
 )
