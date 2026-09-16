@@ -23,6 +23,7 @@ COPY app ./app
 COPY importer ./importer
 COPY migrations ./migrations
 COPY data ./data
+COPY scripts ./scripts
 
 RUN groupadd --system app && useradd --system --gid app --create-home --home-dir /home/app app \
     && chown -R app:app /app

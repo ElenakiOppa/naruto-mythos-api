@@ -34,7 +34,10 @@ phase9*_verification.log
 phase9a_final_checks.json
 phase9a_importer_results.json
 phase9a_importer_verification.log
-scripts/
+scripts/*
+!scripts/__init__.py
+!scripts/import_catalogue.py
+!scripts/acquisition/
 tests/
 
 # keep production-relevant files required for runtime and migrations
