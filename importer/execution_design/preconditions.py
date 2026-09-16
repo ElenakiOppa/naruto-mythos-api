@@ -84,6 +84,19 @@ def prepare_candidate(
     }
     reasons: list[str] = []
 
+    # Domain-v2 previews cannot be smuggled through a legacy v1 approval/execution contract.
+    # A separately reviewed versioned planner/materializer is required before that boundary.
+    if any(
+        (r.get("schema_version") if isinstance(r, dict) else getattr(r, "schema_version", None))
+        == "2"
+        for r in inputs
+    ):
+        return ExecutionPreconditionsResult(
+            technically_eligible=False,
+            checks=checks,
+            blocking_reasons=("DOMAIN_V2_EXECUTION_NOT_SUPPORTED",),
+        )
+
     def result(candidate=None):
         return ExecutionPreconditionsResult(
             technically_eligible=not reasons and candidate is not None,

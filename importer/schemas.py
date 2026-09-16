@@ -17,6 +17,7 @@ from pydantic import (
 Id = Annotated[str, Field(min_length=1, max_length=64)]
 Name = Annotated[str, Field(min_length=1, max_length=255)]
 Nonnegative = Annotated[int, Field(strict=True, ge=0, le=2147483647)]
+SignedPower = Annotated[int, Field(strict=True, ge=-2147483648, le=2147483647)]
 Positive = Annotated[int, Field(strict=True, gt=0, le=2147483647)]
 
 
@@ -103,7 +104,7 @@ class ImportCard(InputModel):
     type: Annotated[str, Field(max_length=64)] | None = None
     rarity: Annotated[str, Field(max_length=64)] | None = None
     chakra: Nonnegative | None = None
-    power: Nonnegative | None = None
+    power: SignedPower | None = None
     faction: Annotated[str, Field(max_length=64)] | None = None
     ability_text: str | None = None
     flavor_text: str | None = None

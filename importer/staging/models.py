@@ -30,6 +30,7 @@ Namespace = Annotated[str, Field(strict=True, pattern=r"^[A-Z][A-Z0-9_]{0,63}$")
 Language = Annotated[str, Field(strict=True, pattern=r"^[A-Z]{2,3}(-[A-Za-z0-9]{2,8})*$")]
 Number = Annotated[str, Field(strict=True, min_length=1, max_length=128)]
 Nonnegative = Annotated[int, Field(strict=True, ge=0, le=2147483647)]
+SignedPower = Annotated[int, Field(strict=True, ge=-2147483648, le=2147483647)]
 Positive = Annotated[int, Field(strict=True, gt=0, le=2147483647)]
 T = TypeVar("T")
 
@@ -108,7 +109,7 @@ class CardFields(Model):
     subtitle: FieldValue[Text] = Field(default_factory=FieldValue)
     type: FieldValue[Text] = Field(default_factory=FieldValue)
     chakra: FieldValue[Nonnegative] = Field(default_factory=FieldValue)
-    power: FieldValue[Nonnegative] = Field(default_factory=FieldValue)
+    power: FieldValue[SignedPower] = Field(default_factory=FieldValue)
     faction: FieldValue[Text] = Field(default_factory=FieldValue)
     ability_text: FieldValue[Text] = Field(default_factory=FieldValue)
     flavor_text: FieldValue[Text] = Field(default_factory=FieldValue)

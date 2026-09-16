@@ -10,7 +10,17 @@ can be introduced by inserting data, never by running a migration.
 import uuid
 from typing import TYPE_CHECKING
 
-from sqlalchemy import Boolean, CheckConstraint, ForeignKey, Integer, String, UniqueConstraint, Uuid
+from sqlalchemy import (
+    Boolean,
+    CheckConstraint,
+    ForeignKey,
+    Index,
+    Integer,
+    String,
+    UniqueConstraint,
+    Uuid,
+    func,
+)
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from app.database import Base
@@ -19,6 +29,7 @@ from app.models.mixins import TimestampMixin, UUIDPrimaryKeyMixin
 if TYPE_CHECKING:
     from app.models.card import Card
     from app.models.image import CardImage
+    from app.models.translation import PrintingTranslation
 
 
 class CardVariant(Base, UUIDPrimaryKeyMixin, TimestampMixin):
@@ -43,12 +54,19 @@ class CardVariant(Base, UUIDPrimaryKeyMixin, TimestampMixin):
         String(8), nullable=False, default="EN", server_default="EN"
     )
     edition: Mapped[str | None] = mapped_column(String(64), nullable=True)
+    # Raw nullable publisher identity; variant_type remains the legacy API classification.
+    source_variant: Mapped[str | None] = mapped_column(String(64), nullable=True)
+    card_version: Mapped[str | None] = mapped_column(String(64), nullable=True)
+    stamp: Mapped[str | None] = mapped_column(String(255), nullable=True)
     serial_numbered: Mapped[bool] = mapped_column(
         Boolean, nullable=False, default=False, server_default="false"
     )
     serial_total: Mapped[int | None] = mapped_column(Integer, nullable=True)
 
     card: Mapped["Card"] = relationship(back_populates="variants")
+    translations: Mapped[list["PrintingTranslation"]] = relationship(
+        back_populates="printing", cascade="all, delete-orphan", passive_deletes=True
+    )
 
     # Deleting a variant does NOT delete its images -- see CardImage.variant_id
     # (ON DELETE SET NULL) for the rationale. No cascade is configured here;
@@ -61,6 +79,17 @@ class CardVariant(Base, UUIDPrimaryKeyMixin, TimestampMixin):
     )
 
     __table_args__ = (
+        Index(
+            "uq_printing_semantic_identity",
+            card_id,
+            func.normalize(edition),
+            func.normalize(rarity_override),
+            func.normalize(source_variant),
+            func.normalize(card_version),
+            func.normalize(stamp),
+            unique=True,
+            postgresql_nulls_not_distinct=True,
+        ).ddl_if(dialect="postgresql"),
         UniqueConstraint("id", "card_id", name="uq_card_variants_id_card_id"),
         # serial_numbered=False cards are never required to carry a total;
         # this only constrains serial_total's own value when present, it
@@ -74,3 +103,7 @@ class CardVariant(Base, UUIDPrimaryKeyMixin, TimestampMixin):
 
     def __repr__(self) -> str:  # pragma: no cover - debugging aid only
         return f"<CardVariant public_id={self.public_id!r} variant_type={self.variant_type!r}>"
+
+
+# Same mapper/table and public IDs; no duplicate entity or physical rename.
+Printing = CardVariant
