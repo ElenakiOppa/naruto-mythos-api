@@ -1,0 +1,50 @@
+name: Phase 13C migration validation
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - phase13c-migration-validation
+
+jobs:
+  migration-tests:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: postgres
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U postgres -d postgres"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install project dependencies
+        run: python -m pip install --upgrade pip && python -m pip install -e ".[dev]"
+
+      - name: Run Phase 13C PostgreSQL migration tests
+        env:
+          DATABASE_URL: postgresql+psycopg://postgres:postgres@127.0.0.1:5432/postgres
+        run: >-
+          python -m pytest -q
+          tests/test_domain_schema.py::test_clean_upgrade_and_safe_downgrade
+          tests/test_domain_schema.py::test_existing_rows_survive_upgrade_and_downgrade
+          tests/test_domain_schema.py::test_postgres_signed_range_and_downgrade_refusal
+          tests/test_domain_schema.py::test_printing_null_uniqueness_and_semantic_discriminators
+          tests/test_domain_schema.py::test_localization_provenance_mission_attachment_and_deletion
+          tests/test_domain_schema.py::test_ambiguous_legacy_upgrade_rolls_back
