@@ -7,6 +7,7 @@ eagerly via Pydantic so the application fails fast on startup rather than
 failing unpredictably later.
 """
 
+import ipaddress
 from functools import lru_cache
 from urllib.parse import urlsplit, urlunsplit
 
@@ -55,6 +56,7 @@ class Settings(BaseSettings):
     rapidapi_proxy_secret: str | None = Field(
         default=None, alias="RAPIDAPI_PROXY_SECRET", repr=False
     )
+    tester_ip_allowlist: str = Field(default="", alias="TESTER_IP_ALLOWLIST", repr=False)
 
     @field_validator("database_url")
     @classmethod
@@ -73,6 +75,27 @@ class Settings(BaseSettings):
     @property
     def is_production(self) -> bool:
         return self.app_env.lower() == "production"
+
+    @property
+    def tester_ip_allowlist_set(
+        self,
+    ) -> frozenset[ipaddress.IPv4Address | ipaddress.IPv6Address]:
+        """Parse TESTER_IP_ALLOWLIST into IP address objects.
+
+        Whitespace around entries is trimmed and malformed entries are
+        silently skipped rather than raising, so a typo in this temporary
+        allowlist can never crash the application.
+        """
+        addresses = set()
+        for raw in self.tester_ip_allowlist.split(","):
+            candidate = raw.strip()
+            if not candidate:
+                continue
+            try:
+                addresses.add(ipaddress.ip_address(candidate))
+            except ValueError:
+                continue
+        return frozenset(addresses)
 
 
 @lru_cache

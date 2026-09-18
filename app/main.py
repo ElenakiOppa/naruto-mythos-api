@@ -1,4 +1,5 @@
 import hmac
+import ipaddress
 import logging
 import traceback
 from pathlib import Path
@@ -88,9 +89,43 @@ async def handle_unexpected_error(request: Request, exc: Exception) -> JSONRespo
     )
 
 
+def _get_client_ip(request: Request) -> str | None:
+    """Return the client IP as resolved by Uvicorn's --proxy-headers handling.
+
+    Uvicorn only trusts X-Forwarded-For from its configured trusted proxy
+    boundary, so request.client.host here is not an arbitrary spoofable
+    header value from an untrusted direct client.
+    """
+    client = request.client
+    return client.host if client else None
+
+
+def _client_ip_is_allowlisted(request: Request) -> bool:
+    allowlist = settings.tester_ip_allowlist_set
+    if not allowlist:
+        return False
+
+    host = _get_client_ip(request)
+    if not host:
+        return False
+
+    try:
+        client_ip = ipaddress.ip_address(host)
+    except ValueError:
+        return False
+
+    return client_ip in allowlist
+
+
 @app.middleware("http")
 async def rapidapi_proxy_secret_guard(request: Request, call_next):
-    """Require the configured RapidAPI proxy secret only for /v1 traffic."""
+    """Require the configured RapidAPI proxy secret only for /v1 traffic.
+
+    A request may also be allowed without the header when its resolved
+    client IP is present in the temporary TESTER_IP_ALLOWLIST. This is
+    checked only after the secret check fails, so behavior when
+    TESTER_IP_ALLOWLIST is unset/empty is identical to before.
+    """
     if not settings.rapidapi_proxy_secret:
         return await call_next(request)
 
@@ -103,6 +138,9 @@ async def rapidapi_proxy_secret_guard(request: Request, call_next):
         and settings.rapidapi_proxy_secret is not None
         and hmac.compare_digest(supplied, settings.rapidapi_proxy_secret)
     ):
+        return await call_next(request)
+
+    if _client_ip_is_allowlisted(request):
         return await call_next(request)
 
     return JSONResponse(

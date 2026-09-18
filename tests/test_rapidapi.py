@@ -138,4 +138,74 @@ def test_rapidapi_proxy_secret_is_optional_and_safe(client, monkeypatch):
     assert client.get("/health").status_code == 200
     assert client.get("/ready").status_code == 503
     assert client.get("/openapi.json").status_code == 200
+
+
+def test_tester_ip_allowlist_grants_access_without_auth_header(client, monkeypatch):
+    monkeypatch.setattr(app_module.settings, "rapidapi_proxy_secret", "proxy-secret")
+    monkeypatch.setattr(app_module.settings, "tester_ip_allowlist", "203.0.113.5")
+    monkeypatch.setattr(app_module, "_get_client_ip", lambda request: "203.0.113.5")
+
+    response = client.get("/v1/sets")
+    assert response.status_code == 200
+
+
+def test_tester_ip_allowlist_rejects_non_allowlisted_ip(client, monkeypatch):
+    monkeypatch.setattr(app_module.settings, "rapidapi_proxy_secret", "proxy-secret")
+    monkeypatch.setattr(app_module.settings, "tester_ip_allowlist", "203.0.113.5")
+    monkeypatch.setattr(app_module, "_get_client_ip", lambda request: "198.51.100.9")
+
+    response = client.get("/v1/sets")
+    assert response.status_code == 403
+    assert response.json()["error"]["code"] == "FORBIDDEN"
+
+
+def test_tester_ip_allowlist_supports_multiple_ips(client, monkeypatch):
+    monkeypatch.setattr(app_module.settings, "rapidapi_proxy_secret", "proxy-secret")
+    monkeypatch.setattr(app_module.settings, "tester_ip_allowlist", " 203.0.113.5 , 198.51.100.9 ")
+
+    monkeypatch.setattr(app_module, "_get_client_ip", lambda request: "203.0.113.5")
+    assert client.get("/v1/sets").status_code == 200
+
+    monkeypatch.setattr(app_module, "_get_client_ip", lambda request: "198.51.100.9")
+    assert client.get("/v1/sets").status_code == 200
+
+    monkeypatch.setattr(app_module, "_get_client_ip", lambda request: "192.0.2.1")
+    assert client.get("/v1/sets").status_code == 403
+
+
+def test_tester_ip_allowlist_malformed_entries_do_not_crash(client, monkeypatch):
+    monkeypatch.setattr(app_module.settings, "rapidapi_proxy_secret", "proxy-secret")
+    monkeypatch.setattr(
+        app_module.settings, "tester_ip_allowlist", "not-an-ip, ,203.0.113.5,,999.999.999.999"
+    )
+
+    monkeypatch.setattr(app_module, "_get_client_ip", lambda request: "203.0.113.5")
+    assert client.get("/v1/sets").status_code == 200
+
+    monkeypatch.setattr(app_module, "_get_client_ip", lambda request: "not-an-ip")
+    response = client.get("/v1/sets")
+    assert response.status_code == 403
+
+
+def test_tester_ip_allowlist_empty_preserves_current_behavior(client, monkeypatch):
+    monkeypatch.setattr(app_module.settings, "rapidapi_proxy_secret", "proxy-secret")
+    monkeypatch.setattr(app_module.settings, "tester_ip_allowlist", "")
+    monkeypatch.setattr(app_module, "_get_client_ip", lambda request: "203.0.113.5")
+
+    response = client.get("/v1/sets")
+    assert response.status_code == 403
+
+    ok = client.get("/v1/sets", headers={"X-RapidAPI-Proxy-Secret": "proxy-secret"})
+    assert ok.status_code == 200
+
+
+def test_public_routes_stay_public_with_secret_and_allowlist_configured(client, monkeypatch):
+    monkeypatch.setattr(app_module.settings, "rapidapi_proxy_secret", "proxy-secret")
+    monkeypatch.setattr(app_module.settings, "tester_ip_allowlist", "203.0.113.5")
+    monkeypatch.setattr(app_module, "_get_client_ip", lambda request: "198.51.100.9")
+
+    assert client.get("/health").status_code == 200
+    assert client.get("/ready").status_code == 503
+    assert client.get("/openapi.json").status_code == 200
+    assert client.get("/docs").status_code == 200
     assert client.get("/docs").status_code == 200
