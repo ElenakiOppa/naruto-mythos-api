@@ -1,6 +1,5 @@
 """A known collectible edition scoped to one CardSet."""
 
-import unicodedata
 import uuid
 from typing import TYPE_CHECKING
 
@@ -9,24 +8,11 @@ from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from app.database import Base
 from app.models.mixins import TimestampMixin, UUIDPrimaryKeyMixin
+from app.utils.edition_identity import normalize_edition_name
 
 if TYPE_CHECKING:
     from app.models.set import CardSet
     from app.models.variant import CardVariant
-
-
-def normalize_edition_name(value: str) -> str:
-    """Normalize case and whitespace without fuzzy or ordinal interpretation."""
-    return " ".join(unicodedata.normalize("NFC", value).split()).lower()
-
-
-def display_edition_name(value: str) -> str:
-    cleaned = " ".join(unicodedata.normalize("NFC", value).split())
-    normalized = normalize_edition_name(cleaned)
-    return {
-        "1st edition": "1st Edition",
-        "2nd edition": "2nd Edition",
-    }.get(normalized, cleaned)
 
 
 class Edition(Base, UUIDPrimaryKeyMixin, TimestampMixin):

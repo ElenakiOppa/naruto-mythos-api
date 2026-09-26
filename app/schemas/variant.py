@@ -14,7 +14,7 @@ variant is always accessed already nested under its parent card, so the
 link is structural (the JSON nesting itself), not a field a client needs.
 """
 
-from pydantic import ConfigDict, Field, model_validator
+from pydantic import ConfigDict, Field, field_validator, model_validator
 
 from app.schemas.base import PublicSchema
 from app.schemas.image import CardImageResponse
@@ -36,6 +36,11 @@ class CardVariantResponse(PublicSchema):
     serial_numbered: bool = Field(examples=[False])
     serial_total: int | None = Field(default=None, examples=[None])
     images: list[CardImageResponse] = Field(default_factory=list)
+
+    @field_validator("serial_numbered", mode="before")
+    @classmethod
+    def preserve_legacy_serialization_shape(cls, value):
+        return False if value is None else value
 
     @model_validator(mode="before")
     @classmethod

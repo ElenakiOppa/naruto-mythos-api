@@ -29,6 +29,7 @@ from sqlalchemy.orm import Mapped, mapped_column, relationship
 from app.database import Base
 from app.models.card import Card
 from app.models.mixins import TimestampMixin, UUIDPrimaryKeyMixin
+from app.utils.printing_taxonomy import normalize_printing_taxonomy
 
 if TYPE_CHECKING:
     from app.models.edition import Edition
@@ -68,9 +69,16 @@ class CardVariant(Base, UUIDPrimaryKeyMixin, TimestampMixin):
     source_variant: Mapped[str | None] = mapped_column(String(64), nullable=True)
     card_version: Mapped[str | None] = mapped_column(String(64), nullable=True)
     stamp: Mapped[str | None] = mapped_column(String(255), nullable=True)
-    serial_numbered: Mapped[bool] = mapped_column(
-        Boolean, nullable=False, default=False, server_default="false"
+    normalized_rarity: Mapped[str | None] = mapped_column(String(64), nullable=True)
+    collector_class: Mapped[str | None] = mapped_column(String(64), nullable=True)
+    normalized_treatment: Mapped[str | None] = mapped_column(String(64), nullable=True)
+    rarity_resolution_status: Mapped[str] = mapped_column(
+        String(16), nullable=False, default="UNRESOLVED", server_default="UNRESOLVED"
     )
+    variant_resolution_status: Mapped[str] = mapped_column(
+        String(16), nullable=False, default="UNSPECIFIED", server_default="UNSPECIFIED"
+    )
+    serial_numbered: Mapped[bool | None] = mapped_column(Boolean, nullable=True, default=None)
     serial_total: Mapped[int | None] = mapped_column(Integer, nullable=True)
 
     card: Mapped["Card"] = relationship(back_populates="variants", foreign_keys=[card_id])
@@ -116,13 +124,19 @@ class CardVariant(Base, UUIDPrimaryKeyMixin, TimestampMixin):
             name="fk_card_variants_edition_set_owner",
             ondelete="RESTRICT",
         ),
-        # serial_numbered=False cards are never required to carry a total;
-        # this only constrains serial_total's own value when present, it
-        # does not force serial_total to exist when serial_numbered is true
-        # (a numbered variant's total print run may simply be unknown yet).
+        # A null serial_numbered value means the source provided no evidence;
+        # a known serialized printing may still have an unknown serial_total.
         CheckConstraint(
             "serial_total IS NULL OR serial_total > 0",
             name="ck_card_variants_serial_total_positive",
+        ),
+        CheckConstraint(
+            "rarity_resolution_status IN ('MAPPED', 'UNRESOLVED')",
+            name="ck_card_variants_rarity_resolution_status",
+        ),
+        CheckConstraint(
+            "variant_resolution_status IN ('MAPPED', 'UNSPECIFIED', 'UNRESOLVED')",
+            name="ck_card_variants_variant_resolution_status",
         ),
     )
 
@@ -144,3 +158,18 @@ def _populate_printing_set_id(_mapper, connection, target: CardVariant) -> None:
     target.set_id = connection.execute(
         select(Card.set_id).where(Card.id == target.card_id)
     ).scalar_one()
+
+
+@event.listens_for(CardVariant, "before_insert")
+@event.listens_for(CardVariant, "before_update")
+def _populate_printing_taxonomy(_mapper, connection, target: CardVariant) -> None:
+    card_type = (
+        target.card.card_type
+        if target.card is not None
+        else connection.execute(
+            select(Card.card_type).where(Card.id == target.card_id)
+        ).scalar_one()
+    )
+    taxonomy = normalize_printing_taxonomy(target.rarity_override, target.source_variant, card_type)
+    for field, value in taxonomy.as_dict().items():
+        setattr(target, field, value)

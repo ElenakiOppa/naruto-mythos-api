@@ -13,6 +13,8 @@ import json
 import unicodedata
 from dataclasses import dataclass
 
+from app.utils.edition_identity import normalize_edition_name
+
 from .models import SourceCardRecord
 
 
@@ -148,7 +150,7 @@ class CanonicalPrintingKey:
             raise ValueError("Incomplete printing identity: set/id/rarity required")
         return cls(
             expansion=record.set,
-            edition=record.edition,
+            edition=normalize_edition_name(record.edition) if record.edition else None,
             printed_identifier=record.id,
             rarity=record.rarity,
             variant=record.variant,

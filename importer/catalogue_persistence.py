@@ -17,9 +17,9 @@ from sqlalchemy import func, select
 from sqlalchemy.orm import Session
 
 from app.models import Card, CardImage, CardSet, CardVariant, Edition, Keyword, SourceRecord
-from app.models.edition import normalize_edition_name
 from app.models.keyword import card_keywords
 from app.models.translation import PrintingTranslation
+from app.utils.edition_identity import normalize_edition_name
 from importer.catalogue_design.identity import CanonicalExpansionKey
 
 SOURCE_NAME = "naruto_mythos_phase14_snapshot"
@@ -171,11 +171,13 @@ def _get_or_create_printing(
         "rarity_override": identity["rarity"],
         "collector_number": identity["printed_identifier"],
         "language": "EN",
-        "edition": identity["edition"],
+        "edition": printing_data.get("edition_text", identity["edition"]),
         "source_variant": identity["variant"],
         "card_version": identity["card_version"],
         "stamp": identity["stamp"],
-        "serial_numbered": False,
+        **printing_data["taxonomy"],
+        "serial_numbered": printing_data["serial_numbered"],
+        "serial_total": printing_data["serial_total"],
     }
     printing = session.scalar(select(CardVariant).where(CardVariant.public_id == public_id))
     if printing is None:

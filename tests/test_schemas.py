@@ -248,6 +248,22 @@ def test_variant_rarity_override_maps_to_rarity_field(db_session, fictional_card
     assert dumped["rarity"] == "Secret Rare"
 
 
+def test_unknown_serialization_keeps_public_boolean_shape():
+    schema = CardVariantResponse.model_validate(
+        {"id": "TEST-UNKNOWN-SERIAL", "type": "normal", "language": "EN", "serial_numbered": None}
+    )
+
+    assert schema.model_dump(mode="json")["serial_numbered"] is False
+
+
+def test_unknown_serialization_state_keeps_public_boolean_shape():
+    schema = CardVariantResponse.model_validate(
+        {"id": "TEST-UNKNOWN-SERIAL", "type": "normal", "language": "EN", "serial_numbered": None}
+    )
+
+    assert schema.model_dump(mode="json")["serial_numbered"] is False
+
+
 # ---------------------------------------------------------------------------
 # CardImageResponse
 # ---------------------------------------------------------------------------

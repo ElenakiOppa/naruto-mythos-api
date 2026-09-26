@@ -82,6 +82,13 @@ def test_transactional_import_persists_domain_and_is_idempotent(db_session):
     assert first.associations == 4
     assert all(printing.edition_id is not None for printing in db_session.query(CardVariant))
     assert db_session.query(Edition).count() == 1
+    assert all(printing.normalized_rarity == "Common" for printing in db_session.query(CardVariant))
+    assert all(
+        printing.normalized_treatment == "Holographic" for printing in db_session.query(CardVariant)
+    )
+    assert all(printing.source_variant == "Holo" for printing in db_session.query(CardVariant))
+    assert all(printing.serial_numbered is None for printing in db_session.query(CardVariant))
+    assert all(printing.serial_total is None for printing in db_session.query(CardVariant))
 
 
 def test_two_edition_printings_persist_under_one_card(db_session):

@@ -22,7 +22,8 @@ from typing import Any
 
 from pydantic import ValidationError
 
-from app.models.edition import display_edition_name, normalize_edition_name
+from app.utils.edition_identity import display_edition_name, normalize_edition_name
+from app.utils.printing_taxonomy import normalize_printing_taxonomy
 from importer.catalogue_design.analyzer import load_records_from_acquisition
 from importer.catalogue_design.identity import (
     CanonicalEditionKey,
@@ -191,14 +192,25 @@ def _build_plan(
                     },
                 )
                 edition["printing_ids"].append(printing_id)
+            taxonomy = normalize_printing_taxonomy(record.rarity, record.variant, record.card_type)
+            rarity_identity = (
+                taxonomy.normalized_rarity
+                or taxonomy.collector_class
+                or f"UNRESOLVED_RARITY:{record.rarity}"
+            )
+            variant_identity = taxonomy.normalized_treatment or (
+                "UNSPECIFIED_VARIANT"
+                if not record.variant
+                else f"UNRESOLVED_VARIANT:{record.variant}"
+            )
             normalized_printing_key = (
                 card_id,
                 edition_public_id,
                 *(
                     unicodedata.normalize("NFC", value) if value is not None else None
                     for value in (
-                        record.rarity,
-                        record.variant,
+                        rarity_identity,
+                        variant_identity,
                         record.card_version,
                         record.stamp or None,
                     )
@@ -215,7 +227,11 @@ def _build_plan(
                 "public_id": printing_id,
                 "card_id": card_id,
                 "edition_public_id": edition_public_id,
+                "edition_text": record.edition,
                 "identity": fingerprint.model_dump(mode="json"),
+                "taxonomy": taxonomy.as_dict(),
+                "serial_numbered": None,
+                "serial_total": None,
                 "source_uid": str(record.uid),
                 "source_sku": record.sku,
                 "localizations": localizations,
@@ -242,7 +258,7 @@ def _build_plan(
         edition["printing_ids"] = sorted(edition["printing_ids"])
 
     plan = {
-        "schema_version": "phase13c1-edition-v1",
+        "schema_version": "phase13c2-taxonomy-v1",
         "cards": [cards[key] for key in sorted(cards)],
         "editions": [editions[key] for key in sorted(editions)],
         "printings": [printings[key] for key in sorted(printings)],
@@ -271,6 +287,7 @@ def _build_plan(
         "negative_power_count": negative_power_count,
         "mission_points_count": mission_points_count,
         "identity_collision_count": 0,
+        "normalized_identity_collision_count": len(relational_printing_ids) - len(printings),
         "quarantined_records": {},
     }
     return plan, report

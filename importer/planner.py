@@ -8,8 +8,9 @@ from pydantic import AnyUrl
 from sqlalchemy import select
 
 from app.models import Card, CardImage, CardSet, CardVariant, Edition, Keyword, SourceRecord
-from app.models.edition import display_edition_name, normalize_edition_name
 from app.models.keyword import card_keywords
+from app.utils.edition_identity import display_edition_name, normalize_edition_name
+from app.utils.printing_taxonomy import normalize_printing_taxonomy
 from importer.catalogue_design.identity import CanonicalEditionKey
 from importer.hashing import canonical_hash
 
@@ -139,6 +140,8 @@ def build_plan(connection, catalogue):
                     ("images",),
                     {"id": "public_id", "type": "variant_type", "rarity": "rarity_override"},
                 )
+                attrs["source_variant"] = v.type
+                attrs.update(normalize_printing_taxonomy(v.rarity, v.type, card.type).as_dict())
                 normalized = catalogue.variant_aliases.get(v.type, v.type)
                 if normalized != v.type:
                     normalizations.append(

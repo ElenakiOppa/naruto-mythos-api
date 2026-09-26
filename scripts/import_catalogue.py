@@ -21,7 +21,7 @@ from importer.catalogue_importer import build_dry_run
 from scripts.acquisition.run_acquisition import acquire_one
 from scripts.acquisition.sources import APPROVED_API_SOURCES
 
-PLAN_SHA256 = "8006177e6e7299cc0a0195b77d243bcf2d9d6a4f88b79f07a3632e0bd77a09a2"
+PLAN_SHA256 = "caefef6db5f8a2b693f1e18e96a67d7cb3dba5d0acbee973df91fef273c32b0d"
 EXPECTED_REPORT = {
     "source_records": 636,
     "accepted": 636,
@@ -29,6 +29,7 @@ EXPECTED_REPORT = {
     "unexplained_quarantine": 0,
     "unique_cards": 318,
     "unique_printings": 636,
+    "normalized_identity_collision_count": 0,
 }
 EXPECTED_SETS = {"Set 1: Konoha Shidō": 394, "Set 2: Shinobi Shiren": 242}
 EXPECTED_COUNTS = {
@@ -58,6 +59,8 @@ def validate_plan(result):
         if any(report.get(k) != v for k, v in EXPECTED_REPORT.items()):
             raise ValueError
         if report.get("quarantined_records") or report.get("identity_collision_count") != 0:
+            raise ValueError
+        if report.get("normalized_identity_collision_count") != 0:
             raise ValueError
         if len(plan["cards"]) != 318 or len(plan["printings"]) != 636:
             raise ValueError
