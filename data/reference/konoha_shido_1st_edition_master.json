@@ -1,0 +1,3184 @@
+{
+  "entries": [
+    {
+      "card_name": "HIRUZEN SARUTOBI - The Professor",
+      "collector_number": "001",
+      "rarity_raw": "Common",
+      "reference_key": "kref_92f6eee317e3a99a6e7b0eb6b06d11dd2380716944dfd97059bdfd47",
+      "variant_raw": "Normal",
+      "workbook_row": 3
+    },
+    {
+      "card_name": "HIRUZEN SARUTOBI - The Professor",
+      "collector_number": "001",
+      "rarity_raw": "Common",
+      "reference_key": "kref_3773ecbcbe00ea2095241a39b14a490a1bbd90bc2eaa0dea1dca52c3",
+      "variant_raw": "FullArt",
+      "workbook_row": 4
+    },
+    {
+      "card_name": "HIRUZEN SARUTOBI - The Professor",
+      "collector_number": "001",
+      "rarity_raw": "Common",
+      "reference_key": "kref_8d906abff8825baa696cfb47743610ee5f6abcbe079e0004ab4efb9b",
+      "variant_raw": "Holographic",
+      "workbook_row": 5
+    },
+    {
+      "card_name": "HIRUZEN SARUTOBI - Third Hokage",
+      "collector_number": "002",
+      "rarity_raw": "Uncommon",
+      "reference_key": "kref_8247f076a182b51a6dc26fd4aa58f7e75be744bc689c8c71a6b219ab",
+      "variant_raw": "Normal",
+      "workbook_row": 6
+    },
+    {
+      "card_name": "HIRUZEN SARUTOBI - Third Hokage",
+      "collector_number": "002",
+      "rarity_raw": "Uncommon",
+      "reference_key": "kref_17d1f0fae1400133d72dff598af62b4053bfe9e9cc9d9301b731d4e8",
+      "variant_raw": "FullArt",
+      "workbook_row": 7
+    },
+    {
+      "card_name": "HIRUZEN SARUTOBI - Third Hokage",
+      "collector_number": "002",
+      "rarity_raw": "Uncommon",
+      "reference_key": "kref_fdbb47960d0f784fce1865340a2a2ddd213a759d2804ce1e570a8258",
+      "variant_raw": "Holographic",
+      "workbook_row": 8
+    },
+    {
+      "card_name": "TSUNADE - Master Medical Ninja",
+      "collector_number": "003",
+      "rarity_raw": "Common",
+      "reference_key": "kref_fb3f69c1d9f1844d9ca99cd5e534bfe7f4c054d5d5a59cb5a319e091",
+      "variant_raw": "Normal",
+      "workbook_row": 9
+    },
+    {
+      "card_name": "TSUNADE - Master Medical Ninja",
+      "collector_number": "003",
+      "rarity_raw": "Common",
+      "reference_key": "kref_26c1eba3ceb6e41ce3b8af6f21c475429b4cb70c53c512ded1b76965",
+      "variant_raw": "FullArt",
+      "workbook_row": 10
+    },
+    {
+      "card_name": "TSUNADE - Master Medical Ninja",
+      "collector_number": "003",
+      "rarity_raw": "Common",
+      "reference_key": "kref_66d6bf2f9fdf3fc332850355441d27a2d971f809803268882393abbd",
+      "variant_raw": "Holographic",
+      "workbook_row": 11
+    },
+    {
+      "card_name": "TSUNADE - Mitotic Regeneration",
+      "collector_number": "004",
+      "rarity_raw": "Uncommon",
+      "reference_key": "kref_827181620aff8bd4b23a9029586354b29a2cb3cbe36a0f7b30aa788c",
+      "variant_raw": "Normal",
+      "workbook_row": 12
+    },
+    {
+      "card_name": "TSUNADE - Mitotic Regeneration",
+      "collector_number": "004",
+      "rarity_raw": "Uncommon",
+      "reference_key": "kref_288ea719bbec69a5bd915e85add37eee02d0f73ce56d817f9d667896",
+      "variant_raw": "FullArt",
+      "workbook_row": 13
+    },
+    {
+      "card_name": "TSUNADE - Mitotic Regeneration",
+      "collector_number": "004",
+      "rarity_raw": "Uncommon",
+      "reference_key": "kref_9e12c3df6d4ed163932de7aa6c81b3163a4e65e466999908a1a974cb",
+      "variant_raw": "Holographic",
+      "workbook_row": 14
+    },
+    {
+      "card_name": "SHIZUNE - Assistant to Tsunade",
+      "collector_number": "005",
+      "rarity_raw": "Common",
+      "reference_key": "kref_4824b1a8e4e8d048c9e83593ec35d83c2cab25cfe0dd59c4aab90f67",
+      "variant_raw": "Normal",
+      "workbook_row": 15
+    },
+    {
+      "card_name": "SHIZUNE - Assistant to Tsunade",
+      "collector_number": "005",
+      "rarity_raw": "Common",
+      "reference_key": "kref_b9558b13c87454f18fb9f3ff6894934fac16c6e0e4fdb4d2b261f4e0",
+      "variant_raw": "FullArt",
+      "workbook_row": 16
+    },
+    {
+      "card_name": "SHIZUNE - Assistant to Tsunade",
+      "collector_number": "005",
+      "rarity_raw": "Common",
+      "reference_key": "kref_c76a024770b86c52c379984f6e2e092e44eaf24d5b3426e84a9d20a0",
+      "variant_raw": "Holographic",
+      "workbook_row": 17
+    },
+    {
+      "card_name": "SHIZUNE - Prepared Needle Shot",
+      "collector_number": "006",
+      "rarity_raw": "Uncommon",
+      "reference_key": "kref_15dc2425bf2a3ee283c83094ee71b3ae26f6160dcf1f015085be527a",
+      "variant_raw": "Normal",
+      "workbook_row": 18
+    },
+    {
+      "card_name": "SHIZUNE - Prepared Needle Shot",
+      "collector_number": "006",
+      "rarity_raw": "Uncommon",
+      "reference_key": "kref_0a5d04b6e73227b3fdfba73ea3e3ea0b8bb7b63573cae9a46abc7f5c",
+      "variant_raw": "FullArt",
+      "workbook_row": 19
+    },
+    {
+      "card_name": "SHIZUNE - Prepared Needle Shot",
+      "collector_number": "006",
+      "rarity_raw": "Uncommon",
+      "reference_key": "kref_55115c36a0460f0b39a4d054e0d8843f8579c586818fd94eac727ec6",
+      "variant_raw": "Holographic",
+      "workbook_row": 20
+    },
+    {
+      "card_name": "JIRAIYA - Toad Sage",
+      "collector_number": "007",
+      "rarity_raw": "Common",
+      "reference_key": "kref_b266a84543367378c6ad7b39fdaf50c8673524ff1e7d798c173d084d",
+      "variant_raw": "Normal",
+      "workbook_row": 21
+    },
+    {
+      "card_name": "JIRAIYA - Toad Sage",
+      "collector_number": "007",
+      "rarity_raw": "Common",
+      "reference_key": "kref_09fec06f71034461cb795a6c64fd79cc0e29312fd511970472bddc02",
+      "variant_raw": "FullArt",
+      "workbook_row": 22
+    },
+    {
+      "card_name": "JIRAIYA - Toad Sage",
+      "collector_number": "007",
+      "rarity_raw": "Common",
+      "reference_key": "kref_d4e0d4add97c7f8d801ac9371d5d789de02159fdfd9f9f6d49cc211a",
+      "variant_raw": "Holographic",
+      "workbook_row": 23
+    },
+    {
+      "card_name": "JIRAIYA - Earth Style: Dark Swamp",
+      "collector_number": "008",
+      "rarity_raw": "Uncommon",
+      "reference_key": "kref_898d91ef0de0ac8e4983623f1f9fa49c74cab340db7e548df41d394c",
+      "variant_raw": "Normal",
+      "workbook_row": 24
+    },
+    {
+      "card_name": "JIRAIYA - Earth Style: Dark Swamp",
+      "collector_number": "008",
+      "rarity_raw": "Uncommon",
+      "reference_key": "kref_86f467b551d20eab3c41190159bd3a1ec15acff0508f66e6471f6d75",
+      "variant_raw": "FullArt",
+      "workbook_row": 25
+    },
+    {
+      "card_name": "JIRAIYA - Earth Style: Dark Swamp",
+      "collector_number": "008",
+      "rarity_raw": "Uncommon",
+      "reference_key": "kref_9506f71fed8e01f4c771ed6bfd32158c79b9a41d48d2ddca1dcce257",
+      "variant_raw": "Holographic",
+      "workbook_row": 26
+    },
+    {
+      "card_name": "NARUTO UZUMAKI - Genin of Leaf Village",
+      "collector_number": "009",
+      "rarity_raw": "Common",
+      "reference_key": "kref_e01665f54b7d8c3e894d2ae111200dc8db27d1657b75f8dab589ab3b",
+      "variant_raw": "Normal",
+      "workbook_row": 27
+    },
+    {
+      "card_name": "NARUTO UZUMAKI - Genin of Leaf Village",
+      "collector_number": "009",
+      "rarity_raw": "Common",
+      "reference_key": "kref_720c58a1f8511f76d9f518da7df6516b1cfcc690d9390a14b59a6c73",
+      "variant_raw": "FullArt",
+      "workbook_row": 28
+    },
+    {
+      "card_name": "NARUTO UZUMAKI - Genin of Leaf Village",
+      "collector_number": "009",
+      "rarity_raw": "Common",
+      "reference_key": "kref_6b7dd67ee3a22d0c998e758f89b4d6b2ef90345015ac1b858634b7fd",
+      "variant_raw": "Holographic",
+      "workbook_row": 29
+    },
+    {
+      "card_name": "NARUTO UZUMAKI - Substitution Jutsu",
+      "collector_number": "010",
+      "rarity_raw": "Common",
+      "reference_key": "kref_984cd11bd65fb3f3121348ac1c91e69334d85cad3968bde04beb711a",
+      "variant_raw": "Normal",
+      "workbook_row": 30
+    },
+    {
+      "card_name": "NARUTO UZUMAKI - Substitution Jutsu",
+      "collector_number": "010",
+      "rarity_raw": "Common",
+      "reference_key": "kref_269ac0fa7bcd88e3b930039012e814e88ed3f8d6c52c30c00e9b24f1",
+      "variant_raw": "FullArt",
+      "workbook_row": 31
+    },
+    {
+      "card_name": "NARUTO UZUMAKI - Substitution Jutsu",
+      "collector_number": "010",
+      "rarity_raw": "Common",
+      "reference_key": "kref_6ffcb214de88d488da825b6c6b441225f05e859deeb46657194bc794",
+      "variant_raw": "Holographic",
+      "workbook_row": 32
+    },
+    {
+      "card_name": "SAKURA HARUNO - Genin of Team 7",
+      "collector_number": "011",
+      "rarity_raw": "Common",
+      "reference_key": "kref_31bf9c0fa19df680b2c232a8b0b9650bce1c1e117ca45f9975e1656c",
+      "variant_raw": "Normal",
+      "workbook_row": 33
+    },
+    {
+      "card_name": "SAKURA HARUNO - Genin of Team 7",
+      "collector_number": "011",
+      "rarity_raw": "Common",
+      "reference_key": "kref_61aefb849efdc16ce61a924beab1ca61b807dfb78bfe951cec922da4",
+      "variant_raw": "FullArt",
+      "workbook_row": 34
+    },
+    {
+      "card_name": "SAKURA HARUNO - Genin of Team 7",
+      "collector_number": "011",
+      "rarity_raw": "Common",
+      "reference_key": "kref_7189583f61b51b7ce0b4082a85c2857d535dde1f9f8e244efad6e349",
+      "variant_raw": "Holographic",
+      "workbook_row": 35
+    },
+    {
+      "card_name": "SAKURA HARUNO - Chakra Prowess",
+      "collector_number": "012",
+      "rarity_raw": "Uncommon",
+      "reference_key": "kref_cc1750f8709ec8eb74c31569d0e7afb9571aa42c9a0dec299dcc2117",
+      "variant_raw": "Normal",
+      "workbook_row": 36
+    },
+    {
+      "card_name": "SAKURA HARUNO - Chakra Prowess",
+      "collector_number": "012",
+      "rarity_raw": "Uncommon",
+      "reference_key": "kref_a67114abf39a502f442c96fc373e75549a03e11c8062786613367545",
+      "variant_raw": "FullArt",
+      "workbook_row": 37
+    },
+    {
+      "card_name": "SAKURA HARUNO - Chakra Prowess",
+      "collector_number": "012",
+      "rarity_raw": "Uncommon",
+      "reference_key": "kref_5b6f32b22c1b18739f1f45e7e29e928382dc4ec3def5744f06fe5d36",
+      "variant_raw": "Holographic",
+      "workbook_row": 38
+    },
+    {
+      "card_name": "SASUKE UCHIHA - Last of the Uchiha Clan",
+      "collector_number": "013",
+      "rarity_raw": "Common",
+      "reference_key": "kref_19cc31eff2b9a7a92b3851172d3e35bda4cafd90e5aa5aaa75e3a3cc",
+      "variant_raw": "Normal",
+      "workbook_row": 39
+    },
+    {
+      "card_name": "SASUKE UCHIHA - Last of the Uchiha Clan",
+      "collector_number": "013",
+      "rarity_raw": "Common",
+      "reference_key": "kref_f5c406cfbe3d6127ef3a17929a95f53e9c643570d5418c81315d52b7",
+      "variant_raw": "FullArt",
+      "workbook_row": 40
+    },
+    {
+      "card_name": "SASUKE UCHIHA - Last of the Uchiha Clan",
+      "collector_number": "013",
+      "rarity_raw": "Common",
+      "reference_key": "kref_85f9914a5b39eee77bf2396cf6c6e3fa7e8c66f78a53c54a9a9462e8",
+      "variant_raw": "Holographic",
+      "workbook_row": 41
+    },
+    {
+      "card_name": "SASUKE UCHIHA - Sharingan",
+      "collector_number": "014",
+      "rarity_raw": "Uncommon",
+      "reference_key": "kref_fa102fa70547717bc727af004bd41a842a58be4ff9504ee61b795652",
+      "variant_raw": "Normal",
+      "workbook_row": 42
+    },
+    {
+      "card_name": "SASUKE UCHIHA - Sharingan",
+      "collector_number": "014",
+      "rarity_raw": "Uncommon",
+      "reference_key": "kref_e74d755c6a5ad330ec22b775f7fb1d81488494eaa117076f17952428",
+      "variant_raw": "FullArt",
+      "workbook_row": 43
+    },
+    {
+      "card_name": "SASUKE UCHIHA - Sharingan",
+      "collector_number": "014",
+      "rarity_raw": "Uncommon",
+      "reference_key": "kref_42c14b855148e518cc908db45b9503637698c44798c289c8b29a1213",
+      "variant_raw": "Holographic",
+      "workbook_row": 44
+    },
+    {
+      "card_name": "KAKASHI HATAKE - Teacher of Team 7",
+      "collector_number": "015",
+      "rarity_raw": "Common",
+      "reference_key": "kref_b494dc743dad59ba40d774ed224bbdeafc01ccc3b2fa9fd6b08e63f9",
+      "variant_raw": "Normal",
+      "workbook_row": 45
+    },
+    {
+      "card_name": "KAKASHI HATAKE - Teacher of Team 7",
+      "collector_number": "015",
+      "rarity_raw": "Common",
+      "reference_key": "kref_09ab3346c91dbf440d7cf32e274603e6051af78b869bd53e49c95c49",
+      "variant_raw": "FullArt",
+      "workbook_row": 46
+    },
+    {
+      "card_name": "KAKASHI HATAKE - Teacher of Team 7",
+      "collector_number": "015",
+      "rarity_raw": "Common",
+      "reference_key": "kref_781b9946eb10994392ef3a5cc9361dda4f212ddb3a3c263ed09695e9",
+      "variant_raw": "Holographic",
+      "workbook_row": 47
+    },
+    {
+      "card_name": "KAKASHI HATAKE - Sharingan",
+      "collector_number": "016",
+      "rarity_raw": "Uncommon",
+      "reference_key": "kref_517e828ae65ef4f0fd714253cfe9a947167c51a28b2c6e6134d4cf12",
+      "variant_raw": "Normal",
+      "workbook_row": 48
+    },
+    {
+      "card_name": "KAKASHI HATAKE - Sharingan",
+      "collector_number": "016",
+      "rarity_raw": "Uncommon",
+      "reference_key": "kref_8c8e37a2d734671c09ff25dcda271270f5d0197da142433ae694947b",
+      "variant_raw": "FullArt",
+      "workbook_row": 49
+    },
+    {
+      "card_name": "KAKASHI HATAKE - Sharingan",
+      "collector_number": "016",
+      "rarity_raw": "Uncommon",
+      "reference_key": "kref_1b1d4ac509892721d6f044d5bcbf4c0267716ff7fe1bdd80de9b5690",
+      "variant_raw": "Holographic",
+      "workbook_row": 50
+    },
+    {
+      "card_name": "CHOJI AKIMICHI - Expansion Jutsu",
+      "collector_number": "017",
+      "rarity_raw": "Common",
+      "reference_key": "kref_851ef8c1122773cc0e3f45ba3412835ffb46d608671154d5417c1e84",
+      "variant_raw": "Normal",
+      "workbook_row": 51
+    },
+    {
+      "card_name": "CHOJI AKIMICHI - Expansion Jutsu",
+      "collector_number": "017",
+      "rarity_raw": "Common",
+      "reference_key": "kref_f4bc2a57e8f47a6b3dafda2d717a5c843375d34cdf6b1413b80bd0ad",
+      "variant_raw": "FullArt",
+      "workbook_row": 52
+    },
+    {
+      "card_name": "CHOJI AKIMICHI - Expansion Jutsu",
+      "collector_number": "017",
+      "rarity_raw": "Common",
+      "reference_key": "kref_a64f00ecf626206ff246d690a51a080b86bee4bf83d8703490eea610",
+      "variant_raw": "Holographic",
+      "workbook_row": 53
+    },
+    {
+      "card_name": "CHOJI AKIMICHI - Human Boulder",
+      "collector_number": "018",
+      "rarity_raw": "Uncommon",
+      "reference_key": "kref_ac5e07f94d10e40d2cd01f18d228f205a237ae22e0cd40361c7a298c",
+      "variant_raw": "Normal",
+      "workbook_row": 54
+    },
+    {
+      "card_name": "CHOJI AKIMICHI - Human Boulder",
+      "collector_number": "018",
+      "rarity_raw": "Uncommon",
+      "reference_key": "kref_e4a7971df4a4f1f31865034598238e24b0cebf40b8ee927e16298c47",
+      "variant_raw": "FullArt",
+      "workbook_row": 55
+    },
+    {
+      "card_name": "CHOJI AKIMICHI - Human Boulder",
+      "collector_number": "018",
+      "rarity_raw": "Uncommon",
+      "reference_key": "kref_cd8d8c33683837b881a18f69bd9703671fad37f3703ef1123d76e339",
+      "variant_raw": "Holographic",
+      "workbook_row": 56
+    },
+    {
+      "card_name": "INO YAMANAKA - Genin of Team 10",
+      "collector_number": "019",
+      "rarity_raw": "Common",
+      "reference_key": "kref_ffd681eda464a4051df7f28f69995acc41625aad1caceffd72c920d3",
+      "variant_raw": "Normal",
+      "workbook_row": 57
+    },
+    {
+      "card_name": "INO YAMANAKA - Genin of Team 10",
+      "collector_number": "019",
+      "rarity_raw": "Common",
+      "reference_key": "kref_693c18d3b0b4f25204d11bf346e23180cbcd7d0df076334b88e43e24",
+      "variant_raw": "FullArt",
+      "workbook_row": 58
+    },
+    {
+      "card_name": "INO YAMANAKA - Genin of Team 10",
+      "collector_number": "019",
+      "rarity_raw": "Common",
+      "reference_key": "kref_331005d0cc074271bab69ec93f5029e61ff130c92b8efbaf05cf36df",
+      "variant_raw": "Holographic",
+      "workbook_row": 59
+    },
+    {
+      "card_name": "INO YAMANAKA - Mind Transfer Jutsu",
+      "collector_number": "020",
+      "rarity_raw": "Uncommon",
+      "reference_key": "kref_ac11f3d00e7203c48ae33ef832ce784b22cdb876f148e6732781eda5",
+      "variant_raw": "Normal",
+      "workbook_row": 60
+    },
+    {
+      "card_name": "INO YAMANAKA - Mind Transfer Jutsu",
+      "collector_number": "020",
+      "rarity_raw": "Uncommon",
+      "reference_key": "kref_381190bb4ce3eb770c3ffd77f391762cf8b1f6f185e88f699a421b54",
+      "variant_raw": "FullArt",
+      "workbook_row": 61
+    },
+    {
+      "card_name": "INO YAMANAKA - Mind Transfer Jutsu",
+      "collector_number": "020",
+      "rarity_raw": "Uncommon",
+      "reference_key": "kref_f22973fb0061d31563143e3f5850d8d5867de2c0e503c0ec534bfd79",
+      "variant_raw": "Holographic",
+      "workbook_row": 62
+    },
+    {
+      "card_name": "SHIKAMARU NARA - Genin of Team 10",
+      "collector_number": "021",
+      "rarity_raw": "Common",
+      "reference_key": "kref_1997dd3fb196b0f6fe5d0457481a4f0f91d298f7cde6d496a2a6a332",
+      "variant_raw": "Normal",
+      "workbook_row": 63
+    },
+    {
+      "card_name": "SHIKAMARU NARA - Genin of Team 10",
+      "collector_number": "021",
+      "rarity_raw": "Common",
+      "reference_key": "kref_8157ad6d5181353099482ebd7dd702f195a8093dc1b4e0ed06b5e2ab",
+      "variant_raw": "FullArt",
+      "workbook_row": 64
+    },
+    {
+      "card_name": "SHIKAMARU NARA - Genin of Team 10",
+      "collector_number": "021",
+      "rarity_raw": "Common",
+      "reference_key": "kref_9fc5cdc8233a5317e0e1e399aeba5e0dea604ecd0e3045e27e93ad1e",
+      "variant_raw": "Holographic",
+      "workbook_row": 65
+    },
+    {
+      "card_name": "SHIKAMARU NARA - Shadow",
+      "collector_number": "022",
+      "rarity_raw": "Uncommon",
+      "reference_key": "kref_05e40f50c9bb900467d9697ef85315644ff733fe97e1e28804c34ea4",
+      "variant_raw": "Normal",
+      "workbook_row": 66
+    },
+    {
+      "card_name": "SHIKAMARU NARA - Shadow",
+      "collector_number": "022",
+      "rarity_raw": "Uncommon",
+      "reference_key": "kref_0864b6e0f9b7703b35b0767d9855138d201a80585de72abad0ed45a3",
+      "variant_raw": "FullArt",
+      "workbook_row": 67
+    },
+    {
+      "card_name": "SHIKAMARU NARA - Shadow",
+      "collector_number": "022",
+      "rarity_raw": "Uncommon",
+      "reference_key": "kref_3d02e8dea79dda8b3de35f06d6337a0bed47078aeea6c83adc31e37c",
+      "variant_raw": "Holographic",
+      "workbook_row": 68
+    },
+    {
+      "card_name": "ASUMA SARUTOBI - Teacher of Team 10",
+      "collector_number": "023",
+      "rarity_raw": "Common",
+      "reference_key": "kref_5db9c7c8c78f43655b56c204c3b30565fc736ad8ffcb12a16c8a7db7",
+      "variant_raw": "Normal",
+      "workbook_row": 69
+    },
+    {
+      "card_name": "ASUMA SARUTOBI - Teacher of Team 10",
+      "collector_number": "023",
+      "rarity_raw": "Common",
+      "reference_key": "kref_621f8abea7d332e85b9ab6694e5b156f9c0237499e56efdc0e3d4e41",
+      "variant_raw": "FullArt",
+      "workbook_row": 70
+    },
+    {
+      "card_name": "ASUMA SARUTOBI - Teacher of Team 10",
+      "collector_number": "023",
+      "rarity_raw": "Common",
+      "reference_key": "kref_7a7d3eca9a23d8403422b25f1b37ebbedbdbd53c8389f6a02f3cdcad",
+      "variant_raw": "Holographic",
+      "workbook_row": 71
+    },
+    {
+      "card_name": "ASUMA SARUTOBI - Chakra Blade",
+      "collector_number": "024",
+      "rarity_raw": "Uncommon",
+      "reference_key": "kref_af4f6760a421d200dd02b3c40655bcab47958e84b12c2075b086ec93",
+      "variant_raw": "Normal",
+      "workbook_row": 72
+    },
+    {
+      "card_name": "ASUMA SARUTOBI - Chakra Blade",
+      "collector_number": "024",
+      "rarity_raw": "Uncommon",
+      "reference_key": "kref_ca5a5ba13459734705c2f869a798fafe175aee407ade0fed40e34abf",
+      "variant_raw": "FullArt",
+      "workbook_row": 73
+    },
+    {
+      "card_name": "ASUMA SARUTOBI - Chakra Blade",
+      "collector_number": "024",
+      "rarity_raw": "Uncommon",
+      "reference_key": "kref_586e883a89cd1b49eeec56893180d5327849e41aa03b260914522c3e",
+      "variant_raw": "Holographic",
+      "workbook_row": 74
+    },
+    {
+      "card_name": "KIBA INUZUKA - Genin of Team 8",
+      "collector_number": "025",
+      "rarity_raw": "Common",
+      "reference_key": "kref_f18fc041ed9983a7dcd6e02ab1763e60fe49c267aeae68fa9ccc1ce1",
+      "variant_raw": "Normal",
+      "workbook_row": 75
+    },
+    {
+      "card_name": "KIBA INUZUKA - Genin of Team 8",
+      "collector_number": "025",
+      "rarity_raw": "Common",
+      "reference_key": "kref_bbc57b06a0724c97b54bb8f41e9730f59d671640ab6472d505fd2242",
+      "variant_raw": "FullArt",
+      "workbook_row": 76
+    },
+    {
+      "card_name": "KIBA INUZUKA - Genin of Team 8",
+      "collector_number": "025",
+      "rarity_raw": "Common",
+      "reference_key": "kref_4fa16a2c19aea60217309e2c8088a1363adb74030735b6b7888d9d64",
+      "variant_raw": "Holographic",
+      "workbook_row": 77
+    },
+    {
+      "card_name": "KIBA INUZUKA - All-Fours Jutsu",
+      "collector_number": "026",
+      "rarity_raw": "Uncommon",
+      "reference_key": "kref_f49898891f85c0edc81e49b51ca4e854ab7fc9c075487814c0c6511b",
+      "variant_raw": "Normal",
+      "workbook_row": 78
+    },
+    {
+      "card_name": "KIBA INUZUKA - All-Fours Jutsu",
+      "collector_number": "026",
+      "rarity_raw": "Uncommon",
+      "reference_key": "kref_58df3f4d88325155ac64c87ecffc3e1e7d40cb62af89c292c1697b7f",
+      "variant_raw": "FullArt",
+      "workbook_row": 79
+    },
+    {
+      "card_name": "KIBA INUZUKA - All-Fours Jutsu",
+      "collector_number": "026",
+      "rarity_raw": "Uncommon",
+      "reference_key": "kref_f6e56a79a82e9aad172a535eeb19a0c1ac1b3d04febceb1493f086aa",
+      "variant_raw": "Holographic",
+      "workbook_row": 80
+    },
+    {
+      "card_name": "AKAMARU - Ninja Hound",
+      "collector_number": "027",
+      "rarity_raw": "Common",
+      "reference_key": "kref_701388428395838c2003bfcb0e0964fdcdbeab967af890b470541c0b",
+      "variant_raw": "Normal",
+      "workbook_row": 81
+    },
+    {
+      "card_name": "AKAMARU - Ninja Hound",
+      "collector_number": "027",
+      "rarity_raw": "Common",
+      "reference_key": "kref_a661834da34a77c4575fd7c68b0bf8fb03429e99da59cf8a80adffd1",
+      "variant_raw": "FullArt",
+      "workbook_row": 82
+    },
+    {
+      "card_name": "AKAMARU - Ninja Hound",
+      "collector_number": "027",
+      "rarity_raw": "Common",
+      "reference_key": "kref_0803b09786d7c2743248411f6cb6d1d9d256554f7c420ac2bfe78b64",
+      "variant_raw": "Holographic",
+      "workbook_row": 83
+    },
+    {
+      "card_name": "AKAMARU - Man Beast Clone",
+      "collector_number": "028",
+      "rarity_raw": "Uncommon",
+      "reference_key": "kref_770d3102f327e6f8f42b799077b091b17f05326d9b8cb8784b94e961",
+      "variant_raw": "Normal",
+      "workbook_row": 84
+    },
+    {
+      "card_name": "AKAMARU - Man Beast Clone",
+      "collector_number": "028",
+      "rarity_raw": "Uncommon",
+      "reference_key": "kref_adbff0f6391b47bc98f870b8b7891d322f79b3c709a33e5c3abfcbdd",
+      "variant_raw": "FullArt",
+      "workbook_row": 85
+    },
+    {
+      "card_name": "AKAMARU - Man Beast Clone",
+      "collector_number": "028",
+      "rarity_raw": "Uncommon",
+      "reference_key": "kref_eb688dc0b174d642f6dd57434fede9ecdf298a07dade69cdceb0ca2a",
+      "variant_raw": "Holographic",
+      "workbook_row": 86
+    },
+    {
+      "card_name": "AKAMARU - Two-Headed Wolf",
+      "collector_number": "029",
+      "rarity_raw": "Uncommon",
+      "reference_key": "kref_5fe1c706e85228ed9a3829ca9ca31a339a4e680d30293ce2261de0eb",
+      "variant_raw": "Normal",
+      "workbook_row": 87
+    },
+    {
+      "card_name": "AKAMARU - Two-Headed Wolf",
+      "collector_number": "029",
+      "rarity_raw": "Uncommon",
+      "reference_key": "kref_ad220e5b6091b36f58fd2a7882a22e6a5222d02eed50bd181181424e",
+      "variant_raw": "FullArt",
+      "workbook_row": 88
+    },
+    {
+      "card_name": "AKAMARU - Two-Headed Wolf",
+      "collector_number": "029",
+      "rarity_raw": "Uncommon",
+      "reference_key": "kref_8696e5defb4739638aba31a40af05060caf5f3654b4647435c56c07e",
+      "variant_raw": "Holographic",
+      "workbook_row": 89
+    },
+    {
+      "card_name": "HINATA HYUGA - Gentle Fist",
+      "collector_number": "030",
+      "rarity_raw": "Common",
+      "reference_key": "kref_65f3fbfb32784c094a5542ae8590d02d4ff5cbb68dc026523a1f11d6",
+      "variant_raw": "Normal",
+      "workbook_row": 90
+    },
+    {
+      "card_name": "HINATA HYUGA - Gentle Fist",
+      "collector_number": "030",
+      "rarity_raw": "Common",
+      "reference_key": "kref_bb61cdbf25d600f3ca2e1070b50ab0716e63b1ffb3c3f1fe6edf6390",
+      "variant_raw": "FullArt",
+      "workbook_row": 91
+    },
+    {
+      "card_name": "HINATA HYUGA - Gentle Fist",
+      "collector_number": "030",
+      "rarity_raw": "Common",
+      "reference_key": "kref_2628c981c93e3482acad56aa3c1e61fc4dab4be4928500a2e5b59338",
+      "variant_raw": "Holographic",
+      "workbook_row": 92
+    },
+    {
+      "card_name": "HINATA HYUGA - Byakugan",
+      "collector_number": "031",
+      "rarity_raw": "Uncommon",
+      "reference_key": "kref_d60db132c4e876b59d3cfbd840d86b8b6c37cc060c30457525fdf908",
+      "variant_raw": "Normal",
+      "workbook_row": 93
+    },
+    {
+      "card_name": "HINATA HYUGA - Byakugan",
+      "collector_number": "031",
+      "rarity_raw": "Uncommon",
+      "reference_key": "kref_d03719c781278106d6bd50a220b675690c7aabdc639b2ee27c465352",
+      "variant_raw": "FullArt",
+      "workbook_row": 94
+    },
+    {
+      "card_name": "HINATA HYUGA - Byakugan",
+      "collector_number": "031",
+      "rarity_raw": "Uncommon",
+      "reference_key": "kref_15922ac4a928bd8cb7949fe8087768c55b49d326b9809dbe9c3c0802",
+      "variant_raw": "Holographic",
+      "workbook_row": 95
+    },
+    {
+      "card_name": "SHINO ABURAME - Parasitic Insects",
+      "collector_number": "032",
+      "rarity_raw": "Common",
+      "reference_key": "kref_4f338a6a3b6ac0709d50daa02c620d744c43531d366aa86e82e0cded",
+      "variant_raw": "Normal",
+      "workbook_row": 96
+    },
+    {
+      "card_name": "SHINO ABURAME - Parasitic Insects",
+      "collector_number": "032",
+      "rarity_raw": "Common",
+      "reference_key": "kref_f6c64085857791c35bf746463f76e3a8ad9f800405334206f461bcdc",
+      "variant_raw": "FullArt",
+      "workbook_row": 97
+    },
+    {
+      "card_name": "SHINO ABURAME - Parasitic Insects",
+      "collector_number": "032",
+      "rarity_raw": "Common",
+      "reference_key": "kref_5d6196babbbc0a47d0035078ec2198bf146c2c2be98d444f251057fb",
+      "variant_raw": "Holographic",
+      "workbook_row": 98
+    },
+    {
+      "card_name": "SHINO ABURAME - Insect Clones",
+      "collector_number": "033",
+      "rarity_raw": "Uncommon",
+      "reference_key": "kref_174b6a0728b3626099d6dd43da37fb25e15417cd0d864752a54af005",
+      "variant_raw": "Normal",
+      "workbook_row": 99
+    },
+    {
+      "card_name": "SHINO ABURAME - Insect Clones",
+      "collector_number": "033",
+      "rarity_raw": "Uncommon",
+      "reference_key": "kref_45ac019a719e608c43f4d2a7880d3aedf09a20b1732893581237e17c",
+      "variant_raw": "FullArt",
+      "workbook_row": 100
+    },
+    {
+      "card_name": "SHINO ABURAME - Insect Clones",
+      "collector_number": "033",
+      "rarity_raw": "Uncommon",
+      "reference_key": "kref_8da13214a3d25885681ee30e15350101e6d7ed715d3fa8d8bd6767e6",
+      "variant_raw": "Holographic",
+      "workbook_row": 101
+    },
+    {
+      "card_name": "KURENAI YUHI - Teacher of Team 8",
+      "collector_number": "034",
+      "rarity_raw": "Common",
+      "reference_key": "kref_52b87e37dc6f72d7301812ce780d572d0aedc8534cb88e401e5c4a02",
+      "variant_raw": "Normal",
+      "workbook_row": 102
+    },
+    {
+      "card_name": "KURENAI YUHI - Teacher of Team 8",
+      "collector_number": "034",
+      "rarity_raw": "Common",
+      "reference_key": "kref_33c6bb4142501916e07902708b3a8d1cb3d323173b0307ce3b214ac4",
+      "variant_raw": "FullArt",
+      "workbook_row": 103
+    },
+    {
+      "card_name": "KURENAI YUHI - Teacher of Team 8",
+      "collector_number": "034",
+      "rarity_raw": "Common",
+      "reference_key": "kref_878e634c5c3cf62fea47eea845a8ae09e12990426c2cbcd5d3adb7e0",
+      "variant_raw": "Holographic",
+      "workbook_row": 104
+    },
+    {
+      "card_name": "KURENAI YUHI - Tree Bind: Death",
+      "collector_number": "035",
+      "rarity_raw": "Uncommon",
+      "reference_key": "kref_9e4e9c8a97719a201a03171da5c9da0c3032f4e6369788afe8120d3e",
+      "variant_raw": "Normal",
+      "workbook_row": 105
+    },
+    {
+      "card_name": "KURENAI YUHI - Tree Bind: Death",
+      "collector_number": "035",
+      "rarity_raw": "Uncommon",
+      "reference_key": "kref_e4521096d2f833f8de44d5d62796ffc8f090bb988520c3947fdd793d",
+      "variant_raw": "FullArt",
+      "workbook_row": 106
+    },
+    {
+      "card_name": "KURENAI YUHI - Tree Bind: Death",
+      "collector_number": "035",
+      "rarity_raw": "Uncommon",
+      "reference_key": "kref_7ecacaa1b561c9768e5d685e321d510fba5304b921c9a5a20ff1bcd6",
+      "variant_raw": "Holographic",
+      "workbook_row": 107
+    },
+    {
+      "card_name": "NEJI HYUGA - Gentle Fist",
+      "collector_number": "036",
+      "rarity_raw": "Common",
+      "reference_key": "kref_84eb927d81a894cc2a6ae9940b200534091ebd8d8992f54a8ebf4c4a",
+      "variant_raw": "Normal",
+      "workbook_row": 108
+    },
+    {
+      "card_name": "NEJI HYUGA - Gentle Fist",
+      "collector_number": "036",
+      "rarity_raw": "Common",
+      "reference_key": "kref_8b71dfbcbea63798207b62dbe0efdcc220264d036375b62cb0eb1bee",
+      "variant_raw": "FullArt",
+      "workbook_row": 109
+    },
+    {
+      "card_name": "NEJI HYUGA - Gentle Fist",
+      "collector_number": "036",
+      "rarity_raw": "Common",
+      "reference_key": "kref_394c59dfce66552608878edba0f3bd8a0ee1b536b339289deb309c94",
+      "variant_raw": "Holographic",
+      "workbook_row": 110
+    },
+    {
+      "card_name": "NEJI HYUGA - Eight Trigrams: Palm Rotation",
+      "collector_number": "037",
+      "rarity_raw": "Uncommon",
+      "reference_key": "kref_7df0c9e334b187cfcb6fa2d1ce22e676cee1d8a0fc318a5edcf8eb9e",
+      "variant_raw": "Normal",
+      "workbook_row": 111
+    },
+    {
+      "card_name": "NEJI HYUGA - Eight Trigrams: Palm Rotation",
+      "collector_number": "037",
+      "rarity_raw": "Uncommon",
+      "reference_key": "kref_04953f9c77ab9a432336220c5de78674b1793590162f2ccd3aec7e84",
+      "variant_raw": "FullArt",
+      "workbook_row": 112
+    },
+    {
+      "card_name": "NEJI HYUGA - Eight Trigrams: Palm Rotation",
+      "collector_number": "037",
+      "rarity_raw": "Uncommon",
+      "reference_key": "kref_945668c779ecb17b2059245b14e728d7367c824c0c4cc6dc616a2d33",
+      "variant_raw": "Holographic",
+      "workbook_row": 113
+    },
+    {
+      "card_name": "ROCK LEE - Training in Ferocious Fist",
+      "collector_number": "038",
+      "rarity_raw": "Common",
+      "reference_key": "kref_81f312e1c278d21dba73b4a181692643c7e1b317078e859316dc3cb9",
+      "variant_raw": "Normal",
+      "workbook_row": 114
+    },
+    {
+      "card_name": "ROCK LEE - Training in Ferocious Fist",
+      "collector_number": "038",
+      "rarity_raw": "Common",
+      "reference_key": "kref_6f925f7fe4ef72dd9b4a4d5463a9080c8ba0ec410ebcb45399c230b2",
+      "variant_raw": "FullArt",
+      "workbook_row": 115
+    },
+    {
+      "card_name": "ROCK LEE - Training in Ferocious Fist",
+      "collector_number": "038",
+      "rarity_raw": "Common",
+      "reference_key": "kref_fd9348b1c4e7b64511c69c1a17eec5a797b9977c174859606962c4e9",
+      "variant_raw": "Holographic",
+      "workbook_row": 116
+    },
+    {
+      "card_name": "ROCK LEE - Primary Lotus",
+      "collector_number": "039",
+      "rarity_raw": "Uncommon",
+      "reference_key": "kref_65cba22e3a51e034288cd1e2e89fde4823ccbbc65d879d6d6bcf9329",
+      "variant_raw": "Normal",
+      "workbook_row": 117
+    },
+    {
+      "card_name": "ROCK LEE - Primary Lotus",
+      "collector_number": "039",
+      "rarity_raw": "Uncommon",
+      "reference_key": "kref_d3320f24ea22363383c20c7fc908199a77d31469760f033608e1a377",
+      "variant_raw": "FullArt",
+      "workbook_row": 118
+    },
+    {
+      "card_name": "ROCK LEE - Primary Lotus",
+      "collector_number": "039",
+      "rarity_raw": "Uncommon",
+      "reference_key": "kref_a59b25313e334ba84926872385e96bbc8c904bec3d18e0b0cb74d0fb",
+      "variant_raw": "Holographic",
+      "workbook_row": 119
+    },
+    {
+      "card_name": "TENTEN - Genin of Team Guy",
+      "collector_number": "040",
+      "rarity_raw": "Common",
+      "reference_key": "kref_ac4cd38eae3f57e17eb811ba2830ef7b02fd6b18ba4286ea2c0950b8",
+      "variant_raw": "Normal",
+      "workbook_row": 120
+    },
+    {
+      "card_name": "TENTEN - Genin of Team Guy",
+      "collector_number": "040",
+      "rarity_raw": "Common",
+      "reference_key": "kref_dfc2a5ac764e788fd658398c8b3cd826935d051232d9a40b94db6a87",
+      "variant_raw": "FullArt",
+      "workbook_row": 121
+    },
+    {
+      "card_name": "TENTEN - Genin of Team Guy",
+      "collector_number": "040",
+      "rarity_raw": "Common",
+      "reference_key": "kref_35542af66941f59949f11e90d3325aa4d84bb5c457d48ee85d8d7951",
+      "variant_raw": "Holographic",
+      "workbook_row": 122
+    },
+    {
+      "card_name": "TENTEN - Weapon Specialist",
+      "collector_number": "041",
+      "rarity_raw": "Uncommon",
+      "reference_key": "kref_870e3962bc50e52eabfd1b1ec15117e832d9e5e4836666d534016298",
+      "variant_raw": "Normal",
+      "workbook_row": 123
+    },
+    {
+      "card_name": "TENTEN - Weapon Specialist",
+      "collector_number": "041",
+      "rarity_raw": "Uncommon",
+      "reference_key": "kref_4516bc8e7589d9af4a37da278a77984bb088e0fc6795e1f366c7e1ac",
+      "variant_raw": "FullArt",
+      "workbook_row": 124
+    },
+    {
+      "card_name": "TENTEN - Weapon Specialist",
+      "collector_number": "041",
+      "rarity_raw": "Uncommon",
+      "reference_key": "kref_33cc34498ea0df269edee7d86b7efae653de13dd4d197231f40e3296",
+      "variant_raw": "Holographic",
+      "workbook_row": 125
+    },
+    {
+      "card_name": "MIGHT GUY - Teacher of Team Guy",
+      "collector_number": "042",
+      "rarity_raw": "Common",
+      "reference_key": "kref_04ba84c50d211080d58fa027ef95f7d8222fefb575e44964f1a8029a",
+      "variant_raw": "Normal",
+      "workbook_row": 126
+    },
+    {
+      "card_name": "MIGHT GUY - Teacher of Team Guy",
+      "collector_number": "042",
+      "rarity_raw": "Common",
+      "reference_key": "kref_a857500f6d43b5f56f1588ce6cffb01fd0a457cc3a7843efde0112d6",
+      "variant_raw": "FullArt",
+      "workbook_row": 127
+    },
+    {
+      "card_name": "MIGHT GUY - Teacher of Team Guy",
+      "collector_number": "042",
+      "rarity_raw": "Common",
+      "reference_key": "kref_e6836aa0f21ab2715a0298994e6b1f117c63762824701d81ba2a38c3",
+      "variant_raw": "Holographic",
+      "workbook_row": 128
+    },
+    {
+      "card_name": "MIGHT GUY - Ferocious Fist",
+      "collector_number": "043",
+      "rarity_raw": "Uncommon",
+      "reference_key": "kref_26779dcc8c27f01a028ae8204a07315c9ef95879c2fae42f7874f599",
+      "variant_raw": "Normal",
+      "workbook_row": 129
+    },
+    {
+      "card_name": "MIGHT GUY - Ferocious Fist",
+      "collector_number": "043",
+      "rarity_raw": "Uncommon",
+      "reference_key": "kref_7dc7fa64fd53bb552e09cc48100d955249bc97da8ed0c301e61fa376",
+      "variant_raw": "FullArt",
+      "workbook_row": 130
+    },
+    {
+      "card_name": "MIGHT GUY - Ferocious Fist",
+      "collector_number": "043",
+      "rarity_raw": "Uncommon",
+      "reference_key": "kref_32ddf210fbe690339d45ecdcbb7f5229cc16d664c70415bc37435af6",
+      "variant_raw": "Holographic",
+      "workbook_row": 131
+    },
+    {
+      "card_name": "ANKO MITARASHI - Chunin Exams Proctor",
+      "collector_number": "044",
+      "rarity_raw": "Common",
+      "reference_key": "kref_713022f3d50e1a502c2cb5f6f02e6bb9c3da1e8805569508eead4ac1",
+      "variant_raw": "Normal",
+      "workbook_row": 132
+    },
+    {
+      "card_name": "ANKO MITARASHI - Chunin Exams Proctor",
+      "collector_number": "044",
+      "rarity_raw": "Common",
+      "reference_key": "kref_c33040a57505e7c7a2bd1a239b19c47eb98f3f81b216f659b8d3eeba",
+      "variant_raw": "FullArt",
+      "workbook_row": 133
+    },
+    {
+      "card_name": "ANKO MITARASHI - Chunin Exams Proctor",
+      "collector_number": "044",
+      "rarity_raw": "Common",
+      "reference_key": "kref_2c8bebe50faecb1f14290e65ef9366a89a5aa28a3881d7289e91f7aa",
+      "variant_raw": "Holographic",
+      "workbook_row": 134
+    },
+    {
+      "card_name": "ANKO MITARASHI - Striking Shadow Snake",
+      "collector_number": "045",
+      "rarity_raw": "Uncommon",
+      "reference_key": "kref_e454f093ec155c8524600891dcaec8eead9d7900d8504c5df924c934",
+      "variant_raw": "Normal",
+      "workbook_row": 135
+    },
+    {
+      "card_name": "ANKO MITARASHI - Striking Shadow Snake",
+      "collector_number": "045",
+      "rarity_raw": "Uncommon",
+      "reference_key": "kref_1b752ea99bf49fe52bd1960338032f08e5e248892826c2c918b0c82d",
+      "variant_raw": "FullArt",
+      "workbook_row": 136
+    },
+    {
+      "card_name": "ANKO MITARASHI - Striking Shadow Snake",
+      "collector_number": "045",
+      "rarity_raw": "Uncommon",
+      "reference_key": "kref_3a27126e9a7c23fbca1f0119410159af9d3eeed4fc7f4ab3f4434199",
+      "variant_raw": "Holographic",
+      "workbook_row": 137
+    },
+    {
+      "card_name": "EBISU - Elite Trainer",
+      "collector_number": "046",
+      "rarity_raw": "Common",
+      "reference_key": "kref_991d05c11e5e78cc6941387c0a509717ebf07939e90ed64c24e5267e",
+      "variant_raw": "Normal",
+      "workbook_row": 138
+    },
+    {
+      "card_name": "EBISU - Elite Trainer",
+      "collector_number": "046",
+      "rarity_raw": "Common",
+      "reference_key": "kref_e16085dbcba04f3c7bb6ee94450f527d972fa88b194f6208a4e7632e",
+      "variant_raw": "FullArt",
+      "workbook_row": 139
+    },
+    {
+      "card_name": "EBISU - Elite Trainer",
+      "collector_number": "046",
+      "rarity_raw": "Common",
+      "reference_key": "kref_8f739c311362a82cb7c0bd7895e10a47d153b4c037214a1f9a1eb754",
+      "variant_raw": "Holographic",
+      "workbook_row": 140
+    },
+    {
+      "card_name": "IRUKA UMINO - Academy Instructor",
+      "collector_number": "047",
+      "rarity_raw": "Common",
+      "reference_key": "kref_2e262dc2f87f6785b909e1eeebd0be860236e6fef9b8de32d137d876",
+      "variant_raw": "Normal",
+      "workbook_row": 141
+    },
+    {
+      "card_name": "IRUKA UMINO - Academy Instructor",
+      "collector_number": "047",
+      "rarity_raw": "Common",
+      "reference_key": "kref_bdca7864f3df48be86d9c636df790f78d2ca0c2aeae592d39d13f9dc",
+      "variant_raw": "FullArt",
+      "workbook_row": 142
+    },
+    {
+      "card_name": "IRUKA UMINO - Academy Instructor",
+      "collector_number": "047",
+      "rarity_raw": "Common",
+      "reference_key": "kref_c4610a50efe9bc6f56ffbe76834093427b6b6579e321fbc328392589",
+      "variant_raw": "Holographic",
+      "workbook_row": 143
+    },
+    {
+      "card_name": "HAYATE GEKKO - Skilled Shinobi",
+      "collector_number": "048",
+      "rarity_raw": "Common",
+      "reference_key": "kref_f7e4e67e8910cd4f0797d7b496a6031e8959901261b7babe7518a44f",
+      "variant_raw": "Normal",
+      "workbook_row": 144
+    },
+    {
+      "card_name": "HAYATE GEKKO - Skilled Shinobi",
+      "collector_number": "048",
+      "rarity_raw": "Common",
+      "reference_key": "kref_67a112660b0ed00dccb31fbb776c9a9bf9c4f27fecc33988261e3c8e",
+      "variant_raw": "FullArt",
+      "workbook_row": 145
+    },
+    {
+      "card_name": "HAYATE GEKKO - Skilled Shinobi",
+      "collector_number": "048",
+      "rarity_raw": "Common",
+      "reference_key": "kref_7f7c9719066e67e3e3d6dc339856ddaaf64e6450a322cb4ab3791cb1",
+      "variant_raw": "Holographic",
+      "workbook_row": 146
+    },
+    {
+      "card_name": "GENMA SHIRANUI - Elite Guard",
+      "collector_number": "049",
+      "rarity_raw": "Common",
+      "reference_key": "kref_9c95ac2a4406e899aea37bf4071151b4f881e98b0778412c860822ef",
+      "variant_raw": "Normal",
+      "workbook_row": 147
+    },
+    {
+      "card_name": "GENMA SHIRANUI - Elite Guard",
+      "collector_number": "049",
+      "rarity_raw": "Common",
+      "reference_key": "kref_e90d43836017b6183b25411b9fbb745a160e3f7f7ff25ea66051e2db",
+      "variant_raw": "FullArt",
+      "workbook_row": 148
+    },
+    {
+      "card_name": "GENMA SHIRANUI - Elite Guard",
+      "collector_number": "049",
+      "rarity_raw": "Common",
+      "reference_key": "kref_1511ae02f1f7756f035851eb0732106ba2f5a0f90d17d5b2b6b35f70",
+      "variant_raw": "Holographic",
+      "workbook_row": 149
+    },
+    {
+      "card_name": "OROCHIMARU - Undercover",
+      "collector_number": "050",
+      "rarity_raw": "Common",
+      "reference_key": "kref_388ff68675e96878e3a95081132022f3e44733b04a02189f80055fea",
+      "variant_raw": "Normal",
+      "workbook_row": 150
+    },
+    {
+      "card_name": "OROCHIMARU - Undercover",
+      "collector_number": "050",
+      "rarity_raw": "Common",
+      "reference_key": "kref_a22a19b47cab7f5f5dd6d6ce9ec7f915d01032cc330624f410414e42",
+      "variant_raw": "FullArt",
+      "workbook_row": 151
+    },
+    {
+      "card_name": "OROCHIMARU - Undercover",
+      "collector_number": "050",
+      "rarity_raw": "Common",
+      "reference_key": "kref_18013b82a5468f52d52e9ccef340e7a250270aa29ad06bc998550921",
+      "variant_raw": "Holographic",
+      "workbook_row": 152
+    },
+    {
+      "card_name": "OROCHIMARU - Substitution Jutsu",
+      "collector_number": "051",
+      "rarity_raw": "Uncommon",
+      "reference_key": "kref_370f61cae7a59f929e5bff0cf0e03390fcc75ab74a3334dee79b25a8",
+      "variant_raw": "Normal",
+      "workbook_row": 153
+    },
+    {
+      "card_name": "OROCHIMARU - Substitution Jutsu",
+      "collector_number": "051",
+      "rarity_raw": "Uncommon",
+      "reference_key": "kref_a9fc3023a841d2ededb8be5920b9388d22885daed00142a18feb7ed7",
+      "variant_raw": "FullArt",
+      "workbook_row": 154
+    },
+    {
+      "card_name": "OROCHIMARU - Substitution Jutsu",
+      "collector_number": "051",
+      "rarity_raw": "Uncommon",
+      "reference_key": "kref_ee4cf00fb496239ac78c7bf1ca1cef8804310277bad9cbe9bd20c716",
+      "variant_raw": "Holographic",
+      "workbook_row": 155
+    },
+    {
+      "card_name": "KABUTO YAKUSHI - Infiltrator",
+      "collector_number": "052",
+      "rarity_raw": "Common",
+      "reference_key": "kref_8e5c9163b41968f67a56ba31a9a1f43ffce2c884b0ae9a055ccd98b3",
+      "variant_raw": "Normal",
+      "workbook_row": 156
+    },
+    {
+      "card_name": "KABUTO YAKUSHI - Infiltrator",
+      "collector_number": "052",
+      "rarity_raw": "Common",
+      "reference_key": "kref_9bcaa0cfabec80250c8fc772730429bb9af084da531f87d0cbe4c66f",
+      "variant_raw": "FullArt",
+      "workbook_row": 157
+    },
+    {
+      "card_name": "KABUTO YAKUSHI - Infiltrator",
+      "collector_number": "052",
+      "rarity_raw": "Common",
+      "reference_key": "kref_b85065ae72bfa9caeefde2d89105bdebb0e35f6e01e2519330802e73",
+      "variant_raw": "Holographic",
+      "workbook_row": 158
+    },
+    {
+      "card_name": "KABUTO YAKUSHI - Yin Healing",
+      "collector_number": "053",
+      "rarity_raw": "Uncommon",
+      "reference_key": "kref_7986353292a7248ca10688bd72ee9ac8849e8eef8dc32199c2ef641a",
+      "variant_raw": "Normal",
+      "workbook_row": 159
+    },
+    {
+      "card_name": "KABUTO YAKUSHI - Yin Healing",
+      "collector_number": "053",
+      "rarity_raw": "Uncommon",
+      "reference_key": "kref_d64d8324a230156311a07c971cd86442212f8264fd332b8e0f13d879",
+      "variant_raw": "FullArt",
+      "workbook_row": 160
+    },
+    {
+      "card_name": "KABUTO YAKUSHI - Yin Healing",
+      "collector_number": "053",
+      "rarity_raw": "Uncommon",
+      "reference_key": "kref_45e1576a1ae27582f2be18e69be6e0917ff0f7c122a0812523e99002",
+      "variant_raw": "Holographic",
+      "workbook_row": 161
+    },
+    {
+      "card_name": "KABUTO YAKUSHI - Nirvana Temple Jutsu",
+      "collector_number": "054",
+      "rarity_raw": "Uncommon",
+      "reference_key": "kref_d28596bbd3869f51a1278cf6eb629df6aba6120eee0aebcbb747953a",
+      "variant_raw": "Normal",
+      "workbook_row": 162
+    },
+    {
+      "card_name": "KABUTO YAKUSHI - Nirvana Temple Jutsu",
+      "collector_number": "054",
+      "rarity_raw": "Uncommon",
+      "reference_key": "kref_141b324be89c60743d7b4805e06d62133257ae717c3359e08bf262e2",
+      "variant_raw": "FullArt",
+      "workbook_row": 163
+    },
+    {
+      "card_name": "KABUTO YAKUSHI - Nirvana Temple Jutsu",
+      "collector_number": "054",
+      "rarity_raw": "Uncommon",
+      "reference_key": "kref_48bbed6980018a238f4d6bac3ede934492ca38bef94b820869908a56",
+      "variant_raw": "Holographic",
+      "workbook_row": 164
+    },
+    {
+      "card_name": "KIMIMARO - Camelia Dance",
+      "collector_number": "055",
+      "rarity_raw": "Common",
+      "reference_key": "kref_555f0128b96a41124395fdba7a501e5687fed436bca0005fea9adf3a",
+      "variant_raw": "Normal",
+      "workbook_row": 165
+    },
+    {
+      "card_name": "KIMIMARO - Camelia Dance",
+      "collector_number": "055",
+      "rarity_raw": "Common",
+      "reference_key": "kref_954d60f5bfebb9be93395dfaf20b443575aee0ddf0042fff4d1003d0",
+      "variant_raw": "FullArt",
+      "workbook_row": 166
+    },
+    {
+      "card_name": "KIMIMARO - Camelia Dance",
+      "collector_number": "055",
+      "rarity_raw": "Common",
+      "reference_key": "kref_94538e0e5e66527e97b8f85a583fbb60abe61954b4815d43ade4c5fc",
+      "variant_raw": "Holographic",
+      "workbook_row": 167
+    },
+    {
+      "card_name": "KIMIMARO - Shikotsumyaku",
+      "collector_number": "056",
+      "rarity_raw": "Uncommon",
+      "reference_key": "kref_3196e923560aa5b18a7e5b708a86146e19054882794d9a374b0025ed",
+      "variant_raw": "Normal",
+      "workbook_row": 168
+    },
+    {
+      "card_name": "KIMIMARO - Shikotsumyaku",
+      "collector_number": "056",
+      "rarity_raw": "Uncommon",
+      "reference_key": "kref_f8b10e38f2af7599f52168d73a7a96a99a95e1915adf0d55f67f329b",
+      "variant_raw": "FullArt",
+      "workbook_row": 169
+    },
+    {
+      "card_name": "KIMIMARO - Shikotsumyaku",
+      "collector_number": "056",
+      "rarity_raw": "Uncommon",
+      "reference_key": "kref_1282e4618e55ec7ccb5997d60b730121015ba5d0fd3c7fa5600b7636",
+      "variant_raw": "Holographic",
+      "workbook_row": 170
+    },
+    {
+      "card_name": "JIROBO - Bearer of the Curse Mark",
+      "collector_number": "057",
+      "rarity_raw": "Common",
+      "reference_key": "kref_26d0e3b964477e81a42cfe7b45acdd849b3d5c0a36d6afea74b6565b",
+      "variant_raw": "Normal",
+      "workbook_row": 171
+    },
+    {
+      "card_name": "JIROBO - Bearer of the Curse Mark",
+      "collector_number": "057",
+      "rarity_raw": "Common",
+      "reference_key": "kref_f993be10e7bf331cdf48eeec70131fe6e6c1ecc49663e92f8120eca1",
+      "variant_raw": "FullArt",
+      "workbook_row": 172
+    },
+    {
+      "card_name": "JIROBO - Bearer of the Curse Mark",
+      "collector_number": "057",
+      "rarity_raw": "Common",
+      "reference_key": "kref_150a1cd2488ea4b3801599b142d2b54f547a5160bddb467fee38c844",
+      "variant_raw": "Holographic",
+      "workbook_row": 173
+    },
+    {
+      "card_name": "JIROBO - Earth Style Barrier",
+      "collector_number": "058",
+      "rarity_raw": "Uncommon",
+      "reference_key": "kref_9a66a58c4147e273ece2e8e1e55b81cf268f8215a2bce604640dcf0c",
+      "variant_raw": "Normal",
+      "workbook_row": 174
+    },
+    {
+      "card_name": "JIROBO - Earth Style Barrier",
+      "collector_number": "058",
+      "rarity_raw": "Uncommon",
+      "reference_key": "kref_4c0a54612b9620bc830ca969b65c9319eced996e9b6729b3947afc37",
+      "variant_raw": "FullArt",
+      "workbook_row": 175
+    },
+    {
+      "card_name": "JIROBO - Earth Style Barrier",
+      "collector_number": "058",
+      "rarity_raw": "Uncommon",
+      "reference_key": "kref_1a4d4077581a490dcfa2ffa3e7b06c6ef58edcc692d7b6ec2b5c514d",
+      "variant_raw": "Holographic",
+      "workbook_row": 176
+    },
+    {
+      "card_name": "KIDOMARU - Bearer of the Curse Mark",
+      "collector_number": "059",
+      "rarity_raw": "Common",
+      "reference_key": "kref_adac19e17b5d387528e7a5e2e3c12c16452f94062953970dfb5efca5",
+      "variant_raw": "Normal",
+      "workbook_row": 177
+    },
+    {
+      "card_name": "KIDOMARU - Bearer of the Curse Mark",
+      "collector_number": "059",
+      "rarity_raw": "Common",
+      "reference_key": "kref_0c55b07d7d093a576d1a37b434a709a627eef7ccc74b77f11515b017",
+      "variant_raw": "FullArt",
+      "workbook_row": 178
+    },
+    {
+      "card_name": "KIDOMARU - Bearer of the Curse Mark",
+      "collector_number": "059",
+      "rarity_raw": "Common",
+      "reference_key": "kref_e2e98993302bf5b8adce6f58cb4893029f1b915d0e212a693ce21dcf",
+      "variant_raw": "Holographic",
+      "workbook_row": 179
+    },
+    {
+      "card_name": "KIDOMARU - Spiral Spider Web",
+      "collector_number": "060",
+      "rarity_raw": "Uncommon",
+      "reference_key": "kref_1a212b128b58dc64f5693fd05a6c382f615d2c78bc819778dc441aeb",
+      "variant_raw": "Normal",
+      "workbook_row": 180
+    },
+    {
+      "card_name": "KIDOMARU - Spiral Spider Web",
+      "collector_number": "060",
+      "rarity_raw": "Uncommon",
+      "reference_key": "kref_867dcaa93254242d52f746c1259c019d4d5e07423ab723f57748bd96",
+      "variant_raw": "FullArt",
+      "workbook_row": 181
+    },
+    {
+      "card_name": "KIDOMARU - Spiral Spider Web",
+      "collector_number": "060",
+      "rarity_raw": "Uncommon",
+      "reference_key": "kref_e72e3e5916993a960220a9beda90caef1f4bb817c5733d9edf9f8555",
+      "variant_raw": "Holographic",
+      "workbook_row": 182
+    },
+    {
+      "card_name": "SAKON - Bearer of the Curse Mark",
+      "collector_number": "061",
+      "rarity_raw": "Common",
+      "reference_key": "kref_eef7ae4d2dbb30acc579a1496a1df191095e4e8beeada1a3471be4b0",
+      "variant_raw": "Normal",
+      "workbook_row": 183
+    },
+    {
+      "card_name": "SAKON - Bearer of the Curse Mark",
+      "collector_number": "061",
+      "rarity_raw": "Common",
+      "reference_key": "kref_878cd8d4066bbf95654bcc2a7240307cc44519a3f674052e815123a2",
+      "variant_raw": "FullArt",
+      "workbook_row": 184
+    },
+    {
+      "card_name": "SAKON - Bearer of the Curse Mark",
+      "collector_number": "061",
+      "rarity_raw": "Common",
+      "reference_key": "kref_c239efa60287e2f16da04d61579094fe127f38f60fba9e3ac74fbe97",
+      "variant_raw": "Holographic",
+      "workbook_row": 185
+    },
+    {
+      "card_name": "SAKON - Black Seal",
+      "collector_number": "062",
+      "rarity_raw": "Uncommon",
+      "reference_key": "kref_3282ea1face72431ddc70b078dc3a57e6e1e69e47dd31d772c4838f9",
+      "variant_raw": "Normal",
+      "workbook_row": 186
+    },
+    {
+      "card_name": "SAKON - Black Seal",
+      "collector_number": "062",
+      "rarity_raw": "Uncommon",
+      "reference_key": "kref_71a7834bfcb4724b145c67b9a4196be185e4796187cb12e80d3ecae2",
+      "variant_raw": "FullArt",
+      "workbook_row": 187
+    },
+    {
+      "card_name": "SAKON - Black Seal",
+      "collector_number": "062",
+      "rarity_raw": "Uncommon",
+      "reference_key": "kref_78cb92c2baeb2150aa67620febbdc1ec1c9629c62ea5078b4fce1b62",
+      "variant_raw": "Holographic",
+      "workbook_row": 188
+    },
+    {
+      "card_name": "UKON - Molecular Possession",
+      "collector_number": "063",
+      "rarity_raw": "Common",
+      "reference_key": "kref_af660a162248462a98a6856a632d3d2ee6078e7e6562d799214252fe",
+      "variant_raw": "Normal",
+      "workbook_row": 189
+    },
+    {
+      "card_name": "UKON - Molecular Possession",
+      "collector_number": "063",
+      "rarity_raw": "Common",
+      "reference_key": "kref_87e0069fa0af93517e535638a75127868d73230f638e84f8ffccdc80",
+      "variant_raw": "FullArt",
+      "workbook_row": 190
+    },
+    {
+      "card_name": "UKON - Molecular Possession",
+      "collector_number": "063",
+      "rarity_raw": "Common",
+      "reference_key": "kref_61c457da86197bc763decb8782182f9f243b9d113964e85d8b23a371",
+      "variant_raw": "Holographic",
+      "workbook_row": 191
+    },
+    {
+      "card_name": "TAYUYA - Bearer of the Curse Mark",
+      "collector_number": "064",
+      "rarity_raw": "Common",
+      "reference_key": "kref_11926943163ac8672ccf264765e7f350af2d5ac3554aec8a4a0cecee",
+      "variant_raw": "Normal",
+      "workbook_row": 192
+    },
+    {
+      "card_name": "TAYUYA - Bearer of the Curse Mark",
+      "collector_number": "064",
+      "rarity_raw": "Common",
+      "reference_key": "kref_d98e0fe4c858c4051aa4b225c1489ee197851de696ad9fc24ec84fd3",
+      "variant_raw": "FullArt",
+      "workbook_row": 193
+    },
+    {
+      "card_name": "TAYUYA - Bearer of the Curse Mark",
+      "collector_number": "064",
+      "rarity_raw": "Common",
+      "reference_key": "kref_bbc4cecccdb17151d4482a37b269d4c89b7ce1beda40319c7687ad7f",
+      "variant_raw": "Holographic",
+      "workbook_row": 194
+    },
+    {
+      "card_name": "TAYUYA - Demon Flute",
+      "collector_number": "065",
+      "rarity_raw": "Uncommon",
+      "reference_key": "kref_fb3c810eb16e7c4751502b6fc3fec210cd70853b5ef34456339ec015",
+      "variant_raw": "Normal",
+      "workbook_row": 195
+    },
+    {
+      "card_name": "TAYUYA - Demon Flute",
+      "collector_number": "065",
+      "rarity_raw": "Uncommon",
+      "reference_key": "kref_f3345abe19abd3b5c737e8d4da444137be0bbe0c82fe99620c6bafed",
+      "variant_raw": "FullArt",
+      "workbook_row": 196
+    },
+    {
+      "card_name": "TAYUYA - Demon Flute",
+      "collector_number": "065",
+      "rarity_raw": "Uncommon",
+      "reference_key": "kref_0377ec7a6c02be61b13c42e4494e8152783201ae0efc8fb36c42539b",
+      "variant_raw": "Holographic",
+      "workbook_row": 197
+    },
+    {
+      "card_name": "RAGE OGRES - Summoning",
+      "collector_number": "066",
+      "rarity_raw": "Uncommon",
+      "reference_key": "kref_c0e80587fcd922c4db0274f66c4c2cad46cb4841cc7f2b66543203c0",
+      "variant_raw": "Normal",
+      "workbook_row": 198
+    },
+    {
+      "card_name": "RAGE OGRES - Summoning",
+      "collector_number": "066",
+      "rarity_raw": "Uncommon",
+      "reference_key": "kref_51a6eb80dd695357d8cd8bf43f986a4429007474c09adc4bd56a05c1",
+      "variant_raw": "FullArt",
+      "workbook_row": 199
+    },
+    {
+      "card_name": "RAGE OGRES - Summoning",
+      "collector_number": "066",
+      "rarity_raw": "Uncommon",
+      "reference_key": "kref_60421ebb2aa5c48e6026c56186080bd02508e9bd6d0249c056271b69",
+      "variant_raw": "Holographic",
+      "workbook_row": 200
+    },
+    {
+      "card_name": "RASHOMON - Summoning",
+      "collector_number": "067",
+      "rarity_raw": "Uncommon",
+      "reference_key": "kref_24637d3347de4b11eadf649df48a6303d26aa7804d17b67fb7d9a615",
+      "variant_raw": "Normal",
+      "workbook_row": 201
+    },
+    {
+      "card_name": "RASHOMON - Summoning",
+      "collector_number": "067",
+      "rarity_raw": "Uncommon",
+      "reference_key": "kref_49fade129e6845b142c0868babf97564c5cb736c2dd59fd19f641d73",
+      "variant_raw": "FullArt",
+      "workbook_row": 202
+    },
+    {
+      "card_name": "RASHOMON - Summoning",
+      "collector_number": "067",
+      "rarity_raw": "Uncommon",
+      "reference_key": "kref_7d324e0228ccf932cb8de59de7037f79a0a7a15dc7d3e0382ef2fb50",
+      "variant_raw": "Holographic",
+      "workbook_row": 203
+    },
+    {
+      "card_name": "DOSU KINUTA - Superhuman Hearing",
+      "collector_number": "068",
+      "rarity_raw": "Common",
+      "reference_key": "kref_4e0e93502014a0f386fbc94efd3f7a49cdb8788c046ae4a703f084a5",
+      "variant_raw": "Normal",
+      "workbook_row": 204
+    },
+    {
+      "card_name": "DOSU KINUTA - Superhuman Hearing",
+      "collector_number": "068",
+      "rarity_raw": "Common",
+      "reference_key": "kref_148cfb269253c241eadad083127cc3cd632e9c435138c34088871000",
+      "variant_raw": "FullArt",
+      "workbook_row": 205
+    },
+    {
+      "card_name": "DOSU KINUTA - Superhuman Hearing",
+      "collector_number": "068",
+      "rarity_raw": "Common",
+      "reference_key": "kref_115f04bdc34d1d71dec36c0f5c7be00ae54f43e34f494534bd1c8dec",
+      "variant_raw": "Holographic",
+      "workbook_row": 206
+    },
+    {
+      "card_name": "DOSU KINUTA - Resonating Echo Speaker",
+      "collector_number": "069",
+      "rarity_raw": "Uncommon",
+      "reference_key": "kref_dc42f03b306f2179020a2543d06d2ad41abdac10192f871cfb4b7939",
+      "variant_raw": "Normal",
+      "workbook_row": 207
+    },
+    {
+      "card_name": "DOSU KINUTA - Resonating Echo Speaker",
+      "collector_number": "069",
+      "rarity_raw": "Uncommon",
+      "reference_key": "kref_8a51363a69d0f67fa5f9f4bb715dae0bec8424537773b150c5a7a793",
+      "variant_raw": "FullArt",
+      "workbook_row": 208
+    },
+    {
+      "card_name": "DOSU KINUTA - Resonating Echo Speaker",
+      "collector_number": "069",
+      "rarity_raw": "Uncommon",
+      "reference_key": "kref_ea8b0f07d4b8991e0a5681feb457a7b0220382a93989dbaffc8eae07",
+      "variant_raw": "Holographic",
+      "workbook_row": 209
+    },
+    {
+      "card_name": "ZAKU ABUMI - Overconfident Shinobi",
+      "collector_number": "070",
+      "rarity_raw": "Common",
+      "reference_key": "kref_7dc5256da8565b93fc7a27aabd61dbf58532017661f958c52d253511",
+      "variant_raw": "Normal",
+      "workbook_row": 210
+    },
+    {
+      "card_name": "ZAKU ABUMI - Overconfident Shinobi",
+      "collector_number": "070",
+      "rarity_raw": "Common",
+      "reference_key": "kref_dd7555ad409888f998b4d601537ba73067ed91ef5c4cb2b83f476019",
+      "variant_raw": "FullArt",
+      "workbook_row": 211
+    },
+    {
+      "card_name": "ZAKU ABUMI - Overconfident Shinobi",
+      "collector_number": "070",
+      "rarity_raw": "Common",
+      "reference_key": "kref_cc41820421a38f8e00c0360a9a46e0f85017775da7805723c39c95dc",
+      "variant_raw": "Holographic",
+      "workbook_row": 212
+    },
+    {
+      "card_name": "ZAKU ABUMI - Slicing Sound Wave",
+      "collector_number": "071",
+      "rarity_raw": "Uncommon",
+      "reference_key": "kref_168def7fd30149551552973a713a248d9dcb8fe1f285eafcfdf4c115",
+      "variant_raw": "Normal",
+      "workbook_row": 213
+    },
+    {
+      "card_name": "ZAKU ABUMI - Slicing Sound Wave",
+      "collector_number": "071",
+      "rarity_raw": "Uncommon",
+      "reference_key": "kref_b80f2269afd2c845df111757691e781e01e8125343b8bea7db8cc269",
+      "variant_raw": "FullArt",
+      "workbook_row": 214
+    },
+    {
+      "card_name": "ZAKU ABUMI - Slicing Sound Wave",
+      "collector_number": "071",
+      "rarity_raw": "Uncommon",
+      "reference_key": "kref_dec85b4d75ea92f0c01bfadd80e67759a62f5d0069c9739250c69a8a",
+      "variant_raw": "Holographic",
+      "workbook_row": 215
+    },
+    {
+      "card_name": "KIN TSUCHI - Kunoichi",
+      "collector_number": "072",
+      "rarity_raw": "Common",
+      "reference_key": "kref_3a256e35665288c1cc77212520ca76b92083ea9261d37f61849c3db7",
+      "variant_raw": "Normal",
+      "workbook_row": 216
+    },
+    {
+      "card_name": "KIN TSUCHI - Kunoichi",
+      "collector_number": "072",
+      "rarity_raw": "Common",
+      "reference_key": "kref_27e071fc2267de80e6e031951ef661477a38a96e0e487f0bb92967ba",
+      "variant_raw": "FullArt",
+      "workbook_row": 217
+    },
+    {
+      "card_name": "KIN TSUCHI - Kunoichi",
+      "collector_number": "072",
+      "rarity_raw": "Common",
+      "reference_key": "kref_afd58f0930c8726ce3dd401514dec162f051bb4cf1838dd0f920676e",
+      "variant_raw": "Holographic",
+      "workbook_row": 218
+    },
+    {
+      "card_name": "KIN TSUCHI - Bell Sound Clone",
+      "collector_number": "073",
+      "rarity_raw": "Uncommon",
+      "reference_key": "kref_572e78b5cd449aa7623e0b59a0b2387ba88243be900b5666b2296647",
+      "variant_raw": "Normal",
+      "workbook_row": 219
+    },
+    {
+      "card_name": "KIN TSUCHI - Bell Sound Clone",
+      "collector_number": "073",
+      "rarity_raw": "Uncommon",
+      "reference_key": "kref_a2338ea37fbb9f91e3e1da8dc1f7e69d2234d8cecf3dcf3124abc4fa",
+      "variant_raw": "FullArt",
+      "workbook_row": 220
+    },
+    {
+      "card_name": "KIN TSUCHI - Bell Sound Clone",
+      "collector_number": "073",
+      "rarity_raw": "Uncommon",
+      "reference_key": "kref_78c8496cdfb2089c1428db755b3520be8ee1580db1bb255b9f0af6d3",
+      "variant_raw": "Holographic",
+      "workbook_row": 221
+    },
+    {
+      "card_name": "GAARA - Genin of the Sand Village",
+      "collector_number": "074",
+      "rarity_raw": "Common",
+      "reference_key": "kref_e0597cea3aca78105c459fff8841286c9b11852d4f8c0bf538996537",
+      "variant_raw": "Normal",
+      "workbook_row": 222
+    },
+    {
+      "card_name": "GAARA - Genin of the Sand Village",
+      "collector_number": "074",
+      "rarity_raw": "Common",
+      "reference_key": "kref_1ef2f3b60eccd524b2f2f12cea3234117d168a45b25a08abea21c725",
+      "variant_raw": "FullArt",
+      "workbook_row": 223
+    },
+    {
+      "card_name": "GAARA - Genin of the Sand Village",
+      "collector_number": "074",
+      "rarity_raw": "Common",
+      "reference_key": "kref_e6ce4ffbfe06a7e69a1f5dea30470fbaa837aec3e13a46c44cfc6fd7",
+      "variant_raw": "Holographic",
+      "workbook_row": 224
+    },
+    {
+      "card_name": "GAARA - Sand Shield",
+      "collector_number": "075",
+      "rarity_raw": "Uncommon",
+      "reference_key": "kref_6989e547ef31a1c03ac40887d929e2b0e3c63af948dc61e9773ec5b2",
+      "variant_raw": "Normal",
+      "workbook_row": 225
+    },
+    {
+      "card_name": "GAARA - Sand Shield",
+      "collector_number": "075",
+      "rarity_raw": "Uncommon",
+      "reference_key": "kref_7b3ac51576087bebef0ed380ec77431718136422873dfb03d4b54265",
+      "variant_raw": "FullArt",
+      "workbook_row": 226
+    },
+    {
+      "card_name": "GAARA - Sand Shield",
+      "collector_number": "075",
+      "rarity_raw": "Uncommon",
+      "reference_key": "kref_41cc21ec037793dc0fdb6bec8db8d7506639937067ae6b75efbfad8f",
+      "variant_raw": "Holographic",
+      "workbook_row": 227
+    },
+    {
+      "card_name": "ONE-TAIL - Partial Transformation",
+      "collector_number": "076",
+      "rarity_raw": "Uncommon",
+      "reference_key": "kref_85122ed4250e82295e4f443fe9cd4e2e3feb15831150743fa55c8a35",
+      "variant_raw": "Normal",
+      "workbook_row": 228
+    },
+    {
+      "card_name": "ONE-TAIL - Partial Transformation",
+      "collector_number": "076",
+      "rarity_raw": "Uncommon",
+      "reference_key": "kref_730bcb207fcaad789707b98c35ba86eb744d3ffb05422ff72d882dc4",
+      "variant_raw": "FullArt",
+      "workbook_row": 229
+    },
+    {
+      "card_name": "ONE-TAIL - Partial Transformation",
+      "collector_number": "076",
+      "rarity_raw": "Uncommon",
+      "reference_key": "kref_6126ba4b305069baade10d2911109041b963d7ca3896a2aac5231a8e",
+      "variant_raw": "Holographic",
+      "workbook_row": 230
+    },
+    {
+      "card_name": "KANKURO - Chakra Threads",
+      "collector_number": "077",
+      "rarity_raw": "Common",
+      "reference_key": "kref_bf473ad8f1f0ec37ce5c07ffe7195d9bf69f912709f3718ce9bd0d58",
+      "variant_raw": "Normal",
+      "workbook_row": 231
+    },
+    {
+      "card_name": "KANKURO - Chakra Threads",
+      "collector_number": "077",
+      "rarity_raw": "Common",
+      "reference_key": "kref_cd13ada5d812a7e56d7d83f840a1dfaa2b869611d1a2616e5b4962e2",
+      "variant_raw": "FullArt",
+      "workbook_row": 232
+    },
+    {
+      "card_name": "KANKURO - Chakra Threads",
+      "collector_number": "077",
+      "rarity_raw": "Common",
+      "reference_key": "kref_ae121aa8d0af8528ea0569c6ddc56b8f898800e5ca92331a1dc2fa12",
+      "variant_raw": "Holographic",
+      "workbook_row": 233
+    },
+    {
+      "card_name": "KANKURO - Puppet Master Jutsu",
+      "collector_number": "078",
+      "rarity_raw": "Uncommon",
+      "reference_key": "kref_6db6aca09e9dfc02f60cb68e14aa2be15f36251000d39969fdcc1f51",
+      "variant_raw": "Normal",
+      "workbook_row": 234
+    },
+    {
+      "card_name": "KANKURO - Puppet Master Jutsu",
+      "collector_number": "078",
+      "rarity_raw": "Uncommon",
+      "reference_key": "kref_96170dda85108bb7e99baf1eb6da8f8c5865ccd1121394eea864a6e6",
+      "variant_raw": "FullArt",
+      "workbook_row": 235
+    },
+    {
+      "card_name": "KANKURO - Puppet Master Jutsu",
+      "collector_number": "078",
+      "rarity_raw": "Uncommon",
+      "reference_key": "kref_3db6b0523959c615fd19b73e3027346aa923c178311016a6906c101d",
+      "variant_raw": "Holographic",
+      "workbook_row": 236
+    },
+    {
+      "card_name": "TEMARI - Kunoichi",
+      "collector_number": "079",
+      "rarity_raw": "Common",
+      "reference_key": "kref_8bbece318b00fb9ae8851c239d3b0513c684e1a966306639c0220945",
+      "variant_raw": "Normal",
+      "workbook_row": 237
+    },
+    {
+      "card_name": "TEMARI - Kunoichi",
+      "collector_number": "079",
+      "rarity_raw": "Common",
+      "reference_key": "kref_8f4d14a794e1ee3a9e0a5798083109f1766d06ae1871cba3e048b580",
+      "variant_raw": "FullArt",
+      "workbook_row": 238
+    },
+    {
+      "card_name": "TEMARI - Kunoichi",
+      "collector_number": "079",
+      "rarity_raw": "Common",
+      "reference_key": "kref_03f0415dee4084b58bf36e2b9473d969257e3dbdaf4503d709b14ff7",
+      "variant_raw": "Holographic",
+      "workbook_row": 239
+    },
+    {
+      "card_name": "TEMARI - Cyclone Scythe Jutsu",
+      "collector_number": "080",
+      "rarity_raw": "Uncommon",
+      "reference_key": "kref_6e03188c0c1582ab43683eb78575658c6f9895a1212c335da7db5bec",
+      "variant_raw": "Normal",
+      "workbook_row": 240
+    },
+    {
+      "card_name": "TEMARI - Cyclone Scythe Jutsu",
+      "collector_number": "080",
+      "rarity_raw": "Uncommon",
+      "reference_key": "kref_1eaad236a4b84467d14347becb50e74cef9154a19cba99f00e2acc3a",
+      "variant_raw": "FullArt",
+      "workbook_row": 241
+    },
+    {
+      "card_name": "TEMARI - Cyclone Scythe Jutsu",
+      "collector_number": "080",
+      "rarity_raw": "Uncommon",
+      "reference_key": "kref_224e170d8ee6c2acf8f3efa0eedea6a5a5bfef437c802a38e575bedb",
+      "variant_raw": "Holographic",
+      "workbook_row": 242
+    },
+    {
+      "card_name": "BAKI - Council Agent",
+      "collector_number": "081",
+      "rarity_raw": "Common",
+      "reference_key": "kref_32cf5cce7386fa50f351a16732ad4ed7586c875e6bbb2ea53a432f03",
+      "variant_raw": "Normal",
+      "workbook_row": 243
+    },
+    {
+      "card_name": "BAKI - Council Agent",
+      "collector_number": "081",
+      "rarity_raw": "Common",
+      "reference_key": "kref_9f162a15da9d2ea57d98399b8bfaac2235de2b9fe8dbb98ad9fa93f9",
+      "variant_raw": "FullArt",
+      "workbook_row": 244
+    },
+    {
+      "card_name": "BAKI - Council Agent",
+      "collector_number": "081",
+      "rarity_raw": "Common",
+      "reference_key": "kref_58d94cd084839fb1102e53eb6aa9bf6c963c0a0f68d292a885420604",
+      "variant_raw": "Holographic",
+      "workbook_row": 245
+    },
+    {
+      "card_name": "BAKI - Wind Sword",
+      "collector_number": "082",
+      "rarity_raw": "Uncommon",
+      "reference_key": "kref_f090d9031a254969bd9c8106ac98857eb731ec4f1076c2831de60182",
+      "variant_raw": "Normal",
+      "workbook_row": 246
+    },
+    {
+      "card_name": "BAKI - Wind Sword",
+      "collector_number": "082",
+      "rarity_raw": "Uncommon",
+      "reference_key": "kref_2a772d8e0267cfe4682e4434597818f4c9374a2afc460c7420a9e758",
+      "variant_raw": "FullArt",
+      "workbook_row": 247
+    },
+    {
+      "card_name": "BAKI - Wind Sword",
+      "collector_number": "082",
+      "rarity_raw": "Uncommon",
+      "reference_key": "kref_4dd283565b0e824896f1cd5ab32b26a5047b6ac0594309b5b54e8d03",
+      "variant_raw": "Holographic",
+      "workbook_row": 248
+    },
+    {
+      "card_name": "RASA - Fourth Kazekage",
+      "collector_number": "083",
+      "rarity_raw": "Uncommon",
+      "reference_key": "kref_d69579abd011981293b0e8075f4675f4f1a4bfaae2a1b716eb502b44",
+      "variant_raw": "Normal",
+      "workbook_row": 249
+    },
+    {
+      "card_name": "RASA - Fourth Kazekage",
+      "collector_number": "083",
+      "rarity_raw": "Uncommon",
+      "reference_key": "kref_122f10c5a0874f3454ab2d82b0b31bf9ace7b21ca80f60eeb41e3266",
+      "variant_raw": "FullArt",
+      "workbook_row": 250
+    },
+    {
+      "card_name": "RASA - Fourth Kazekage",
+      "collector_number": "083",
+      "rarity_raw": "Uncommon",
+      "reference_key": "kref_8cdd799977394fad424b5c69d5222a9dc55c7c832cc3b1a7b8e91a8c",
+      "variant_raw": "Holographic",
+      "workbook_row": 251
+    },
+    {
+      "card_name": "YASHAMARU - Gaara's Caretaker",
+      "collector_number": "084",
+      "rarity_raw": "Common",
+      "reference_key": "kref_941ae213afba774611278eb03d37bf58791c3af678a7b9bd2164ad3c",
+      "variant_raw": "Normal",
+      "workbook_row": 252
+    },
+    {
+      "card_name": "YASHAMARU - Gaara's Caretaker",
+      "collector_number": "084",
+      "rarity_raw": "Common",
+      "reference_key": "kref_1f3def8b48603866f393b9def4d5a23bd5ffaba6d30d3b10e70c5cb3",
+      "variant_raw": "FullArt",
+      "workbook_row": 253
+    },
+    {
+      "card_name": "YASHAMARU - Gaara's Caretaker",
+      "collector_number": "084",
+      "rarity_raw": "Common",
+      "reference_key": "kref_37767ace1c4c708f2e0d610d727809aecc31808a1d9aab3a186beebb",
+      "variant_raw": "Holographic",
+      "workbook_row": 254
+    },
+    {
+      "card_name": "YASHAMARU - Sacrificial Mission",
+      "collector_number": "085",
+      "rarity_raw": "Uncommon",
+      "reference_key": "kref_dbad1ad7468bfc53295ec7299ba27d868b914bf8e4ddc94e8edddb2c",
+      "variant_raw": "Normal",
+      "workbook_row": 255
+    },
+    {
+      "card_name": "YASHAMARU - Sacrificial Mission",
+      "collector_number": "085",
+      "rarity_raw": "Uncommon",
+      "reference_key": "kref_ea96432b80f13803bc4836a1ab21615192099355600c543ba83fb739",
+      "variant_raw": "FullArt",
+      "workbook_row": 256
+    },
+    {
+      "card_name": "YASHAMARU - Sacrificial Mission",
+      "collector_number": "085",
+      "rarity_raw": "Uncommon",
+      "reference_key": "kref_f42c5be5204bb7047ee9a893486e404bd2a51b023b95a18fa0bbf138",
+      "variant_raw": "Holographic",
+      "workbook_row": 257
+    },
+    {
+      "card_name": "ZABUZA MOMOCHI - The Executioner's Blade",
+      "collector_number": "086",
+      "rarity_raw": "Common",
+      "reference_key": "kref_12bef3c5bd0a58e9ee92c14d2ba0c75e1c36c67f065ad7942a0f2637",
+      "variant_raw": "Normal",
+      "workbook_row": 258
+    },
+    {
+      "card_name": "ZABUZA MOMOCHI - The Executioner's Blade",
+      "collector_number": "086",
+      "rarity_raw": "Common",
+      "reference_key": "kref_1830ff321044b71a21402d0d22019c1e9423eb84ba8075c4d9920009",
+      "variant_raw": "FullArt",
+      "workbook_row": 259
+    },
+    {
+      "card_name": "ZABUZA MOMOCHI - The Executioner's Blade",
+      "collector_number": "086",
+      "rarity_raw": "Common",
+      "reference_key": "kref_761cf5c052ebcd24a0991e0a22795e4c42baf0c7e2ac263e6475672e",
+      "variant_raw": "Holographic",
+      "workbook_row": 260
+    },
+    {
+      "card_name": "ZABUZA MOMOCHI - Water Prison Jutsu",
+      "collector_number": "087",
+      "rarity_raw": "Uncommon",
+      "reference_key": "kref_1ea93ba5cf05b418356a1683f2eae5cf6ee458c4fae8d7f1ad4ebc78",
+      "variant_raw": "Normal",
+      "workbook_row": 261
+    },
+    {
+      "card_name": "ZABUZA MOMOCHI - Water Prison Jutsu",
+      "collector_number": "087",
+      "rarity_raw": "Uncommon",
+      "reference_key": "kref_7e39e52264ce9b77cf4fb9f4628666447b4b63705b70f81f4e4ec3ad",
+      "variant_raw": "FullArt",
+      "workbook_row": 262
+    },
+    {
+      "card_name": "ZABUZA MOMOCHI - Water Prison Jutsu",
+      "collector_number": "087",
+      "rarity_raw": "Uncommon",
+      "reference_key": "kref_398e12170e81cd9ba8aed79d961df31082d4ac9a9a89e4806cfa836c",
+      "variant_raw": "Holographic",
+      "workbook_row": 263
+    },
+    {
+      "card_name": "HAKU - Orphan from the Land of Water",
+      "collector_number": "088",
+      "rarity_raw": "Common",
+      "reference_key": "kref_9d225d5e9ca18786928cd08612d77ed418233afc580724a146bdede2",
+      "variant_raw": "Normal",
+      "workbook_row": 264
+    },
+    {
+      "card_name": "HAKU - Orphan from the Land of Water",
+      "collector_number": "088",
+      "rarity_raw": "Common",
+      "reference_key": "kref_dd65e5763938d71104372e957c7e61f3f721cee1f2d4951782d76e7e",
+      "variant_raw": "FullArt",
+      "workbook_row": 265
+    },
+    {
+      "card_name": "HAKU - Orphan from the Land of Water",
+      "collector_number": "088",
+      "rarity_raw": "Common",
+      "reference_key": "kref_ed12cd9ab490ab1d8b24be1be3eec2ea6914e0de0bf7754f277c2e7d",
+      "variant_raw": "Holographic",
+      "workbook_row": 266
+    },
+    {
+      "card_name": "HAKU - Crystal Ice Mirrors",
+      "collector_number": "089",
+      "rarity_raw": "Uncommon",
+      "reference_key": "kref_2b2314bfd08d067045d33083077e94fdd493e100d9c481819091234f",
+      "variant_raw": "Normal",
+      "workbook_row": 267
+    },
+    {
+      "card_name": "HAKU - Crystal Ice Mirrors",
+      "collector_number": "089",
+      "rarity_raw": "Uncommon",
+      "reference_key": "kref_0fc4fc6366f759cdc23e7a1b6451d473e3cb99da2f763962ea7741c1",
+      "variant_raw": "FullArt",
+      "workbook_row": 268
+    },
+    {
+      "card_name": "HAKU - Crystal Ice Mirrors",
+      "collector_number": "089",
+      "rarity_raw": "Uncommon",
+      "reference_key": "kref_632249c058ecf11eb3d943ed9ac6c91dbff2ada87ab3f2f18fa4864e",
+      "variant_raw": "Holographic",
+      "workbook_row": 269
+    },
+    {
+      "card_name": "ITACHI UCHIHA - Akatsuki",
+      "collector_number": "090",
+      "rarity_raw": "Common",
+      "reference_key": "kref_c4f9de79ea59070e0de3e264c60ff637c8374092134a0b0637ebbf66",
+      "variant_raw": "Normal",
+      "workbook_row": 270
+    },
+    {
+      "card_name": "ITACHI UCHIHA - Akatsuki",
+      "collector_number": "090",
+      "rarity_raw": "Common",
+      "reference_key": "kref_e4346765556e7a10ebf0a926d9f7465d0acac214c92cda62ac40b47b",
+      "variant_raw": "FullArt",
+      "workbook_row": 271
+    },
+    {
+      "card_name": "ITACHI UCHIHA - Akatsuki",
+      "collector_number": "090",
+      "rarity_raw": "Common",
+      "reference_key": "kref_7ccde0ac7ca0aaf2e4e9d5a9aea0bb9ead7032f215ffab7a8ae837e4",
+      "variant_raw": "Holographic",
+      "workbook_row": 272
+    },
+    {
+      "card_name": "ITACHI UCHIHA - Mangekyo Sharingan",
+      "collector_number": "091",
+      "rarity_raw": "Uncommon",
+      "reference_key": "kref_9e0916cf96b6d1520f930222be948a95bda91f842ea33f8a94e1e176",
+      "variant_raw": "Normal",
+      "workbook_row": 273
+    },
+    {
+      "card_name": "ITACHI UCHIHA - Mangekyo Sharingan",
+      "collector_number": "091",
+      "rarity_raw": "Uncommon",
+      "reference_key": "kref_1972889292823b608f2e294e4e02dab62ebe2f1da5b37656ca416e28",
+      "variant_raw": "FullArt",
+      "workbook_row": 274
+    },
+    {
+      "card_name": "ITACHI UCHIHA - Mangekyo Sharingan",
+      "collector_number": "091",
+      "rarity_raw": "Uncommon",
+      "reference_key": "kref_9be3b2f4ef6041ceadbbe3ddb8bbc2e5a6536bf07ad91af8904e5eb5",
+      "variant_raw": "Holographic",
+      "workbook_row": 275
+    },
+    {
+      "card_name": "KISAME HOSHIGAKI - The Rogue Ninja",
+      "collector_number": "092",
+      "rarity_raw": "Common",
+      "reference_key": "kref_eb54e3e517eaa65282bea8fe9bf98eda97b7f87f2a15d4db35f247a2",
+      "variant_raw": "Normal",
+      "workbook_row": 276
+    },
+    {
+      "card_name": "KISAME HOSHIGAKI - The Rogue Ninja",
+      "collector_number": "092",
+      "rarity_raw": "Common",
+      "reference_key": "kref_d98c604248f28235b4e4b616ea14c02f8f3a9c83e6a27648a4131c91",
+      "variant_raw": "FullArt",
+      "workbook_row": 277
+    },
+    {
+      "card_name": "KISAME HOSHIGAKI - The Rogue Ninja",
+      "collector_number": "092",
+      "rarity_raw": "Common",
+      "reference_key": "kref_075a2ff395b7baebe43513ee4560f73f828b6e7d2f65dd06c21da0b7",
+      "variant_raw": "Holographic",
+      "workbook_row": 278
+    },
+    {
+      "card_name": "KISAME HOSHIGAKI - Samehada",
+      "collector_number": "093",
+      "rarity_raw": "Uncommon",
+      "reference_key": "kref_ac4568472a5c010ab28ab9eb41d6952c216ac189a2e14c92e68abe07",
+      "variant_raw": "Normal",
+      "workbook_row": 279
+    },
+    {
+      "card_name": "KISAME HOSHIGAKI - Samehada",
+      "collector_number": "093",
+      "rarity_raw": "Uncommon",
+      "reference_key": "kref_8386ada0f4ecf07d66ffee88f15e99e7fe9cb0cddace41ff5f37c395",
+      "variant_raw": "FullArt",
+      "workbook_row": 280
+    },
+    {
+      "card_name": "KISAME HOSHIGAKI - Samehada",
+      "collector_number": "093",
+      "rarity_raw": "Uncommon",
+      "reference_key": "kref_5dc8686593d199381c8cc73f7f0d1223c5b53f689842fa0e17649cb0",
+      "variant_raw": "Holographic",
+      "workbook_row": 281
+    },
+    {
+      "card_name": "GAMABUNTA - Chief Toad",
+      "collector_number": "094",
+      "rarity_raw": "Common",
+      "reference_key": "kref_65307fa95e7a74773dc95b53da7d42ce4e5ebf3b4854df8007f7ce99",
+      "variant_raw": "Normal",
+      "workbook_row": 282
+    },
+    {
+      "card_name": "GAMABUNTA - Chief Toad",
+      "collector_number": "094",
+      "rarity_raw": "Common",
+      "reference_key": "kref_51849a3afd7f367dcb61cfb59a990cd33fa7f5c1c9732906ca9bc54b",
+      "variant_raw": "FullArt",
+      "workbook_row": 283
+    },
+    {
+      "card_name": "GAMABUNTA - Chief Toad",
+      "collector_number": "094",
+      "rarity_raw": "Common",
+      "reference_key": "kref_e14cae9146b41466aef656b5bde1dd96fa8b34da3f6eef7a79b3b502",
+      "variant_raw": "Holographic",
+      "workbook_row": 284
+    },
+    {
+      "card_name": "GAMAHIRO - Armed Toad",
+      "collector_number": "095",
+      "rarity_raw": "Common",
+      "reference_key": "kref_e25b46693b78c0a870187df0889a179748f14c35f8e8035cc64005d2",
+      "variant_raw": "Normal",
+      "workbook_row": 285
+    },
+    {
+      "card_name": "GAMAHIRO - Armed Toad",
+      "collector_number": "095",
+      "rarity_raw": "Common",
+      "reference_key": "kref_998b71265228b21a9d8405e568fdadb8fe15ff80d2d13b3a095d2512",
+      "variant_raw": "FullArt",
+      "workbook_row": 286
+    },
+    {
+      "card_name": "GAMAHIRO - Armed Toad",
+      "collector_number": "095",
+      "rarity_raw": "Common",
+      "reference_key": "kref_2f88769e41bf90231299a27f6c30ffe640a0c32fef700278681791c0",
+      "variant_raw": "Holographic",
+      "workbook_row": 287
+    },
+    {
+      "card_name": "GAMAKICHI - Eldest Son of Gamabunta",
+      "collector_number": "096",
+      "rarity_raw": "Common",
+      "reference_key": "kref_73c26e91828f695fda8f5bf82c97912b39882e1c666f843ffef66266",
+      "variant_raw": "Normal",
+      "workbook_row": 288
+    },
+    {
+      "card_name": "GAMAKICHI - Eldest Son of Gamabunta",
+      "collector_number": "096",
+      "rarity_raw": "Common",
+      "reference_key": "kref_4ee029038005000d75c3b727687963766c7c13670a641c0b79d9c1f1",
+      "variant_raw": "FullArt",
+      "workbook_row": 289
+    },
+    {
+      "card_name": "GAMAKICHI - Eldest Son of Gamabunta",
+      "collector_number": "096",
+      "rarity_raw": "Common",
+      "reference_key": "kref_b31565201e31b0a6f9a466ad1f4f8dcf93fa88a4ad8e96fb40fc7730",
+      "variant_raw": "Holographic",
+      "workbook_row": 290
+    },
+    {
+      "card_name": "GAMATATSU - Youngest Son of Gamabunta",
+      "collector_number": "097",
+      "rarity_raw": "Common",
+      "reference_key": "kref_9217c229ad12beb0413c80d3dab3a1c1cd8685bbe3e2e218d2634e7f",
+      "variant_raw": "Normal",
+      "workbook_row": 291
+    },
+    {
+      "card_name": "GAMATATSU - Youngest Son of Gamabunta",
+      "collector_number": "097",
+      "rarity_raw": "Common",
+      "reference_key": "kref_a18bbeea65ee41d6f270df0eef353a021989052f9a4ecf5d1bd1827f",
+      "variant_raw": "FullArt",
+      "workbook_row": 292
+    },
+    {
+      "card_name": "GAMATATSU - Youngest Son of Gamabunta",
+      "collector_number": "097",
+      "rarity_raw": "Common",
+      "reference_key": "kref_925810ff6befba7cabc88b3d85a12ce9f59c2d792209e14e685fca19",
+      "variant_raw": "Holographic",
+      "workbook_row": 293
+    },
+    {
+      "card_name": "KATSUYU - Giant Slug",
+      "collector_number": "098",
+      "rarity_raw": "Common",
+      "reference_key": "kref_91bbee08fc89ffea00d6c0a935bf513e280da2a97551c87a5be27b8b",
+      "variant_raw": "Normal",
+      "workbook_row": 294
+    },
+    {
+      "card_name": "KATSUYU - Giant Slug",
+      "collector_number": "098",
+      "rarity_raw": "Common",
+      "reference_key": "kref_d497718eda0e6f48842c01347e8d0f800fef98f97289d9806582fd23",
+      "variant_raw": "FullArt",
+      "workbook_row": 295
+    },
+    {
+      "card_name": "KATSUYU - Giant Slug",
+      "collector_number": "098",
+      "rarity_raw": "Common",
+      "reference_key": "kref_43b7f6ad5ff6b48b188f95bd8cf09cb5975a4cca244a85be91d86e59",
+      "variant_raw": "Holographic",
+      "workbook_row": 296
+    },
+    {
+      "card_name": "PAKKUN - Kakashi's Ninja Hound",
+      "collector_number": "099",
+      "rarity_raw": "Common",
+      "reference_key": "kref_43bb506c5b87886d8dfcf85f11188f12cd5e0ed05a3925d7b51924c5",
+      "variant_raw": "Normal",
+      "workbook_row": 297
+    },
+    {
+      "card_name": "PAKKUN - Kakashi's Ninja Hound",
+      "collector_number": "099",
+      "rarity_raw": "Common",
+      "reference_key": "kref_3dde3dce185ea00d3538b0ae0dee63b2ffe7d9211cb034aae6930c14",
+      "variant_raw": "FullArt",
+      "workbook_row": 298
+    },
+    {
+      "card_name": "PAKKUN - Kakashi's Ninja Hound",
+      "collector_number": "099",
+      "rarity_raw": "Common",
+      "reference_key": "kref_e98c4fa99f492e1330162f4b653dda9543e1805303cf7f8298392e1a",
+      "variant_raw": "Holographic",
+      "workbook_row": 299
+    },
+    {
+      "card_name": "NINJA HOUND CORPS - Ninja Hounds",
+      "collector_number": "100",
+      "rarity_raw": "Common",
+      "reference_key": "kref_73322f7066d05acf58ca2378ab84958d37bf094f39a51874cbe02fe4",
+      "variant_raw": "Normal",
+      "workbook_row": 300
+    },
+    {
+      "card_name": "NINJA HOUND CORPS - Ninja Hounds",
+      "collector_number": "100",
+      "rarity_raw": "Common",
+      "reference_key": "kref_e8272c7c5b2bbebef2d7aaf3d0b35e4eda5d6e79dd819293d42cf2c9",
+      "variant_raw": "FullArt",
+      "workbook_row": 301
+    },
+    {
+      "card_name": "NINJA HOUND CORPS - Ninja Hounds",
+      "collector_number": "100",
+      "rarity_raw": "Common",
+      "reference_key": "kref_ec7d9721a839bf34db5423a5f31ea2f74ab0346ca1bf6bbdbb2fd6cc",
+      "variant_raw": "Holographic",
+      "workbook_row": 302
+    },
+    {
+      "card_name": "TONTON - Tsunade's Ninja Pig",
+      "collector_number": "101",
+      "rarity_raw": "Common",
+      "reference_key": "kref_14bed85bb853919952593df4bf40a037bc9511d2ac03b62d8a7a0163",
+      "variant_raw": "Normal",
+      "workbook_row": 303
+    },
+    {
+      "card_name": "TONTON - Tsunade's Ninja Pig",
+      "collector_number": "101",
+      "rarity_raw": "Common",
+      "reference_key": "kref_a6b9fe5f97e03721b763338766ec67337049091f02ddabca74a5916c",
+      "variant_raw": "FullArt",
+      "workbook_row": 304
+    },
+    {
+      "card_name": "TONTON - Tsunade's Ninja Pig",
+      "collector_number": "101",
+      "rarity_raw": "Common",
+      "reference_key": "kref_8c8d45305a36d729f53b6efbbec41381d4185d272928580f02684234",
+      "variant_raw": "Holographic",
+      "workbook_row": 305
+    },
+    {
+      "card_name": "MANDA - Summoned by Orochimaru",
+      "collector_number": "102",
+      "rarity_raw": "Uncommon",
+      "reference_key": "kref_130a9fa791107430c21387c3916a7962c6c40af69233fb242e411508",
+      "variant_raw": "Normal",
+      "workbook_row": 306
+    },
+    {
+      "card_name": "MANDA - Summoned by Orochimaru",
+      "collector_number": "102",
+      "rarity_raw": "Uncommon",
+      "reference_key": "kref_145c5ca28c21d40ede4b95fc8b2b136826533d4d8854bb19f4a00496",
+      "variant_raw": "FullArt",
+      "workbook_row": 307
+    },
+    {
+      "card_name": "MANDA - Summoned by Orochimaru",
+      "collector_number": "102",
+      "rarity_raw": "Uncommon",
+      "reference_key": "kref_4fd3f8cc56751b843dd214911e3f78c58050e74779d139faa40d8132",
+      "variant_raw": "Holographic",
+      "workbook_row": 308
+    },
+    {
+      "card_name": "GIANT SPIDER - Rain of Spiders",
+      "collector_number": "103",
+      "rarity_raw": "Uncommon",
+      "reference_key": "kref_ba43e42e4e3eeba23ce28e1094947086e638e22e9c9b7ce25c0f98bb",
+      "variant_raw": "Normal",
+      "workbook_row": 309
+    },
+    {
+      "card_name": "GIANT SPIDER - Rain of Spiders",
+      "collector_number": "103",
+      "rarity_raw": "Uncommon",
+      "reference_key": "kref_8974ddede4d0ed8e98e70d4a4950deca61a6b3d9bd7a981b913dcc92",
+      "variant_raw": "FullArt",
+      "workbook_row": 310
+    },
+    {
+      "card_name": "GIANT SPIDER - Rain of Spiders",
+      "collector_number": "103",
+      "rarity_raw": "Uncommon",
+      "reference_key": "kref_ad3250828a474a29e852dbb2294e734d6ff4db13c2264dd414a9c1f3",
+      "variant_raw": "Holographic",
+      "workbook_row": 311
+    },
+    {
+      "card_name": "TSUNADE",
+      "collector_number": "104",
+      "rarity_raw": "Rare",
+      "reference_key": "kref_071466fcfae1f4140d1ba4c0896da19af237ed51260ebec26c27bd9e",
+      "variant_raw": "Holographic",
+      "workbook_row": 312
+    },
+    {
+      "card_name": "TSUNADE",
+      "collector_number": "104A",
+      "rarity_raw": "Rare ART",
+      "reference_key": "kref_6b5b6d3159ff151093052db245ef8742b773b58cbccd944e57206e36",
+      "variant_raw": "Holographic / Micro-engraved",
+      "workbook_row": 313
+    },
+    {
+      "card_name": "JIRAIYA",
+      "collector_number": "105",
+      "rarity_raw": "Rare",
+      "reference_key": "kref_9436467992ecc9602481eccc48ef0f77ef5f25e2c641273e903daa30",
+      "variant_raw": "Holographic",
+      "workbook_row": 314
+    },
+    {
+      "card_name": "JIRAIYA",
+      "collector_number": "105A",
+      "rarity_raw": "Rare ART",
+      "reference_key": "kref_c4b92eb3d5370207dfa5cba8d690fe7c6aebdc25d28c0381b0bf5b31",
+      "variant_raw": "Holographic / Micro-engraved",
+      "workbook_row": 315
+    },
+    {
+      "card_name": "KAKASHI HATAKE",
+      "collector_number": "106",
+      "rarity_raw": "Rare",
+      "reference_key": "kref_79fbdcc3d44e5cd2c6fd69157c51bcd144dbd7a006a8eeb64718cee5",
+      "variant_raw": "Holographic",
+      "workbook_row": 316
+    },
+    {
+      "card_name": "KAKASHI HATAKE",
+      "collector_number": "106A",
+      "rarity_raw": "Rare ART",
+      "reference_key": "kref_89baa032fa9d984363827c95be0ecff4ec1ff2b7eae9cf7afb78cede",
+      "variant_raw": "Holographic / Micro-engraved",
+      "workbook_row": 317
+    },
+    {
+      "card_name": "SASUKE UCHIHA",
+      "collector_number": "107",
+      "rarity_raw": "Rare",
+      "reference_key": "kref_b1953e46813797b755c85fc2d2a180a418afb73c69288fbcc64003f6",
+      "variant_raw": "Holographic",
+      "workbook_row": 318
+    },
+    {
+      "card_name": "SASUKE UCHIHA",
+      "collector_number": "107A",
+      "rarity_raw": "Rare ART",
+      "reference_key": "kref_79c31d10686440f28e1aa2f111a95ab3938b70209123dfd158884032",
+      "variant_raw": "Holographic / Micro-engraved",
+      "workbook_row": 319
+    },
+    {
+      "card_name": "NARUTO UZUMAKI",
+      "collector_number": "108",
+      "rarity_raw": "Rare",
+      "reference_key": "kref_3c3dc20519ee7a5658e5c85ca643b89d20f01e15cae99c1ca002ef61",
+      "variant_raw": "Holographic",
+      "workbook_row": 320
+    },
+    {
+      "card_name": "NARUTO UZUMAKI",
+      "collector_number": "108A",
+      "rarity_raw": "Rare ART",
+      "reference_key": "kref_fd6699b7076a78bff65f66fac1f5cf3663c07ec208547a24e4c1c04e",
+      "variant_raw": "Holographic / Micro-engraved",
+      "workbook_row": 321
+    },
+    {
+      "card_name": "SAKURA HARUNO",
+      "collector_number": "109",
+      "rarity_raw": "Rare",
+      "reference_key": "kref_ef6de5ffc68663f3ed2a8fc3f5494b45d07c2d61d29ae8ec32215a2b",
+      "variant_raw": "Holographic",
+      "workbook_row": 322
+    },
+    {
+      "card_name": "SAKURA HARUNO",
+      "collector_number": "109A",
+      "rarity_raw": "Rare ART",
+      "reference_key": "kref_15bf5e0a92abf5f03b553adb3ee4aa7902b7e724349219814848e5b8",
+      "variant_raw": "Holographic / Micro-engraved",
+      "workbook_row": 323
+    },
+    {
+      "card_name": "INO YAMANAKA",
+      "collector_number": "110",
+      "rarity_raw": "Rare",
+      "reference_key": "kref_bd8cbeed584304dcec0b1dc8bcd9d7ae4acf4fa2ddba0e005d9f3923",
+      "variant_raw": "Holographic",
+      "workbook_row": 324
+    },
+    {
+      "card_name": "INO YAMANAKA",
+      "collector_number": "110A",
+      "rarity_raw": "Rare ART",
+      "reference_key": "kref_b511f87df9ba85a14213d6be59db7ee1b80b9e684f5c33321b76f46a",
+      "variant_raw": "Holographic / Micro-engraved",
+      "workbook_row": 325
+    },
+    {
+      "card_name": "SHIKAMARU NARA",
+      "collector_number": "111",
+      "rarity_raw": "Rare",
+      "reference_key": "kref_743a794dee5d02d21a53836c4be91210f7a214c5bc4893004baf8807",
+      "variant_raw": "Holographic",
+      "workbook_row": 326
+    },
+    {
+      "card_name": "SHIKAMARU NARA",
+      "collector_number": "111A",
+      "rarity_raw": "Rare ART",
+      "reference_key": "kref_f254dbc1d1cef06ce390a584433ed8e5002843c807a6192e0a484aad",
+      "variant_raw": "Holographic / Micro-engraved",
+      "workbook_row": 327
+    },
+    {
+      "card_name": "CHOJI AKIMICHI",
+      "collector_number": "112",
+      "rarity_raw": "Rare",
+      "reference_key": "kref_2f9cd0f40b13d00acc541ab744a1520e40093ba70d0dd78f3d7e4f36",
+      "variant_raw": "Holographic",
+      "workbook_row": 328
+    },
+    {
+      "card_name": "CHOJI AKIMICHI",
+      "collector_number": "112A",
+      "rarity_raw": "Rare ART",
+      "reference_key": "kref_4397292e5b4ad52b2324ac8ce599ec54d07d7d8f2cfa77830ef8fc78",
+      "variant_raw": "Holographic / Micro-engraved",
+      "workbook_row": 329
+    },
+    {
+      "card_name": "KIBA INUZUKA",
+      "collector_number": "113",
+      "rarity_raw": "Rare",
+      "reference_key": "kref_a17e7c4b4a55ba913c80e08cb368973f03a9d7bafbce2b5fbf381a7a",
+      "variant_raw": "Holographic",
+      "workbook_row": 330
+    },
+    {
+      "card_name": "KIBA INUZUKA",
+      "collector_number": "113A",
+      "rarity_raw": "Rare ART",
+      "reference_key": "kref_8036a4deb977d495fa89ca05c7a15271ced8a07c0bf0e682d77fa7e7",
+      "variant_raw": "Holographic / Micro-engraved",
+      "workbook_row": 331
+    },
+    {
+      "card_name": "HINATA HYUGA",
+      "collector_number": "114",
+      "rarity_raw": "Rare",
+      "reference_key": "kref_df55c669ef3dd8bc3b0b8abee41e234eded25ce22767e17eb6ff8e5b",
+      "variant_raw": "Holographic",
+      "workbook_row": 332
+    },
+    {
+      "card_name": "HINATA HYUGA",
+      "collector_number": "114A",
+      "rarity_raw": "Rare ART",
+      "reference_key": "kref_f3c523460b3768c783175f13e00954a321c3d4121b04e3d0e8d65348",
+      "variant_raw": "Holographic / Micro-engraved",
+      "workbook_row": 333
+    },
+    {
+      "card_name": "SHINO ABURAME",
+      "collector_number": "115",
+      "rarity_raw": "Rare",
+      "reference_key": "kref_540dceb4a0bbed04f04de3bfba9d7432744f3c5999654c4e6c97cd10",
+      "variant_raw": "Holographic",
+      "workbook_row": 334
+    },
+    {
+      "card_name": "SHINO ABURAME",
+      "collector_number": "115A",
+      "rarity_raw": "Rare ART",
+      "reference_key": "kref_29d96017dcc779cc29251875bfaa295fc7d89aceaaf9842e4fe050d4",
+      "variant_raw": "Holographic / Micro-engraved",
+      "workbook_row": 335
+    },
+    {
+      "card_name": "NEJI HYUGA",
+      "collector_number": "116",
+      "rarity_raw": "Rare",
+      "reference_key": "kref_4fe1ab3721faa5848c64a0a3c06efef46cc4e2838529d7cca6f15cea",
+      "variant_raw": "Holographic",
+      "workbook_row": 336
+    },
+    {
+      "card_name": "NEJI HYUGA",
+      "collector_number": "116A",
+      "rarity_raw": "Rare ART",
+      "reference_key": "kref_c1c70e9d3b39ad3cfe149ba550b058466ec9ecb85a9f17832fc15046",
+      "variant_raw": "Holographic / Micro-engraved",
+      "workbook_row": 337
+    },
+    {
+      "card_name": "ROCK LEE",
+      "collector_number": "117",
+      "rarity_raw": "Rare",
+      "reference_key": "kref_10b305ede086711a183e94ac78f7d31a694582d16cdf8c128c3a8aa2",
+      "variant_raw": "Holographic",
+      "workbook_row": 338
+    },
+    {
+      "card_name": "ROCK LEE",
+      "collector_number": "117A",
+      "rarity_raw": "Rare ART",
+      "reference_key": "kref_8f6f6de19d78bd8e484ed85da3072ba5e648db3c87a691be23ed2761",
+      "variant_raw": "Holographic / Micro-engraved",
+      "workbook_row": 339
+    },
+    {
+      "card_name": "TENTEN",
+      "collector_number": "118",
+      "rarity_raw": "Rare",
+      "reference_key": "kref_2b3756f213687f2fdfd8df49425b69b2fbf8bd9c5e9a5cdb7812292b",
+      "variant_raw": "Holographic",
+      "workbook_row": 340
+    },
+    {
+      "card_name": "TENTEN",
+      "collector_number": "118A",
+      "rarity_raw": "Rare ART",
+      "reference_key": "kref_9c6cca564cc0514a96b4cfba1b75bc488259e4e82b42387aad139862",
+      "variant_raw": "Holographic / Micro-engraved",
+      "workbook_row": 341
+    },
+    {
+      "card_name": "KANKURO",
+      "collector_number": "119",
+      "rarity_raw": "Rare",
+      "reference_key": "kref_b0b7fba5410fae584745a48d636eb27cefdc74e37bda6c656a80abb8",
+      "variant_raw": "Holographic",
+      "workbook_row": 342
+    },
+    {
+      "card_name": "KANKURO",
+      "collector_number": "119A",
+      "rarity_raw": "Rare ART",
+      "reference_key": "kref_6ac890f66340d4f35cf1d75bcde4be72480277c5d19b4b6829893c7b",
+      "variant_raw": "Holographic / Micro-engraved",
+      "workbook_row": 343
+    },
+    {
+      "card_name": "GAARA",
+      "collector_number": "120",
+      "rarity_raw": "Rare",
+      "reference_key": "kref_955ae7876f0f11c9a84dce2b58329b7e4471c5aa21f77dfc7ce56cb7",
+      "variant_raw": "Holographic",
+      "workbook_row": 344
+    },
+    {
+      "card_name": "GAARA",
+      "collector_number": "120A",
+      "rarity_raw": "Rare ART",
+      "reference_key": "kref_f8d30b28703382da01d82bf161382117401d6570580f4682a943c4ed",
+      "variant_raw": "Holographic / Micro-engraved",
+      "workbook_row": 345
+    },
+    {
+      "card_name": "TEMARI",
+      "collector_number": "121",
+      "rarity_raw": "Rare",
+      "reference_key": "kref_b3b981c07af867871324d41e3f1a22f85db50c20f4ecf454d4f34754",
+      "variant_raw": "Holographic",
+      "workbook_row": 346
+    },
+    {
+      "card_name": "TEMARI",
+      "collector_number": "121A",
+      "rarity_raw": "Rare ART",
+      "reference_key": "kref_9b147987f7eee2e163ae225114ce48b769477129c03172944fd9b5ca",
+      "variant_raw": "Holographic / Micro-engraved",
+      "workbook_row": 347
+    },
+    {
+      "card_name": "JIROBO",
+      "collector_number": "122",
+      "rarity_raw": "Rare",
+      "reference_key": "kref_0ed491200e4877273d29e12e87f5af921ddc3afe87a697a6c54f98df",
+      "variant_raw": "Holographic",
+      "workbook_row": 348
+    },
+    {
+      "card_name": "JIROBO",
+      "collector_number": "122A",
+      "rarity_raw": "Rare ART",
+      "reference_key": "kref_ac312c1c81815cb5ba7b5013dfff12c19cd1d0ba368d4d9eacd8a156",
+      "variant_raw": "Holographic / Micro-engraved",
+      "workbook_row": 349
+    },
+    {
+      "card_name": "KIMIMARO",
+      "collector_number": "123",
+      "rarity_raw": "Rare",
+      "reference_key": "kref_9293e41f91085bcdd2dd54be72bbb147307effa4e42602010235ab16",
+      "variant_raw": "Holographic",
+      "workbook_row": 350
+    },
+    {
+      "card_name": "KIMIMARO",
+      "collector_number": "123A",
+      "rarity_raw": "Rare ART",
+      "reference_key": "kref_f6253c3bf3d379fac0da04ae6a36b4e84e47d6a448191ab3d8b4152f",
+      "variant_raw": "Holographic / Micro-engraved",
+      "workbook_row": 351
+    },
+    {
+      "card_name": "KIDOMARU",
+      "collector_number": "124",
+      "rarity_raw": "Rare",
+      "reference_key": "kref_746799c1787bc840f8abdf1ad5f299bf416e69a1a44bb07753da6b9a",
+      "variant_raw": "Holographic",
+      "workbook_row": 352
+    },
+    {
+      "card_name": "KIDOMARU",
+      "collector_number": "124A",
+      "rarity_raw": "Rare ART",
+      "reference_key": "kref_1240601654cc47d388709123e5acde542cc79d331cc99a6ab957c45d",
+      "variant_raw": "Holographic / Micro-engraved",
+      "workbook_row": 353
+    },
+    {
+      "card_name": "TAYUYA",
+      "collector_number": "125",
+      "rarity_raw": "Rare",
+      "reference_key": "kref_33b7fcd0918789a7dea19f09f27573044589c3ec08a9aff4aa8085e3",
+      "variant_raw": "Holographic",
+      "workbook_row": 354
+    },
+    {
+      "card_name": "TAYUYA",
+      "collector_number": "125A",
+      "rarity_raw": "Rare ART",
+      "reference_key": "kref_6ef676eafcbcc3188127bad96dcacb3ef09d7f4ae8905496e84ba723",
+      "variant_raw": "Holographic / Micro-engraved",
+      "workbook_row": 355
+    },
+    {
+      "card_name": "OROCHIMARU",
+      "collector_number": "126",
+      "rarity_raw": "Rare",
+      "reference_key": "kref_7482b287451277d0def1c514eb85cd316caa98ff378de0d9f950b7fd",
+      "variant_raw": "Holographic",
+      "workbook_row": 356
+    },
+    {
+      "card_name": "OROCHIMARU",
+      "collector_number": "126A",
+      "rarity_raw": "Rare ART",
+      "reference_key": "kref_6c33484539c7c9e679391bd14b1cab4cd6db9b0277ee4632c8f5603f",
+      "variant_raw": "Holographic / Micro-engraved",
+      "workbook_row": 357
+    },
+    {
+      "card_name": "SAKON",
+      "collector_number": "127",
+      "rarity_raw": "Rare",
+      "reference_key": "kref_eb2a2e7f55cf6ac867c62a76d3405197c6bee5de392b30b032c0a81b",
+      "variant_raw": "Holographic",
+      "workbook_row": 358
+    },
+    {
+      "card_name": "SAKON",
+      "collector_number": "127A",
+      "rarity_raw": "Rare ART",
+      "reference_key": "kref_55501fe9139fefb153696cc5a3536e8734ecc3660ad91376e944854e",
+      "variant_raw": "Holographic / Micro-engraved",
+      "workbook_row": 359
+    },
+    {
+      "card_name": "ITACHI UCHIHA",
+      "collector_number": "128",
+      "rarity_raw": "Rare",
+      "reference_key": "kref_6b223a034c9bb78d95096cf3849389f4fa539fca7ae255028ac6d407",
+      "variant_raw": "Holographic",
+      "workbook_row": 360
+    },
+    {
+      "card_name": "ITACHI UCHIHA",
+      "collector_number": "128A",
+      "rarity_raw": "Rare ART",
+      "reference_key": "kref_cd210ca00a94ec1a1fdc3c6e3eddab1e8c20773c355c93a040832f37",
+      "variant_raw": "Holographic / Micro-engraved",
+      "workbook_row": 361
+    },
+    {
+      "card_name": "NINE-TAILED FOX",
+      "collector_number": "129",
+      "rarity_raw": "Rare",
+      "reference_key": "kref_e1addc2e02d15a50078b0865ef4beda4155ea943bd23e4eb7f5babcf",
+      "variant_raw": "Holographic",
+      "workbook_row": 362
+    },
+    {
+      "card_name": "NINE-TAILED FOX",
+      "collector_number": "129A",
+      "rarity_raw": "Rare ART",
+      "reference_key": "kref_14fb89d9ee18672c6b7e8962a225a16f1f1c0f04ef90f048fa80dbc3",
+      "variant_raw": "Holographic / Micro-engraved",
+      "workbook_row": 363
+    },
+    {
+      "card_name": "ONE-TAIL",
+      "collector_number": "130",
+      "rarity_raw": "Rare",
+      "reference_key": "kref_cae2c21d95528ec6f7298d3101bca0c0b741057320b0dffdb94e1874",
+      "variant_raw": "Holographic",
+      "workbook_row": 364
+    },
+    {
+      "card_name": "ONE-TAIL",
+      "collector_number": "130A",
+      "rarity_raw": "Rare ART",
+      "reference_key": "kref_e11d1f621b69eb5a508dd49600b952ba753b8dd16dcb341a160eae6e",
+      "variant_raw": "Holographic / Micro-engraved",
+      "workbook_row": 365
+    },
+    {
+      "card_name": "TSUNADE - Fifth Hokage",
+      "collector_number": "131",
+      "rarity_raw": "Secret",
+      "reference_key": "kref_b055a769cf528e61788570eaffff8979c79e75ea5c0130180676bca1",
+      "variant_raw": "Gold / Holographic",
+      "workbook_row": 366
+    },
+    {
+      "card_name": "TSUNADE - Fifth Hokage",
+      "collector_number": "131",
+      "rarity_raw": "Secret Variant",
+      "reference_key": "kref_d1cd7bd73c6df2351f3883f9c5da93939e27aa093ea11a1099fed209",
+      "variant_raw": "Special Numbered /75",
+      "workbook_row": 367
+    },
+    {
+      "card_name": "JIRAIYA - Toad Mouth Trap",
+      "collector_number": "132",
+      "rarity_raw": "Secret",
+      "reference_key": "kref_28d32b9422512437b16f3d8f367d3388dd5663e2c5da78798526f596",
+      "variant_raw": "Gold / Holographic",
+      "workbook_row": 368
+    },
+    {
+      "card_name": "NARUTO UZUMAKI - Rasengan",
+      "collector_number": "133",
+      "rarity_raw": "Secret",
+      "reference_key": "kref_778883a563a134e849d34c4718519dd16a77b650c6739430ff7d7022",
+      "variant_raw": "Gold / Holographic",
+      "workbook_row": 369
+    },
+    {
+      "card_name": "NARUTO UZUMAKI - Rasengan",
+      "collector_number": "133",
+      "rarity_raw": "Secret Variant",
+      "reference_key": "kref_f812900663e21390f6f7a0d55a37d44f59f8d071d8fd81e207f69854",
+      "variant_raw": "Special Numbered /75",
+      "workbook_row": 370
+    },
+    {
+      "card_name": "NINE-TAILED FOX - Destruction",
+      "collector_number": "134",
+      "rarity_raw": "Secret",
+      "reference_key": "kref_e1781adeaa509a0b479e761e6e1383426eda44df197940bbb4819dfa",
+      "variant_raw": "Gold / Holographic",
+      "workbook_row": 371
+    },
+    {
+      "card_name": "SAKURA HARUNO - The Leaf Medical",
+      "collector_number": "135",
+      "rarity_raw": "Secret",
+      "reference_key": "kref_b8899d454037b640b14bbb4213eb6afdd60cf92278ffb88f9276e6db",
+      "variant_raw": "Gold / Holographic",
+      "workbook_row": 372
+    },
+    {
+      "card_name": "SASUKE UCHIHA - Heaven Curse Mark",
+      "collector_number": "136",
+      "rarity_raw": "Secret",
+      "reference_key": "kref_58b4d2b396d9bdfd758f755c82e01cd575db4d9efd554ec094465d7e",
+      "variant_raw": "Gold / Holographic",
+      "workbook_row": 373
+    },
+    {
+      "card_name": "SASUKE UCHIHA - Heaven Curse Mark",
+      "collector_number": "136",
+      "rarity_raw": "Secret Variant",
+      "reference_key": "kref_4b461ba039070a32cd9b49b6fa693facd957d4926376e1afb5e66214",
+      "variant_raw": "Special Numbered /75",
+      "workbook_row": 374
+    },
+    {
+      "card_name": "KAKASHI HATAKE - Lightning Blade",
+      "collector_number": "137",
+      "rarity_raw": "Secret",
+      "reference_key": "kref_8bf77dc5b39997606a79cbd2744187d4c886c298c0f1f864bf58a3da",
+      "variant_raw": "Gold / Holographic",
+      "workbook_row": 375
+    },
+    {
+      "card_name": "KAKASHI HATAKE - Lightning Blade",
+      "collector_number": "137",
+      "rarity_raw": "Secret Variant",
+      "reference_key": "kref_a769e4a7eb6ef50a02381affed28020d0351a1d0bd33bcdaa7ea74ed",
+      "variant_raw": "Special Numbered /75",
+      "workbook_row": 376
+    },
+    {
+      "card_name": "OROCHIMARU - Reanimation",
+      "collector_number": "138",
+      "rarity_raw": "Secret",
+      "reference_key": "kref_fcfc7df1887d9526a1ec0fb2ebf17821e02126129f3942a5d4205313",
+      "variant_raw": "Gold / Holographic",
+      "workbook_row": 377
+    },
+    {
+      "card_name": "GAARA - Sand Burial",
+      "collector_number": "139",
+      "rarity_raw": "Secret",
+      "reference_key": "kref_4e8e47b2183208605c0de5651b37688268b4ee9f29616fcd032e0a1c",
+      "variant_raw": "Gold / Holographic",
+      "workbook_row": 378
+    },
+    {
+      "card_name": "ITACHI UCHIHA - Tsukuyomi",
+      "collector_number": "140",
+      "rarity_raw": "Secret",
+      "reference_key": "kref_131f73432a7274bd36657b5094ec31f242c2a3ab6b76e373675c6ef1",
+      "variant_raw": "Gold / Holographic",
+      "workbook_row": 379
+    },
+    {
+      "card_name": "NARUTO UZUMAKI - The greatest Hokage!",
+      "collector_number": "n/2000",
+      "rarity_raw": "Legendary",
+      "reference_key": "kref_ae286d07501c248c12d4a95f4ce84f56302a9a2bfaafd2fec7300ae5",
+      "variant_raw": "22K Gold / Individually Numbered",
+      "workbook_row": 380
+    },
+    {
+      "card_name": "Call for support",
+      "collector_number": "1",
+      "rarity_raw": "Mission",
+      "reference_key": "kref_60beea7b2e60c226616d0bbc1c2c612e93de197d3aaae3c2396df498",
+      "variant_raw": "Standard",
+      "workbook_row": 381
+    },
+    {
+      "card_name": "Chunin Exam",
+      "collector_number": "2",
+      "rarity_raw": "Mission",
+      "reference_key": "kref_344b09c40a6d7d03bcb790d3165c93fd3a28dd83a707f1947405823f",
+      "variant_raw": "Standard",
+      "workbook_row": 382
+    },
+    {
+      "card_name": "Find the traitor",
+      "collector_number": "3",
+      "rarity_raw": "Mission",
+      "reference_key": "kref_1e2ec77bf499664651b8b6885565dd0eaff04b5dd8482f61e2964202",
+      "variant_raw": "Standard",
+      "workbook_row": 383
+    },
+    {
+      "card_name": "Assassination",
+      "collector_number": "4",
+      "rarity_raw": "Mission",
+      "reference_key": "kref_3122b5e252973049b3069bec1a0c482c10957a824388f8a6d8e52384",
+      "variant_raw": "Standard",
+      "workbook_row": 384
+    },
+    {
+      "card_name": "Bring it back",
+      "collector_number": "5",
+      "rarity_raw": "Mission",
+      "reference_key": "kref_d283815882b35e73d316201586d6b9758d1972e65f01b65913c8d81b",
+      "variant_raw": "Standard",
+      "workbook_row": 385
+    },
+    {
+      "card_name": "Rescue a friend",
+      "collector_number": "6",
+      "rarity_raw": "Mission",
+      "reference_key": "kref_ba768153c51333a1da85fdb20d3a6015bc0e6d70c25cee304239edf5",
+      "variant_raw": "Standard",
+      "workbook_row": 386
+    },
+    {
+      "card_name": "I have to go",
+      "collector_number": "7",
+      "rarity_raw": "Mission",
+      "reference_key": "kref_2a239d54b33ec659b511f963344463a5162f9ac6421fe022159f5a72",
+      "variant_raw": "Standard",
+      "workbook_row": 387
+    },
+    {
+      "card_name": "Set a trap",
+      "collector_number": "8",
+      "rarity_raw": "Mission",
+      "reference_key": "kref_c809f289ff8535e634dc6ca1ccc0417b933a9e8b680bf0b3eb33270d",
+      "variant_raw": "Standard",
+      "workbook_row": 388
+    },
+    {
+      "card_name": "Protect the Leader",
+      "collector_number": "9",
+      "rarity_raw": "Mission",
+      "reference_key": "kref_b7d368b3cacf37785bfea88dc2b46b04cfacd590867c6a64c263576d",
+      "variant_raw": "Standard",
+      "workbook_row": 389
+    },
+    {
+      "card_name": "Chakra Training",
+      "collector_number": "10",
+      "rarity_raw": "Mission",
+      "reference_key": "kref_895cf832804f2afd2748dfe072adc1bca06ff5614fb8ca9a1889f003",
+      "variant_raw": "Standard",
+      "workbook_row": 390
+    },
+    {
+      "card_name": "NARUTO UZUMAKI - Challenging Sasuke",
+      "collector_number": "141",
+      "rarity_raw": "Mythos",
+      "reference_key": "kref_a1245b86eceb417324fc392e6facaf45aba14fcc0e6c39bbf970d210",
+      "variant_raw": "Holographic / Micro-engraved",
+      "workbook_row": 391
+    },
+    {
+      "card_name": "SASUKE UCHIHA - Challenging Naruto",
+      "collector_number": "142",
+      "rarity_raw": "Mythos",
+      "reference_key": "kref_68b8bb649b57223eea9dc5644ebbbd25b9eda6e51dc7b8b3de502bf2",
+      "variant_raw": "Holographic / Micro-engraved",
+      "workbook_row": 392
+    },
+    {
+      "card_name": "ITACHI UCHIHA - Hunting Naruto",
+      "collector_number": "143",
+      "rarity_raw": "Mythos",
+      "reference_key": "kref_03cb62a1bab17e02226bae3bba5ee82e6a088f652bd84c4ae822ac46",
+      "variant_raw": "Holographic / Micro-engraved",
+      "workbook_row": 393
+    },
+    {
+      "card_name": "KISAME HOSHIGAKI - Chakra Absorb",
+      "collector_number": "144",
+      "rarity_raw": "Mythos",
+      "reference_key": "kref_bbc620d65a1dfeb1eb44728edead99c623af36dbae1261c9c63768b3",
+      "variant_raw": "Holographic / Micro-engraved",
+      "workbook_row": 394
+    },
+    {
+      "card_name": "NARUTO UZUMAKI - Original Team 7",
+      "collector_number": "145",
+      "rarity_raw": "Mythos",
+      "reference_key": "kref_93369c2d63130bf19d77ca5f28f5490d7e01a86290850beab6b6abcc",
+      "variant_raw": "Holographic / Micro-engraved",
+      "workbook_row": 395
+    },
+    {
+      "card_name": "SASUKE UCHIHA - Original Team 7",
+      "collector_number": "146",
+      "rarity_raw": "Mythos",
+      "reference_key": "kref_83e167b88fbcb8e792a8f4f8f521372e3596e734e6dbd9da5dcd990c",
+      "variant_raw": "Holographic / Micro-engraved",
+      "workbook_row": 396
+    },
+    {
+      "card_name": "SAKURA HARUNO - Original Team 7",
+      "collector_number": "147",
+      "rarity_raw": "Mythos",
+      "reference_key": "kref_c5e101abe6b013f3f434fca06090283910c7eaba2ccced1863379de1",
+      "variant_raw": "Holographic / Micro-engraved",
+      "workbook_row": 397
+    },
+    {
+      "card_name": "KAKASHI HATAKE - Original Team 7",
+      "collector_number": "148",
+      "rarity_raw": "Mythos",
+      "reference_key": "kref_3f0518bd7be23554aeed50563362442fdd2027c9a8c2fa2f84d64ca2",
+      "variant_raw": "Holographic / Micro-engraved",
+      "workbook_row": 398
+    }
+  ],
+  "entry_count": 396,
+  "header_row": 2,
+  "headers_used": [
+    "No.",
+    "Card",
+    "Rarity",
+    "Variant"
+  ],
+  "schema_version": "konoha-shido-reference-v1",
+  "source_file": "konoha_shido_1st_edition_master.xlsx",
+  "source_sha256": "f35825e0e2f1910562fe345703752c3b8b4e2c5187a957ab94e379a7bf233f78",
+  "worksheet": "Checklist"
+}

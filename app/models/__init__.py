@@ -10,6 +10,7 @@ from app.models.card import Card
 from app.models.edition import Edition
 from app.models.image import CardImage
 from app.models.keyword import Keyword, card_keywords
+from app.models.printing_reference import PrintingReference
 from app.models.set import CardSet
 from app.models.source import SourceRecord
 from app.models.translation import PrintingTranslation
@@ -23,6 +24,7 @@ __all__ = [
     "Edition",
     "Keyword",
     "Printing",
+    "PrintingReference",
     "PrintingTranslation",
     "SourceRecord",
     "card_keywords",

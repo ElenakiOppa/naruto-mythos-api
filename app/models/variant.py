@@ -34,6 +34,7 @@ from app.utils.printing_taxonomy import normalize_printing_taxonomy
 if TYPE_CHECKING:
     from app.models.edition import Edition
     from app.models.image import CardImage
+    from app.models.printing_reference import PrintingReference
     from app.models.translation import PrintingTranslation
 
 
@@ -69,6 +70,7 @@ class CardVariant(Base, UUIDPrimaryKeyMixin, TimestampMixin):
     source_variant: Mapped[str | None] = mapped_column(String(64), nullable=True)
     card_version: Mapped[str | None] = mapped_column(String(64), nullable=True)
     stamp: Mapped[str | None] = mapped_column(String(255), nullable=True)
+    reference_identity: Mapped[str | None] = mapped_column(String(64), nullable=True)
     normalized_rarity: Mapped[str | None] = mapped_column(String(64), nullable=True)
     collector_class: Mapped[str | None] = mapped_column(String(64), nullable=True)
     normalized_treatment: Mapped[str | None] = mapped_column(String(64), nullable=True)
@@ -86,6 +88,9 @@ class CardVariant(Base, UUIDPrimaryKeyMixin, TimestampMixin):
         back_populates="printings", foreign_keys=[edition_id]
     )
     translations: Mapped[list["PrintingTranslation"]] = relationship(
+        back_populates="printing", cascade="all, delete-orphan", passive_deletes=True
+    )
+    references: Mapped[list["PrintingReference"]] = relationship(
         back_populates="printing", cascade="all, delete-orphan", passive_deletes=True
     )
 
@@ -108,6 +113,7 @@ class CardVariant(Base, UUIDPrimaryKeyMixin, TimestampMixin):
             func.normalize(source_variant),
             func.normalize(card_version),
             func.normalize(stamp),
+            func.normalize(reference_identity),
             unique=True,
             postgresql_nulls_not_distinct=True,
         ).ddl_if(dialect="postgresql"),
@@ -163,6 +169,8 @@ def _populate_printing_set_id(_mapper, connection, target: CardVariant) -> None:
 @event.listens_for(CardVariant, "before_insert")
 @event.listens_for(CardVariant, "before_update")
 def _populate_printing_taxonomy(_mapper, connection, target: CardVariant) -> None:
+    if target.reference_identity is not None:
+        return
     card_type = (
         target.card.card_type
         if target.card is not None
