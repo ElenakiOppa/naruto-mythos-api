@@ -218,6 +218,39 @@ def test_variant_images_and_aliases(db_session, payload):
     assert any(v["serial_total"] == 100 and v["serial_numbered"] for v in data["variants"])
 
 
+def test_explicit_variant_editions_are_normalized_and_set_scoped(db_session, payload):
+    first_set = payload["sets"][0]
+    first_card = first_set["cards"][0]
+    first_variant = first_card["variants"][0]
+    first_variant["edition"] = "1st edition"
+    second_variant = copy.deepcopy(first_variant)
+    second_variant["id"] = "TEST-IMPORT-0-v-second"
+    second_variant["type"] = "Normal"
+    second_variant["edition"] = "1st Edition"
+    second_variant["images"] = []
+    first_card["variants"].append(second_variant)
+    payload["sets"][1]["cards"][0]["variants"][0]["edition"] = "1st Edition"
+
+    success(db_session.get_bind(), payload)
+    data = snapshot(db_session.get_bind())
+
+    assert len(data["editions"]) == 2
+    assert len(data["cards"]) == 2
+    first_set_id = next(
+        row["id"] for row in data["sets"] if row["public_id"] == "test-import-set-0"
+    )
+    second_set_id = next(
+        row["id"] for row in data["sets"] if row["public_id"] == "test-import-set-1"
+    )
+    first_set_printings = [row for row in data["variants"] if row["set_id"] == first_set_id]
+    first_set_edition_ids = {row["edition_id"] for row in first_set_printings}
+    second_set_edition = next(row for row in data["editions"] if row["set_id"] == second_set_id)
+    assert len(first_set_printings) == 2
+    assert len(first_set_edition_ids) == 1
+    assert first_set_edition_ids.isdisjoint({second_set_edition["id"]})
+    assert all(row["set_id"] is not None for row in data["variants"])
+
+
 def test_cli_validation_report(tmp_path, capsys):
     from importer.cli import main
 

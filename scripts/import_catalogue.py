@@ -21,7 +21,7 @@ from importer.catalogue_importer import build_dry_run
 from scripts.acquisition.run_acquisition import acquire_one
 from scripts.acquisition.sources import APPROVED_API_SOURCES
 
-PLAN_SHA256 = "2a209a10ab4a59c25a2730f991ac4a3978fd0758e7e232a0d1d94815cb34a091"
+PLAN_SHA256 = "8006177e6e7299cc0a0195b77d243bcf2d9d6a4f88b79f07a3632e0bd77a09a2"
 EXPECTED_REPORT = {
     "source_records": 636,
     "accepted": 636,
@@ -102,7 +102,7 @@ def lock_catalogue(connection):
     connection.execute(text("SET LOCAL lock_timeout = '15s'"))
     connection.execute(
         text(
-            "LOCK TABLE sets, cards, card_variants, printing_translations, source_records, "
+            "LOCK TABLE sets, editions, cards, card_variants, printing_translations, source_records, "
             "card_images, keywords, card_keywords IN SHARE ROW EXCLUSIVE MODE"
         )
     )
@@ -114,7 +114,8 @@ def verify_catalogue(session, result):
     from app.models import Card
     from importer.catalogue_persistence import count_catalogue
 
-    if asdict(count_catalogue(session)) != EXPECTED_COUNTS:
+    expected_counts = dict(EXPECTED_COUNTS, editions=len(result["plan"]["editions"]))
+    if asdict(count_catalogue(session)) != expected_counts:
         raise ImportRefused("CATALOGUE_VERIFICATION_FAILED")
     missions, negatives = {}, {}
     for printing in result["plan"]["printings"]:
@@ -175,7 +176,11 @@ def main():
         execute_import(engine, result)
         print(
             json.dumps(
-                {"status": "COMMITTED_AND_VERIFIED", "counts": EXPECTED_COUNTS}, sort_keys=True
+                {
+                    "status": "COMMITTED_AND_VERIFIED",
+                    "counts": dict(EXPECTED_COUNTS, editions=len(result["plan"]["editions"])),
+                },
+                sort_keys=True,
             )
         )
         return 0

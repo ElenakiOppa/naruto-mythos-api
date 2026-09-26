@@ -5,6 +5,7 @@ from __future__ import annotations
 import pytest
 from sqlalchemy import func, select
 
+from app.models import Card, CardVariant, Edition
 from importer.catalogue_design.models import SourceCardRecord
 from importer.catalogue_importer import _build_plan
 from importer.catalogue_persistence import CataloguePersistenceError, persist_catalogue_plan
@@ -71,6 +72,7 @@ def test_transactional_import_persists_domain_and_is_idempotent(db_session):
 
     assert first == second
     assert first.sets == 1
+    assert first.editions == 1
     assert first.cards == 2
     assert first.printings == 2
     assert first.translations == 4
@@ -78,6 +80,26 @@ def test_transactional_import_persists_domain_and_is_idempotent(db_session):
     assert first.image_references == 4
     assert first.keywords == 2
     assert first.associations == 4
+    assert all(printing.edition_id is not None for printing in db_session.query(CardVariant))
+    assert db_session.query(Edition).count() == 1
+
+
+def test_two_edition_printings_persist_under_one_card(db_session):
+    source_records = [
+        record(1, ID="001/999", Edition="1st edition"),
+        record(2, ID="001/999", Edition="2nd edition"),
+    ]
+    result = {"plan": _build_plan({"en": source_records})[0]}
+
+    counts = persist_catalogue_plan(db_session, result)
+    card_rows = db_session.query(Card).all()
+    printing_rows = db_session.query(CardVariant).all()
+
+    assert counts.cards == 1
+    assert counts.printings == 2
+    assert counts.editions == 2
+    assert {printing.card_id for printing in printing_rows} == {card_rows[0].id}
+    assert len({printing.edition_id for printing in printing_rows}) == 2
 
 
 def test_signed_power_and_mission_points_survive_persistence(db_session):

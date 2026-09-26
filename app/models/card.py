@@ -69,6 +69,7 @@ class Card(Base, UUIDPrimaryKeyMixin, TimestampMixin):
     # at the database regardless of whether the ORM session has them loaded).
     variants: Mapped[list["CardVariant"]] = relationship(
         back_populates="card",
+        foreign_keys="CardVariant.card_id",
         cascade="all, delete-orphan",
         passive_deletes=True,
     )
@@ -93,6 +94,7 @@ class Card(Base, UUIDPrimaryKeyMixin, TimestampMixin):
         # must be unique *within* a set -- this is the canonical-duplicate
         # guard rail, not a global uniqueness constraint on card_number.
         UniqueConstraint("set_id", "card_number", name="uq_cards_set_id_card_number"),
+        UniqueConstraint("id", "set_id", name="uq_cards_id_set_id"),
         CheckConstraint("chakra IS NULL OR chakra >= 0", name="ck_cards_chakra_non_negative"),
         CheckConstraint("points IS NULL OR points >= 0", name="ck_cards_points_non_negative"),
     )

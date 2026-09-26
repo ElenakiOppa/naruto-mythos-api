@@ -17,7 +17,7 @@ logger = logging.getLogger("catalogue_importer")
 
 
 def apply_plan(connection, plan):
-    for kind in ("sets", "keywords", "cards", "variants", "images", "provenance"):
+    for kind in ("sets", "editions", "keywords", "cards", "variants", "images", "provenance"):
         table = TABLES[kind]
         for batch in chunks(plan.inserts[kind]):
             connection.execute(insert(table), batch)

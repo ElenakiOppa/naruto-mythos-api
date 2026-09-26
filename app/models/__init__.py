@@ -7,6 +7,7 @@ modules that were never imported simply won't exist in the metadata.
 """
 
 from app.models.card import Card
+from app.models.edition import Edition
 from app.models.image import CardImage
 from app.models.keyword import Keyword, card_keywords
 from app.models.set import CardSet
@@ -19,6 +20,7 @@ __all__ = [
     "CardImage",
     "CardSet",
     "CardVariant",
+    "Edition",
     "Keyword",
     "Printing",
     "PrintingTranslation",

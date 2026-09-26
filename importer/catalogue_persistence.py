@@ -16,7 +16,8 @@ from typing import Any
 from sqlalchemy import func, select
 from sqlalchemy.orm import Session
 
-from app.models import Card, CardImage, CardSet, CardVariant, Keyword, SourceRecord
+from app.models import Card, CardImage, CardSet, CardVariant, Edition, Keyword, SourceRecord
+from app.models.edition import normalize_edition_name
 from app.models.keyword import card_keywords
 from app.models.translation import PrintingTranslation
 from importer.catalogue_design.identity import CanonicalExpansionKey
@@ -31,6 +32,7 @@ class CataloguePersistenceError(RuntimeError):
 @dataclass(frozen=True)
 class PersistenceCounts:
     sets: int
+    editions: int
     cards: int
     printings: int
     translations: int
@@ -66,6 +68,38 @@ def _get_or_create_set(session: Session, expansion: str) -> CardSet:
     else:
         _require_equal(card_set, "name", expansion)
     return card_set
+
+
+def _get_or_create_edition(
+    session: Session, edition_data: dict[str, Any], card_set: CardSet
+) -> Edition:
+    normalized_name = normalize_edition_name(edition_data["name"])
+    if normalized_name != edition_data["normalized_name"]:
+        raise CataloguePersistenceError("edition normalization does not match its label")
+    edition = session.scalar(
+        select(Edition).where(
+            Edition.set_id == card_set.id,
+            Edition.normalized_name == normalized_name,
+        )
+    )
+    if edition is None:
+        public_id_owner = session.scalar(
+            select(Edition).where(Edition.public_id == edition_data["public_id"])
+        )
+        if public_id_owner is not None:
+            raise CataloguePersistenceError("Edition public ID is already assigned elsewhere")
+        edition = Edition(
+            public_id=edition_data["public_id"],
+            set=card_set,
+            name=edition_data["name"],
+            normalized_name=normalized_name,
+        )
+        session.add(edition)
+        session.flush()
+    else:
+        _require_equal(edition, "set_id", card_set.id)
+        _require_equal(edition, "normalized_name", normalized_name)
+    return edition
 
 
 def _get_or_create_keyword(session: Session, value: str) -> Keyword:
@@ -123,12 +157,15 @@ def _get_or_create_printing(
     session: Session,
     printing_data: dict[str, Any],
     card: Card,
+    edition: Edition | None,
 ) -> CardVariant:
     public_id = printing_data["public_id"]
     identity = printing_data["identity"]
     values = {
         "public_id": public_id,
         "card_id": card.id,
+        "set_id": card.set_id,
+        "edition_id": edition.id if edition else None,
         "variant_type": identity["variant"] or "standard",
         "finish": identity["variant"],
         "rarity_override": identity["rarity"],
@@ -277,7 +314,17 @@ def persist_catalogue_plan(session: Session, result: dict[str, Any]) -> Persiste
         with session.begin():
             cards_by_id = {card["public_id"]: card for card in plan["cards"]}
             sets_by_expansion: dict[str, CardSet] = {}
+            editions_by_public_id: dict[str, Edition] = {}
             cards_by_public_id: dict[str, Card] = {}
+            for edition_data in plan.get("editions", []):
+                expansion = edition_data["expansion"]
+                card_set = sets_by_expansion.get(expansion)
+                if card_set is None:
+                    card_set = _get_or_create_set(session, expansion)
+                    sets_by_expansion[expansion] = card_set
+                editions_by_public_id[edition_data["public_id"]] = _get_or_create_edition(
+                    session, edition_data, card_set
+                )
             for printing_data in plan["printings"]:
                 card_data = cards_by_id[printing_data["card_id"]]
                 expansion = card_data["expansion"]
@@ -302,7 +349,13 @@ def persist_catalogue_plan(session: Session, result: dict[str, Any]) -> Persiste
                             if value
                         ],
                     )
-                printing = _get_or_create_printing(session, printing_data, card)
+                edition_public_id = printing_data.get("edition_public_id")
+                edition = editions_by_public_id.get(edition_public_id)
+                if edition_public_id is not None and edition is None:
+                    raise CataloguePersistenceError("Printing references an unplanned Edition")
+                if printing_data["identity"]["edition"] and edition is None:
+                    raise CataloguePersistenceError("Known Printing edition was not resolved")
+                printing = _get_or_create_printing(session, printing_data, card, edition)
                 for language, localization in printing_data["localizations"].items():
                     _persist_translation(session, printing, language, localization)
                     _persist_image(session, printing, language, localization.get("image_url"))
@@ -319,6 +372,7 @@ def count_catalogue(session: Session) -> PersistenceCounts:
     """Return database counts used by first/second import verification."""
     return PersistenceCounts(
         sets=session.scalar(select(func.count()).select_from(CardSet)) or 0,
+        editions=session.scalar(select(func.count()).select_from(Edition)) or 0,
         cards=session.scalar(select(func.count()).select_from(Card)) or 0,
         printings=session.scalar(select(func.count()).select_from(CardVariant)) or 0,
         translations=session.scalar(select(func.count()).select_from(PrintingTranslation)) or 0,

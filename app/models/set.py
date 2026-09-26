@@ -16,6 +16,7 @@ from app.models.mixins import TimestampMixin, UUIDPrimaryKeyMixin
 
 if TYPE_CHECKING:
     from app.models.card import Card
+    from app.models.edition import Edition
 
 
 class CardSet(Base, UUIDPrimaryKeyMixin, TimestampMixin):
@@ -51,6 +52,7 @@ class CardSet(Base, UUIDPrimaryKeyMixin, TimestampMixin):
     # `DELETE FROM sets WHERE ...` from silently wiping an entire catalogue
     # of cards via ORM cascade.
     cards: Mapped[list["Card"]] = relationship(back_populates="set")
+    editions: Mapped[list["Edition"]] = relationship(back_populates="set")
 
     __table_args__ = (
         CheckConstraint(

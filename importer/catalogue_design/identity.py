@@ -43,6 +43,29 @@ class CanonicalExpansionKey:
 
 
 @dataclass(frozen=True)
+class CanonicalEditionKey:
+    """Deterministic Edition identity scoped to a public Set identity."""
+
+    set_public_id: str
+    normalized_name: str
+
+    def payload(self) -> dict:
+        return {
+            "version": 1,
+            "kind": "EDITION_ANALYSIS",
+            "set_public_id": self.set_public_id,
+            "normalized_name": self.normalized_name,
+        }
+
+    def identity_hash(self) -> str:
+        encoded = f"{len(self.set_public_id)}:{self.set_public_id}{self.normalized_name}"
+        return hashlib.md5(encoded.encode("utf-8"), usedforsecurity=False).hexdigest()
+
+    def analysis_public_id(self) -> str:
+        return "edn_" + self.identity_hash()[:56]
+
+
+@dataclass(frozen=True)
 class CanonicalCardKey:
     """Proposed canonical Card (gameplay-design) identity (analysis only).
 

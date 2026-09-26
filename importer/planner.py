@@ -7,12 +7,15 @@ from datetime import UTC
 from pydantic import AnyUrl
 from sqlalchemy import select
 
-from app.models import Card, CardImage, CardSet, CardVariant, Keyword, SourceRecord
+from app.models import Card, CardImage, CardSet, CardVariant, Edition, Keyword, SourceRecord
+from app.models.edition import display_edition_name, normalize_edition_name
 from app.models.keyword import card_keywords
+from importer.catalogue_design.identity import CanonicalEditionKey
 from importer.hashing import canonical_hash
 
 TABLES = {
     "sets": CardSet.__table__,
+    "editions": Edition.__table__,
     "cards": Card.__table__,
     "variants": CardVariant.__table__,
     "keywords": Keyword.__table__,
@@ -21,6 +24,7 @@ TABLES = {
 }
 TYPES = {
     "sets": "set",
+    "editions": "edition",
     "cards": "card",
     "variants": "variant",
     "keywords": "keyword",
@@ -93,6 +97,7 @@ def build_plan(connection, catalogue):
         return rec
 
     keyword_defs = {}
+    edition_by_variant = {}
     for st in sorted(catalogue.sets, key=lambda x: x.id):
         add("sets", st.id, fields(st, ("cards",), {"id": "public_id"}))
         for card in sorted(st.cards, key=lambda x: x.id):
@@ -110,6 +115,25 @@ def build_plan(connection, catalogue):
             for keyword in card.keywords or []:
                 keyword_defs[keyword.slug] = keyword
             for v in sorted(card.variants, key=lambda x: x.id):
+                edition_public_id = None
+                if v.edition is not None and v.edition.strip():
+                    normalized_name = normalize_edition_name(v.edition)
+                    edition_public_id = CanonicalEditionKey(
+                        set_public_id=st.id,
+                        normalized_name=normalized_name,
+                    ).analysis_public_id()
+                    if ("editions", edition_public_id) not in bykey:
+                        add(
+                            "editions",
+                            edition_public_id,
+                            {
+                                "public_id": edition_public_id,
+                                "name": display_edition_name(v.edition),
+                                "normalized_name": normalized_name,
+                            },
+                            ("sets", st.id),
+                        )
+                edition_by_variant[v.id] = edition_public_id
                 attrs = fields(
                     v,
                     ("images",),
@@ -139,7 +163,7 @@ def build_plan(connection, catalogue):
         add("keywords", slug, fields(keyword))
     records.sort(key=lambda x: (list(TABLES).index(x.kind), x.key))
     existing = {}
-    for kind in ("sets", "cards", "variants", "keywords"):
+    for kind in ("sets", "editions", "cards", "variants", "keywords"):
         table = TABLES[kind]
         column = table.c.slug if kind == "keywords" else table.c.public_id
         existing[kind] = fetch(
@@ -161,10 +185,22 @@ def build_plan(connection, catalogue):
             rec.attrs["set_id"] = bykey[rec.owner].internal_id
             if rec.row and rec.row["set_id"] != rec.attrs["set_id"]:
                 raise ImportConflict(f"Card cannot be moved to another set: {rec.key}")
+        elif rec.kind == "editions":
+            rec.attrs["set_id"] = bykey[rec.owner].internal_id
+            if rec.row and rec.row["set_id"] != rec.attrs["set_id"]:
+                raise ImportConflict(f"Edition cannot be moved to another set: {rec.key}")
         elif rec.kind == "variants":
             rec.attrs["card_id"] = bykey[rec.owner].internal_id
+            card_record = bykey[rec.owner]
+            rec.attrs["set_id"] = card_record.attrs["set_id"]
+            edition_public_id = edition_by_variant[rec.key]
+            rec.attrs["edition_id"] = (
+                bykey["editions", edition_public_id].internal_id if edition_public_id else None
+            )
             if rec.row and rec.row["card_id"] != rec.attrs["card_id"]:
                 raise ImportConflict(f"Variant cannot be moved to another card: {rec.key}")
+            if rec.row and rec.row["edition_id"] != rec.attrs["edition_id"]:
+                raise ImportConflict(f"Printing Edition cannot be changed in place: {rec.key}")
         elif rec.kind == "images":
             card, variant = rec.owner
             rec.attrs["card_id"] = bykey["cards", card].internal_id

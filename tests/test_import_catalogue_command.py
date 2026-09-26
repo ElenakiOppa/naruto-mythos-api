@@ -42,7 +42,7 @@ def approved(monkeypatch):
 
 
 def test_production_guards_are_exact():
-    assert command.PLAN_SHA256 == "2a209a10ab4a59c25a2730f991ac4a3978fd0758e7e232a0d1d94815cb34a091"
+    assert command.PLAN_SHA256 == "8006177e6e7299cc0a0195b77d243bcf2d9d6a4f88b79f07a3632e0bd77a09a2"
     assert command.EXPECTED_COUNTS == {
         "sets": 2,
         "cards": 318,
@@ -156,7 +156,8 @@ def test_commit_gameplay_and_refuse_nonempty_repeat(fictional_execution):
     engine, result = fictional_execution
     command.execute_import(engine, result)
     with Session(engine) as session:
-        assert asdict(count_catalogue(session)) == command.EXPECTED_COUNTS
+        expected = dict(command.EXPECTED_COUNTS, editions=len(result["plan"]["editions"]))
+        assert asdict(count_catalogue(session)) == expected
     with pytest.raises(command.ImportRefused, match="CATALOGUE_NOT_EMPTY"):
         command.execute_import(engine, result)
 
@@ -206,7 +207,8 @@ def test_postcommit_error_is_distinct(fictional_execution, monkeypatch):
     with pytest.raises(command.ImportRefused, match="POST_COMMIT_VERIFICATION_FAILED"):
         command.execute_import(engine, result)
     with Session(engine) as session:
-        assert asdict(count_catalogue(session)) == command.EXPECTED_COUNTS
+        expected = dict(command.EXPECTED_COUNTS, editions=len(result["plan"]["editions"]))
+        assert asdict(count_catalogue(session)) == expected
 
 
 def test_main_suppresses_sensitive_errors_and_disposes(monkeypatch, capsys):

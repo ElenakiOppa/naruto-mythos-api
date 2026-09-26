@@ -15,14 +15,20 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import unicodedata
 from collections import Counter, defaultdict
 from pathlib import Path
 from typing import Any
 
 from pydantic import ValidationError
 
+from app.models.edition import display_edition_name, normalize_edition_name
 from importer.catalogue_design.analyzer import load_records_from_acquisition
-from importer.catalogue_design.identity import CanonicalPrintingKey
+from importer.catalogue_design.identity import (
+    CanonicalEditionKey,
+    CanonicalExpansionKey,
+    CanonicalPrintingKey,
+)
 from importer.catalogue_design.models import SourceCardRecord
 from importer.domain_schemas import LocalizedPrinting, PrintingSchema
 from importer.staging.domain import PrintingFingerprint
@@ -121,7 +127,9 @@ def _build_plan(
     }
 
     cards: dict[str, dict[str, Any]] = {}
+    editions: dict[str, dict[str, Any]] = {}
     printings: dict[str, dict[str, Any]] = {}
+    relational_printing_ids: dict[tuple[Any, ...], str] = {}
     quarantined: dict[str, str] = {}
     provenance_count = 0
     localization_counts: Counter[str] = Counter()
@@ -163,10 +171,50 @@ def _build_plan(
                     "title": record.title,
                     "printing_ids": [],
                 }
+            edition_public_id = None
+            if record.edition is not None and record.edition.strip():
+                if record.set is None:
+                    raise CatalogueImportError("MISSING_SET")
+                normalized_edition = normalize_edition_name(record.edition)
+                edition_public_id = CanonicalEditionKey(
+                    set_public_id=CanonicalExpansionKey(record.set).analysis_public_id(),
+                    normalized_name=normalized_edition,
+                ).analysis_public_id()
+                edition = editions.setdefault(
+                    edition_public_id,
+                    {
+                        "public_id": edition_public_id,
+                        "expansion": record.set,
+                        "name": display_edition_name(record.edition),
+                        "normalized_name": normalized_edition,
+                        "printing_ids": [],
+                    },
+                )
+                edition["printing_ids"].append(printing_id)
+            normalized_printing_key = (
+                card_id,
+                edition_public_id,
+                *(
+                    unicodedata.normalize("NFC", value) if value is not None else None
+                    for value in (
+                        record.rarity,
+                        record.variant,
+                        record.card_version,
+                        record.stamp or None,
+                    )
+                ),
+            )
+            prior_printing_id = relational_printing_ids.get(normalized_printing_key)
+            if prior_printing_id is not None and prior_printing_id != printing_id:
+                raise CatalogueImportError(
+                    "DUPLICATE_SEMANTIC_PRINTING_AFTER_EDITION_NORMALIZATION"
+                )
+            relational_printing_ids[normalized_printing_key] = printing_id
             cards[card_id]["printing_ids"].append(printing_id)
             printings[printing_id] = {
                 "public_id": printing_id,
                 "card_id": card_id,
+                "edition_public_id": edition_public_id,
                 "identity": fingerprint.model_dump(mode="json"),
                 "source_uid": str(record.uid),
                 "source_sku": record.sku,
@@ -190,10 +238,13 @@ def _build_plan(
 
     for card in cards.values():
         card["printing_ids"] = sorted(card["printing_ids"])
+    for edition in editions.values():
+        edition["printing_ids"] = sorted(edition["printing_ids"])
 
     plan = {
-        "schema_version": "phase14-dry-run-v1",
+        "schema_version": "phase13c1-edition-v1",
         "cards": [cards[key] for key in sorted(cards)],
+        "editions": [editions[key] for key in sorted(editions)],
         "printings": [printings[key] for key in sorted(printings)],
     }
     report = {
@@ -203,7 +254,11 @@ def _build_plan(
         "rejected": 0,
         "unexplained_quarantine": 0,
         "unique_cards": len(cards),
+        "unique_editions": len(editions),
         "unique_printings": len(printings),
+        "edition_count_by_set": dict(
+            sorted(Counter(item["expansion"] for item in editions.values()).items())
+        ),
         "localization_count_by_language": dict(sorted(localization_counts.items())),
         "provenance_count": provenance_count,
         "source_observation_count": sum(
