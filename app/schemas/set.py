@@ -50,6 +50,9 @@ class SetDetail(PublicSchema):
     total_with_variants: int | None = Field(default=None, examples=[150])
     logo_url: str | None = Field(default=None, examples=[None])
     symbol_url: str | None = Field(default=None, examples=[None])
+    canonical_card_count: int = Field(default=0, ge=0)
+    collectible_printing_count: int = Field(default=0, ge=0)
+    editions: list["EditionSummary"] = Field(default_factory=list)
 
     model_config = ConfigDict(
         from_attributes=True,
@@ -66,6 +69,20 @@ class SetDetail(PublicSchema):
                 "total_with_variants": 150,
                 "logo_url": None,
                 "symbol_url": None,
+                "canonical_card_count": 0,
+                "collectible_printing_count": 0,
+                "editions": [],
             }
         },
     )
+
+
+class EditionSummary(PublicSchema):
+    id: str = Field(validation_alias="public_id")
+    name: str
+    canonical_card_count: int = Field(ge=0)
+    collectible_printing_count: int = Field(ge=0)
+    collector_reference_status: str = Field(pattern="^(VERIFIED|NONE)$")
+    collector_reference_count: int = Field(ge=0)
+
+    model_config = ConfigDict(from_attributes=True, populate_by_name=True)

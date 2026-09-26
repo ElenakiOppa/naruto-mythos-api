@@ -170,7 +170,7 @@ def test_export_preserves_canonical_contract_and_is_deterministic():
     assert original["openapi"].startswith("3.1")
     assert exported == generate_rapidapi_openapi()
     assert set(exported["paths"]) == PUBLIC_PATHS
-    assert len(exported["paths"]) == 12
+    assert len(exported["paths"]) == 18
     for path in PUBLIC_PATHS:
         source = original["paths"][path]["get"]
         target = exported["paths"][path]["get"]
@@ -280,4 +280,4 @@ def test_all_exported_schema_examples_validate():
 
     for schema in spec["components"]["schemas"].values():
         visit(schema)
-    assert checked == 78  # 63 converted arrays plus 15 existing singular examples.
+    assert checked == 82  # 67 converted arrays plus 15 existing singular examples.

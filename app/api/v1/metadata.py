@@ -5,7 +5,7 @@ from sqlalchemy.orm import Session
 
 from app.database import get_db
 from app.schemas.card import CardSummary
-from app.schemas.metadata import KeywordCatalogItem, RarityCatalogItem
+from app.schemas.metadata import KeywordCatalogItem, PrintingRarityCatalogItem, RarityCatalogItem
 from app.schemas.pagination import PaginatedCardsResponse
 from app.services import metadata_service
 from app.utils.error_docs import invalid_parameters_response, not_found_response
@@ -16,9 +16,23 @@ _db_dependency = Depends(get_db)  # FastAPI resolves this once per request.
 router = APIRouter(prefix="/v1", tags=["Metadata"])
 
 
-@router.get("/rarities", response_model=list[RarityCatalogItem], summary="List rarity counts")
+@router.get(
+    "/rarities",
+    response_model=list[RarityCatalogItem],
+    summary="List legacy canonical Card rarity counts",
+    description="Legacy compatibility endpoint. card_count groups the canonical Card.rarity projection and is not a collectible Printing count. Use /v1/printing-rarities for Printing-level rarity counts.",
+)
 def rarities(db: Session = _db_dependency):
     return metadata_service.list_rarities(db)
+
+
+@router.get(
+    "/printing-rarities",
+    response_model=list[PrintingRarityCatalogItem],
+    summary="List collectible Printing rarity counts",
+)
+def printing_rarities(db: Session = _db_dependency):
+    return metadata_service.list_printing_rarities(db)
 
 
 @router.get("/keywords", response_model=list[KeywordCatalogItem], summary="List keyword counts")

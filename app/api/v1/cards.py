@@ -6,7 +6,8 @@ from sqlalchemy.orm import Session
 from app.database import get_db
 from app.schemas.card import CardDetail, CardSummary
 from app.schemas.pagination import PaginatedCardsResponse
-from app.services import card_service
+from app.schemas.printing import PrintingResponse
+from app.services import card_service, printing_service
 from app.services.card_filters import CardFilters
 from app.utils.error_docs import invalid_card_parameters_response, not_found_response
 from app.utils.pagination import (
@@ -35,18 +36,25 @@ def list_cards(
         None, alias="set", description="Exact public set ID, case-insensitive."
     ),
     number: str | None = Query(None, description="Exact card number (a string)."),
-    rarity: str | None = Query(None, description="Case-insensitive exact rarity."),
+    rarity: str | None = Query(
+        None,
+        description="Case-insensitive Printing rarity/class filter; results remain unique canonical Cards.",
+    ),
     card_type: str | None = Query(
         None, alias="type", description="Case-insensitive exact card type."
     ),
     keyword: str | None = Query(None, description="Case-insensitive exact keyword slug."),
     variant: str | None = Query(
-        None, description="Case-insensitive exact variant type; at least one must match."
+        None,
+        description="Case-insensitive Printing treatment/type; at least one Printing must match.",
     ),
     language: str | None = Query(
         None, description="Case-insensitive exact parent set language, not variant language."
     ),
-    edition: str | None = Query(None, description="Case-insensitive exact parent set edition."),
+    edition: str | None = Query(
+        None,
+        description="Edition public ID; returns unique canonical Cards having a Printing in that Edition.",
+    ),
     chakra_min: int | None = Query(
         None, description="Inclusive minimum chakra, >= 0; excludes null chakra."
     ),
@@ -110,4 +118,13 @@ def random_card(db: Session = _db_dependency) -> CardDetail:
     responses={404: not_found_response("CARD_NOT_FOUND", "Card not found.")},
 )
 def get_card(public_id: str, db: Session = _db_dependency) -> CardDetail:
-    return CardDetail.model_validate(card_service.get_card_by_public_id(db, public_id))
+    card = card_service.get_card_by_public_id(db, public_id)
+    detail = CardDetail.model_validate(card)
+    return detail.model_copy(
+        update={
+            "printings": [
+                PrintingResponse.model_validate(printing_service.to_printing_data(printing))
+                for printing in card.variants
+            ]
+        }
+    )

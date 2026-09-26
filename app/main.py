@@ -20,7 +20,10 @@ logger = logging.getLogger(__name__)
 
 app = FastAPI(
     title="Naruto Mythos TCG Developer API",
-    description="A developer-friendly REST API for querying Naruto Mythos TCG catalogue data.",
+    description=(
+        "A developer-friendly REST API for querying the Naruto Mythos TCG catalogue. "
+        "Card is a canonical identity; Printing is a collectible identity; Edition is scoped to a Set."
+    ),
     version=API_VERSION,
     debug=False,
     docs_url="/docs" if settings.docs_enabled else None,

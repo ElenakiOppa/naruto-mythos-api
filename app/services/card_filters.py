@@ -2,9 +2,9 @@
 
 from dataclasses import dataclass
 
-from sqlalchemy import Select, func
+from sqlalchemy import Select, func, or_
 
-from app.models import Card, CardSet, CardVariant, Keyword
+from app.models import Card, CardSet, CardVariant, Edition, Keyword
 from app.schemas.error import ErrorCode
 from app.utils.errors import APIError
 
@@ -44,19 +44,42 @@ def apply_card_filters(statement: Select, filters: CardFilters) -> Select:
         if upper is not None:
             statement = statement.where(stat_column <= upper)
     for column, value in (
-        (Card.rarity, filters.rarity),
         (Card.card_type, filters.card_type),
         (CardSet.language, filters.language),
-        (CardSet.edition, filters.edition),
     ):
         if value is not None:
             statement = statement.where(func.lower(column) == value.lower())
+    if filters.rarity is not None:
+        value = filters.rarity.casefold()
+        statement = statement.where(
+            Card.variants.any(
+                or_(
+                    func.lower(CardVariant.normalized_rarity) == value,
+                    func.lower(CardVariant.collector_class) == value,
+                    func.lower(CardVariant.rarity_override) == value,
+                )
+            )
+        )
+    if filters.edition is not None:
+        statement = statement.where(
+            Card.variants.any(
+                CardVariant.edition_record.has(
+                    func.lower(Edition.public_id) == filters.edition.casefold()
+                )
+            )
+        )
     if filters.keyword is not None:
         statement = statement.where(
             Card.keywords.any(func.lower(Keyword.slug) == filters.keyword.lower())
         )
     if filters.variant is not None:
         statement = statement.where(
-            Card.variants.any(func.lower(CardVariant.variant_type) == filters.variant.lower())
+            Card.variants.any(
+                or_(
+                    func.lower(CardVariant.normalized_treatment) == filters.variant.casefold(),
+                    func.lower(CardVariant.source_variant) == filters.variant.casefold(),
+                    func.lower(CardVariant.variant_type) == filters.variant.casefold(),
+                )
+            )
         )
     return statement

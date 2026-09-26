@@ -3,10 +3,10 @@
 from sqlalchemy import distinct, func, select
 from sqlalchemy.orm import Session
 
-from app.models import Card, Keyword
+from app.models import Card, CardVariant, Keyword
 from app.models.keyword import card_keywords
 from app.schemas.error import ErrorCode
-from app.schemas.metadata import KeywordCatalogItem, RarityCatalogItem
+from app.schemas.metadata import KeywordCatalogItem, PrintingRarityCatalogItem, RarityCatalogItem
 from app.services.card_filters import CardFilters
 from app.services.card_service import list_cards
 from app.utils.errors import APIError
@@ -22,6 +22,20 @@ def list_rarities(db: Session) -> list[RarityCatalogItem]:
         .order_by(count.desc(), Card.rarity.asc())
     )
     return [RarityCatalogItem(name=name, slug=rarity_slug(name), card_count=n) for name, n in rows]
+
+
+def list_printing_rarities(db: Session) -> list[PrintingRarityCatalogItem]:
+    count = func.count(CardVariant.id)
+    rows = db.execute(
+        select(CardVariant.normalized_rarity, count)
+        .where(CardVariant.normalized_rarity.is_not(None))
+        .group_by(CardVariant.normalized_rarity)
+        .order_by(count.desc(), CardVariant.normalized_rarity.asc())
+    )
+    return [
+        PrintingRarityCatalogItem(name=name, slug=rarity_slug(name), printing_count=number)
+        for name, number in rows
+    ]
 
 
 def list_keywords(db: Session) -> list[KeywordCatalogItem]:

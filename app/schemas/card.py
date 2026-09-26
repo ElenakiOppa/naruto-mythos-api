@@ -8,8 +8,9 @@ Public card schemas.
   `flavor_text`, `keywords`, and `variants` on purpose -- a card list
   response should stay lightweight, since callers who need the full detail
   can always fetch `GET /v1/cards/{id}` for one card.
-- `CardDetail` is the complete representation, returned only by
-  `GET /v1/cards/{id}`.
+- `CardDetail` is the canonical Card representation, returned only by
+    `GET /v1/cards/{id}`. Its legacy `variants` field remains unchanged; the
+    additive `printings` field uses the clearer collectible terminology.
 
 Maps:
   database `public_id`   -> public "id"
@@ -26,6 +27,7 @@ from pydantic import ConfigDict, Field
 from app.schemas.base import PublicSchema
 from app.schemas.image import CardImageResponse
 from app.schemas.keyword import KeywordResponse
+from app.schemas.printing import PrintingResponse
 from app.schemas.set import SetSummary
 from app.schemas.variant import CardVariantResponse
 
@@ -84,6 +86,10 @@ class CardDetail(PublicSchema):
     set: SetSummary
     keywords: list[KeywordResponse] = Field(default_factory=list)
     variants: list[CardVariantResponse] = Field(default_factory=list)
+    printings: list[PrintingResponse] = Field(
+        default_factory=list,
+        description="Collectible Printings for this canonical Card; `variants` is retained as a legacy alias.",
+    )
     images: list[CardImageResponse] = Field(default_factory=list)
 
     model_config = ConfigDict(
@@ -113,6 +119,7 @@ class CardDetail(PublicSchema):
                     {"slug": "test-keyword", "name": "Test Keyword"},
                 ],
                 "variants": [],
+                "printings": [],
                 "images": [],
             }
         },

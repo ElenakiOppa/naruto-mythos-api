@@ -16,13 +16,19 @@ PATHS = {
     "/v1/sets",
     "/v1/sets/{public_id}",
     "/v1/sets/{public_id}/cards",
+    "/v1/sets/{set_id}/editions",
+    "/v1/editions/{edition_id}",
+    "/v1/editions/{edition_id}/printings",
     "/v1/cards",
     "/v1/cards/random",
     "/v1/cards/{public_id}",
     "/v1/rarities",
+    "/v1/printing-rarities",
     "/v1/keywords",
     "/v1/keywords/{slug}/cards",
     "/v1/search",
+    "/v1/printings",
+    "/v1/printings/{printing_id}",
 }
 
 
@@ -59,7 +65,12 @@ def test_openapi_semantic_contract(client):
     }
     for name, schema in spec["components"]["schemas"].items():
         assert not name.startswith(("Import", "SourceRecord"))
-        assert not forbidden.intersection(schema.get("properties", {}))
+        schema_forbidden = forbidden.copy()
+        if name == "EditionDetail":
+            schema_forbidden.discard("set_id")
+        elif name == "PrintingResponse":
+            schema_forbidden.difference_update({"card_id", "set_id"})
+        assert not schema_forbidden.intersection(schema.get("properties", {}))
         assert '"format": "uuid"' not in json.dumps(schema)
     params = {p["name"] for p in spec["paths"]["/v1/cards"]["get"]["parameters"]}
     assert {

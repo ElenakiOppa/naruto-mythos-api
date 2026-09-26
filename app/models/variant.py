@@ -24,7 +24,7 @@ from sqlalchemy import (
     func,
     select,
 )
-from sqlalchemy.orm import Mapped, mapped_column, relationship
+from sqlalchemy.orm import Mapped, foreign, mapped_column, relationship  # noqa: F401
 
 from app.database import Base
 from app.models.card import Card
@@ -35,6 +35,7 @@ if TYPE_CHECKING:
     from app.models.edition import Edition
     from app.models.image import CardImage
     from app.models.printing_reference import PrintingReference
+    from app.models.source import SourceRecord
     from app.models.translation import PrintingTranslation
 
 
@@ -92,6 +93,9 @@ class CardVariant(Base, UUIDPrimaryKeyMixin, TimestampMixin):
     )
     references: Mapped[list["PrintingReference"]] = relationship(
         back_populates="printing", cascade="all, delete-orphan", passive_deletes=True
+    )
+    source_records: Mapped[list["SourceRecord"]] = relationship(
+        primaryjoin="CardVariant.id == foreign(SourceRecord.printing_id)", viewonly=True
     )
 
     # Deleting a variant does NOT delete its images -- see CardImage.variant_id

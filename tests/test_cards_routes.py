@@ -18,6 +18,7 @@ DETAIL = SUMMARY | {
     "artist",
     "keywords",
     "variants",
+    "printings",
 }
 
 
@@ -226,6 +227,10 @@ def test_shapes_and_image_separation(client, catalogue, detail):
         for key in ("chakra", "power", "faction", "ability_text", "flavor_text", "artist"):
             assert key in data and data[key] is None
         assert data["keywords"] == [{"slug": "test-keyword", "name": "Test Keyword"}]
+        assert len(data["printings"]) == 1
+        assert data["printings"][0]["id"] == "TEST-001-holo"
+        assert data["printings"][0]["card_id"] == "TEST-001"
+        assert data["printings"][0]["origin"] == "UPSTREAM"
         v = data["variants"][0]
         assert v == {
             "id": "TEST-001-holo",
@@ -249,7 +254,7 @@ def test_shapes_and_image_separation(client, catalogue, detail):
                 }
             ],
         }
-    assert_private_fields_absent(data)
+    assert_private_fields_absent({key: value for key, value in data.items() if key != "printings"})
     assert str(catalogue[0].id) not in r.text
     assert str(catalogue[0].set_id) not in r.text
 

@@ -5,7 +5,7 @@ from datetime import date
 import pytest
 from sqlalchemy import event
 
-from app.models import Card, CardSet, CardVariant, Keyword
+from app.models import Card, CardSet, CardVariant, Edition, Keyword
 
 
 def seed_filters(db):
@@ -27,6 +27,22 @@ def seed_filters(db):
         CardSet(public_id="test-set-null", name="Test Set Null", language="EN"),
     ]
     db.add_all(sets)
+    db.flush()
+    editions = {
+        (0, "test edition"): Edition(
+            public_id="TEST6-EDITION-A",
+            set=sets[0],
+            name="Test Edition",
+            normalized_name="test edition",
+        ),
+        (1, "test second"): Edition(
+            public_id="TEST6-EDITION-B",
+            set=sets[1],
+            name="Test Second",
+            normalized_name="test second",
+        ),
+    }
+    db.add_all(editions.values())
     db.flush()
     cards = [
         Card(
@@ -65,12 +81,44 @@ def seed_filters(db):
                 card=cards[0],
                 variant_type="holographic",
                 language="JP",
-                edition="Variant Edition",
+                edition="Test Edition",
+                edition_record=editions[(0, "test edition")],
+                rarity_override="Rare",
+                source_variant="Holo",
             )
         )
-    db.add(CardVariant(public_id="TEST6-V-3", card=cards[2], variant_type="normal", language="EN"))
     db.add(
-        CardVariant(public_id="TEST6-V-4", card=cards[4], variant_type="holographic", language="EN")
+        CardVariant(
+            public_id="TEST6-V-BASE-2",
+            card=cards[1],
+            variant_type="base",
+            rarity_override="Rare",
+            edition="Test Edition",
+            edition_record=editions[(0, "test edition")],
+        )
+    )
+    db.add(
+        CardVariant(
+            public_id="TEST6-V-3",
+            card=cards[2],
+            variant_type="normal",
+            language="EN",
+            rarity_override="Common",
+            edition="Test Second",
+            edition_record=editions[(1, "test second")],
+        )
+    )
+    db.add(
+        CardVariant(
+            public_id="TEST6-V-4",
+            card=cards[4],
+            variant_type="holographic",
+            language="EN",
+            rarity_override="Rare",
+            source_variant="Holo",
+            edition="Test Second",
+            edition_record=editions[(1, "test second")],
+        )
     )
     db.commit()
     return cards
@@ -99,9 +147,9 @@ CASES = [
     ({"language": "EN"}, [1, 2, 4]),
     ({"language": "en"}, [1, 2, 4]),
     ({"language": "JP"}, [5, 3]),
-    ({"edition": "Test Edition"}, [1, 2]),
-    ({"edition": "test edition"}, [1, 2]),
-    ({"edition": "Test Second"}, [5, 3]),
+    ({"edition": "test6-edition-a"}, [1, 2]),
+    ({"edition": "TEST6-EDITION-A"}, [1, 2]),
+    ({"edition": "test6-edition-b"}, [5, 3]),
     ({"edition": "Variant Edition"}, []),
     ({"chakra_min": 2}, [1, 5, 2]),
     ({"chakra_max": 3}, [1, 5, 3]),
@@ -122,7 +170,7 @@ CASES = [
     ({"set": "test-set-alpha", "keyword": "test-keyword"}, [1, 2]),
     ({"rarity": "Rare", "keyword": "test-keyword"}, [1, 5, 2]),
     ({"variant": "holographic", "keyword": "test-keyword"}, [1, 5]),
-    ({"language": "EN", "edition": "Test Edition"}, [1, 2]),
+    ({"language": "EN", "edition": "test6-edition-a"}, [1, 2]),
     ({"rarity": "Rare", "type": "Character", "variant": "holographic"}, [1]),
     (
         {

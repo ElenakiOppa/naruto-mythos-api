@@ -32,6 +32,18 @@ class RarityCatalogItem(PublicSchema):
     )
 
 
+class PrintingRarityCatalogItem(PublicSchema):
+    name: str = Field(examples=["Rare"])
+    slug: str = Field(examples=["rare"])
+    printing_count: int = Field(ge=0, examples=[84])
+
+    model_config = ConfigDict(
+        from_attributes=True,
+        populate_by_name=True,
+        json_schema_extra={"example": {"name": "Rare", "slug": "rare", "printing_count": 84}},
+    )
+
+
 class KeywordCatalogItem(PublicSchema):
     slug: str = Field(examples=["test-keyword"])
     name: str = Field(examples=["Test Keyword"])

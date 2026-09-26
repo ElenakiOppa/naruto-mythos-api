@@ -54,7 +54,13 @@ def test_generate_rapidapi_openapi_exports_3_0_2(client):
     assert "/health" in spec["paths"]
     assert "/ready" in spec["paths"]
     assert "/v1/sets" in spec["paths"]
+    assert "/v1/sets/{set_id}/editions" in spec["paths"]
+    assert "/v1/editions/{edition_id}" in spec["paths"]
+    assert "/v1/editions/{edition_id}/printings" in spec["paths"]
     assert "/v1/cards" in spec["paths"]
+    assert "/v1/printings" in spec["paths"]
+    assert "/v1/printings/{printing_id}" in spec["paths"]
+    assert "/v1/printing-rarities" in spec["paths"]
     assert "/v1/search" in spec["paths"]
 
     operations = [
@@ -63,7 +69,7 @@ def test_generate_rapidapi_openapi_exports_3_0_2(client):
         for operation in path.values()
         if isinstance(operation, dict) and "operationId" in operation
     ]
-    assert len(operations) == 12
+    assert len(operations) == 18
     assert len({item["operationId"] for item in operations}) == len(operations)
     assert all(method.lower() in {"get"} for path in spec["paths"].values() for method in path)
     assert all(not path.startswith("/admin") for path in spec["paths"])

@@ -68,6 +68,8 @@ def card_detail_statement():
             selectinload(Card.keywords),
             selectinload(Card.variants).selectinload(CardVariant.images),
             selectinload(Card.variants).joinedload(CardVariant.translations),
+            selectinload(Card.variants).selectinload(CardVariant.references),
+            selectinload(Card.variants).selectinload(CardVariant.source_records),
         )
         .execution_options(populate_existing=True)
     )

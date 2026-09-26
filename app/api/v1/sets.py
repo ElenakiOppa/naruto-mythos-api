@@ -17,7 +17,7 @@ from app.database import get_db
 from app.schemas.card import CardSummary
 from app.schemas.pagination import PaginatedCardsResponse, PaginatedSetsResponse
 from app.schemas.set import SetDetail
-from app.services import set_service
+from app.services import printing_service, set_service
 from app.utils.error_docs import invalid_parameters_response, not_found_response
 from app.utils.pagination import (
     DEFAULT_LIMIT,
@@ -46,7 +46,8 @@ router = APIRouter(prefix="/v1/sets", tags=["Sets"])
     response_model=PaginatedSetsResponse,
     summary="List sets",
     description="Paginated list of sets. Supports filtering by language, "
-    "edition, and code, and sorting by name, release_date, or code.",
+    "legacy Set-level edition label and code, and sorting by name, release_date, or code. "
+    "Collector Editions are listed under /v1/sets/{set_id}/editions.",
     responses={
         400: invalid_parameters_response(),
     },
@@ -77,7 +78,7 @@ def list_sets(
     )
 
     return PaginatedSetsResponse(
-        data=[SetDetail.model_validate(s) for s in sets],
+        data=[SetDetail.model_validate(printing_service.set_detail_payload(db, s)) for s in sets],
         pagination=build_pagination_meta(page=page, limit=limit, total=total),
     )
 
@@ -93,7 +94,7 @@ def list_sets(
 )
 def get_set(public_id: str, db: Session = _db_dependency) -> SetDetail:
     card_set = set_service.get_set_by_public_id(db, public_id)
-    return SetDetail.model_validate(card_set)
+    return SetDetail.model_validate(printing_service.set_detail_payload(db, card_set))
 
 
 @router.get(

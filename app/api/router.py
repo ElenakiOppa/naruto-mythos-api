@@ -9,8 +9,10 @@ rarities, keywords, search) are added here in later phases.
 from fastapi import APIRouter
 
 from app.api.v1.cards import router as cards_router
+from app.api.v1.editions import router as editions_router
 from app.api.v1.health import router as health_router
 from app.api.v1.metadata import router as metadata_router
+from app.api.v1.printings import router as printings_router
 from app.api.v1.ready import router as ready_router
 from app.api.v1.search import router as search_router
 from app.api.v1.sets import router as sets_router
@@ -30,6 +32,8 @@ api_router.include_router(ready_router)
 api_router.include_router(sets_router)
 
 api_router.include_router(cards_router)
+api_router.include_router(editions_router)
+api_router.include_router(printings_router)
 
 api_router.include_router(metadata_router)
 api_router.include_router(search_router)

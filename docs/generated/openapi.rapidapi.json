@@ -2,7 +2,7 @@
   "openapi": "3.0.2",
   "info": {
     "title": "Naruto Mythos TCG Developer API",
-    "description": "A developer-friendly REST API for querying Naruto Mythos TCG catalogue data.",
+    "description": "A developer-friendly REST API for querying the Naruto Mythos TCG catalogue. Card is a canonical identity; Printing is a collectible identity; Edition is scoped to a Set.",
     "version": "1.0.0"
   },
   "paths": {
@@ -79,7 +79,7 @@
           "Sets"
         ],
         "summary": "List sets",
-        "description": "Paginated list of sets. Supports filtering by language, edition, and code, and sorting by name, release_date, or code.",
+        "description": "Paginated list of sets. Supports filtering by language, legacy Set-level edition label and code, and sorting by name, release_date, or code. Collector Editions are listed under /v1/sets/{set_id}/editions.",
         "operationId": "list_sets_v1_sets_get",
         "parameters": [
           {
@@ -518,10 +518,10 @@
             "schema": {
               "type": "string",
               "nullable": true,
-              "description": "Case-insensitive exact rarity.",
+              "description": "Case-insensitive Printing rarity/class filter; results remain unique canonical Cards.",
               "title": "Rarity"
             },
-            "description": "Case-insensitive exact rarity."
+            "description": "Case-insensitive Printing rarity/class filter; results remain unique canonical Cards."
           },
           {
             "name": "type",
@@ -554,10 +554,10 @@
             "schema": {
               "type": "string",
               "nullable": true,
-              "description": "Case-insensitive exact variant type; at least one must match.",
+              "description": "Case-insensitive Printing treatment/type; at least one Printing must match.",
               "title": "Variant"
             },
-            "description": "Case-insensitive exact variant type; at least one must match."
+            "description": "Case-insensitive Printing treatment/type; at least one Printing must match."
           },
           {
             "name": "language",
@@ -578,10 +578,10 @@
             "schema": {
               "type": "string",
               "nullable": true,
-              "description": "Case-insensitive exact parent set edition.",
+              "description": "Edition public ID; returns unique canonical Cards having a Printing in that Edition.",
               "title": "Edition"
             },
-            "description": "Case-insensitive exact parent set edition."
+            "description": "Edition public ID; returns unique canonical Cards having a Printing in that Edition."
           },
           {
             "name": "chakra_min",
@@ -857,12 +857,501 @@
         }
       }
     },
+    "/v1/sets/{set_id}/editions": {
+      "get": {
+        "tags": [
+          "Editions",
+          "Collector Catalogue"
+        ],
+        "summary": "List a Set's Editions",
+        "description": "Editions are scoped to exactly one Set. Edition counts distinguish unique canonical Cards from collectible Printings.",
+        "operationId": "list_set_editions_v1_sets__set_id__editions_get",
+        "parameters": [
+          {
+            "name": "set_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Set Id"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "default": 1,
+              "title": "Page"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 100,
+              "minimum": 1,
+              "default": 50,
+              "title": "Limit"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PaginatedEditionsResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "An unexpected error occurred.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Set not found.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "error": {
+                    "code": "SET_NOT_FOUND",
+                    "message": "Set not found."
+                  }
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/editions/{edition_id}": {
+      "get": {
+        "tags": [
+          "Editions",
+          "Collector Catalogue"
+        ],
+        "summary": "Get an Edition",
+        "description": "An Edition is a Set-specific release scope. Collector status is VERIFIED only when a curated checklist is attached.",
+        "operationId": "get_edition_v1_editions__edition_id__get",
+        "parameters": [
+          {
+            "name": "edition_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Edition Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EditionDetail"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "An unexpected error occurred.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Edition not found.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "error": {
+                    "code": "EDITION_NOT_FOUND",
+                    "message": "Edition not found."
+                  }
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/editions/{edition_id}/printings": {
+      "get": {
+        "tags": [
+          "Editions",
+          "Collector Catalogue"
+        ],
+        "summary": "List an Edition's verified collector catalogue",
+        "description": "Returns curated collector-reference identities when available. This intentionally differs from GET /v1/printings, which returns every persisted Printing including source-only rows.",
+        "operationId": "edition_printings_v1_editions__edition_id__printings_get",
+        "parameters": [
+          {
+            "name": "edition_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Edition Id"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "default": 1,
+              "title": "Page"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 100,
+              "minimum": 1,
+              "default": 50,
+              "title": "Limit"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PaginatedPrintingsResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "An unexpected error occurred.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Edition not found.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "error": {
+                    "code": "EDITION_NOT_FOUND",
+                    "message": "Edition not found."
+                  }
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid pagination or sort parameters.",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "pagination": {
+                    "value": {
+                      "error": {
+                        "code": "INVALID_PAGINATION",
+                        "message": "page must be >= 1."
+                      }
+                    }
+                  },
+                  "sort": {
+                    "value": {
+                      "error": {
+                        "code": "INVALID_SORT",
+                        "message": "Invalid sort field."
+                      }
+                    }
+                  }
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/printings": {
+      "get": {
+        "tags": [
+          "Printings"
+        ],
+        "summary": "List persisted Printings",
+        "description": "Returns every persisted collectible Printing, including source-only Printings not included in a verified collector reference. Card is the canonical identity; Printing is the collectible identity.",
+        "operationId": "list_printings_v1_printings_get",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "default": 1,
+              "title": "Page"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 100,
+              "minimum": 1,
+              "default": 50,
+              "title": "Limit"
+            }
+          },
+          {
+            "name": "set",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "nullable": true,
+              "description": "Set public ID.",
+              "title": "Set"
+            },
+            "description": "Set public ID."
+          },
+          {
+            "name": "edition",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "nullable": true,
+              "description": "Edition public ID.",
+              "title": "Edition"
+            },
+            "description": "Edition public ID."
+          },
+          {
+            "name": "rarity",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "nullable": true,
+              "description": "Normalized rarity, case-insensitive.",
+              "title": "Rarity"
+            },
+            "description": "Normalized rarity, case-insensitive."
+          },
+          {
+            "name": "treatment",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "nullable": true,
+              "description": "Normalized Printing treatment, case-insensitive.",
+              "title": "Treatment"
+            },
+            "description": "Normalized Printing treatment, case-insensitive."
+          },
+          {
+            "name": "collector_class",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "nullable": true,
+              "description": "Normalized collector class.",
+              "title": "Collector Class"
+            },
+            "description": "Normalized collector class."
+          },
+          {
+            "name": "card",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "nullable": true,
+              "description": "Canonical Card public ID.",
+              "title": "Card"
+            },
+            "description": "Canonical Card public ID."
+          },
+          {
+            "name": "origin",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "nullable": true,
+              "description": "UPSTREAM, UPSTREAM_AND_CURATED, or CURATED_REFERENCE.",
+              "title": "Origin"
+            },
+            "description": "UPSTREAM, UPSTREAM_AND_CURATED, or CURATED_REFERENCE."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PaginatedPrintingsResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "An unexpected error occurred.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/printings/{printing_id}": {
+      "get": {
+        "tags": [
+          "Printings"
+        ],
+        "summary": "Get a Printing",
+        "description": "Returns one persisted collectible Printing and derives its origin from upstream and curated-reference relationships.",
+        "operationId": "get_printing_v1_printings__printing_id__get",
+        "parameters": [
+          {
+            "name": "printing_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Printing Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PrintingResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "An unexpected error occurred.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/v1/rarities": {
       "get": {
         "tags": [
           "Metadata"
         ],
-        "summary": "List rarity counts",
+        "summary": "List legacy canonical Card rarity counts",
+        "description": "Legacy compatibility endpoint. card_count groups the canonical Card.rarity projection and is not a collectible Printing count. Use /v1/printing-rarities for Printing-level rarity counts.",
         "operationId": "rarities_v1_rarities_get",
         "responses": {
           "200": {
@@ -875,6 +1364,41 @@
                   },
                   "type": "array",
                   "title": "Response Rarities V1 Rarities Get"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "An unexpected error occurred.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/printing-rarities": {
+      "get": {
+        "tags": [
+          "Metadata"
+        ],
+        "summary": "List collectible Printing rarity counts",
+        "operationId": "printing_rarities_v1_printing_rarities_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/PrintingRarityCatalogItem"
+                  },
+                  "type": "array",
+                  "title": "Response Printing Rarities V1 Printing Rarities Get"
                 }
               }
             }
@@ -1262,6 +1786,14 @@
             "type": "array",
             "title": "Variants"
           },
+          "printings": {
+            "items": {
+              "$ref": "#/components/schemas/PrintingResponse"
+            },
+            "type": "array",
+            "title": "Printings",
+            "description": "Collectible Printings for this canonical Card; `variants` is retained as a legacy alias."
+          },
           "images": {
             "items": {
               "$ref": "#/components/schemas/CardImageResponse"
@@ -1292,6 +1824,7 @@
           "name": "Test Character Alpha",
           "number": "001",
           "power": 5,
+          "printings": [],
           "rarity": "Rare",
           "set": {
             "code": "TST1",
@@ -1525,11 +2058,108 @@
           "type": "holographic"
         }
       },
+      "EditionDetail": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id"
+          },
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "canonical_card_count": {
+            "type": "integer",
+            "minimum": 0.0,
+            "title": "Canonical Card Count"
+          },
+          "collectible_printing_count": {
+            "type": "integer",
+            "minimum": 0.0,
+            "title": "Collectible Printing Count"
+          },
+          "collector_reference_status": {
+            "type": "string",
+            "pattern": "^(VERIFIED|NONE)$",
+            "title": "Collector Reference Status"
+          },
+          "collector_reference_count": {
+            "type": "integer",
+            "minimum": 0.0,
+            "title": "Collector Reference Count"
+          },
+          "set_id": {
+            "type": "string",
+            "title": "Set Id"
+          },
+          "set_name": {
+            "type": "string",
+            "title": "Set Name"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "name",
+          "canonical_card_count",
+          "collectible_printing_count",
+          "collector_reference_status",
+          "collector_reference_count",
+          "set_id",
+          "set_name"
+        ],
+        "title": "EditionDetail"
+      },
+      "EditionSummary": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id"
+          },
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "canonical_card_count": {
+            "type": "integer",
+            "minimum": 0.0,
+            "title": "Canonical Card Count"
+          },
+          "collectible_printing_count": {
+            "type": "integer",
+            "minimum": 0.0,
+            "title": "Collectible Printing Count"
+          },
+          "collector_reference_status": {
+            "type": "string",
+            "pattern": "^(VERIFIED|NONE)$",
+            "title": "Collector Reference Status"
+          },
+          "collector_reference_count": {
+            "type": "integer",
+            "minimum": 0.0,
+            "title": "Collector Reference Count"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "name",
+          "canonical_card_count",
+          "collectible_printing_count",
+          "collector_reference_status",
+          "collector_reference_count"
+        ],
+        "title": "EditionSummary"
+      },
       "ErrorCode": {
         "type": "string",
         "enum": [
           "CARD_NOT_FOUND",
           "SET_NOT_FOUND",
+          "EDITION_NOT_FOUND",
+          "PRINTING_NOT_FOUND",
+          "COLLECTOR_REFERENCE_NOT_FOUND",
           "KEYWORD_NOT_FOUND",
           "INVALID_FILTER",
           "INVALID_PAGINATION",
@@ -1713,6 +2343,46 @@
           }
         }
       },
+      "PaginatedEditionsResponse": {
+        "properties": {
+          "data": {
+            "items": {
+              "$ref": "#/components/schemas/EditionDetail"
+            },
+            "type": "array",
+            "title": "Data"
+          },
+          "pagination": {
+            "$ref": "#/components/schemas/PaginationMeta"
+          }
+        },
+        "type": "object",
+        "required": [
+          "data",
+          "pagination"
+        ],
+        "title": "PaginatedEditionsResponse"
+      },
+      "PaginatedPrintingsResponse": {
+        "properties": {
+          "data": {
+            "items": {
+              "$ref": "#/components/schemas/PrintingResponse"
+            },
+            "type": "array",
+            "title": "Data"
+          },
+          "pagination": {
+            "$ref": "#/components/schemas/PaginationMeta"
+          }
+        },
+        "type": "object",
+        "required": [
+          "data",
+          "pagination"
+        ],
+        "title": "PaginatedPrintingsResponse"
+      },
       "PaginatedSetsResponse": {
         "properties": {
           "data": {
@@ -1800,6 +2470,174 @@
           "pages": 13,
           "total": 630
         }
+      },
+      "PrintingRarityCatalogItem": {
+        "properties": {
+          "name": {
+            "type": "string",
+            "title": "Name",
+            "example": "Rare"
+          },
+          "slug": {
+            "type": "string",
+            "title": "Slug",
+            "example": "rare"
+          },
+          "printing_count": {
+            "type": "integer",
+            "minimum": 0.0,
+            "title": "Printing Count",
+            "example": 84
+          }
+        },
+        "type": "object",
+        "required": [
+          "name",
+          "slug",
+          "printing_count"
+        ],
+        "title": "PrintingRarityCatalogItem",
+        "example": {
+          "name": "Rare",
+          "printing_count": 84,
+          "slug": "rare"
+        }
+      },
+      "PrintingResponse": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id"
+          },
+          "card_id": {
+            "type": "string",
+            "title": "Card Id"
+          },
+          "card_name": {
+            "type": "string",
+            "title": "Card Name"
+          },
+          "card_type": {
+            "type": "string",
+            "nullable": true,
+            "title": "Card Type"
+          },
+          "set_id": {
+            "type": "string",
+            "title": "Set Id"
+          },
+          "set_name": {
+            "type": "string",
+            "title": "Set Name"
+          },
+          "edition_id": {
+            "type": "string",
+            "nullable": true,
+            "title": "Edition Id"
+          },
+          "edition_name": {
+            "type": "string",
+            "nullable": true,
+            "title": "Edition Name"
+          },
+          "collector_number": {
+            "type": "string",
+            "nullable": true,
+            "title": "Collector Number"
+          },
+          "printed_number": {
+            "type": "string",
+            "title": "Printed Number"
+          },
+          "rarity": {
+            "type": "string",
+            "nullable": true,
+            "title": "Rarity"
+          },
+          "collector_class": {
+            "type": "string",
+            "nullable": true,
+            "title": "Collector Class"
+          },
+          "treatment": {
+            "type": "string",
+            "nullable": true,
+            "title": "Treatment"
+          },
+          "finish": {
+            "type": "string",
+            "nullable": true,
+            "title": "Finish"
+          },
+          "language": {
+            "type": "string",
+            "title": "Language"
+          },
+          "serial_numbered": {
+            "type": "boolean",
+            "title": "Serial Numbered"
+          },
+          "serial_total": {
+            "type": "integer",
+            "nullable": true,
+            "title": "Serial Total"
+          },
+          "origin": {
+            "type": "string",
+            "pattern": "^(UPSTREAM|UPSTREAM_AND_CURATED|CURATED_REFERENCE)$",
+            "title": "Origin"
+          },
+          "source_rarity": {
+            "type": "string",
+            "nullable": true,
+            "title": "Source Rarity"
+          },
+          "source_variant": {
+            "type": "string",
+            "nullable": true,
+            "title": "Source Variant"
+          },
+          "collector_reference_number": {
+            "type": "string",
+            "nullable": true,
+            "title": "Collector Reference Number"
+          },
+          "collector_reference_card_name": {
+            "type": "string",
+            "nullable": true,
+            "title": "Collector Reference Card Name"
+          },
+          "collector_reference_rarity": {
+            "type": "string",
+            "nullable": true,
+            "title": "Collector Reference Rarity"
+          },
+          "collector_reference_variant": {
+            "type": "string",
+            "nullable": true,
+            "title": "Collector Reference Variant"
+          },
+          "images": {
+            "items": {
+              "$ref": "#/components/schemas/CardImageResponse"
+            },
+            "type": "array",
+            "title": "Images"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "card_id",
+          "card_name",
+          "set_id",
+          "set_name",
+          "printed_number",
+          "language",
+          "serial_numbered",
+          "origin"
+        ],
+        "title": "PrintingResponse"
       },
       "RarityCatalogItem": {
         "properties": {
@@ -1981,6 +2819,25 @@
             "nullable": true,
             "title": "Symbol Url",
             "example": null
+          },
+          "canonical_card_count": {
+            "type": "integer",
+            "minimum": 0.0,
+            "title": "Canonical Card Count",
+            "default": 0
+          },
+          "collectible_printing_count": {
+            "type": "integer",
+            "minimum": 0.0,
+            "title": "Collectible Printing Count",
+            "default": 0
+          },
+          "editions": {
+            "items": {
+              "$ref": "#/components/schemas/EditionSummary"
+            },
+            "type": "array",
+            "title": "Editions"
           }
         },
         "type": "object",
@@ -1991,8 +2848,11 @@
         ],
         "title": "SetDetail",
         "example": {
+          "canonical_card_count": 0,
           "code": "TST1",
+          "collectible_printing_count": 0,
           "edition": "1st Edition",
+          "editions": [],
           "id": "test-set-1",
           "language": "EN",
           "name": "Test Set Alpha",

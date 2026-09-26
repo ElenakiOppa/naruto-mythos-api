@@ -21,13 +21,19 @@ PUBLIC_PATHS = frozenset(
         "/v1/sets",
         "/v1/sets/{public_id}",
         "/v1/sets/{public_id}/cards",
+        "/v1/sets/{set_id}/editions",
+        "/v1/editions/{edition_id}",
+        "/v1/editions/{edition_id}/printings",
         "/v1/cards",
         "/v1/cards/random",
         "/v1/cards/{public_id}",
         "/v1/rarities",
+        "/v1/printing-rarities",
         "/v1/keywords",
         "/v1/keywords/{slug}/cards",
         "/v1/search",
+        "/v1/printings",
+        "/v1/printings/{printing_id}",
     }
 )
 METHODS = frozenset({"get", "put", "post", "delete", "options", "head", "patch", "trace"})
