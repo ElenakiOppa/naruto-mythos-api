@@ -2,15 +2,95 @@
 
 from __future__ import annotations
 
+import hashlib
+import json
 from dataclasses import dataclass
 from typing import Any
 
 from sqlalchemy import func, select
 from sqlalchemy.orm import Session
 
-from app.models import Card, CardVariant, Edition, PrintingReference, SourceRecord
+from app.models import (
+    Card,
+    CardVariant,
+    Edition,
+    EditionCollectorSnapshot,
+    PrintingReference,
+    SourceRecord,
+)
 from importer.catalogue_persistence import _require_equal
 from importer.reference_catalogue import REFERENCE_SOURCE, ReferenceReconciliationError
+
+WORKBOOK_IDENTITY_SCHEMA_VERSION = "printing-reference-set-v1"
+
+
+def _workbook_identity_digest(edition_public_id: str, identities: list[dict[str, str]]) -> str:
+    payload = {
+        "edition_public_id": edition_public_id,
+        "expected_printing_count": 396,
+        "identity_schema_version": WORKBOOK_IDENTITY_SCHEMA_VERSION,
+        "identities": sorted(identities, key=lambda item: item["reference_key"]),
+    }
+    encoded = json.dumps(payload, ensure_ascii=False, sort_keys=True, separators=(",", ":"))
+    return hashlib.sha256(encoded.encode("utf-8")).hexdigest()
+
+
+def _ensure_workbook_snapshot(session: Session, edition: Edition, source_hash: str) -> None:
+    snapshot = session.scalar(
+        select(EditionCollectorSnapshot).where(
+            EditionCollectorSnapshot.edition_id == edition.id,
+            EditionCollectorSnapshot.source_type == "CURATED_WORKBOOK",
+            EditionCollectorSnapshot.source_snapshot_sha256 == source_hash,
+        )
+    )
+    rows = session.execute(
+        select(PrintingReference, CardVariant)
+        .join(CardVariant, CardVariant.id == PrintingReference.printing_id)
+        .where(
+            CardVariant.edition_id == edition.id,
+            PrintingReference.source_name == REFERENCE_SOURCE,
+        )
+        .order_by(PrintingReference.reference_key)
+    ).all()
+    if len(rows) != 396 or len({reference.reference_key for reference, _ in rows}) != 396:
+        raise ReferenceReconciliationError("REFERENCE_SNAPSHOT_NOT_COMPLETE")
+    if len({printing.id for _, printing in rows}) != 396:
+        raise ReferenceReconciliationError("REFERENCE_PRINTING_REUSED")
+
+    identities = []
+    for reference, printing in rows:
+        fingerprint = hashlib.sha256(printing.public_id.encode("utf-8")).hexdigest()
+        if reference.source_sha256 != source_hash:
+            raise ReferenceReconciliationError("REFERENCE_SOURCE_HASH_MISMATCH")
+        reference.semantic_fingerprint = fingerprint
+        identities.append(
+            {
+                "reference_key": reference.reference_key,
+                "semantic_fingerprint": fingerprint,
+                "printing_public_id": printing.public_id,
+            }
+        )
+    digest = _workbook_identity_digest(edition.public_id, identities)
+    if snapshot is None:
+        snapshot = EditionCollectorSnapshot(
+            edition_id=edition.id,
+            set_id=edition.set_id,
+            source_type="CURATED_WORKBOOK",
+            source_url="data/reference/konoha_shido_1st_edition_master.json",
+            source_snapshot_sha256=source_hash,
+            expected_printing_count=396,
+            identity_digest=digest,
+            identity_schema_version=WORKBOOK_IDENTITY_SCHEMA_VERSION,
+            exhaustive=False,
+        )
+        session.add(snapshot)
+        session.flush()
+    elif snapshot.identity_digest != digest or snapshot.expected_printing_count != 396:
+        raise ReferenceReconciliationError("EXISTING_WORKBOOK_SNAPSHOT_CONFLICT")
+    for reference, _ in rows:
+        if reference.snapshot_id not in (None, snapshot.id):
+            raise ReferenceReconciliationError("REFERENCE_BOUND_TO_OTHER_SNAPSHOT")
+        reference.snapshot_id = snapshot.id
 
 
 @dataclass(frozen=True)
@@ -198,6 +278,14 @@ def persist_reference_reconciliation(
                 ):
                     raise ReferenceReconciliationError("CURATED_PRINTING_HAS_UPSTREAM_PROVENANCE")
                 _attach_reference(session, item, printing)
+
+            source_hashes = {
+                item["source_sha256"]
+                for item in reconciliation["matches"] + reconciliation["curated_printings"]
+            }
+            if len(source_hashes) != 1:
+                raise ReferenceReconciliationError("REFERENCE_SOURCE_HASH_INCONSISTENT")
+            _ensure_workbook_snapshot(session, edition, next(iter(source_hashes)))
 
         return count_reference_catalogue(session)
     except Exception:

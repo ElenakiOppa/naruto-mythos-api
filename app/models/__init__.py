@@ -8,6 +8,7 @@ modules that were never imported simply won't exist in the metadata.
 
 from app.models.card import Card
 from app.models.edition import Edition
+from app.models.edition_collector_snapshot import EditionCollectorSnapshot
 from app.models.image import CardImage
 from app.models.keyword import Keyword, card_keywords
 from app.models.printing_reference import PrintingReference
@@ -22,6 +23,7 @@ __all__ = [
     "CardSet",
     "CardVariant",
     "Edition",
+    "EditionCollectorSnapshot",
     "Keyword",
     "Printing",
     "PrintingReference",

@@ -13,11 +13,13 @@ from app.models import (
     CardSet,
     CardVariant,
     Edition,
+    EditionCollectorSnapshot,
     PrintingReference,
     SourceRecord,
 )
 from app.schemas.error import ErrorCode
 from app.utils.errors import APIError
+from importer.official_edition_reference import verify_edition_collector_snapshot
 
 REFERENCE_SOURCE_NAME = "konoha_shido_1st_edition_master"
 
@@ -68,13 +70,23 @@ def _printing_options():
         joinedload(CardVariant.card).joinedload(Card.set),
         joinedload(CardVariant.edition_record),
         selectinload(CardVariant.images),
-        selectinload(CardVariant.references),
+        selectinload(CardVariant.references).joinedload(PrintingReference.snapshot),
         selectinload(CardVariant.source_records),
     )
 
 
 def _reference_for(printing: CardVariant, source_name: str = REFERENCE_SOURCE_NAME):
-    return next((item for item in printing.references if item.source_name == source_name), None)
+    workbook_reference = next(
+        (item for item in printing.references if item.source_name == source_name), None
+    )
+    if workbook_reference is not None:
+        return workbook_reference
+    official_references = [item for item in printing.references if item.snapshot is not None]
+    return (
+        max(official_references, key=lambda item: item.snapshot.created_at)
+        if official_references
+        else None
+    )
 
 
 def _display_number(printing: CardVariant, reference: PrintingReference | None) -> str:
@@ -153,18 +165,9 @@ def edition_counts(db: Session, edition: Edition) -> dict[str, int | str]:
         )
         or 0
     )
-    reference_count = (
-        db.scalar(
-            select(func.count(distinct(PrintingReference.reference_key)))
-            .join(CardVariant, CardVariant.id == PrintingReference.printing_id)
-            .where(
-                CardVariant.edition_id == edition.id,
-                PrintingReference.source_name == REFERENCE_SOURCE_NAME,
-            )
-        )
-        or 0
-    )
-    verified = reference_count > 0
+    verification = verify_edition_collector_snapshot(db, edition)
+    reference_count = verification.reference_count
+    verified = verification.verified
     return {
         "canonical_card_count": canonical_count,
         "collectible_printing_count": reference_count if verified else persisted_count,
@@ -267,21 +270,24 @@ def edition_printings(
 ) -> tuple[list[tuple[CardVariant, PrintingReference | None]], int]:
     statement: Any
     if collector_view:
+        snapshot = _latest_collector_snapshot(db, edition)
+        if snapshot is None:
+            return [], 0
         statement = (
             select(CardVariant, PrintingReference)
             .join(PrintingReference, PrintingReference.printing_id == CardVariant.id)
             .where(
                 CardVariant.edition_id == edition.id,
-                PrintingReference.source_name == REFERENCE_SOURCE_NAME,
+                PrintingReference.snapshot_id == snapshot.id,
             )
         )
         count_statement = (
-            select(func.count(distinct(PrintingReference.reference_key)))
+            select(func.count())
             .select_from(PrintingReference)
             .join(CardVariant, CardVariant.id == PrintingReference.printing_id)
             .where(
                 CardVariant.edition_id == edition.id,
-                PrintingReference.source_name == REFERENCE_SOURCE_NAME,
+                PrintingReference.snapshot_id == snapshot.id,
             )
         )
     else:
@@ -381,16 +387,15 @@ def list_rarity_counts(db: Session) -> list[dict[str, int | str]]:
 
 
 def edition_has_collector_reference(db: Session, edition: Edition) -> bool:
-    return bool(
-        db.scalar(
-            select(func.count())
-            .select_from(PrintingReference)
-            .join(CardVariant, CardVariant.id == PrintingReference.printing_id)
-            .where(
-                CardVariant.edition_id == edition.id,
-                PrintingReference.source_name == REFERENCE_SOURCE_NAME,
-            )
-        )
+    return verify_edition_collector_snapshot(db, edition).verified
+
+
+def _latest_collector_snapshot(db: Session, edition: Edition) -> EditionCollectorSnapshot | None:
+    return db.scalar(
+        select(EditionCollectorSnapshot)
+        .where(EditionCollectorSnapshot.edition_id == edition.id)
+        .order_by(EditionCollectorSnapshot.created_at.desc(), EditionCollectorSnapshot.id.desc())
+        .limit(1)
     )
 
 

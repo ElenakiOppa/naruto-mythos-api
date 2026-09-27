@@ -3,7 +3,7 @@
 from sqlalchemy import func, select
 from sqlalchemy.orm import Session, contains_eager, joinedload, selectinload
 
-from app.models import Card, CardImage, CardSet, CardVariant
+from app.models import Card, CardImage, CardSet, CardVariant, PrintingReference
 from app.schemas.error import ErrorCode
 from app.services.card_filters import CardFilters, apply_card_filters
 from app.utils.errors import APIError
@@ -68,7 +68,9 @@ def card_detail_statement():
             selectinload(Card.keywords),
             selectinload(Card.variants).selectinload(CardVariant.images),
             selectinload(Card.variants).joinedload(CardVariant.translations),
-            selectinload(Card.variants).selectinload(CardVariant.references),
+            selectinload(Card.variants)
+            .selectinload(CardVariant.references)
+            .joinedload(PrintingReference.snapshot),
             selectinload(Card.variants).selectinload(CardVariant.source_records),
         )
         .execution_options(populate_existing=True)

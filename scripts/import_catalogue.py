@@ -21,7 +21,7 @@ from importer.catalogue_importer import build_dry_run
 from scripts.acquisition.run_acquisition import acquire_one
 from scripts.acquisition.sources import APPROVED_API_SOURCES
 
-PLAN_SHA256 = "caefef6db5f8a2b693f1e18e96a67d7cb3dba5d0acbee973df91fef273c32b0d"
+PLAN_SHA256 = "529c2ceadf5f53c941b4f0a3d73e8f281fb298090b9c47da40ab7461eb0ea374"
 EXPECTED_REPORT = {
     "source_records": 636,
     "accepted": 636,

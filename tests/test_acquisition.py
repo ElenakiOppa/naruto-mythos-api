@@ -237,6 +237,13 @@ def test_approved_sources_are_https_and_allowlisted():
         assert host in fetch_module.ALLOWED_HOSTS
 
 
+def test_gallery_proxy_and_underlying_api_are_both_recorded():
+    for source in APPROVED_API_SOURCES:
+        assert "services.agenziamarketingcarpi.it/proxy/naruto/proxy.php" in source.url
+        assert source.canonical_url is not None
+        assert "cards.narutotcgmythos.com/api/cards" in source.canonical_url
+
+
 def test_disallowed_host_error_before_any_network_read():
     # A blocked host must raise without ever depending on live network access.
     with pytest.raises(DisallowedHostError):

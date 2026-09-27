@@ -38,6 +38,11 @@ RARITY_LABELS = {
     "Legendary": "Legendary",
     "M": "Mythos",
     "Mythos": "Mythos",
+    "CHIBI": "Chibi",
+    "Chibi": "Chibi",
+    "POP": "POP",
+    "SP": "SP",
+    "Shinobi": "Shinobi",
 }
 
 TREATMENT_LABELS = {
@@ -47,6 +52,7 @@ TREATMENT_LABELS = {
     "Holo": "Holographic",
     "Holographic": "Holographic",
     "Gold": "Gold",
+    "Normale": "Normal",
 }
 
 

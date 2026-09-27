@@ -14,6 +14,7 @@ import json
 import re
 from pathlib import Path
 from typing import Any
+from urllib.parse import parse_qs, urlsplit
 
 DEFAULT_ROOT = Path("data/acquisition")
 
@@ -27,10 +28,12 @@ def _cards_by_lang(root: Path) -> dict[str, list[dict[str, Any]]]:
     entries = _load_manifest(root)
     cards_by_lang: dict[str, list[dict[str, Any]]] = {}
     for entry in entries:
-        url = entry.get("source_url", "")
+        url = entry.get("canonical_source_url") or entry.get("source_url", "")
         if "cards.narutotcgmythos.com/api/cards" not in url or entry.get("sha256") is None:
             continue
-        lang = url.rsplit("lang=", 1)[-1]
+        lang = parse_qs(urlsplit(url).query).get("lang", [""])[-1]
+        if not lang:
+            continue
         raw_file = Path(entry["raw_file"])
         payload = json.loads(raw_file.read_text(encoding="utf-8"))
         cards = payload[0]["Cards"] if payload and "Cards" in payload[0] else []

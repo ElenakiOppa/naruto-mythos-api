@@ -1,0 +1,8 @@
+{
+  "canonical_source_url": "https://cards.narutotcgmythos.com/api/cards?lang=fr",
+  "notes": "Official gallery JSON transport, lang=fr; underlying first-party card API.",
+  "retrieval_timestamp": "2026-09-27T03:23:35.077054+00:00",
+  "sha256": "fa94c4edb6177aa337dd0fa17a4b2fa963a99c493f21fad28d3abea3aaa3f5c1",
+  "source_type": "API_RESPONSE",
+  "source_url": "https://services.agenziamarketingcarpi.it/proxy/naruto/proxy.php?lang=fr"
+}

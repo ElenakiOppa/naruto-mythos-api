@@ -94,7 +94,7 @@ def test_nullable_edition_is_preserved():
     assert plan["editions"] == []
 
 
-def test_normale_and_ambiguous_rarity_remain_raw_and_unresolved():
+def test_official_shinobi_taxonomy_preserves_raw_labels_without_expanding_abbreviations():
     plan, _ = _build_plan(
         {
             "en": [
@@ -108,12 +108,17 @@ def test_normale_and_ambiguous_rarity_remain_raw_and_unresolved():
     normale = by_id["001/999"]
     chibi = by_id["002/999"]
     assert normale["identity"]["variant"] == "Normale"
-    assert normale["taxonomy"]["normalized_treatment"] is None
-    assert normale["taxonomy"]["variant_resolution_status"] == "UNRESOLVED"
+    assert normale["taxonomy"]["normalized_treatment"] == "Normal"
+    assert normale["taxonomy"]["variant_resolution_status"] == "MAPPED"
     assert chibi["identity"]["rarity"] == "CHIBI"
-    assert chibi["taxonomy"]["normalized_rarity"] is None
-    assert chibi["taxonomy"]["rarity_resolution_status"] == "UNRESOLVED"
+    assert chibi["taxonomy"]["normalized_rarity"] == "Chibi"
+    assert chibi["taxonomy"]["rarity_resolution_status"] == "MAPPED"
     assert chibi["taxonomy"]["variant_resolution_status"] == "UNSPECIFIED"
+
+    for raw_rarity in ("POP", "SP", "Shinobi"):
+        item, _ = _build_plan({"en": [record(3, Rarity=raw_rarity, Variant="")]})
+        assert item["printings"][0]["taxonomy"]["normalized_rarity"] == raw_rarity
+        assert item["printings"][0]["taxonomy"]["rarity_resolution_status"] == "MAPPED"
 
 
 def test_edition_reprints_share_one_canonical_card():
@@ -253,12 +258,10 @@ def test_audited_snapshot_counts_and_edition_inventory():
     printings = result["plan"]["printings"]
     assert len(printings) == 636
     assert dict(Counter(p["taxonomy"]["rarity_resolution_status"] for p in printings)) == {
-        "MAPPED": 598,
-        "UNRESOLVED": 38,
+        "MAPPED": 636,
     }
     assert dict(Counter(p["taxonomy"]["variant_resolution_status"] for p in printings)) == {
-        "MAPPED": 318,
-        "UNRESOLVED": 1,
+        "MAPPED": 319,
         "UNSPECIFIED": 317,
     }
     assert all(p["serial_numbered"] is None and p["serial_total"] is None for p in printings)

@@ -28,6 +28,7 @@ def acquire_one(source, raw_dir: Path, manifest_path: Path, observations_dir: Pa
     except AcquisitionError as exc:
         entry = {
             "source_url": source.url,
+            "canonical_source_url": source.canonical_url,
             "source_type": "UNKNOWN",
             "retrieval_timestamp": None,
             "http_status": None,
@@ -46,6 +47,7 @@ def acquire_one(source, raw_dir: Path, manifest_path: Path, observations_dir: Pa
     source_type = _classify_source_type(result.content_type)
     entry = {
         "source_url": source.url,
+        "canonical_source_url": source.canonical_url,
         "final_url": result.final_url,
         "source_type": source_type,
         "retrieval_timestamp": result.retrieved_at,
@@ -67,6 +69,7 @@ def acquire_one(source, raw_dir: Path, manifest_path: Path, observations_dir: Pa
             json.dumps(
                 {
                     "source_url": source.url,
+                    "canonical_source_url": source.canonical_url,
                     "sha256": result.sha256,
                     "retrieval_timestamp": result.retrieved_at,
                     "source_type": source_type,

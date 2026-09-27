@@ -23,6 +23,7 @@ ALLOWED_HOSTS: frozenset[str] = frozenset(
         "narutotcgmythos.com",
         "www.narutotcgmythos.com",
         "cards.narutotcgmythos.com",
+        "services.agenziamarketingcarpi.it",
         "irp.cdn-website.com",
     }
 )

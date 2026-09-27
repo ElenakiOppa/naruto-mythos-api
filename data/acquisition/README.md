@@ -6,9 +6,9 @@ here defines public API identity.
 
 ## Layout
 
-- `manifest.json` — append-only log of every fetch attempt (source URL,
-  retrieval timestamp, HTTP status, content type/length, SHA-256, whether the
-  content was newly stored or already known).
+- `manifest.json` — append-only log of every fetch attempt (transport URL,
+  canonical source URL when proxied, retrieval timestamp, HTTP status, content
+  type/length, SHA-256, whether content was newly stored or already known).
 - `raw/` — content-addressed, immutable raw bytes (`<sha256>.<ext>`).
   **Untracked by git** (see repository `.gitignore`): these are copyrighted
   third-party documents/pages/API payloads and are kept local only.
@@ -16,7 +16,7 @@ here defines public API identity.
   factual retrieval metadata. Safe to keep under version control (no
   copyrighted bodies), but nothing in this phase is committed.
 - `card_data_audit.json` — a read-only, non-normalizing statistical summary
-  computed from the acquired `cards.narutotcgmythos.com/api/cards` responses
+  computed from the acquired official Gallery API responses
   (record counts, field presence, raw rarity/cardtype/edition value
   frequencies, ID/Uid collision candidates). No public IDs are generated and
   no rarity/treatment vocabulary is normalized here; see
@@ -32,3 +32,9 @@ here defines public API identity.
   overwriting the old one.
 - Acquisition source code lives in `scripts/acquisition/` and enforces an
   official-domain allowlist, bounded timeouts, and response size limits.
+
+The live gallery currently transports JSON through
+`services.agenziamarketingcarpi.it/proxy/naruto/proxy.php?lang=...` for the
+underlying `cards.narutotcgmythos.com/api/cards?lang=...` API. The manifest
+records both URLs; the proxy URL is transport provenance, not a replacement
+for the first-party source identity.

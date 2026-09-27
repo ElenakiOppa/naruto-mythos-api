@@ -17,6 +17,7 @@ class ApprovedSource:
     url: str
     expected_content_types: tuple[str, ...]
     notes: str
+    canonical_url: str | None = None
 
 
 # Direct first-party card API discovered via page-embedded JavaScript
@@ -27,9 +28,10 @@ class ApprovedSource:
 # public gallery content, not a private/internal endpoint.
 APPROVED_API_SOURCES: tuple[ApprovedSource, ...] = tuple(
     ApprovedSource(
-        f"https://cards.narutotcgmythos.com/api/cards?lang={lang}",
+        f"https://services.agenziamarketingcarpi.it/proxy/naruto/proxy.php?lang={lang}",
         ("application/json",),
-        f"Direct card-data API response, lang={lang} (discovered in card-gallery page JS).",
+        f"Official gallery JSON transport, lang={lang}; underlying first-party card API.",
+        f"https://cards.narutotcgmythos.com/api/cards?lang={lang}",
     )
     for lang in ("en", "fr", "it", "es")
 )

@@ -18,6 +18,10 @@ from app.utils.printing_taxonomy import normalize_printing_taxonomy
         ("SV", "Secret Variant"),
         ("L", "Legendary"),
         ("M", "Mythos"),
+        ("CHIBI", "Chibi"),
+        ("POP", "POP"),
+        ("SP", "SP"),
+        ("Shinobi", "Shinobi"),
     ],
 )
 def test_reviewed_rarity_codes_map_exactly(raw_rarity, normalized_rarity):
@@ -35,6 +39,7 @@ def test_reviewed_rarity_codes_map_exactly(raw_rarity, normalized_rarity):
         ("Full Art", "FullArt"),
         ("Holo", "Holographic"),
         ("Gold", "Gold"),
+        ("Normale", "Normal"),
     ],
 )
 def test_reviewed_treatments_map_exactly(raw_variant, normalized_treatment):
@@ -62,7 +67,7 @@ def test_blank_variant_is_unspecified_not_normal():
     assert result.variant_resolution_status == "UNSPECIFIED"
 
 
-@pytest.mark.parametrize("raw_variant", ["Normale", "Foil-X"])
+@pytest.mark.parametrize("raw_variant", ["Foil-X"])
 def test_unknown_variant_labels_remain_unresolved(raw_variant):
     result = normalize_printing_taxonomy("C", raw_variant, "Character")
 
@@ -70,7 +75,7 @@ def test_unknown_variant_labels_remain_unresolved(raw_variant):
     assert result.variant_resolution_status == "UNRESOLVED"
 
 
-@pytest.mark.parametrize("raw_rarity", ["CHIBI", "SP", "Shinobi", "POP", "RX"])
+@pytest.mark.parametrize("raw_rarity", ["RX"])
 def test_ambiguous_and_unknown_rarity_values_remain_unresolved(raw_rarity):
     result = normalize_printing_taxonomy(raw_rarity, None, "Character")
 

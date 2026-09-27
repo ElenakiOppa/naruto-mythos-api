@@ -11,6 +11,7 @@ from app.models.mixins import TimestampMixin, UUIDPrimaryKeyMixin
 from app.utils.edition_identity import normalize_edition_name
 
 if TYPE_CHECKING:
+    from app.models.edition_collector_snapshot import EditionCollectorSnapshot
     from app.models.set import CardSet
     from app.models.variant import CardVariant
 
@@ -31,6 +32,9 @@ class Edition(Base, UUIDPrimaryKeyMixin, TimestampMixin):
     set: Mapped["CardSet"] = relationship(back_populates="editions")
     printings: Mapped[list["CardVariant"]] = relationship(
         back_populates="edition_record", foreign_keys="CardVariant.edition_id"
+    )
+    collector_snapshots: Mapped[list["EditionCollectorSnapshot"]] = relationship(
+        back_populates="edition", foreign_keys="EditionCollectorSnapshot.edition_id"
     )
 
     __table_args__ = (

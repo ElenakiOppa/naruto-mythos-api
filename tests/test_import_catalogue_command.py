@@ -42,7 +42,7 @@ def approved(monkeypatch):
 
 
 def test_production_guards_are_exact():
-    assert command.PLAN_SHA256 == "caefef6db5f8a2b693f1e18e96a67d7cb3dba5d0acbee973df91fef273c32b0d"
+    assert command.PLAN_SHA256 == "529c2ceadf5f53c941b4f0a3d73e8f281fb298090b9c47da40ab7461eb0ea374"
     assert command.EXPECTED_COUNTS == {
         "sets": 2,
         "cards": 318,

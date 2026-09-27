@@ -14,6 +14,7 @@ import json
 import re
 from pathlib import Path
 from typing import Any
+from urllib.parse import parse_qs, urlsplit
 
 from .identity import CanonicalPrintingKey
 from .models import (
@@ -52,10 +53,12 @@ def load_records_from_acquisition(
 
     latest_by_lang: dict[str, dict[str, Any]] = {}
     for entry in manifest:
-        url = entry.get("source_url", "")
+        url = entry.get("canonical_source_url") or entry.get("source_url", "")
         if "cards.narutotcgmythos.com/api/cards" not in url or not entry.get("sha256"):
             continue
-        lang = url.rsplit("lang=", 1)[-1]
+        lang = parse_qs(urlsplit(url).query).get("lang", [""])[-1]
+        if not lang:
+            continue
         latest_by_lang[lang] = entry  # manifest is append-only; last wins (most recent)
 
     result: dict[str, list[SourceCardRecord]] = {}
