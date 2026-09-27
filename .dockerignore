@@ -37,6 +37,7 @@ phase9a_importer_verification.log
 scripts/*
 !scripts/__init__.py
 !scripts/import_catalogue.py
+!scripts/verify_official_editions.py
 !scripts/acquisition/
 tests/
 
